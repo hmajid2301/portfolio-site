@@ -1,0 +1,8 @@
+pages:
+  only:
+    - master
+  script:
+    - echo "Publishing"
+  artifacts:
+    paths:
+      - public

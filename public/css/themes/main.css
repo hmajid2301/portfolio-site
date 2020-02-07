@@ -1,0 +1,25 @@
+
+.primary {
+	background: #007CFF;
+	color: #FAFAFA;
+}
+
+.secondary {
+	background: #FFA100;
+	color: #FAFAFA;
+}
+
+.icons-social a {
+	color: #FAFAFA;
+}
+
+.icons-social a svg path {
+	fill: #FAFAFA;
+}
+
+i, img {
+    transition: transform .4s ease-in-out;
+}
+i:hover, img:hover {
+    transform: rotate(360deg);
+}
