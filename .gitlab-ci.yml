@@ -1,8 +1,39 @@
+image: node:10.13.0
+
+stages:
+  - test
+
+before_script:
+  - yarn
+
+lint:
+  stage: test
+  except:
+    - master
+  script:
+    - yarn lint
+
+lint:code-formatter:
+  stage: test
+  except:
+    - master
+  script:
+    - yarn code-formatter-check
+
+lint:types:
+  stage: test
+  except:
+    - master
+  script:
+    - yarn types-check
+
 pages:
   only:
     - master
   script:
-    - echo "Publishing"
+    - yarn build
+    - mkdir public
+    - mv dist/* public/
   artifacts:
     paths:
       - public
