@@ -73,6 +73,10 @@ const ProjectsContainer = styled.div`
 
 const ProjectItemContainer = styled.div`
   margin: 25px;
+
+  @media (max-width: 300px) {
+    margin: 0;
+  }
 `;
 
 const ImageContainer = styled.div<{ background: string }>`
@@ -126,17 +130,33 @@ const Overlay = styled.div<{ textColor: string }>`
 
 const TextContainer = styled.div`
   margin-top: 25px;
-  text-align: left;
 `;
 
 const ProjectTitle = styled(Typography)`
   font-family: "Montserrat", sans-serif;
-  font-size: 3em;
+  font-weight: 400;
+  text-align: center;
+
+  @media (max-width: 1000px) {
+    font-size: 1.5em;
+  }
+
+  @media (max-width: 300px) {
+    font-size: 1em;
+  }
 `;
 
 const Content = styled(Typography)`
   font-family: "Montserrat", sans-serif;
-  font-size: 1.2em;
+  text-align: left;
+
+  @media (max-width: 1000px) {
+    font-size: 1em;
+  }
+
+  @media (max-width: 300px) {
+    font-size: 0.7em;
+  }
 `;
 
 export default ProjectList;

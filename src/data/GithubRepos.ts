@@ -3,14 +3,14 @@ const GithubRepos = [
     name: "hmajid2301/articles",
     url: "https://github.com/hmajid2301/articles",
     description:
-      "This repo contains all the articles written by me, in markdown and also all of their example source code. Mirrored from: https://gitlab.com/hmajid2301/articles",
+      "This repo contains all the articles written by me, in markdown and also all of their example source code.",
     language: "Python"
   },
   {
     name: "hmajid2301/dockerhub-descriptions-updater",
     url: "https://github.com/hmajid2301/dockerhub-description-updater",
     description:
-      "Docker Image used to update the description on Docker Hub repos. Mirrored from, https://gitlab.com/hmajid2301/dockerhub-descriptions-updater",
+      "Docker Image used to update the description on Docker Hub repos.",
     language: "JavaScript"
   },
   {
@@ -22,22 +22,19 @@ const GithubRepos = [
   {
     name: "hmajid2301/gitlab-auto-release",
     url: "https://github.com/hmajid2301/gitlab-auto-release",
-    description:
-      "Python script which is used to create releases on GitLab, mirrored from https://gitlab.com/gitlab-automation-toolkit/gitlab-auto-release",
+    description: "Python script which is used to create releases on GitLab.",
     language: "Python"
   },
   {
     name: "hmajid2301/python-cli-cookiecutter",
     url: "https://github.com/hmajid2301/python-cli-cookiecutter",
-    description:
-      "Cookie Cutter template for a simple Python CLI project, mirrored from https://gitlab.com/hmajid2301/python-cli-cookiecutter",
+    description: "Cookie Cutter template for a simple Python CLI project.",
     language: "Python"
   },
   {
     name: "hmajid2301/stegappasaurus-api",
     url: "https://github.com/hmajid2301/stegappasaurus-api",
-    description:
-      "Firebase Cloud Functions for the stegappasaurus app, Mirrored from https://gitlab.com/hmajid2301/stegappasaurus-api",
+    description: "Firebase Cloud Functions for the stegappasaurus app.",
     language: "TypeScript"
   }
 ];

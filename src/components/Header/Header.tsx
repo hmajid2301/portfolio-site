@@ -149,6 +149,11 @@ const IconContainer = styled.div<{
   &:hover {
     color: ${props => props.color};
   }
+
+  @media (max-width: 500px) {
+    font-size: 2em;
+    padding: 5px;
+  }
 `;
 
 export default Header;
