@@ -54,6 +54,6 @@ export const ComponentContainer = styled.div`
 `;
 
 export const Title = styled.h1`
-  font-size: 3em;
+  font-size: 3.5em;
   font-weight: 300;
 `;

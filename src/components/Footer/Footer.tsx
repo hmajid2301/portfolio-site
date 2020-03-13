@@ -6,11 +6,9 @@ import {
   DarkModeContext,
   ForegroundColors
 } from "~/providers/DarkModeProvider";
-import { ThemeContext } from "~/providers/ThemeProvider";
 
 const Footer = () => {
   const { background, color } = useContext(DarkModeContext).mode;
-  const theme = useContext(ThemeContext).theme;
 
   return (
     <FooterContainer background={background} color={color}>
@@ -18,7 +16,6 @@ const Footer = () => {
         <Link
           color={color}
           href="https://gitlab.com/hmajid2301/hmajid2301.gitlab.io"
-          primary={theme}
         >
           Edit on GitLab
         </Link>
@@ -31,15 +28,11 @@ const Footer = () => {
 
       <div>
         Images from &nbsp;
-        <Link
-          color={color}
-          href="https://www.vecteezy.com/vector-art"
-          primary={theme}
-        >
+        <Link color={color} href="https://www.vecteezy.com/vector-art">
           Vecteezy
         </Link>
         &nbsp; and &nbsp;
-        <Link color={color} href="https://www.cleanpng.com" primary={theme}>
+        <Link color={color} href="https://www.cleanpng.com">
           CleanPNG.
         </Link>
       </div>
@@ -59,8 +52,9 @@ const FooterContainer = styled.footer<{
   text-align: center;
 `;
 
-const Link = styled.a<{ color: ForegroundColors; primary: string }>`
-  color: ${props => props.primary};
+const Link = styled.a<{ color: ForegroundColors }>`
+  color: #3399cc;
+  font-weight: 700;
   text-decoration: none;
   transition: all 0.3s ease;
 

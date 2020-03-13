@@ -1,4 +1,4 @@
-image: node:10.13.0
+image: node:12.13.0
 
 stages:
   - test
@@ -34,6 +34,7 @@ pages:
     - yarn build
     - mkdir public
     - mv dist/* public/
+    - gzip -k -6 $(find public -type f)
   artifacts:
     paths:
       - public

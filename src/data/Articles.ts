@@ -7,22 +7,26 @@ const Articles = [
   {
     image: stackbit,
     name: "Dev Blog",
-    url: "https://blog.haseebmajid.dev/"
+    url: "https://blog.haseebmajid.dev/",
+    alt: "Blog"
   },
   {
     image: medium,
     name: "Medium",
-    url: "https://medium.com/@hmajid2301"
+    url: "https://medium.com/@hmajid2301",
+    alt: "Medium"
   },
   {
     image: devto,
     name: "Dev.To",
-    url: "https://dev.to/hmajid2301"
+    url: "https://dev.to/hmajid2301",
+    alt: "Dev To"
   },
   {
     image: newline,
     name: "Newline",
-    url: "https://www.newline.co/@Majiy00"
+    url: "https://www.newline.co/@Majiy00",
+    alt: "Newline"
   }
 ];
 

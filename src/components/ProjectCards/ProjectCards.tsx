@@ -26,10 +26,11 @@ interface Props {
 }
 
 export interface RepoData {
-  name: string;
-  url: string;
+  alt: string;
   description: string;
   language: string;
+  name: string;
+  url: string;
 }
 
 interface CardData {
@@ -94,7 +95,7 @@ const ProjectCard = ({ data }: { data: CardData }) => {
 const getLanguageAndColor = (language: string) => {
   const languageColors: { [x: string]: string } = {
     Dockerfile: "#384d54",
-    Javascript: "#f1e05a",
+    JavaScript: "#f1e05a",
     TypeScript: "#2b7489",
     Python: "#3572A5"
   };

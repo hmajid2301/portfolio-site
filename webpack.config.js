@@ -2,6 +2,8 @@ const { resolve } = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const TerserWebpackPlugin = require("terser-webpack-plugin");
 const CopyWebpackPlugin = require("copy-webpack-plugin");
+const CompressionPlugin = require("compression-webpack-plugin");
+const BrotliPlugin = require("brotli-webpack-plugin");
 
 const isProd = process.env.NODE_ENV === "production";
 
@@ -42,7 +44,20 @@ const config = {
       title: "Haseeb Majid | Software Developer",
       template: "src/index.html"
     }),
-    new CopyWebpackPlugin([{ from: `favicon.ico`, to: "favicon.ico" }])
+    new CopyWebpackPlugin([{ from: `favicon.ico`, to: "favicon.ico" }]),
+    new CompressionPlugin({
+      filename: "[path].gz[query]",
+      algorithm: "gzip",
+      test: /\.(js|css|html|svg)$/,
+      threshold: 8192,
+      minRatio: 0.8
+    }),
+    new BrotliPlugin({
+      asset: "[path].br[query]",
+      test: /\.(js|css|html|svg)$/,
+      threshold: 10240,
+      minRatio: 0.8
+    })
   ]
 };
 

@@ -5,7 +5,6 @@ import {
 } from "@material-ui/icons";
 import React, { useContext, useState, useRef, useEffect } from "react";
 import { ColorResult, TwitterPicker } from "react-color";
-import Draggable from "react-draggable";
 import styled from "styled-components";
 
 import {
@@ -29,61 +28,60 @@ const Header = () => {
   detectScroll(prevScrollY, setScrollingUp, scrollingUp);
 
   return (
-    <Draggable>
-      <Container background={background} scrollUp={scrollingUp}>
-        <IconContainer
-          color={color}
-          onClick={() => {
-            setPicker(!picker);
-          }}
-          tertiary={tertiary}
-        >
-          <ThemeIcon fontSize="large" />
-          {picker && (
-            <ColorPicker
-              onMouseLeave={() => {
-                setTheme(theme, previousSelectedColor);
+    <Container background={background} scrollUp={scrollingUp}>
+      <IconContainer
+        color={color}
+        onClick={() => {
+          setPicker(!picker);
+        }}
+        tertiary={tertiary}
+      >
+        <ThemeIcon fontSize="inherit" />
+        {picker && (
+          <ColorPicker
+            onMouseLeave={() => {
+              setTheme(theme, previousSelectedColor);
+              setPicker(false);
+            }}
+          >
+            <TwitterPicker
+              colors={[
+                "#007cff",
+                "#f66d4f",
+                "#ea423d",
+                "#4caf50",
+                "#673ab7",
+                "#895835",
+                "#070707"
+              ]}
+              onChangeComplete={(newColor: ColorResult) => {
+                setTheme(theme, newColor.hex);
+                setPreviousSelectedColor(theme.theme);
                 setPicker(false);
               }}
-            >
-              <TwitterPicker
-                colors={[
-                  "#007cff",
-                  "#f66d4f",
-                  "#ea423d",
-                  "#4caf50",
-                  "#673ab7",
-                  "#895835",
-                  "#070707"
-                ]}
-                onChangeComplete={(newColor: ColorResult) => {
-                  setTheme(theme, newColor.hex);
-                  setPreviousSelectedColor(theme.theme);
-                  setPicker(false);
-                }}
-                onSwatchHover={(newColor: ColorResult, _: MouseEvent) => {
-                  setTheme(theme, newColor.hex);
-                }}
-              />
-            </ColorPicker>
-          )}
-        </IconContainer>
+              onSwatchHover={(newColor: ColorResult, _: MouseEvent) => {
+                setTheme(theme, newColor.hex);
+              }}
+              width={"100%"}
+            />
+          </ColorPicker>
+        )}
+      </IconContainer>
 
-        <IconContainer
-          color={color}
-          onClick={() => {
-            setCurrentMode(darkMode);
-          }}
-          tertiary={tertiary}
-        >
-          {isDark ? (
-            <SunIcon fontSize="large" />
-          ) : (
-            <MoonIcon fontSize="large" />
-          )}
-        </IconContainer>
-      </Container>
-    </Draggable>
+      <IconContainer
+        color={color}
+        onClick={() => {
+          setCurrentMode(darkMode);
+        }}
+        tertiary={tertiary}
+      >
+        {isDark ? (
+          <SunIcon fontSize="inherit" />
+        ) : (
+          <MoonIcon fontSize="inherit" />
+        )}
+      </IconContainer>
+    </Container>
   );
 };
 
@@ -123,13 +121,13 @@ const Container = styled.div<{
   background-color: ${props => props.background};
   display: flex;
   position: fixed;
-  right: 25%;
-  top: ${props => (props.scrollUp ? "1em" : "-5em")};
+  right: 0;
+  top: ${props => (props.scrollUp ? "0" : "-10em")};
   transition: all 0.3s ease;
   z-index: 99;
 
   &:hover {
-    top: 1em;
+    top: 0em;
   }
 `;
 
@@ -144,7 +142,8 @@ const IconContainer = styled.div<{
   box-shadow: ${props => props.tertiary} 0px 2px 6px -3px;
   color: #b2becd;
   cursor: pointer;
-  padding: 20px;
+  font-size: 3.5em;
+  padding: 10px;
   transition: all 0.3s ease;
 
   &:hover {

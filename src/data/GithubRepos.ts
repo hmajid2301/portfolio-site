@@ -7,18 +7,17 @@ const GithubRepos = [
     language: "Python"
   },
   {
-    name: "hmajid2301/gitlab-auto-close-issue",
-    url: "https://github.com/hmajid2301/gitlab-auto-close-issue",
+    name: "hmajid2301/dockerhub-descriptions-updater",
+    url: "https://github.com/hmajid2301/dockerhub-description-updater",
     description:
-      "Python script which will automatically close issues on GitLab for you. Mirrored from https://gitlab.com/gitlab-automation-toolkit/gitlab-auto-close-issue",
-    language: "Python"
+      "Docker Image used to update the description on Docker Hub repos. Mirrored from, https://gitlab.com/hmajid2301/dockerhub-descriptions-updater",
+    language: "JavaScript"
   },
   {
-    name: "hmajid2301/gitlab-auto-mr",
-    url: "https://github.com/hmajid2301/gitlab-auto-mr",
-    description:
-      "Python script which is used to create MRs on GitLab, mirrored from https://gitlab.com/hmajid2301/gitlab-automation-toolkit/gitlab-auto-mr",
-    language: "Python"
+    name: "hmajid2301/dind-docker-compose",
+    url: "https://github.com/hmajid2301/dind-docker-compose",
+    description: "Docker Compose running in a Docker image.",
+    language: "Dockerfile"
   },
   {
     name: "hmajid2301/gitlab-auto-release",

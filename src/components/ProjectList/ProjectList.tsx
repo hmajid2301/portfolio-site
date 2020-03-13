@@ -11,6 +11,7 @@ interface Props {
 }
 
 export interface ProjectData {
+  alt: string;
   background: string;
   content: string;
   image: string;
@@ -49,7 +50,7 @@ const ProjectItem = ({ data }: { data: ProjectData }) => {
           background={data.background}
           onClick={() => window.open(data.url, "_blank")}
         >
-          <ProjectImage src={data.image} />
+          <ProjectImage src={data.image} alt={data.alt} />
           <Overlay textColor={primary}>Go to project</Overlay>
         </ImageContainer>
 
@@ -130,10 +131,12 @@ const TextContainer = styled.div`
 
 const ProjectTitle = styled(Typography)`
   font-family: "Montserrat", sans-serif;
+  font-size: 3em;
 `;
 
 const Content = styled(Typography)`
   font-family: "Montserrat", sans-serif;
+  font-size: 1.2em;
 `;
 
 export default ProjectList;

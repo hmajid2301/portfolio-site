@@ -1,6 +1,6 @@
 import banter from "~/assets/images/banter-bus.png";
 import comperisation from "~/assets/images/composerisation.png";
-import retfundl from "~/assets/images/re-t-fund-l.jpg";
+import nerf from "~/assets/images/nerf.jpg";
 import stegappasaurus from "~/assets/images/stegappasaurus.png";
 
 const Projects = [
@@ -12,19 +12,10 @@ const Projects = [
         React Native. This application uses steganography algorithms to hide
         data within images. The project was originally conceptualised as a
         third-year project for university. It has since then been completely
-        rewritten from scratch. It was originally written using Ionic/Apache
+        rewritten. It was originally written using Ionic/Apache
         Cordova.`,
-    url: "https://gitlab.com/hmajid2301/stegappasaurus"
-  },
-  {
-    background: "#4C8CAF",
-    image: retfundl,
-    name: "[WIP]: re-t-fund-l",
-    content: `Re-t-fund-l is an open-source web based application, build using
-    React and Python. The application allow use to upload your TFL travel data,
-    and it will automatically send emails on your behalf to TFL to request refunds
-    for delayed journeys.`,
-    url: "https://gitlab.com/hmajid2301/re-t-fund-l"
+    url: "https://gitlab.com/hmajid2301/stegappasaurus",
+    alt: "Stegappasaurus App"
   },
   {
     background: "#962D3E",
@@ -33,7 +24,17 @@ const Projects = [
     content: `Composerisation is an open-source CLI tool, build using
     Python. The tool allows you to convert between docker run and docker compose
     (both ways) syntax.`,
-    url: "https://gitlab.com/hmajid2301/composerisation"
+    url: "https://gitlab.com/hmajid2301/composerisation",
+    alt: "Composerisation Tool"
+  },
+  {
+    background: "#4C8CAF",
+    image: nerf,
+    name: "[WIP]: Nerf Tank",
+    content: `A remote control car built using arduino, which has a nerf gun.
+    It uses ML to determine who it should shot and then tracks the target.`,
+    url: "https://gitlab.com/hmajid2301/nerf-tank",
+    alt: "Nerf Tank"
   },
   {
     background: "#77C9B2",
@@ -42,7 +43,8 @@ const Projects = [
     content: `Banter Bus is an open-source PWA, build using
     React and Go. The application is a multiplayer game where players
     answer questions and the answers are voted on by the other players.`,
-    url: "https://gitlab.com/hmajid2301/banter-bus"
+    url: "https://gitlab.com/hmajid2301/banter-bus",
+    alt: "Banter Bus"
   }
 ];
 

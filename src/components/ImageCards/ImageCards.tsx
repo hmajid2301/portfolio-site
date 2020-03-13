@@ -18,6 +18,7 @@ interface Props {
 }
 
 export interface CardData {
+  alt: string;
   name: string;
   image: string;
   url: string;
@@ -44,7 +45,7 @@ const ImageCard = ({ data }: { data: CardData }) => {
         background={mode.shade}
         color={mode.color}
       >
-        <CardImage src={data.image} />
+        <CardImage src={data.image} alt={data.alt} />
         <CardHeader
           title={
             <CardHeaderContainer>

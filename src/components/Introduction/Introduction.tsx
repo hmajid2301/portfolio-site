@@ -12,7 +12,7 @@ const Introduction = () => {
   return (
     <IntroductionContainer background={primary}>
       <Typist cursor={{ show: false }}>
-        <MainText variant="h2">Hello I am Haseeb Majid</MainText>
+        <MainText variant="h2">Hello, I am Haseeb Majid</MainText>
       </Typist>
 
       <Typist cursor={{ show: false }} startDelay={2000}>
