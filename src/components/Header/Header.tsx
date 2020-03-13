@@ -151,8 +151,8 @@ const IconContainer = styled.div<{
   }
 
   @media (max-width: 500px) {
-    font-size: 2em;
-    padding: 5px;
+    font-size: 2.5em;
+    padding: 10px;
   }
 `;
 

@@ -86,7 +86,6 @@ const ImageContainer = styled.div<{ background: string }>`
   height: 80%;
   padding: 20px;
   position: relative;
-  width: 100%;
 `;
 
 const ProjectImage = styled.img`
@@ -141,7 +140,7 @@ const ProjectTitle = styled(Typography)`
     font-size: 1.5em;
   }
 
-  @media (max-width: 300px) {
+  @media (max-width: 350px) {
     font-size: 1em;
   }
 `;
@@ -154,7 +153,7 @@ const Content = styled(Typography)`
     font-size: 1em;
   }
 
-  @media (max-width: 300px) {
+  @media (max-width: 350px) {
     font-size: 0.7em;
   }
 `;
