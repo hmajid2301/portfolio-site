@@ -4,9 +4,9 @@ import {
   Tune as ThemeIcon
 } from "@material-ui/icons";
 import React, { useContext, useState, useRef, useEffect } from "react";
-import { ColorResult, TwitterPicker } from "react-color";
 import styled from "styled-components";
 
+import ColorPicker from "~/components/ColorPicker";
 import {
   DarkModeContext,
   BackgroundColors,
@@ -37,35 +37,31 @@ const Header = () => {
         tertiary={tertiary}
       >
         <ThemeIcon fontSize="inherit" />
-        {picker && (
-          <ColorPicker
-            onMouseLeave={() => {
-              setTheme(theme, previousSelectedColor);
-              setPicker(false);
-            }}
-          >
-            <TwitterPicker
-              colors={[
-                "#007cff",
-                "#f66d4f",
-                "#ea423d",
-                "#4caf50",
-                "#673ab7",
-                "#895835",
-                "#070707"
-              ]}
-              onChangeComplete={(newColor: ColorResult) => {
-                setTheme(theme, newColor.hex);
-                setPreviousSelectedColor(theme.theme);
-                setPicker(false);
-              }}
-              onSwatchHover={(newColor: ColorResult, _: MouseEvent) => {
-                setTheme(theme, newColor.hex);
-              }}
-              width={"100%"}
-            />
-          </ColorPicker>
-        )}
+        <ColorPicker
+          colors={[
+            "#007cff",
+            "#f66d4f",
+            "#ea423d",
+            "#4caf50",
+            "#7678ed",
+            "#7f055f",
+            "#895835",
+            "#070707"
+          ]}
+          onClickColor={(newColor: string) => {
+            setTheme(theme, newColor);
+            setPreviousSelectedColor(theme.theme);
+            setPicker(false);
+          }}
+          onMouseEnterColor={(newColor: string) => {
+            setTheme(theme, newColor);
+          }}
+          onMouseLeavePicker={() => {
+            setTheme(theme, previousSelectedColor);
+            setPicker(false);
+          }}
+          open={picker}
+        />
       </IconContainer>
 
       <IconContainer
@@ -129,10 +125,6 @@ const Container = styled.div<{
   &:hover {
     top: 0em;
   }
-`;
-
-const ColorPicker = styled.div`
-  position: absolute;
 `;
 
 const IconContainer = styled.div<{

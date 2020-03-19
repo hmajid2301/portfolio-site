@@ -865,7 +865,7 @@
   resolved "https://registry.yarnpkg.com/@icons/material/-/material-0.2.4.tgz#e90c9f71768b3736e76d7dd6783fc6c2afa88bc8"
   integrity sha512-QPcGmICAPbGLGb6F/yNf/KzKqvFx8z5qx3D1yFqVAjoFmXK35EgyW+cJ57Te3CNsmzblwtzakLGFqHPqrfb4Tw==
 
-"@lhci/cli@^0.3.9":
+"@lhci/cli@0.3.9":
   version "0.3.9"
   resolved "https://registry.yarnpkg.com/@lhci/cli/-/cli-0.3.9.tgz#5c7054b1633ae16ab6f7fb3700e77d0d941ac2e6"
   integrity sha512-dMsdFvnW4JZK57FV71mu5SScvpDNrDj7wWcZODEujE2N9RPB/ScwOg+LRoMQkkH5pssJ4ynE2X2nPA4BzmF4gg==
