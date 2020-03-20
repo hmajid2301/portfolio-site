@@ -3,7 +3,7 @@ const GithubRepos = [
     name: "hmajid2301/articles",
     url: "https://github.com/hmajid2301/articles",
     description:
-      "This repo contains all the articles written by me, in markdown and also all of their example source code.",
+      "This repo contains all the articles written by me, in markdown.",
     language: "Python"
   },
   {

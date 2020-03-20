@@ -45,20 +45,24 @@ const config = {
       template: "src/index.html"
     }),
     new CopyWebpackPlugin([{ from: `favicon.ico`, to: "favicon.ico" }]),
-    new CompressionPlugin({
-      filename: "[path].gz[query]",
-      algorithm: "gzip",
-      test: /\.(js|css|html|svg)$/,
-      threshold: 8192,
-      minRatio: 0.8
-    }),
-    new BrotliPlugin({
-      asset: "[path].br[query]",
-      test: /\.(js|css|html|svg)$/,
-      threshold: 10240,
-      minRatio: 0.8
-    })
-  ]
+    isProd
+      ? new CompressionPlugin({
+          filename: "[path].gz[query]",
+          algorithm: "gzip",
+          test: /\.(js|css|html|svg)$/,
+          threshold: 8192,
+          minRatio: 0.8
+        })
+      : false,
+    isProd
+      ? new BrotliPlugin({
+          asset: "[path].br[query]",
+          test: /\.(js|css|html|svg)$/,
+          threshold: 10240,
+          minRatio: 0.8
+        })
+      : false
+  ].filter(Boolean)
 };
 
 if (isProd) {
