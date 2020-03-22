@@ -35,8 +35,7 @@ pages:
   only:
     - /^release/.*$/
   script:
-    - yarn build
-    - mv dist/* public/
+    - yarn run export
   artifacts:
     paths:
       - public/

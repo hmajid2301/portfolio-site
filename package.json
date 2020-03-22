@@ -3,6 +3,7 @@
   "version": "2.0.0",
   "scripts": {
     "build": "cross-env NODE_ENV=production webpack --color --progress",
+    "export": "yarn run build && mv dist/* public/",
     "code-formatter": "prettier src/**/*.{ts,tx,tsx} --write",
     "code-formatter-check": "prettier --check src/**/*.{ts,tx,tsx}",
     "dev": "cross-env NODE_ENV=development webpack-dev-server --color --progress",
