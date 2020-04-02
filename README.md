@@ -25,4 +25,5 @@ yarn dev
 
 - [Saad Pasta](https://saadpasta.github.io/)
 - [Pranesh Ravi](https://praneshravi.in/)
+- [Sergio](https://sergio.netlify.com/)
 - [FireShip](https://fireship.io/)
