@@ -28,10 +28,13 @@ export const CardContainer = styled(Card)<{
   background: ${props => props.background};
   color: ${props => props.color};
   padding-top: 25px;
+  transition: all 0.3s ease;
 
   &:hover {
     cursor: pointer;
     box-shadow: 0 7px 5px -6px ${props => props.color};
+    position: relative;
+    top: -15px;
   }
 `;
 

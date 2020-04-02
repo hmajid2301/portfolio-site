@@ -91,8 +91,8 @@ const ImageContainer = styled.div<{ background: string }>`
 const ProjectImage = styled.img`
   max-height: 450px;
   transition: filter 0.3s ease;
-  vertical-align: middle;
   padding: 20px;
+  vertical-align: middle;
 
   ${ImageContainer}:hover & {
     filter: blur(30px);

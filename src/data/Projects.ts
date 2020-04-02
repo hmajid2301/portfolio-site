@@ -18,12 +18,13 @@ const Projects = [
     alt: "Stegappasaurus App"
   },
   {
-    background: "#962D3E",
+    background: "#77C9B2",
     image: comperisation,
-    name: "[WIP]: composerisation",
-    content: `Composerisation is an open-source CLI tool, build using
-    Python. The tool allows you to convert between docker run and docker compose
-    (both ways) syntax.`,
+    name: "Composerisation",
+    content: `Composerisation is an open-source CLI tool, built using
+    Python. The tool allows you to convert between docker-compose and Docker CLI
+    syntax. You can also visit the website to use the tool instead of installing
+    it to your local machine.`,
     url: "https://gitlab.com/hmajid2301/composerisation",
     alt: "Composerisation Tool"
   },
@@ -37,7 +38,7 @@ const Projects = [
     alt: "Nerf Tank"
   },
   {
-    background: "#77C9B2",
+    background: "#962D3E",
     image: banter,
     name: "[WIP]: Banter Bus",
     content: `Banter Bus is an open-source PWA, build using
