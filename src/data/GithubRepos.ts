@@ -1,10 +1,10 @@
 const GithubRepos = [
   {
-    name: "hmajid2301/articles",
-    url: "https://github.com/hmajid2301/articles",
+    name: "hmajid2301/live-light",
+    url: "https://github.com/hmajid2301/live-light",
     description:
-      "This repo contains all the articles written by me, in markdown.",
-    language: "Python",
+      "A light made with PI Zero, which will change colour depending on if I'm in a meeting or not.",
+    language: "Shell",
   },
   {
     name: "hmajid2301/dockerhub-descriptions-updater",

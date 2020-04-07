@@ -3,7 +3,7 @@ import {
   CardContent,
   CardHeader,
   Grid,
-  Typography
+  Typography,
 } from "@material-ui/core";
 import React, { useContext } from "react";
 import styled from "styled-components";
@@ -15,7 +15,7 @@ import {
   ComponentContainer,
   chunkData,
   GridItem,
-  Title
+  Title,
 } from "~/components/Common";
 import { DarkModeContext } from "~/providers/DarkModeProvider";
 
@@ -89,10 +89,11 @@ const ProjectCard = ({ data }: { data: CardData }) => {
 
 const getLanguageAndColor = (language: string) => {
   const languageColors: { [x: string]: string } = {
+    Shell: "#89e051",
     Dockerfile: "#384d54",
     JavaScript: "#f1e05a",
     TypeScript: "#2b7489",
-    Python: "#3572A5"
+    Python: "#3572A5",
   };
 
   const color = languageColors[language];
@@ -119,7 +120,7 @@ const LanguageContainer = styled.div`
 `;
 
 const ColorDot = styled.div<{ color: string }>`
-  background-color: ${props => props.color};
+  background-color: ${(props) => props.color};
   border-radius: 50%;
   display: inline-block;
   height: 10px;
