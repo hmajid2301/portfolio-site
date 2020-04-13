@@ -9,8 +9,8 @@ To run the website locally do the following;
 ```bash
 git clone https://gitlab.com/hmajid2301/hmajid2301.gitlab.io.git
 cd hmajid2301.gitlab.io
-yarn
-yarn dev
+npm install
+npm run dev
 ```
 
 ## Appendix
@@ -25,5 +25,5 @@ yarn dev
 
 - [Saad Pasta](https://saadpasta.github.io/)
 - [Pranesh Ravi](https://praneshravi.in/)
-- [Sergio](https://sergio.netlify.com/)
 - [FireShip](https://fireship.io/)
+- [Based on Template by nehalist](https://nehalist.io/)

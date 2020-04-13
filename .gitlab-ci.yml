@@ -5,7 +5,7 @@ stages:
   - post-publish
 
 before_script:
-  - yarn
+  - npm install
 
 lint:
   stage: test
@@ -13,7 +13,7 @@ lint:
     - master
     - tags
   script:
-    - yarn lint
+    - npm run format-check
 
 lint:code-formatter:
   stage: test
@@ -21,7 +21,7 @@ lint:code-formatter:
     - master
     - tags
   script:
-    - yarn code-formatter-check
+    - npm run format-check
 
 lint:types:
   stage: test
@@ -29,13 +29,13 @@ lint:types:
     - master
     - tags
   script:
-    - yarn types-check
+    - npm run types-check
 
 pages:
   only:
     - /^release/.*$/
   script:
-    - yarn run export
+    - npm run export
   artifacts:
     paths:
       - public/

@@ -8,12 +8,10 @@
     "module": "esnext",
     "moduleResolution": "node",
     "noEmit": true,
-    "paths": {
-      "~/*": ["src/*"]
-    },
-
+    "paths": { "~/*": ["src/*"] },
     "skipLibCheck": true,
     "strict": true,
     "target": "esnext"
-  }
+  },
+  "exclude": ["node_modules", "public", ".cache"]
 }
