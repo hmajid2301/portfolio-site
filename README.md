@@ -13,6 +13,11 @@ npm install
 npm run dev
 ```
 
+## Previous Versions
+
+- [V1](https://v1.haseebmajid.dev)
+- [V2](https://v2.haseebmajid.dev)
+
 ## Appendix
 
 - Created using this [template](https://github.com/saltyshiomix/babel-typescript-react-boilerplate)
