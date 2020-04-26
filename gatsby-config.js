@@ -28,6 +28,8 @@ module.exports = {
       },
     },
     `gatsby-plugin-typescript`,
+    `gatsby-plugin-postcss`,
+    `gatsby-plugin-emotion`,
     `gatsby-plugin-offline`,
   ],
 }
