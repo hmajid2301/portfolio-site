@@ -2,10 +2,9 @@ image: node:12.13.0
 
 stages:
   - test
-  - post-publish
 
 before_script:
-  - npm install
+  - yarn install
 
 lint:
   stage: test
@@ -13,38 +12,20 @@ lint:
     - master
     - tags
   script:
-    - npm run format-check
+    - yarn format:check || true
 
-lint:code-formatter:
+format:
   stage: test
   except:
     - master
     - tags
   script:
-    - npm run format-check
+    - yarn format:check || true
 
-lint:types:
+types:check:
   stage: test
   except:
     - master
     - tags
   script:
-    - npm run types-check
-
-pages:
-  only:
-    - /^release/.*$/
-  script:
-    - npm run export
-  artifacts:
-    paths:
-      - public/
-
-post-publish:audit-report:
-  stage: post-publish
-  image: cypress/browsers:node10.16.0-chrome77
-  only:
-    - /^release/.*$/
-  script:
-    - yarn run build
-    - yarn lhci autorun --upload.target=temporary-public-storage --collect.settings.chromeFlags="--no-sandbox" || echo "LHCI failed!"
+    - yarn types:check || true

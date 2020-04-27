@@ -1,17 +1,29 @@
 {
+  "compileOnSave": false,
   "compilerOptions": {
-    "allowJs": true,
-    "baseUrl": ".",
-    "esModuleInterop": true,
-    "isolatedModules": true,
-    "jsx": "preserve",
-    "module": "esnext",
+    "target": "es5",
+    "module": "es6",
+    "types": ["node"],
     "moduleResolution": "node",
-    "noEmit": true,
-    "paths": { "~/*": ["src/*"] },
-    "skipLibCheck": true,
+    "esModuleInterop": true,
+    "typeRoots": ["./src/@types", "./node_modules/@types"],
+    "lib": ["dom", "es2015", "es2017"],
+    "jsx": "react",
+    "sourceMap": true,
     "strict": true,
-    "target": "esnext"
+    "resolveJsonModule": true,
+    "noUnusedLocals": true,
+    "noImplicitAny": true,
+    "noUnusedParameters": true,
+    "noFallthroughCasesInSwitch": true,
+    "allowSyntheticDefaultImports": true,
+    "downlevelIteration": true,
+    "baseUrl": "./",
+    "paths": {
+      "~/*": ["src/*"],
+      "@theme/styled": ["src/styled"]
+    }
   },
-  "exclude": ["node_modules", "public", ".cache"]
+  "include": ["./src/**/*", "./test-utils/**/*", "./__mocks__/**/*"],
+  "exclude": ["node_modules", "plugins"]
 }

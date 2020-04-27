@@ -1,1 +1,2 @@
-gatsby-*.js
+.cache
+public

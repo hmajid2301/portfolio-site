@@ -1,35 +1,31 @@
-module.exports = {
-  siteMetadata: {
-    title: `Haseeb Majid | Software Developer`,
-    description: `Haseeb Majid's personal website.`,
-    author: `Haseeb Majid`,
+require('dotenv').config({
+  path: '.env',
+});
+
+const plugins = [
+  'gatsby-plugin-react-helmet',
+  'gatsby-transformer-sharp',
+  'gatsby-plugin-sharp',
+  'gatsby-plugin-typescript',
+  'gatsby-plugin-emotion',
+  'gatsby-plugin-remove-serviceworker',
+  'gatsby-plugin-svgr',
+
+  {
+    resolve: 'gatsby-plugin-google-fonts',
+    options: {
+      fonts: [`Lora:400,700`],
+      display: 'swap',
+    },
   },
-  plugins: [
-    `gatsby-plugin-react-helmet`,
-    {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        name: `images`,
-        path: `${__dirname}/src/images`,
-      },
-    },
-    `gatsby-transformer-sharp`,
-    `gatsby-plugin-sharp`,
-    {
-      resolve: `gatsby-plugin-manifest`,
-      options: {
-        name: `Haseeb Majid`,
-        short_name: `Haseeb`,
-        start_url: `/`,
-        background_color: `#663399`,
-        theme_color: `#663399`,
-        display: `standalone`,
-        icon: `src/images/gatsby-icon.png`,
-      },
-    },
-    `gatsby-plugin-typescript`,
-    `gatsby-plugin-postcss`,
-    `gatsby-plugin-emotion`,
-    `gatsby-plugin-offline`,
-  ],
+  'gatsby-plugin-postcss',
+];
+
+// Bundle analyzer, dev only
+if (process.env.ENABLE_BUNDLE_ANALYZER === '1') {
+  plugins.push('gatsby-plugin-webpack-bundle-analyser-v2');
 }
+
+module.exports = {
+  plugins,
+};
