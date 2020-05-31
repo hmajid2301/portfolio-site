@@ -1,0 +1,63 @@
+import Logo from './Logo';
+
+import { Meta, Story, Preview } from '@storybook/addon-docs/blocks';
+
+<Meta title="Logo" component={Logo} />
+
+# Logo
+
+<Preview>
+  <Story name="default">
+    <Logo color="black" />
+  </Story>
+</Preview>
+
+## Colour
+
+You can change the default colour of the logo by passing the `color` prop. Where the colour is
+the name of a colour from tailwindcss. You can see the default list
+[here](https://tailwindcss.com/docs/customizing-colors/#default-color-palette).
+
+<Preview>
+  <Story name="color">
+    <div>
+      <Logo color="gray-500" />
+      <Logo color="blue-500" />
+    </div>
+  </Story>
+</Preview>
+
+## Accent
+
+You can adjust the accent (tags) color by passing the `accent` prop. Where again the
+colour is from tailwindcss. You can see the default list
+[here](https://tailwindcss.com/docs/customizing-colors/#default-color-palette).
+
+<Preview>
+  <Story name="accent">
+    <div>
+      <Logo accent="gray-500" color="blue-500" />
+      <Logo accent="gray-500" color="black" />
+    </div>
+  </Story>
+</Preview>
+
+## Size
+
+You can also adjust the size of the logo by passing the `size` prop. Where once again
+this size if set using tailwindcss examples. You can see the default list
+[here](https://tailwindcss.com/docs/font-size/).
+
+<Preview>
+  <Story name="size">
+    <div>
+      <Logo accent="gray-700" color="blue-500" size="xs" />
+      <Logo accent="gray-700" color="blue-500" size="sm" />
+      <Logo accent="gray-700" color="blue-500" size="lg" />
+      <Logo accent="gray-700" color="blue-500" size="xl" />
+      <Logo accent="gray-700" color="blue-500" size="2xl" />
+      <Logo accent="gray-700" color="blue-500" size="3xl" />
+      <Logo accent="gray-700" color="blue-500" size="4xl" />
+    </div>
+  </Story>
+</Preview>

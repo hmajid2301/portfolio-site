@@ -1,4 +1,5 @@
 const path = require('path');
+const createCompiler = require('@storybook/addon-docs/mdx-compiler-plugin');
 
 module.exports = ({ config }) => {
   // Transpile Gatsby module because Gatsby includes un-transpiled ES6 code.
