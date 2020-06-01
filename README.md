@@ -30,5 +30,8 @@ yarn develop
 
 ## Appendix
 
-- Phone mockups by [XBLD](http://xbld.co)
 - Built using this template [by duncanleung](https://github.com/duncanleung/gatsby-typescript-emotion-storybook)
+
+### Inspired By
+
+- [Treact](https://treact.owaiskhan.me)

@@ -1,0 +1,21 @@
+import { Logo } from '~/components/Logo';
+import logo from '~/icons/logo.svg';
+import Header from './Header';
+
+import { Meta, Story, Preview } from '@storybook/addon-docs/blocks';
+
+<Meta title="Header" component={Header} />
+
+# Header
+
+<Preview>
+  <Story name="default">
+    <Header
+      logo={<div className="flex items-center">
+              <img src={logo} alt="logo" />
+              <Logo accent="blue-500" text="Haseeb" />
+            </div>}
+      links={['Home', 'Blog', 'Project', 'Open Source']}
+    />
+  </Story>
+</Preview>

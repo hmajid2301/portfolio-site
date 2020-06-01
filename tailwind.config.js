@@ -15,7 +15,7 @@ module.exports = {
         },
       },
       fontFamily: {
-        header: ['Muli'],
+        header: ['Inter'],
       },
     },
   },

@@ -8,22 +8,7 @@ import { Meta, Story, Preview } from '@storybook/addon-docs/blocks';
 
 <Preview>
   <Story name="default">
-    <Logo color="black" />
-  </Story>
-</Preview>
-
-## Colour
-
-You can change the default colour of the logo by passing the `color` prop. Where the colour is
-the name of a colour from tailwindcss. You can see the default list
-[here](https://tailwindcss.com/docs/customizing-colors/#default-color-palette).
-
-<Preview>
-  <Story name="color">
-    <div>
-      <Logo color="gray-500" />
-      <Logo color="blue-500" />
-    </div>
+    <Logo text="Haseeb" />
   </Story>
 </Preview>
 
@@ -36,8 +21,37 @@ colour is from tailwindcss. You can see the default list
 <Preview>
   <Story name="accent">
     <div>
-      <Logo accent="gray-500" color="blue-500" />
-      <Logo accent="gray-500" color="black" />
+      <Logo accent="gray-500" color="blue-500" text="Haseeb" />
+      <Logo accent="gray-500" color="black" text="Haseeb" />
+    </div>
+  </Story>
+</Preview>
+
+## Colour
+
+You can change the default colour of the logo by passing the `color` prop. Where the colour is
+the name of a colour from tailwindcss. You can see the default list
+[here](https://tailwindcss.com/docs/customizing-colors/#default-color-palette).
+
+<Preview>
+  <Story name="color">
+    <div>
+      <Logo color="gray-500" text="Haseeb" />
+      <Logo color="blue-500" text="Haseeb" />
+    </div>
+  </Story>
+</Preview>
+
+## Hover Color
+
+You can change the hover colour of the logo by passing the `hoverColor` prop. Where the colour is the name of a colour from tailwindcss. You can see the default list
+[here](https://tailwindcss.com/docs/customizing-colors/#default-color-palette).
+
+<Preview>
+  <Story name="Hover Color">
+    <div>
+      <Logo text="Haseeb" hoverColor="blue-500" />
+      <Logo text="Haseeb" hoverColor="gray-500" />
     </div>
   </Story>
 </Preview>
@@ -51,13 +65,13 @@ this size if set using tailwindcss examples. You can see the default list
 <Preview>
   <Story name="size">
     <div>
-      <Logo accent="gray-700" color="blue-500" size="xs" />
-      <Logo accent="gray-700" color="blue-500" size="sm" />
-      <Logo accent="gray-700" color="blue-500" size="lg" />
-      <Logo accent="gray-700" color="blue-500" size="xl" />
-      <Logo accent="gray-700" color="blue-500" size="2xl" />
-      <Logo accent="gray-700" color="blue-500" size="3xl" />
-      <Logo accent="gray-700" color="blue-500" size="4xl" />
+      <Logo accent="gray-700" color="blue-500" size="xs" text="Haseeb" />
+      <Logo accent="gray-700" color="blue-500" size="sm" text="Haseeb" />
+      <Logo accent="gray-700" color="blue-500" size="lg" text="Haseeb" />
+      <Logo accent="gray-700" color="blue-500" size="xl" text="Haseeb" />
+      <Logo accent="gray-700" color="blue-500" size="2xl" text="Haseeb" />
+      <Logo accent="gray-700" color="blue-500" size="3xl" text="Haseeb" />
+      <Logo accent="gray-700" color="blue-500" size="4xl" text="Haseeb" />
     </div>
   </Story>
 </Preview>
