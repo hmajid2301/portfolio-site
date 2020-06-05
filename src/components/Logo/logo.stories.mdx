@@ -1,25 +1,27 @@
-import Logo from './Logo';
+import { Meta, Story, Preview, Props } from '@storybook/addon-docs/blocks';
 
-import { Meta, Story, Preview } from '@storybook/addon-docs/blocks';
+import Logo from './Logo';
 
 <Meta title="Logo" component={Logo} />
 
 # Logo
 
+<Props of={Logo} />
+
+> INFO: [Default Colour Palette](https://tailwindcss.com/docs/customizing-colors/#default-color-palette) and [Font Size](https://tailwindcss.com/docs/font-size).
+
 <Preview>
-  <Story name="default">
+  <Story name="Basic">
     <Logo text="Haseeb" />
   </Story>
 </Preview>
 
 ## Accent
 
-You can adjust the accent (tags) color by passing the `accent` prop. Where again the
-colour is from tailwindcss. You can see the default list
-[here](https://tailwindcss.com/docs/customizing-colors/#default-color-palette).
+You can adjust the accent (tags) color by passing the `accent` prop.
 
 <Preview>
-  <Story name="accent">
+  <Story name="Accent Colour">
     <div>
       <Logo accent="gray-500" color="blue-500" text="Haseeb" />
       <Logo accent="gray-500" color="black" text="Haseeb" />
@@ -29,12 +31,10 @@ colour is from tailwindcss. You can see the default list
 
 ## Colour
 
-You can change the default colour of the logo by passing the `color` prop. Where the colour is
-the name of a colour from tailwindcss. You can see the default list
-[here](https://tailwindcss.com/docs/customizing-colors/#default-color-palette).
+You can change the default colour of the logo by passing the `color` prop.
 
 <Preview>
-  <Story name="color">
+  <Story name="Main Text Colour">
     <div>
       <Logo color="gray-500" text="Haseeb" />
       <Logo color="blue-500" text="Haseeb" />
@@ -44,11 +44,10 @@ the name of a colour from tailwindcss. You can see the default list
 
 ## Hover Color
 
-You can change the hover colour of the logo by passing the `hoverColor` prop. Where the colour is the name of a colour from tailwindcss. You can see the default list
-[here](https://tailwindcss.com/docs/customizing-colors/#default-color-palette).
+You can change the hover colour of the logo by passing the `hoverColor` prop.
 
 <Preview>
-  <Story name="Hover Color">
+  <Story name="Hover Colour">
     <div>
       <Logo text="Haseeb" hoverColor="blue-500" />
       <Logo text="Haseeb" hoverColor="gray-500" />
@@ -56,22 +55,35 @@ You can change the hover colour of the logo by passing the `hoverColor` prop. Wh
   </Story>
 </Preview>
 
-## Size
+## Text
 
-You can also adjust the size of the logo by passing the `size` prop. Where once again
-this size if set using tailwindcss examples. You can see the default list
-[here](https://tailwindcss.com/docs/font-size/).
+You must set the main text for the logo, such as a name using the `text` prop.
 
 <Preview>
-  <Story name="size">
+  <Story name="Main Text">
     <div>
-      <Logo accent="gray-700" color="blue-500" size="xs" text="Haseeb" />
-      <Logo accent="gray-700" color="blue-500" size="sm" text="Haseeb" />
-      <Logo accent="gray-700" color="blue-500" size="lg" text="Haseeb" />
-      <Logo accent="gray-700" color="blue-500" size="xl" text="Haseeb" />
-      <Logo accent="gray-700" color="blue-500" size="2xl" text="Haseeb" />
-      <Logo accent="gray-700" color="blue-500" size="3xl" text="Haseeb" />
-      <Logo accent="gray-700" color="blue-500" size="4xl" text="Haseeb" />
+      <Logo text="Haseeb" />
+      <Logo text="John Smith" />
+      <Logo text="xyz.io" />
+      <Logo text="Random" />
+    </div>
+  </Story>
+</Preview>
+
+## Size
+
+You can also adjust the size of the logo by passing the `size` prop.
+
+<Preview>
+  <Story name="Text Size">
+    <div>
+      <Logo accent="gray-700" size="xs" text="Haseeb" />
+      <Logo accent="gray-700" size="sm" text="Haseeb" />
+      <Logo accent="gray-700" size="lg" text="Haseeb" />
+      <Logo accent="gray-700" size="xl" text="Haseeb" />
+      <Logo accent="gray-700" size="2xl" text="Haseeb" />
+      <Logo accent="gray-700" size="3xl" text="Haseeb" />
+      <Logo accent="gray-700" size="4xl" text="Haseeb" />
     </div>
   </Story>
 </Preview>

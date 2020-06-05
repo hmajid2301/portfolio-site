@@ -1,13 +1,13 @@
 import React from 'react';
 
 import { configure, addDecorator, addParameters } from '@storybook/react';
+import { withInfo } from '@storybook/addon-info';
 import { action } from '@storybook/addon-actions';
 import { INITIAL_VIEWPORTS } from '@storybook/addon-viewport';
 
-import { EmotionThemeProvider } from './decorators';
-
 // We will address this later.
 import '../src/styles/globals.css';
+import './main.css';
 
 // automatically import all files ending in *.stories.js
 configure(require.context('../src', true, /\.stories\.js$/), module);
@@ -38,6 +38,7 @@ addParameters({
   options: {
     panelPosition: 'right',
   },
+  inline: true,
 });
 
 // Storybook Decorators
@@ -49,5 +50,4 @@ addDecorator(story => (
   </>
 ));
 
-// Emotion Theme Provider =====================
-addDecorator(EmotionThemeProvider);
+withInfo({ inline: true });

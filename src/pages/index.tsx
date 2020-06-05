@@ -40,7 +40,7 @@ const Logo = styled.img`
 const Index: React.FC = () => {
   return (
     <Layout>
-      <SEO title={{ id: 'homepage.title' }} />
+      <SEO />
       <Container>
         <Card>
           <div
@@ -62,13 +62,6 @@ const Index: React.FC = () => {
                 ${iconStyles}
               `}
             />
-          </div>
-          <div
-            css={css`
-              padding: 30px 20px 20px;
-            `}
-          >
-            <FormattedMessage id="greeting" />
           </div>
           <a
             href="https://github.com/duncanleung/gatsby-typescript-emotion-storybook"

@@ -12,7 +12,7 @@ lint:
     - master
     - tags
   script:
-    - yarn format:check || true
+    - yarn lint
 
 format:
   stage: test
@@ -20,7 +20,7 @@ format:
     - master
     - tags
   script:
-    - yarn format:check || true
+    - yarn format:check
 
 types:check:
   stage: test
@@ -28,4 +28,4 @@ types:check:
     - master
     - tags
   script:
-    - yarn types:check || true
+    - yarn types:check

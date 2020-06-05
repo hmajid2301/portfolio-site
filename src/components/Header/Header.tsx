@@ -9,9 +9,13 @@ import tw from 'twin.macro';
 import useAnimatedNavToggler from '~/helpers/useAnimatedNavToggler';
 
 interface Props {
-  collapseBreakpointClass: 'sm' | 'md' | 'lg' | 'xl';
-  hoverColor: string;
+  /** When the nav bar should break and become a mobile nav bar. */
+  collapseBreakpointClass?: 'sm' | 'md' | 'lg' | 'xl';
+  /** The colour when you hover over the nav bar links. */
+  hoverColor?: string;
+  /** The logo component to display on the left hand side of the nav bar. */
   logo: React.ReactNode;
+  /** The links to show on the nav bar. */
   links: string[];
 }
 
@@ -72,8 +76,9 @@ const getNavLink = (links: string[], hoverColor: string) => {
   const NavLink = links.map(link => (
     <Link
       className={`text-lg my-2 lg:text-sm lg:mx-6 lg:my-0 font-semibold tracking-wide transition duration-300
-      pb-1 border-b-2 border-transparent hover:border-${hoverColor} hocus:text-${hoverColor}`}
+      pb-1 border-b-2 border-transparent hover:border-${hoverColor} hocus:text-${hoverColor} hover:text-${hoverColor}`}
       to={`/${link}`}
+      key={link}
     >
       {link}
     </Link>
@@ -84,7 +89,7 @@ const getNavLink = (links: string[], hoverColor: string) => {
 
 const Header = ({
   collapseBreakpointClass = 'lg',
-  hoverColor,
+  hoverColor = 'blue-500',
   logo,
   links,
 }: Props) => {
