@@ -1,7 +1,6 @@
 import { Meta, Story, Preview, Props } from '@storybook/addon-docs/blocks';
 
 import { Logo } from '~/components/Logo';
-import logo from '~/icons/logo.svg';
 import Header from './Header';
 
 
@@ -15,7 +14,6 @@ import Header from './Header';
   <Story name="Basic">
     <Header
       logo={<div className="flex items-center">
-              <img src={logo} alt="logo" />
               <Logo accent="blue-500" text="Haseeb" />
             </div>}
       links={['Home', 'Blog', 'Project', 'Open Source']}

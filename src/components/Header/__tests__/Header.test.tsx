@@ -13,7 +13,7 @@ describe('<Header />', () => {
       );
 
       links.forEach(link => {
-        const linkElement = getAllByText(link)[0];
+        const linkElement = getAllByText(link)[0] as HTMLAnchorElement;
         expect(linkElement.href).toBe(`http://localhost/${link}`);
         expect(linkElement.className).toBe(
           `text-lg my-2 lg:text-sm lg:mx-6 lg:my-0 font-semibold tracking-wide transition duration-300
@@ -63,7 +63,8 @@ describe('<Header />', () => {
       const logos = getAllByText('Haseeb');
       logos.forEach(logo => {
         expect(logo).toBeTruthy();
-        expect(logo.parentElement.href).toBe('http://localhost/');
+        const logoParent = logo.parentElement as HTMLAnchorElement;
+        expect(logoParent.href).toBe('http://localhost/');
       });
     });
 
@@ -86,7 +87,8 @@ describe('<Header />', () => {
       const logos = getAllByText('xyz.io');
       logos.forEach(logo => {
         expect(logo).toBeTruthy();
-        expect(logo.parentElement.href).toBe('http://localhost/');
+        const logoParent = logo.parentElement as HTMLAnchorElement;
+        expect(logoParent.href).toBe('http://localhost/');
       });
     });
   });
@@ -99,7 +101,7 @@ describe('<Header />', () => {
       );
 
       links.forEach(link => {
-        const linkElement = getAllByText(link)[0];
+        const linkElement = getAllByText(link)[0] as HTMLAnchorElement;
         expect(linkElement.href).toBe(`http://localhost/${link}`);
       });
     });
