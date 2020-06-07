@@ -5,7 +5,7 @@ const config = {
     // Allow tests in TypeScript using the .ts or .tsx
     '^.+\\.[jt]sx?$': '<rootDir>/test-utils/jest-preprocess.js',
   },
-  testRegex: '(/__tests__/.*(test|spec))\\.([tj]sx?)$',
+  testRegex: '(/.*(test|spec))\\.([tj]sx?)$',
   moduleDirectories: ['node_modules', __dirname],
   // Works like webpack rules. Tells Jest how to handle imports
   moduleNameMapper: {

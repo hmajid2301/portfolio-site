@@ -1,7 +1,6 @@
 import React from 'react';
 
 import { configure, addDecorator, addParameters } from '@storybook/react';
-import { withInfo } from '@storybook/addon-info';
 import { action } from '@storybook/addon-actions';
 import { INITIAL_VIEWPORTS } from '@storybook/addon-viewport';
 
@@ -10,7 +9,7 @@ import '../src/styles/globals.css';
 import './main.css';
 
 // automatically import all files ending in *.stories.js
-configure(require.context('../src', true, /\.stories\.js$/), module);
+configure(require.context('../src', true, /\.stories\.mdx$/), module);
 
 // Gatsby Setup
 // ============================================
@@ -49,5 +48,3 @@ addDecorator(story => (
     <div style={{ padding: '3rem' }}>{story()}</div>
   </>
 ));
-
-withInfo({ inline: true });

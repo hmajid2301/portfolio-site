@@ -6,15 +6,18 @@ import Logo from './Logo';
 
 # Logo
 
-<Props of={Logo} />
-
-> INFO: [Default Colour Palette](https://tailwindcss.com/docs/customizing-colors/#default-color-palette) and [Font Size](https://tailwindcss.com/docs/font-size).
-
 <Preview>
-  <Story name="Basic">
-    <Logo text="Haseeb" />
+  <Story
+    name="Basic"
+    args={{
+      text: "Haseeb",
+    }}
+  >
+    {(args) => <Logo {...args} />}
   </Story>
 </Preview>
+
+<Props story="Basic" />
 
 ## Accent
 

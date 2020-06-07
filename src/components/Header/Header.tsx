@@ -8,7 +8,7 @@ import tw from 'twin.macro';
 
 import useAnimatedNavToggler from '~/helpers/useAnimatedNavToggler';
 
-interface Props {
+export interface Props {
   /** When the nav bar should break and become a mobile nav bar. */
   collapseBreakpointClass?: 'sm' | 'md' | 'lg' | 'xl';
   /** The colour when you hover over the nav bar links. */

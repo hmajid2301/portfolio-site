@@ -1,6 +1,6 @@
 import React from 'react';
 
-interface Props {
+export interface Props {
   /** The colour of the opening and closing tags. */
   accent?: string;
   /** The colour of main text. */

@@ -8,18 +8,18 @@ import Header from './Header';
 
 # Header
 
-<Props of={Header} />
 
 <Preview>
-  <Story name="Basic">
-    <Header
-      logo={<div className="flex items-center">
+  <Story name="Basic"
+  args={{links: ["Home", "Blog", "Projects", "Open Source"],
+  }}>
+    {(args) => <Header logo={<div className="flex items-center">
               <Logo accent="blue-500" text="Haseeb" />
-            </div>}
-      links={['Home', 'Blog', 'Project', 'Open Source']}
-    />
+            </div>}  {...args}/>}
   </Story>
 </Preview>
+
+<Props story="Basic" />
 
 ## Collapse Breakpoint Class
 
