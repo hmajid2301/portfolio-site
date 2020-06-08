@@ -31,6 +31,7 @@ yarn develop
 ## Appendix
 
 - Built using this template [by duncanleung](https://github.com/duncanleung/gatsby-typescript-emotion-storybook)
+- Icon from [FlatIcon](https://www.flaticon.com/free-icon/code_2920277?term=website&page=1&position=17)
 
 ### Inspired By
 
