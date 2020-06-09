@@ -16,7 +16,7 @@
     "lint:fix": "yarn lint --fix",
     "serve": "node --max-http-header-size=16385 node_modules/.bin/gatsby serve",
     "storybook": "start-storybook",
-    "storybook:build": "build-storybook -c .storybook -o .out",
+    "storybook:build": "NODE_ENV=test build-storybook -c .storybook -o .out",
     "test": "jest",
     "test:coverage": "yarn test --coverage",
     "test:watch": "jest --watch",

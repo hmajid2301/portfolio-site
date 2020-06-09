@@ -2461,7 +2461,7 @@
     react "^16.8.3"
     regenerator-runtime "^0.13.3"
 
-"@storybook/addon-controls@^6.0.0-beta.15":
+"@storybook/addon-controls@6.0.0-beta.15":
   version "6.0.0-beta.15"
   resolved "https://registry.yarnpkg.com/@storybook/addon-controls/-/addon-controls-6.0.0-beta.15.tgz#252cbdb65fe02c0b49ab3d3da0372279b712b7ca"
   integrity sha512-zfBgETnKLefY9EBbUmZakXqm0ebsmXhDfiAT9XFMmAcDoIYeuvkJoTGgc4SRAczHMKAUL7aVbcoUIX2I6txqPA==

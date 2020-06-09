@@ -66,7 +66,7 @@ module.exports = ({ config }) => {
       },
     ],
 
-    include: path.resolve(__dirname, '../'),
+    include: path.resolve(__dirname, '../storybook/'),
   });
 
   config.resolve.extensions.push('.ts', '.tsx');
