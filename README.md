@@ -1,6 +1,7 @@
 # Pages
 
-Personal portfolio website hosted on `Netlify` built using Gatsby .
+[View current site here](https://haseebmajid.dev).
+This repo contains all the code for my personal website and blog hosted on `Netlify` built using Gatsby.
 
 > Info: Currently in the process of being migrated to a Gatsby website (V3).
 
@@ -9,8 +10,8 @@ Personal portfolio website hosted on `Netlify` built using Gatsby .
 To run the website locally do the following;
 
 ```bash
-git clone https://gitlab.com/hmajid2301/hmajid2301.gitlab.io.git
-cd hmajid2301.gitlab.io
+git clone https://gitlab.com/hmajid2301/personal-site.git
+cd personal-site
 yarn install
 yarn develop
 ```
