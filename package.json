@@ -15,7 +15,7 @@
     "lint": "eslint --color --ext .js,.jsx,.ts,.tsx .",
     "lint:fix": "yarn lint --fix",
     "serve": "node --max-http-header-size=16385 node_modules/.bin/gatsby serve",
-    "storybook": "start-storybook",
+    "storybook": "NODE_ENV=test start-storybook",
     "storybook:build": "NODE_ENV=test build-storybook -c .storybook -o .out",
     "test": "jest",
     "test:coverage": "yarn test --coverage",

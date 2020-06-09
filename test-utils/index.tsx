@@ -3,7 +3,7 @@ import React, { ReactElement, ComponentProps, FunctionComponent } from 'react';
 import { ThemeProvider } from 'emotion-theming';
 import { render } from '@testing-library/react';
 
-import theme from '../src/theme';
+import theme from '../src/styles';
 
 const AllTheProviders: React.FC = ({ children }) => {
   return <ThemeProvider theme={theme}>{children}</ThemeProvider>;

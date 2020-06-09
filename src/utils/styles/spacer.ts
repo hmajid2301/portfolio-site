@@ -1,5 +1,5 @@
 import { rem, em } from 'polished';
-import theme from '~/theme';
+import theme from '~/styles';
 
 type Unit = 'rem' | 'em' | 'px';
 
