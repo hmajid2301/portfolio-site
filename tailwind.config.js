@@ -1,5 +1,8 @@
+const multiTheme = require('tailwindcss-multi-theme');
+
 module.exports = {
   theme: {
+    themeVariants: ['dark'],
     extend: {
       colors: {
         blue: {
@@ -30,6 +33,23 @@ module.exports = {
       },
     },
   },
-  variants: {},
-  plugins: [],
+  variants: {
+    backgroundColor: [
+      'responsive',
+      'hover',
+      'focus',
+      'dark',
+      'dark:hover',
+      'dark:focus',
+    ],
+    textColor: [
+      'responsive',
+      'hover',
+      'focus',
+      'dark',
+      'dark:hover',
+      'dark:focus',
+    ],
+  },
+  plugins: [multiTheme],
 };
