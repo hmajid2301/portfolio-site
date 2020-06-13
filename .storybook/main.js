@@ -4,5 +4,7 @@ module.exports = {
     '@storybook/addon-controls',
     '@storybook/addon-essentials',
     '@storybook/preset-typescript',
+    '@storybook/addon-viewport/register',
+    '@storybook/addon-a11y/register'
   ],
 };

@@ -5,6 +5,8 @@ This repo contains all the code for my personal website and blog hosted on `Netl
 
 > Info: Currently in the process of being migrated to a Gatsby website (V3).
 
+> Info: You can view the storybook UI for this site [here](https://storybook.haseebmajid.dev/?path=/story/introducation--page)
+
 ## Usage
 
 To run the website locally do the following;
@@ -15,7 +17,6 @@ cd personal-site
 yarn install
 yarn develop
 ```
-
 ## Technologies Used
 
 - Gatsby

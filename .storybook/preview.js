@@ -1,7 +1,8 @@
 import React from 'react';
 
-import { configure, addDecorator, addParameters } from '@storybook/react';
+import { withA11y } from '@storybook/addon-a11y';
 import { action } from '@storybook/addon-actions';
+import { configure, addDecorator, addParameters } from '@storybook/react';
 import { INITIAL_VIEWPORTS } from '@storybook/addon-viewport';
 
 // We will address this later.
@@ -28,7 +29,6 @@ window.___navigate = pathname => {
 
 // Storybook Addons
 // ============================================
-// TODO: Add our breakpoints to the list of viewport options
 addParameters({
   viewport: {
     viewports: INITIAL_VIEWPORTS,
@@ -48,3 +48,5 @@ addDecorator(story => (
     <div style={{ padding: '3rem' }}>{story()}</div>
   </>
 ));
+
+addDecorator(withA11y);
