@@ -8,8 +8,8 @@ describe('<Logo />', () => {
     test('Render with default styles', () => {
       const { getByText } = render(<Logo text="Haseeb" />);
       const logoText = getByText('Haseeb');
-      expect(logoText.className).toBe(
-        'cursor-pointer font-header font-black hover:text-blue-500 text-black text-2xl tracking-wide'
+      expect(logoText.className).toContain(
+        'hover:text-blue-500 text-black lg:text-2xl'
       );
     });
   });

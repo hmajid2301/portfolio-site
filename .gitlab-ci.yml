@@ -29,3 +29,11 @@ types:check:
     - tags
   script:
     - yarn types:check
+
+tests:coverage:
+  stage: test
+  only:
+    - master
+  script:
+    - yarn coverage
+  coverage: /All\sfiles.*?\s+(\d+.\d+)/

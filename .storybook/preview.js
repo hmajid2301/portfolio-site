@@ -42,11 +42,4 @@ addParameters({
 
 // Storybook Decorators
 // ============================================
-// Global Styles ==============================
-addDecorator(story => (
-  <>
-    <div style={{ padding: '3rem' }}>{story()}</div>
-  </>
-));
-
 addDecorator(withA11y);

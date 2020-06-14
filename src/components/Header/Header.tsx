@@ -9,12 +9,16 @@ import tw from 'twin.macro';
 import useAnimatedNavToggler from '~/helpers/useAnimatedNavToggler';
 
 export interface Props {
+  /** The background color of the header. */
+  background?: string;
   /** When the nav bar should break and become a mobile nav bar. */
   collapseBreakpointClass?: 'sm' | 'md' | 'lg' | 'xl';
   /** The colour when you hover over the nav bar links. */
   hoverColor?: string;
   /** The logo component to display on the left hand side of the nav bar. */
   logo: React.ReactNode;
+  /** The colour of the links text. */
+  linkColor?: string;
   /** The links to show on the nav bar. */
   links: string[];
 }
@@ -42,34 +46,73 @@ const collapseClass = {
   },
 };
 
-const HeaderContainer = tw.header`flex justify-between items-center max-w-screen-xl mx-auto font-header`;
+const Header = ({
+  background = 'white',
+  collapseBreakpointClass = 'lg',
+  hoverColor = 'blue-500',
+  logo,
+  linkColor = 'black',
+  links,
+}: Props) => {
+  const { showNavLinks, animation, toggleNavbar } = useAnimatedNavToggler();
+  const collapseBreakpointCss = collapseClass[collapseBreakpointClass];
+  const Logo = <LogoContainer to="/">{logo}</LogoContainer>;
 
-const DesktopNavLinks = tw.nav`hidden lg:flex flex-1 justify-between items-center`;
+  return (
+    <HeaderContainer
+      className={`text-${linkColor} bg-${background}`}
+      data-testid="Header"
+    >
+      <DesktopNavLinks
+        role="navigation"
+        aria-label="nav"
+        css={collapseBreakpointCss.desktopNavLinks}
+      >
+        {Logo}
+        <NavLinks>{getNavLink(links, hoverColor)}</NavLinks>
+      </DesktopNavLinks>
+
+      <MobileNavContainer className={`${collapseBreakpointClass}:hidden `}>
+        {Logo}
+        <MobileNavLinksContainer
+          css={collapseBreakpointCss.mobileNavLinksContainer}
+        >
+          <MobileNavLinks
+            initial={{ x: '150%', display: 'none' }}
+            animate={animation}
+            css={collapseBreakpointCss.mobileNavLinks}
+          >
+            <NavLinks>{getMobileNavLink(links, hoverColor)}</NavLinks>
+          </MobileNavLinks>
+          <NavToggle
+            className={`hocus:text-${hoverColor} ${
+              showNavLinks ? 'open' : 'closed'
+            }`}
+            onClick={toggleNavbar}
+            type="button"
+          >
+            {showNavLinks ? (
+              <CloseIcon className="w-5 h-5" />
+            ) : (
+              <MenuIcon className="w-5 h-5" />
+            )}
+          </NavToggle>
+        </MobileNavLinksContainer>
+      </MobileNavContainer>
+    </HeaderContainer>
+  );
+};
+
+const HeaderContainer = tw.header`flex justify-between items-center max-w-screen-xl mx-auto font-header w-full`;
+
+const DesktopNavLinks = tw.nav`hidden lg:flex lg:flex-wrap justify-between items-center w-full`;
+
+const LogoContainer = styled(Link)`
+  ${tw`flex items-center border-b-0 ml-0!`};
+`;
 
 const NavLinks = styled.div`
   ${tw`inline-block`}
-`;
-
-const LogoContainer = styled(Link)`
-  ${tw`flex items-center font-black border-b-0 text-2xl! ml-0!`};
-
-  img {
-    ${tw`w-10 mr-3`}
-  }
-`;
-
-const MobileNavLinksContainer = tw.nav`flex flex-1 items-center justify-between`;
-
-const MobileNavLinks = motion.custom(styled.div`
-  ${tw`lg:hidden z-10 fixed top-0 inset-x-0 mx-4 my-6 p-8 border text-center rounded-lg text-gray-900 bg-white`}
-
-  ${NavLinks} {
-    ${tw`flex flex-col items-center`}
-  }
-`);
-
-const NavToggle = tw.button`
-  lg:hidden z-20 focus:outline-none hocus:text-blue-500 transition duration-300
 `;
 
 const getNavLink = (links: string[], hoverColor: string) => {
@@ -87,46 +130,33 @@ const getNavLink = (links: string[], hoverColor: string) => {
   return NavLink;
 };
 
-const Header = ({
-  collapseBreakpointClass = 'lg',
-  hoverColor = 'blue-500',
-  logo,
-  links,
-}: Props) => {
-  const { showNavLinks, animation, toggleNavbar } = useAnimatedNavToggler();
-  const collapseBreakpointCss = collapseClass[collapseBreakpointClass];
+const MobileNavContainer = tw.div`flex flex-wrap w-full justify-between`;
 
-  return (
-    <HeaderContainer>
-      <DesktopNavLinks css={collapseBreakpointCss.desktopNavLinks}>
-        <LogoContainer to="/">{logo}</LogoContainer>
-        <NavLinks key={1}>{getNavLink(links, hoverColor)}</NavLinks>
-      </DesktopNavLinks>
+const MobileNavLinksContainer = tw.nav`flex`;
 
-      <MobileNavLinksContainer
-        css={collapseBreakpointCss.mobileNavLinksContainer}
-      >
-        <LogoContainer to="/">{logo}</LogoContainer>
-        <MobileNavLinks
-          initial={{ x: '150%', display: 'none' }}
-          animate={animation}
-          css={collapseBreakpointCss.mobileNavLinks}
-        >
-          <NavLinks key={1}>{getNavLink(links, hoverColor)}</NavLinks>
-        </MobileNavLinks>
-        <NavToggle
-          onClick={toggleNavbar}
-          className={showNavLinks ? 'open' : 'closed'}
-        >
-          {showNavLinks ? (
-            <CloseIcon tw="w-6 h-6" />
-          ) : (
-            <MenuIcon tw="w-6 h-6" />
-          )}
-        </NavToggle>
-      </MobileNavLinksContainer>
-    </HeaderContainer>
-  );
+const MobileNavLinks = motion.custom(styled.div`
+  ${tw`lg:hidden fixed top-0 left-0 inset-x-0 p-8 max-h-full`}
+
+  ${NavLinks} {
+    ${tw`flex flex-col items-start`}
+  }
+`);
+
+const NavToggle = tw.button`z-10 lg:hidden focus:outline-none transition duration-300`;
+
+const getMobileNavLink = (links: string[], hoverColor: string) => {
+  const NavLink = links.map(link => (
+    <Link
+      className={`text-lg my-2 font-semibold tracking-wide transition duration-100
+      pb-1 hocus:text-${hoverColor} hover:text-${hoverColor}`}
+      to={`/${link}`}
+      key={link}
+    >
+      {link}
+    </Link>
+  ));
+
+  return NavLink;
 };
 
 export default Header;

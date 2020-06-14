@@ -20,6 +20,30 @@ import Header from './Header';
 
 <Props story="Basic" />
 
+## Background
+
+You can adjust the background colour of the header by passing the `background` prop.
+
+<Preview>
+  <Story name="Background">
+    <div>
+      <Header
+        background="gray-200"
+        logo={<Logo text="Haseeb" />}
+        links={['Home', 'Blog', 'Project', 'Open Source']}
+      />
+      <Header
+        background="blue-500"
+        collapseBreakpointClass="md"
+        logo={<Logo color="white" hoverColor="gray-200" text="Haseeb" />}
+        links={['Home', 'Blog', 'Project', 'Open Source']}
+        linkColor="white"
+        hoverColor="gray-200"
+      />
+    </div>
+  </Story>
+</Preview>
+
 ## Collapse Breakpoint Class
 
 You can adjust the point where the nav bar breaks into "mobile" mode by passing the `collapseBreakpointClass` prop.
@@ -92,12 +116,38 @@ You can change the logo by passing the `logo` prop.
         links={['Home', 'Blog', 'Project', 'Open Source']}
       />
       <Header
-        logo={<img src="https://placehold.it/350x150" alt="My CDN placeholder" />}
+        logo={<img src="https://placehold.it/50x50" alt="My CDN placeholder" />}
         links={['Home', 'Blog', 'Project', 'Open Source']}
       />
       <Header
         logo={<div className="text-gray-500">MyLogo</div>}
         links={['Home', 'Blog', 'Project', 'Open Source']}
+      />
+    </div>
+  </Story>
+</Preview>
+
+## LinkColor
+
+You can change the link colour by passing the `linkColor` prop.
+
+<Preview>
+  <Story name="Link Colour">
+    <div>
+      <Header
+        logo={<Logo text="Haseeb" />}
+        links={['Home', 'Blog', 'Project', 'Open Source']}
+        linkColor="gray-600"
+      />
+      <Header
+        logo={<Logo text="Haseeb" />}
+        links={['Home', 'Blog', 'Project', 'Open Source']}
+        linkColor="orange-600"
+      />
+      <Header
+        logo={<Logo text="Haseeb" />}
+        links={['Home', 'Blog', 'Project', 'Open Source']}
+        linkColor="purple-500"
       />
     </div>
   </Story>

@@ -107,6 +107,8 @@ module.exports = {
         'plugin:prettier/recommended',
       ],
       rules: {
+        'no-use-before-define': 'off',
+        '@typescript-eslint/no-use-before-define': ['off'],
         // This project uses TS. Disable prop-types check
         'react/prop-types': 'off',
         // Allow snake_case due to inconsistent APIs

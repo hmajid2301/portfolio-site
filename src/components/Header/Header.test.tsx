@@ -23,6 +23,29 @@ describe('<Header />', () => {
     });
   });
 
+  describe('Props: Background Color', () => {
+    test.each([
+      ['gray-500', 'text-black bg-gray-500'],
+      ['purple-500', 'text-black bg-purple-500'],
+      ['black', 'text-black bg-black'],
+    ])(
+      'Render with %i background color',
+      (background: string, expectedClass: string) => {
+        const links = ['Link1', 'Link2', 'Link3'];
+        const { getByTestId } = render(
+          <Header
+            background={background}
+            logo={<div>Logo</div>}
+            links={links}
+          />
+        );
+
+        const header = getByTestId('Header');
+        expect(header.className).toContain(expectedClass);
+      }
+    );
+  });
+
   describe('Props: Hover Color', () => {
     test.each([
       [
@@ -86,7 +109,7 @@ describe('<Header />', () => {
 
   describe('Props: Links', () => {
     test.each([[['Link1', 'Link2']], [['Blog', 'Pricing', 'Product']]])(
-      'Render with %i logo',
+      'Render with %i links',
       (links: string[]) => {
         const { getAllByText } = render(
           <Header logo={<div>Haseeb</div>} links={links} />
@@ -96,6 +119,25 @@ describe('<Header />', () => {
           const linkElement = getAllByText(link)[0] as HTMLAnchorElement;
           expect(linkElement.href).toBe(`http://localhost/${link}`);
         });
+      }
+    );
+  });
+
+  describe('Props: Links Color', () => {
+    test.each([
+      ['black', ''],
+      ['gray-700', ''],
+    ])(
+      'Render with %i links color',
+      (linkColor: string, expectedClass: string) => {
+        const links = ['Link1', 'Link2', 'Link3'];
+
+        const { getByTestId } = render(
+          <Header logo={<div>Logo</div>} links={links} linkColor={linkColor} />
+        );
+
+        const header = getByTestId('Header');
+        expect(header.className).toContain(expectedClass);
       }
     );
   });

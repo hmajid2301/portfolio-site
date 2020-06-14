@@ -1,3 +1,6 @@
+[![pipeline status](https://gitlab.com/hmajid2301/personal-site/badges/master/pipeline.svg)](https://gitlab.com/hmajid2301/personal-site/commits/master)
+[![coverage report](https://gitlab.com/hmajid2301/personal-site/badges/master/coverage.svg)](https://gitlab.com/hmajid2301/personal-site/commits/master)
+
 # Pages
 
 [View current site here](https://haseebmajid.dev).
@@ -17,6 +20,7 @@ cd personal-site
 yarn install
 yarn develop
 ```
+
 ## Technologies Used
 
 - Gatsby
