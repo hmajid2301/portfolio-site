@@ -28,6 +28,7 @@ module.exports = {
       },
       fontFamily: {
         header: ['Inter'],
+        body: ['Muli'],
       },
     },
   },

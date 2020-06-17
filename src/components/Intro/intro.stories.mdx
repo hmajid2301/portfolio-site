@@ -1,0 +1,83 @@
+import { Meta, Story, Preview, Props } from '@storybook/addon-docs/blocks';
+
+import { theme } from '~/styles';
+import Intro from './Intro';
+
+<Meta title="Intro" component={Intro} />
+
+# Intro
+
+<Preview>
+  <Story name="Basic" args={{ text: "Hi, It's Haseeb. I'm a software engineer. Welcome to my website and blog.", showParticles: true}}>
+    {args => <Intro {...args} />}
+  </Story>
+</Preview>
+
+
+<Props story="Basic" />
+
+## Background
+
+You can adjust the background colour of the component by passing the `background` prop.
+
+<Preview>
+  <Story name="Background">
+    <div>
+      <Intro background="gray-200" text="Hello my name is Haseeb." />
+      <Intro background="yellow-500" text="Hello my name is Haseeb." />
+    </div>
+  </Story>
+</Preview>
+
+## Color
+
+You can adjust the colour of the text by passing the `color` prop.
+
+<Preview>
+  <Story name="Color">
+    <div>
+      <Intro background="gray-200" color="black" text="Hello my name is Haseeb." />
+      <Intro background="indigo-100" color="blue-500" text="Hello my name is Haseeb." />
+    </div>
+  </Story>
+</Preview>
+
+
+## Text
+
+You can adjust the main text of the component by passing the `text` prop.
+
+<Preview>
+  <Story name="Text">
+    <div>
+      <Intro background="gray-200" color="black" text="Hello this is a new message." />
+      <Intro background="indigo-100" color="blue-500" text="Another random message." />
+    </div>
+  </Story>
+</Preview>
+
+## showParticles
+
+If you want to show the particles you can pass the `showParticles` prop.
+
+<Preview>
+  <Story name="Show Particles">
+    <div>
+      <Intro background="gray-200" color="black" text="Hello my name is Haseeb." showParticles />
+      <Intro background="indigo-100" color="blue-500" text="Hello my name is Haseeb." showParticles />
+    </div>
+  </Story>
+</Preview>
+
+## particleColor
+
+You can adjust the particle colour if you pass the `particleColor` prop.
+
+<Preview>
+  <Story name="Particle Color">
+    <div>
+      <Intro background="gray-200" color="black" text="Hello my name is Haseeb." showParticles particleColor="#367ee9" />
+      <Intro background="indigo-100" color="blue-500" text="Hello my name is Haseeb." showParticles particleColor="#ff00ff" />
+    </div>
+  </Story>
+</Preview>

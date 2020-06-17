@@ -130,12 +130,12 @@ const getNavLink = (links: string[], hoverColor: string) => {
   return NavLink;
 };
 
-const MobileNavContainer = tw.div`flex flex-wrap w-full justify-between`;
+const MobileNavContainer = tw.div`flex flex-wrap w-full justify-between lg:hidden`;
 
 const MobileNavLinksContainer = tw.nav`flex`;
 
 const MobileNavLinks = motion.custom(styled.div`
-  ${tw`lg:hidden fixed top-0 left-0 inset-x-0 p-8 max-h-full`}
+  ${tw`fixed top-0 left-0 inset-x-0 p-8 max-h-full`}
 
   ${NavLinks} {
     ${tw`flex flex-col items-start`}

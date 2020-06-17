@@ -23,7 +23,7 @@ const Logo = ({
 }: Props) => (
   <LogoContainer
     className={`hover:text-${hoverColor} text-${color} lg:text-${size}
-    md:text-md sm:text-sm`}
+    md:text-xl sm:text-md text-sm`}
   >
     <Tag className={`text-${accent}`} data-testid="OpeningTag">
       &lt;
