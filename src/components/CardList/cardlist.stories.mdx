@@ -1,0 +1,161 @@
+import { Meta, Story, Preview, Props } from '@storybook/addon-docs/blocks';
+
+import CardList from './CardList';
+
+<Meta title="CardList" component={CardList} />
+
+# Logo
+
+<Preview>
+  <Story
+    name="Basic"
+    args={{
+      items: [
+        {
+          tags: ["react", "gatsby"],
+          date: "10 May 2020",
+          image:
+            "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=640&q=80",
+          title: "Tips on how to travel safely in foreign countries",
+          url: "https://timerse.com"
+        },
+        {
+          date: "10 March 2020",
+          tags: ["angular", "python"],
+          image:
+            "https://images.unsplash.com/photo-1563784462041-5f97ac9523dd?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=640&q=80",
+          title: "Enjoying the beach life while on a vacation",
+          url: "https://reddit.com"
+        },
+        {
+          date: "10 January 2020",
+          tags: ["python", "javascript"],
+          image:
+            "https://images.unsplash.com/photo-1592848386144-04df6ee54ff8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=640&q=80",
+          title: "Enjoying the beach life while on a vacation",
+          url: "https://reddit.com"
+        }
+    ]
+    }}
+  >
+    {(args) => <CardList {...args} />}
+  </Story>
+</Preview>
+
+<Props story="Basic" />
+
+## Color
+
+You can adjust the primary colour of the component by passing the `color` prop.
+
+<Preview>
+  <Story name="Color">
+      <CardList color="indigo-500" items={[
+        {
+          tags: ["react", "gatsby"],
+          date: "10 May 2020",
+          image:
+            "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=640&q=80",
+          title: "Tips on how to travel safely in foreign countries",
+          url: "https://timerse.com"
+        },
+        {
+          date: "10 March 2020",
+          tags: ["angular", "python"],
+          image:
+            "https://images.unsplash.com/photo-1563784462041-5f97ac9523dd?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=640&q=80",
+          title: "Enjoying the beach life while on a vacation",
+          url: "https://reddit.com"
+        },
+        {
+          date: "10 January 2020",
+          tags: ["python", "javascript"],
+          image:
+            "https://images.unsplash.com/photo-1592848386144-04df6ee54ff8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=640&q=80",
+          title: "Enjoying the beach life while on a vacation",
+          url: "https://reddit.com"
+        }
+    ]} />
+  </Story>
+</Preview>
+
+## Items
+
+You can adjust the posts shown by passing the `items` prop.
+
+<Preview>
+  <Story name="Items">
+      <CardList items={[
+        {
+          tags: ["react", "gatsby"],
+          date: "10 May 2020",
+          image:
+            "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=640&q=80",
+          title: "Tips on how to travel safely in foreign countries",
+          url: "https://timerse.com"
+        },
+    ]} />
+  </Story>
+</Preview>
+
+## Text Color
+
+You can adjust the main header text colour of the component by passing the `textColor` prop.
+
+<Preview>
+  <Story name="Text Color">
+      <CardList color="indigo-500" items={[
+        {
+          tags: ["react", "gatsby"],
+          date: "10 May 2020",
+          image:
+            "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=640&q=80",
+          title: "Tips on how to travel safely in foreign countries",
+          url: "https://timerse.com"
+        },
+        {
+          date: "10 March 2020",
+          tags: ["angular", "python"],
+          image:
+            "https://images.unsplash.com/photo-1563784462041-5f97ac9523dd?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=640&q=80",
+          title: "Enjoying the beach life while on a vacation",
+          url: "https://reddit.com"
+        },
+        {
+          date: "10 January 2020",
+          tags: ["python", "javascript"],
+          image:
+            "https://images.unsplash.com/photo-1592848386144-04df6ee54ff8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=640&q=80",
+          title: "Enjoying the beach life while on a vacation",
+          url: "https://reddit.com"
+        }
+    ]} />
+  </Story>
+</Preview>
+
+## Row Size
+
+You can adjust the number of items shown per colum by passing the `rowSize` prop.
+
+<Preview>
+  <Story name="Row Size">
+      <CardList rowSize={2} items={[
+        {
+          tags: ["react", "gatsby"],
+          date: "10 May 2020",
+          image:
+            "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=640&q=80",
+          title: "Tips on how to travel safely in foreign countries",
+          url: "https://timerse.com"
+        },
+        {
+          date: "10 March 2020",
+          tags: ["angular", "python"],
+          image:
+            "https://images.unsplash.com/photo-1563784462041-5f97ac9523dd?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=640&q=80",
+          title: "Enjoying the beach life while on a vacation",
+          url: "https://reddit.com"
+        },
+    ]} />
+  </Story>
+</Preview>
