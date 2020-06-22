@@ -1,0 +1,34 @@
+import { Meta, Story, Preview, Props } from '@storybook/addon-docs/blocks';
+
+import ProgramTags from './ProgramTags';
+
+<Meta title="ProgramTags" component={ProgramTags} />
+
+# ProgramTags
+
+<Preview>
+  <Story
+    name="Basic"
+    args={{
+      text: "typescript",
+    }}
+  >
+    {(args) => <ProgramTags {...args} />}
+  </Story>
+</Preview>
+
+<Props story="Basic" />
+
+## Text 
+
+You can adjust the main text of the component by passing the `text` prop. The colour and background will be determined
+by the text typically it will the name of a technology or programming language.
+
+<Preview>
+  <Story name="Text">
+    <div>
+      <ProgramTags text="docker" />
+      <ProgramTags text="firebase" />
+    </div>
+  </Story>
+</Preview>
