@@ -1,7 +1,7 @@
 import React from 'react';
 import { render } from 'test-utils';
 
-import CardList, { Props } from './CardList';
+import CardList from './CardList';
 
 const items = [
   {
