@@ -1,0 +1,105 @@
+import { Meta, Story, Preview, Props } from '@storybook/addon-docs/blocks';
+
+import MainCard from './MainCard';
+
+<Meta title="MainCard" component={MainCard} />
+
+# MainCard
+
+<Preview>
+  <Story
+    name="Basic"
+    args={{
+      item: {
+        name: 'stegappasaurus',
+        description:
+          'An mobile app, created using React Native. Uses steganography to hide messages in images.',
+        image:
+          'https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=700&h=400',
+        link: '/project/stegappasaurus',
+      },
+    }}
+  >
+    {(args) => <MainCard {...args} />}
+  </Story>
+</Preview>
+
+<Props story="Basic" />
+
+## Background
+
+You can adjust the background colour of the card by passing the `background` prop.
+
+<Preview>
+  <Story name="Background">
+    <MainCard
+      background="gray-100"
+      item={{
+        name: 'stegappasaurus',
+        image:
+          'https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=700&h=400',
+        description:
+          'An mobile app, created using React Native. Uses steganography to hide messages in images.',
+        link: '/project/stegappasaurus',
+      }}
+    />
+  </Story>
+</Preview>
+
+## Color
+
+You can change the colour of the text by passing the `color` prop.
+
+<Preview>
+  <Story name="Color">
+    <MainCard
+      color="gray-500"
+      item={{
+        name: 'stegappasaurus',
+        image:
+          'https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=700&h=400',
+        description:
+          'An mobile app, created using React Native. Uses steganography to hide messages in images.',
+        link: '/project/stegappasaurus',
+      }}
+    />
+  </Story>
+</Preview>
+
+## Text Background
+
+You can change the background colour of the text by passing the `backgroundText` prop.
+
+<Preview>
+  <Story name="Text Background">
+    <MainCard
+      textBackground="blue-500"
+      item={{
+        name: 'stegappasaurus',
+        image:
+          'https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=700&h=400',
+        description:
+          'An mobile app, created using React Native. Uses steganography to hide messages in images.',
+        link: '/project/stegappasaurus',
+      }}
+    />
+  </Story>
+</Preview>
+
+## Item
+
+You can change the contents of the card by passing the `item` prop.
+
+<Preview>
+  <Story name="Item">
+    <MainCard
+      item={{
+        name: 'composerisation',
+        description: 'Converts commands between docker run and docker compose.',
+        image:
+          'https://images.unsplash.com/photo-1593338717285-fc56ada95667?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=700&h=400',
+        link: '/project/composerisation',
+      }}
+    />
+  </Story>
+</Preview>
