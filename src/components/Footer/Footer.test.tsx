@@ -36,7 +36,7 @@ describe('<Footer />', () => {
         <Footer links={links} socialButtons={social} />
       );
 
-      links.forEach(link => {
+      links.forEach((link) => {
         const linkElement = getAllByText(link)[0] as HTMLAnchorElement;
         expect(linkElement.href).toBe(`http://localhost/${link}`);
         expect(linkElement.className).toContain(
@@ -86,7 +86,7 @@ describe('<Footer />', () => {
           />
         );
 
-        links.forEach(link => {
+        links.forEach((link) => {
           const linkElement = getAllByText(link)[0];
           expect(linkElement.className).toContain(expectedClass);
         });
@@ -102,7 +102,7 @@ describe('<Footer />', () => {
           <Footer links={links} socialButtons={social} />
         );
 
-        links.forEach(link => {
+        links.forEach((link) => {
           const linkElement = getAllByText(link)[0] as HTMLAnchorElement;
           expect(linkElement.href).toBe(`http://localhost/${link}`);
         });
@@ -150,7 +150,7 @@ describe('<Footer />', () => {
         <Footer links={links} socialButtons={socials} />
       );
 
-      socials.forEach(socialButton => {
+      socials.forEach((socialButton) => {
         const button = getByTestId(
           `Button-${socialButton.url}`
         ) as HTMLAnchorElement;

@@ -7,7 +7,7 @@ require('dotenv').config({
 });
 
 // Duplicated in gatsby-browser.js for client side rendering
-export const wrapRootElement = props => <App {...props} />;
+export const wrapRootElement = (props) => <App {...props} />;
 
 export const onRenderBody = ({ setHeadComponents }) => {
   // Async embed code from Typekit/Adobe @link https://helpx.adobe.com/fonts/using/embed-codes.html#JavaScriptembedcode

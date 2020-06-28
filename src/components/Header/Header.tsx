@@ -116,7 +116,7 @@ const NavLinks = styled.div`
 `;
 
 const getNavLink = (links: string[], hoverColor: string) => {
-  const NavLink = links.map(link => (
+  const NavLink = links.map((link) => (
     <Link
       className={`text-lg my-2 lg:text-sm lg:mx-6 lg:my-0 font-semibold tracking-wide transition duration-300
       pb-1 border-b-2 border-transparent hover:border-${hoverColor} hocus:text-${hoverColor} hover:text-${hoverColor}`}
@@ -145,7 +145,7 @@ const MobileNavLinks = motion.custom(styled.div`
 const NavToggle = tw.button`z-10 lg:hidden focus:outline-none transition duration-300`;
 
 const getMobileNavLink = (links: string[], hoverColor: string) => {
-  const NavLink = links.map(link => (
+  const NavLink = links.map((link) => (
     <Link
       className={`text-lg my-2 font-semibold tracking-wide transition duration-100
       pb-1 hocus:text-${hoverColor} hover:text-${hoverColor}`}

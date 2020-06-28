@@ -56,8 +56,8 @@ const TagContainer = styled.a`
 `;
 
 const TextContainer = styled.span<{ background: string; color: string }>`
-  background-color: ${props => props.background};
-  color: ${props => props.color};
+  background-color: ${(props) => props.background};
+  color: ${(props) => props.color};
   display: 'flex'
     ${tw`text-base  rounded-md p-2 font-header font-semibold px-3 tracking-wide mx-2`};
 `;

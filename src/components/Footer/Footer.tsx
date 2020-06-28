@@ -35,7 +35,7 @@ const Footer = ({
     <Content>
       <Row>
         <LinksContainer>
-          {links.map(link => (
+          {links.map((link) => (
             <FooterLink
               aria-label={`Opens link to ${link} page`}
               className={`hover:text-${hoverColor} hover:border-${hoverColor}`}
@@ -46,7 +46,7 @@ const Footer = ({
           ))}
         </LinksContainer>
         <SocialLinksContainer>
-          {socialButtons.map(button => (
+          {socialButtons.map((button) => (
             <SocialLink
               aria-label={`Opens link to ${button.icon} page`}
               className={`hover:text-${hoverColor} text-${color}`}

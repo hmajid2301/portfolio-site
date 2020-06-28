@@ -12,7 +12,7 @@ describe('<Header />', () => {
         <Header logo={<div>Logo</div>} links={links} />
       );
 
-      links.forEach(link => {
+      links.forEach((link) => {
         const linkElement = getAllByText(link)[0] as HTMLAnchorElement;
         expect(linkElement.href).toBe(`http://localhost/${link}`);
         expect(linkElement.className).toBe(
@@ -69,7 +69,7 @@ describe('<Header />', () => {
           />
         );
 
-        links.forEach(link => {
+        links.forEach((link) => {
           const linkElement = getAllByText(link)[0];
           expect(linkElement.className).toContain(expectedClass);
         });
@@ -98,7 +98,7 @@ describe('<Header />', () => {
         );
 
         const logos = getAllByText(searchString);
-        logos.forEach(logo => {
+        logos.forEach((logo) => {
           expect(logo).toBeTruthy();
           const logoParent = logo.parentElement as HTMLAnchorElement;
           expect(logoParent.href).toBe('http://localhost/');
@@ -115,7 +115,7 @@ describe('<Header />', () => {
           <Header logo={<div>Haseeb</div>} links={links} />
         );
 
-        links.forEach(link => {
+        links.forEach((link) => {
           const linkElement = getAllByText(link)[0] as HTMLAnchorElement;
           expect(linkElement.href).toBe(`http://localhost/${link}`);
         });

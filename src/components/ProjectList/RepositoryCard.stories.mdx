@@ -1,0 +1,124 @@
+import { Meta, Story, Preview, Props } from '@storybook/addon-docs/blocks';
+
+import RepositoryCard from './RepositoryCard';
+
+<Meta title="RepositoryCard" component={RepositoryCard} />
+
+# RepositoryCard
+
+<Preview>
+  <Story
+    name="Basic"
+    args={{
+      item: {
+        name: "stegappasaurus",
+        description: "An mobile app, created using React Native. Uses steganography to hide messages in images.",
+        link: "/project/stegappasaurus",
+        stars: 4,
+        url: "https://gitlab.com/hmajid2301/stegappasaurus",
+      },
+    }}
+  >
+    {(args) => <RepositoryCard {...args} />}
+  </Story>
+</Preview>
+
+<Props story="Basic" />
+
+## Accent
+
+You can adjust the accent (title and meta items) color by passing the `accent` prop.
+
+<Preview>
+  <Story name="Accent Colour">
+    <RepositoryCard
+      accent="gray-500"
+      item={{
+        name: 'stegappasaurus',
+        description:
+          'An mobile app, created using React Native. Uses steganography to hide messages in images.',
+        link: '/project/stegappasaurus',
+        stars: 4,
+        url: 'https://gitlab.com/hmajid2301/stegappasaurus',
+      }}
+    />
+  </Story>
+</Preview>
+
+## Background
+
+You can adjust the background colour of the card by passing the `background` prop.
+
+<Preview>
+  <Story name="Background">
+    <RepositoryCard
+      background="gray-100"
+      item={{
+        name: 'stegappasaurus',
+        description:
+          'An mobile app, created using React Native. Uses steganography to hide messages in images.',
+        link: '/project/stegappasaurus',
+        stars: 4,
+        url: 'https://gitlab.com/hmajid2301/stegappasaurus',
+      }}
+    />
+  </Story>
+</Preview>
+
+## Color
+
+You can change the colour of the text by passing the `color` prop.
+
+<Preview>
+  <Story name="Color">
+    <RepositoryCard
+      color="gray-500"
+      item={{
+        name: 'stegappasaurus',
+        description:
+          'An mobile app, created using React Native. Uses steganography to hide messages in images.',
+        link: '/project/stegappasaurus',
+        stars: 4,
+        url: 'https://gitlab.com/hmajid2301/stegappasaurus',
+      }}
+    />
+  </Story>
+</Preview>
+
+## Hover Color
+
+You can change the hover colour of the accent elements (title and meta items) by passing the `hover` prop.
+
+<Preview>
+  <Story name="Hover Color">
+    <RepositoryCard
+      hover="purple-500"
+      item={{
+        name: 'stegappasaurus',
+        description:
+          'An mobile app, created using React Native. Uses steganography to hide messages in images.',
+        link: '/project/stegappasaurus',
+        stars: 4,
+        url: 'https://gitlab.com/hmajid2301/stegappasaurus',
+      }}
+    />
+  </Story>
+</Preview>
+
+## Item
+
+You can change the contents of the card by passing the `item` prop.
+
+<Preview>
+  <Story name="Item">
+    <RepositoryCard
+      item={{
+        name: 'composerisation',
+        description: 'Converts commands between docker run and docker compose.',
+        link: '/project/composerisation',
+        stars: 1,
+        url: 'https://gitlab.com/hmajid2301/composerisation',
+      }}
+    />
+  </Story>
+</Preview>

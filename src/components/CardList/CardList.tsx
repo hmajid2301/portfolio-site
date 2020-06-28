@@ -7,9 +7,13 @@ import tw from 'twin.macro';
 import { ProgramTags as Tags } from '~/components/ProgramTags';
 
 export interface Props {
+  /** The colour of main text. */
   color?: string;
+  /** The items to show in the post. */
   items: Item[];
+  /** The number of item per row. */
   rowSize?: number;
+  /** The text color of the main text. */
   textColor?: string;
 }
 
@@ -39,7 +43,7 @@ const CardList = ({
   <Container>
     <Content>
       <ColumnContainer>
-        {items.map(item => (
+        {items.map((item) => (
           <Column
             key={item.title}
             className={`lg:w-1/${rowSize}`}
@@ -63,7 +67,7 @@ const CardList = ({
                   <MetaContainer>
                     <Meta>
                       {item.tags &&
-                        item.tags.map(category => (
+                        item.tags.map((category) => (
                           <Tags key={category} text={category} />
                         ))}
                     </Meta>
@@ -98,7 +102,7 @@ const Card = styled(motion.div)`
 `;
 
 const Image = styled(motion.div)<{ image: string }>`
-  background-image: url("${props => props.image}");
+  background-image: url("${(props) => props.image}");
   ${tw`bg-cover bg-center h-64 rounded`}
 `;
 

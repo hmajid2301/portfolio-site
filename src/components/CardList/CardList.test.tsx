@@ -39,7 +39,7 @@ describe('<CardList />', () => {
       );
       expect(cardContainer.className).toContain('text-gray-700');
 
-      items.forEach(item => {
+      items.forEach((item) => {
         const { getAllByText } = render(<CardList items={items} />);
         const title = getAllByText(item.title);
         expect(title).toBeTruthy();
