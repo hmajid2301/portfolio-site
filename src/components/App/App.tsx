@@ -1,5 +1,5 @@
-import React, { ReactNode } from 'react';
 import { ThemeProvider } from 'emotion-theming';
+import React, { ReactNode } from 'react';
 
 import { theme } from '~/styles';
 

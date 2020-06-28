@@ -1,12 +1,12 @@
 import styled from '@emotion/styled';
 import { Link } from 'gatsby';
 import React from 'react';
-import tw from 'twin.macro';
 import {
   AiOutlineCompass as Compass,
   AiOutlineStar as Star,
 } from 'react-icons/ai';
 import { RiGitlabLine as GitLab } from 'react-icons/ri';
+import tw from 'twin.macro';
 
 export interface Props {
   /** The colour of the title and the meta items. */

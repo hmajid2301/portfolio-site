@@ -1,7 +1,6 @@
-import React, { ReactElement, ComponentProps, FunctionComponent } from 'react';
-
-import { ThemeProvider } from 'emotion-theming';
 import { render } from '@testing-library/react';
+import { ThemeProvider } from 'emotion-theming';
+import React, { ReactElement, ComponentProps, FunctionComponent } from 'react';
 
 import { theme } from '~/styles';
 

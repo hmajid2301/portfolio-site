@@ -1,7 +1,8 @@
 import React from 'react';
-import { render } from 'test-utils';
 
 import Intro from './Intro';
+
+import { render } from 'test-utils';
 
 describe('<Intro />', () => {
   describe('Default Intro', () => {

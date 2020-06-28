@@ -1,9 +1,9 @@
 import styled from '@emotion/styled';
-import { Link } from 'gatsby';
 import { motion } from 'framer-motion';
-import { TiThMenu as MenuIcon } from 'react-icons/ti';
-import { RiCloseLine as CloseIcon } from 'react-icons/ri';
+import { Link } from 'gatsby';
 import React from 'react';
+import { RiCloseLine as CloseIcon } from 'react-icons/ri';
+import { TiThMenu as MenuIcon } from 'react-icons/ti';
 import tw from 'twin.macro';
 
 import useAnimatedNavToggler from '~/helpers/useAnimatedNavToggler';

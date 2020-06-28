@@ -1,7 +1,8 @@
 import React from 'react';
-import { render } from 'test-utils';
 
 import CardList from './CardList';
+
+import { render } from 'test-utils';
 
 const items = [
   {

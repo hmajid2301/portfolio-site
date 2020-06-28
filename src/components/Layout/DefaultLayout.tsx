@@ -1,6 +1,6 @@
 /* eslint-disable react/jsx-props-no-spreading */
-import React from 'react';
 import { css } from '@emotion/core';
+import React from 'react';
 
 type Props = {};
 

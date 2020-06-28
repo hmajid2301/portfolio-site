@@ -1,6 +1,6 @@
+import { Location } from '@reach/router';
 import React from 'react';
 import Helmet, { HelmetProps } from 'react-helmet';
-import { Location } from '@reach/router';
 
 type Props = {
   /** Description text for the description meta tags */

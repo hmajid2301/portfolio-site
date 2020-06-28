@@ -1,5 +1,5 @@
-import { useState } from 'react';
 import { useAnimation, useCycle } from 'framer-motion';
+import { useState } from 'react';
 
 export default function useAnimatedNavToggler() {
   const [showNavLinks, setShowNavLinks] = useState(false);

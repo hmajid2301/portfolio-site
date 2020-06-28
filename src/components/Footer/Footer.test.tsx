@@ -5,9 +5,10 @@ import {
   AiFillMediumCircle as Medium,
 } from 'react-icons/ai';
 import { FaDev as Dev } from 'react-icons/fa';
-import { render } from 'test-utils';
 
 import Footer, { SocialButton } from './Footer';
+
+import { render } from 'test-utils';
 
 const social = [
   {

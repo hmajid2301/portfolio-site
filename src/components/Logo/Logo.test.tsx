@@ -1,7 +1,8 @@
 import React from 'react';
-import { render } from 'test-utils';
 
 import Logo, { Props } from './Logo';
+
+import { render } from 'test-utils';
 
 describe('<Logo />', () => {
   describe('Default Logo', () => {

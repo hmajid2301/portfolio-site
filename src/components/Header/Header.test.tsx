@@ -1,8 +1,10 @@
 import React from 'react';
+
+import Header from './Header';
+
 import { render } from 'test-utils';
 
 import { Logo } from '~/components/Logo';
-import Header from './Header';
 
 describe('<Header />', () => {
   describe('Default Header', () => {

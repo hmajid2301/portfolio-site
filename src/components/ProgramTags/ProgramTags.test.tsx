@@ -1,7 +1,8 @@
 import React from 'react';
-import { render } from 'test-utils';
 
 import ProgramTags from './ProgramTags';
+
+import { render } from 'test-utils';
 
 describe('<ProgramTags />', () => {
   describe('Props: Text', () => {
