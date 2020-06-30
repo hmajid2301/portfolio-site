@@ -1,20 +1,28 @@
 import { Meta, Story, Preview, Props } from '@storybook/addon-docs/blocks';
 
 import { Logo } from '~/components/Logo';
+import { theme } from '~/styles';
 import Header from './Header';
-
 
 <Meta title="Header" component={Header} />
 
 # Header
 
 <Preview>
-  <Story name="Basic"
-  args={{links: ["Home", "Blog", "Projects", "Open Source"],
-  }}>
-    {(args) => <Header logo={<div className="flex items-center">
-              <Logo accent="blue-500" text="Haseeb" />
-            </div>}  {...args}/>}
+  <Story
+    name="Basic"
+    args={{ links: ['Home', 'Blog', 'Projects', 'Open Source'] }}
+  >
+    {(args) => (
+      <Header
+        logo={
+          <div className="flex items-center">
+            <Logo accent="blue-500" text="Haseeb" />
+          </div>
+        }
+        {...args}
+      />
+    )}
   </Story>
 </Preview>
 
@@ -164,14 +172,27 @@ You can change the links shown by passing the `link` prop.
         logo={<Logo text="Haseeb" />}
         links={['Home', 'Blog', 'Project', 'Open Source']}
       />
-      <Header
-        logo={<Logo text="Haseeb" />}
-        links={['Link1']}
-      />
+      <Header logo={<Logo text="Haseeb" />} links={['Link1']} />
       <Header
         logo={<Logo text="Haseeb" />}
         links={['Home', 'Products', 'Pricing', 'Contact Us']}
       />
     </div>
+  </Story>
+</Preview>
+
+## Dark Mode
+
+Example dark mode component.
+
+<Preview>
+  <Story name="Dark Mode">
+    <Header
+      background="gray-800"
+      linkColor={theme.dark.text}
+      logo={<Logo accent="gray-100" color="white" text="Haseeb" />}
+      links={['Home', 'Products', 'Pricing', 'Contact Us']}
+    />
+    >
   </Story>
 </Preview>

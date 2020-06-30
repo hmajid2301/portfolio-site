@@ -116,7 +116,7 @@ module.exports = {
         // Makes no sense to allow type inferrence for expression parameters, but require typing the response
         '@typescript-eslint/explicit-function-return-type': 0,
         // Reduce props spreading rule to a warning, not an error
-        'react/jsx-props-no-spreading': 1,
+        'react/jsx-props-no-spreading': 0,
         'import/order': [
           'error',
           {

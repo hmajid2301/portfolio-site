@@ -1,6 +1,6 @@
 import styled from '@emotion/styled';
 import { motion } from 'framer-motion';
-import { Link } from 'gatsby';
+import { Link as Card } from 'gatsby';
 import React from 'react';
 import tw from 'twin.macro';
 
@@ -44,7 +44,7 @@ const MainCard = ({
     animate="rest"
     data-testid="Container"
   >
-    <Link to={item.link}>
+    <Card to={item.link}>
       <Image
         image={item.image}
         transition={{ duration: 0.3 }}
@@ -57,7 +57,7 @@ const MainCard = ({
           {item.description}
         </MainText>
       </OverlayContainer>
-    </Link>
+    </Card>
   </Container>
 );
 

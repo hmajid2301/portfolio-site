@@ -6,38 +6,39 @@ import {
 } from 'react-icons/ai';
 import { FaDev as Dev } from 'react-icons/fa';
 
-import { Logo } from '~/components/Logo';
+import { theme } from '~/styles';
 import Footer from './Footer';
-
 
 <Meta title="Footer" component={Footer} />
 
 # Footer
 
 <Preview>
-  <Story name="Basic"
+  <Story
+    name="Basic"
     args={{
-      links: ["Home", "Blog", "Projects", "Open Source"],
+      links: ['Home', 'Blog', 'Projects', 'Open Source'],
       socialButtons: [
         {
           icon: <Github />,
-          url: "https://github.com/hmajid2301"
+          url: 'https://github.com/hmajid2301',
         },
         {
           icon: <Gitlab />,
-          url: "https://gitlab.com/hmajid2301"
+          url: 'https://gitlab.com/hmajid2301',
         },
         {
           icon: <Medium />,
-          url: "https://medium.com/@hmajid2301"
+          url: 'https://medium.com/@hmajid2301',
         },
         {
           icon: <Dev />,
-          url: "https://dev.to/hmajid2301"
+          url: 'https://dev.to/hmajid2301',
         },
-      ]
-  }}>
-    {(args) => <Footer {...args}/>}
+      ],
+    }}
+  >
+    {(args) => <Footer {...args} />}
   </Story>
 </Preview>
 
@@ -49,25 +50,25 @@ You can adjust the background colour of the footer by passing the `background` p
 
 <Preview>
   <Story name="Background">
-    <Footer 
+    <Footer
       background="white"
-      links={["Home", "Blog", "Projects", "Open Source"]}
+      links={['Home', 'Blog', 'Projects', 'Open Source']}
       socialButtons={[
         {
           icon: <Github />,
-          url: "https://github.com/hmajid2301"
+          url: 'https://github.com/hmajid2301',
         },
         {
           icon: <Gitlab />,
-          url: "https://gitlab.com/hmajid2301"
+          url: 'https://gitlab.com/hmajid2301',
         },
         {
           icon: <Medium />,
-          url: "https://medium.com/@hmajid2301"
+          url: 'https://medium.com/@hmajid2301',
         },
         {
           icon: <Dev />,
-          url: "https://dev.to/hmajid2301"
+          url: 'https://dev.to/hmajid2301',
         },
       ]}
     />
@@ -80,25 +81,25 @@ You can change the hover colour of the link text by passing the `hoverColor` pro
 
 <Preview>
   <Story name="Hover Colour">
-    <Footer 
+    <Footer
       hoverColor="purple-500"
-      links={["Home", "Blog", "Projects", "Open Source"]}
+      links={['Home', 'Blog', 'Projects', 'Open Source']}
       socialButtons={[
         {
           icon: <Github />,
-          url: "https://github.com/hmajid2301"
+          url: 'https://github.com/hmajid2301',
         },
         {
           icon: <Gitlab />,
-          url: "https://gitlab.com/hmajid2301"
+          url: 'https://gitlab.com/hmajid2301',
         },
         {
           icon: <Medium />,
-          url: "https://medium.com/@hmajid2301"
+          url: 'https://medium.com/@hmajid2301',
         },
         {
           icon: <Dev />,
-          url: "https://dev.to/hmajid2301"
+          url: 'https://dev.to/hmajid2301',
         },
       ]}
     />
@@ -111,25 +112,25 @@ You can colour of the text `color` prop.
 
 <Preview>
   <Story name="Colour">
-    <Footer 
+    <Footer
       color="green-700"
-      links={["Home", "Blog", "Projects", "Open Source"]}
+      links={['Home', 'Blog', 'Projects', 'Open Source']}
       socialButtons={[
         {
           icon: <Github />,
-          url: "https://github.com/hmajid2301"
+          url: 'https://github.com/hmajid2301',
         },
         {
           icon: <Gitlab />,
-          url: "https://gitlab.com/hmajid2301"
+          url: 'https://gitlab.com/hmajid2301',
         },
         {
           icon: <Medium />,
-          url: "https://medium.com/@hmajid2301"
+          url: 'https://medium.com/@hmajid2301',
         },
         {
           icon: <Dev />,
-          url: "https://dev.to/hmajid2301"
+          url: 'https://dev.to/hmajid2301',
         },
       ]}
     />
@@ -142,24 +143,24 @@ You can change the links shown by passing the `link` prop.
 
 <Preview>
   <Story name="Links">
-    <Footer 
+    <Footer
       links={['Home', 'Products', 'Pricing', 'Contact Us']}
       socialButtons={[
         {
           icon: <Github />,
-          url: "https://github.com/hmajid2301"
+          url: 'https://github.com/hmajid2301',
         },
         {
           icon: <Gitlab />,
-          url: "https://gitlab.com/hmajid2301"
+          url: 'https://gitlab.com/hmajid2301',
         },
         {
           icon: <Medium />,
-          url: "https://medium.com/@hmajid2301"
+          url: 'https://medium.com/@hmajid2301',
         },
         {
           icon: <Dev />,
-          url: "https://dev.to/hmajid2301"
+          url: 'https://dev.to/hmajid2301',
         },
       ]}
     />
@@ -172,18 +173,52 @@ You can change the social buttons shown by passing the `socialButtons` prop.
 
 <Preview>
   <Story name="SocialButtons">
-    <Footer 
+    <Footer
       links={['Home', 'Products', 'Pricing', 'Contact Us']}
       socialButtons={[
         {
           icon: <Github />,
-          url: "https://github.com/hmajid2301"
+          url: 'https://github.com/hmajid2301',
         },
         {
           icon: <Dev />,
-          url: "https://dev.to/hmajid2301"
+          url: 'https://dev.to/hmajid2301',
         },
       ]}
     />
+  </Story>
+</Preview>
+
+## Dark Mode
+
+Example dark mode component.
+
+<Preview>
+  <Story name="Dark Mode">
+    <div class={`bg-${theme.dark.background}`}>
+      <Footer
+        color={theme.dark.text}
+        background="gray-800"
+        links={['Home', 'Products', 'Pricing', 'Contact Us']}
+        socialButtons={[
+          {
+            icon: <Github />,
+            url: 'https://github.com/hmajid2301',
+          },
+          {
+            icon: <Gitlab />,
+            url: 'https://gitlab.com/hmajid2301',
+          },
+          {
+            icon: <Medium />,
+            url: 'https://medium.com/@hmajid2301',
+          },
+          {
+            icon: <Dev />,
+            url: 'https://dev.to/hmajid2301',
+          },
+        ]}
+      />
+    </div>
   </Story>
 </Preview>

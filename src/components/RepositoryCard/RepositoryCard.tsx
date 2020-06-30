@@ -30,10 +30,10 @@ export type Item = {
 };
 
 const RepositoryCard = ({
-  accent = 'blue-500',
+  accent = 'gray-700',
   background = 'white',
   color = 'gray-800',
-  hover = 'gray-700',
+  hover = 'blue-500',
   item,
 }: Props) => {
   const itemClass = `text-${accent} hover:text-${hover}`;

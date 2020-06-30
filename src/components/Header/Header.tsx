@@ -74,30 +74,27 @@ const Header = ({
 
       <MobileNavContainer className={`${collapseBreakpointClass}:hidden `}>
         {Logo}
-        <MobileNavLinksContainer
-          css={collapseBreakpointCss.mobileNavLinksContainer}
+        <MobileNavLinks
+          initial={{ x: '150%', display: 'none' }}
+          animate={animation}
+          css={collapseBreakpointCss.mobileNavLinks}
+          className={`bg-${background}`}
         >
-          <MobileNavLinks
-            initial={{ x: '150%', display: 'none' }}
-            animate={animation}
-            css={collapseBreakpointCss.mobileNavLinks}
-          >
-            <NavLinks>{getMobileNavLink(links, hoverColor)}</NavLinks>
-          </MobileNavLinks>
-          <NavToggle
-            className={`hocus:text-${hoverColor} ${
-              showNavLinks ? 'open' : 'closed'
-            }`}
-            onClick={toggleNavbar}
-            type="button"
-          >
-            {showNavLinks ? (
-              <CloseIcon className="w-5 h-5" />
-            ) : (
-              <MenuIcon className="w-5 h-5" />
-            )}
-          </NavToggle>
-        </MobileNavLinksContainer>
+          <NavLinks>{getMobileNavLink(links, hoverColor)}</NavLinks>
+        </MobileNavLinks>
+        <NavToggle
+          className={`hocus:text-${hoverColor} ${
+            showNavLinks ? 'open' : 'closed'
+          }`}
+          onClick={toggleNavbar}
+          type="button"
+        >
+          {showNavLinks ? (
+            <CloseIcon className="w-5 h-5" />
+          ) : (
+            <MenuIcon className="w-5 h-5" />
+          )}
+        </NavToggle>
       </MobileNavContainer>
     </HeaderContainer>
   );
@@ -132,10 +129,8 @@ const getNavLink = (links: string[], hoverColor: string) => {
 
 const MobileNavContainer = tw.div`flex flex-wrap w-full justify-between lg:hidden`;
 
-const MobileNavLinksContainer = tw.nav`flex`;
-
 const MobileNavLinks = motion.custom(styled.div`
-  ${tw`fixed top-0 left-0 inset-x-0 p-8 max-h-full`}
+  ${tw`lg:hidden z-10 fixed top-0 inset-x-0 mx-4 my-6 p-8 border text-center rounded-lg text-gray-900 `}
 
   ${NavLinks} {
     ${tw`flex flex-col items-start`}
@@ -148,7 +143,7 @@ const getMobileNavLink = (links: string[], hoverColor: string) => {
   const NavLink = links.map((link) => (
     <Link
       className={`text-lg my-2 font-semibold tracking-wide transition duration-100
-      pb-1 hocus:text-${hoverColor} hover:text-${hoverColor}`}
+      pb-1 border-b-2 border-transparent hover:border-${hoverColor} hocus:text-${hoverColor} hover:text-${hoverColor}`}
       to={`/${link}`}
       key={link}
     >

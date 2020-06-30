@@ -1,0 +1,130 @@
+import { Meta, Story, Preview, Props } from '@storybook/addon-docs/blocks';
+
+import { theme } from '~/styles';
+import BlogCard from './BlogCard';
+
+<Meta title="BlogCard" component={BlogCard} />
+
+# BlogCard
+
+<Preview>
+  <Story
+    name="Basic"
+    args={{
+      item: {
+        tags: ['react', 'gatsby'],
+        date: '10 May 2020',
+        image:
+          'https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=640&q=80',
+        title: 'Tips on how to travel safely in foreign countries',
+        url: 'https://timerse.com',
+      },
+    }}
+  >
+    {(args) => <BlogCard {...args} />}
+  </Story>
+</Preview>
+
+<Props story="Basic" />
+
+## Background
+
+You can adjust the background colour of the card by passing the `background` prop.
+
+<Preview>
+  <Story name="Background">
+    <BlogCard
+      background="gray-300"
+      item={{
+        tags: ['react', 'gatsby'],
+        date: '10 May 2020',
+        image:
+          'https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=640&q=80',
+        title: 'Tips on how to travel safely in foreign countries',
+        url: 'https://timerse.com',
+      }}
+    />
+  </Story>
+</Preview>
+
+## Color
+
+You can adjust the primary colour of the component by passing the `color` prop.
+
+<Preview>
+  <Story name="Color">
+    <BlogCard
+      color="indigo-500"
+      item={{
+        tags: ['react', 'gatsby'],
+        date: '10 May 2020',
+        image:
+          'https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=640&q=80',
+        title: 'Tips on how to travel safely in foreign countries',
+        url: 'https://timerse.com',
+      }}
+    />
+  </Story>
+</Preview>
+
+## Item
+
+You can adjust the posts shown by passing the `item` prop.
+
+<Preview>
+  <Story name="Item">
+    <BlogCard
+      item={{
+        date: '10 January 2020',
+        tags: ['python', 'javascript'],
+        image:
+          'https://images.unsplash.com/photo-1592848386144-04df6ee54ff8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=640&q=80',
+        title: 'Enjoying the beach life while on a vacation',
+        url: 'https://reddit.com',
+      }}
+    />
+  </Story>
+</Preview>
+
+## Text Color
+
+You can adjust the main header text colour of the component by passing the `textColor` prop.
+
+<Preview>
+  <Story name="Text Color">
+    <BlogCard
+      color="indigo-500"
+      item={{
+        date: '10 March 2020',
+        tags: ['angular', 'python'],
+        image:
+          'https://images.unsplash.com/photo-1563784462041-5f97ac9523dd?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=640&q=80',
+        title: 'Enjoying the beach life while on a vacation',
+        url: 'https://reddit.com',
+      }}
+    />
+  </Story>
+</Preview>
+
+## Dark Mode
+
+Example dark mode component.
+
+<Preview>
+  <Story name="Dark Mode">
+    <div class={`bg-${theme.dark.background} p-5`}>
+      <BlogCard
+        background="gray-800"
+        textColor={theme.dark.text}
+        item={{
+          date: '10 March 2020',
+          tags: ['angular', 'python'],
+          image:
+            'https://images.unsplash.com/photo-1563784462041-5f97ac9523dd?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=640&q=80',
+          title: 'Enjoying the beach life while on a vacation',
+          url: 'https://reddit.com',
+        }}
+      />
+    </div>
+  </Story>
+</Preview>

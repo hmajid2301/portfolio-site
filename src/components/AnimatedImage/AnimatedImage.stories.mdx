@@ -1,0 +1,60 @@
+import { Meta, Story, Preview, Props } from '@storybook/addon-docs/blocks';
+
+import AnimatedImage from './AnimatedImage';
+import AnimatedCard from '~/helpers/hoc/AnimatedCard';
+
+<Meta title="AnimatedImage" component={AnimatedImage} />
+
+# AnimatedImage
+
+<Preview>
+  <Story
+    name="Basic"
+    args={{
+      image:
+        'https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=700&h=400',
+    }}
+  >
+    {(args) => (
+      <AnimatedCard>
+        <AnimatedImage {...args} />
+      </AnimatedCard>
+    )}
+  </Story>
+</Preview>
+
+<Props story="Basic" />
+
+## Transition
+
+You can timing of the animation by passing the `transition` prop.
+
+<Preview>
+  <Story name="Text Background">
+    <AnimatedCard>
+      <AnimatedImage
+        transition={1}
+        image={
+          'https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=700&h=400'
+        }
+      />
+    </AnimatedCard>
+    />
+  </Story>
+</Preview>
+
+## Image
+
+You can change the image shown passing the `image` prop.
+
+<Preview>
+  <Story name="Image">
+    <AnimatedCard>
+      <AnimatedImage
+        image={
+          'https://images.unsplash.com/photo-1593338717285-fc56ada95667?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=700&h=400'
+        }
+      />
+    </AnimatedCard>
+  </Story>
+</Preview>

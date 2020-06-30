@@ -1,5 +1,6 @@
 import { Meta, Story, Preview, Props } from '@storybook/addon-docs/blocks';
 
+import { theme } from '~/styles';
 import RepositoryCard from './RepositoryCard';
 
 <Meta title="RepositoryCard" component={RepositoryCard} />
@@ -11,11 +12,12 @@ import RepositoryCard from './RepositoryCard';
     name="Basic"
     args={{
       item: {
-        name: "stegappasaurus",
-        description: "An mobile app, created using React Native. Uses steganography to hide messages in images.",
-        link: "/project/stegappasaurus",
+        name: 'stegappasaurus',
+        description:
+          'An mobile app, created using React Native. Uses steganography to hide messages in images.',
+        link: '/project/stegappasaurus',
         stars: 4,
-        url: "https://gitlab.com/hmajid2301/stegappasaurus",
+        url: 'https://gitlab.com/hmajid2301/stegappasaurus',
       },
     }}
   >
@@ -112,6 +114,27 @@ You can change the contents of the card by passing the `item` prop.
 <Preview>
   <Story name="Item">
     <RepositoryCard
+      item={{
+        name: 'composerisation',
+        description: 'Converts commands between docker run and docker compose.',
+        link: '/project/composerisation',
+        stars: 1,
+        url: 'https://gitlab.com/hmajid2301/composerisation',
+      }}
+    />
+  </Story>
+</Preview>
+
+## Dark Mode
+
+Example dark mode component.
+
+<Preview>
+  <Story name="Dark Mode">
+    <RepositoryCard
+      accent="gray-200"
+      background={theme.dark.background}
+      color={theme.dark.text}
       item={{
         name: 'composerisation',
         description: 'Converts commands between docker run and docker compose.',

@@ -40,6 +40,7 @@ const Footer = ({
               aria-label={`Opens link to ${link} page`}
               className={`hover:text-${hoverColor} hover:border-${hoverColor}`}
               to={`/${link}`}
+              key={link}
             >
               {link}
             </FooterLink>
@@ -50,6 +51,7 @@ const Footer = ({
             <SocialLink
               aria-label={`Opens link to ${button.icon} page`}
               className={`hover:text-${hoverColor} text-${color}`}
+              key={button.url}
               target="_blank"
               href={button.url}
               data-testid={`Button-${button.url}`}
@@ -66,7 +68,7 @@ const Footer = ({
   </Container>
 );
 
-const Container = tw.div`-mx-8 -mb-8 font-header`;
+const Container = tw.div`-mx-4 md:-mx-8 -mb-8 font-header`;
 
 const Content = tw.div`max-w-screen-xl mx-auto py-20 lg:py-24`;
 
@@ -75,7 +77,7 @@ const Row = tw.div`flex items-center justify-center flex-col px-8`;
 const LinksContainer = tw.div`mt-8 font-medium flex flex-wrap justify-center items-center flex-col sm:flex-row`;
 
 const FooterLink = styled(Link)`
-  ${tw`border-b-2 border-transparent pb-1 transition duration-300 mt-2 mx-4`}
+  ${tw`border-b-2 border-transparent pb-1 transition duration-300 md:mt-2 md:mx-4`}
 `;
 
 const SocialLinksContainer = tw.div`mt-10`;

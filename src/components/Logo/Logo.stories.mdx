@@ -1,5 +1,6 @@
 import { Meta, Story, Preview, Props } from '@storybook/addon-docs/blocks';
 
+import { theme } from '~/styles';
 import Logo from './Logo';
 
 <Meta title="Logo" component={Logo} />
@@ -10,7 +11,7 @@ import Logo from './Logo';
   <Story
     name="Basic"
     args={{
-      text: "Haseeb",
+      text: 'Haseeb',
     }}
   >
     {(args) => <Logo {...args} />}
@@ -91,14 +92,19 @@ You can also adjust the size of the logo by passing the `size` prop.
   </Story>
 </Preview>
 
-## Dark
+## Dark Mode
 
-Example dark component.
+Example dark mode component.
 
 <Preview>
   <Story name="Dark Mode">
     <div class={`bg-${theme.dark.background} p-5`}>
-      <Logo accent="gray-300" color="white" hoverColor="gray-500" text="Haseeb" />
+      <Logo
+        accent="gray-500"
+        color={theme.dark.text}
+        hoverColor={theme.colors.primary}
+        text="Haseeb"
+      />
     </div>
   </Story>
 </Preview>
