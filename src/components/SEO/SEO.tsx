@@ -23,17 +23,17 @@ const SEO: React.FC<Props> = ({ children, description = '', title }) => {
           title={title}
           titleTemplate="%s | Website"
         >
-          <meta property="description" content={metaDescription} />
+          <meta content={metaDescription} property="description" />
 
           {/* OG tags */}
           <meta
-            property="og:url"
             content={process.env.GATSBY_SITE_URL + location.pathname}
+            property="og:url"
           />
-          <meta property="og:type" content="website" />
-          <meta property="og:title" content={title} />
-          <meta property="og:description" content={metaDescription} />
-          <meta property="og:locale" content="en-uk" />
+          <meta content="website" property="og:type" />
+          <meta content={title} property="og:title" />
+          <meta content={metaDescription} property="og:description" />
+          <meta content="en-uk" property="og:locale" />
           <link
             href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap"
             rel="stylesheet"

@@ -43,7 +43,7 @@ const ProgramTags = ({ text }: Props) => {
   const language = languages[text] || defaultLangauge;
 
   return (
-    <TagContainer href={`/tags/${text}`} data-testid="TagContainer">
+    <TagContainer data-testid="TagContainer" href={`/tags/${text}`}>
       <TextContainer background={language.background} color={language.color}>
         #{text}
       </TextContainer>

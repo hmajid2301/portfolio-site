@@ -26,8 +26,8 @@ const Intro = ({
 }: Props) => (
   <IntroContainer className={`bg-${background}`} data-testid="IntroContainer">
     <TextContainer
-      cursor={{ show: false }}
       className={`text-${color}`}
+      cursor={{ show: false }}
       data-testid="TextContainer"
     >
       <MainText>{text}</MainText>

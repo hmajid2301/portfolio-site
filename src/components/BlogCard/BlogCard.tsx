@@ -41,17 +41,17 @@ const BlogCard = ({
   textColor = 'gray-700',
 }: Props) => (
   <Container
-    initial="rest"
-    whileHover="hover"
     animate="rest"
     className={`group text-${textColor} hover:text-${color} bg-${background}`}
     data-testid={`Card-${item.title}`}
+    initial="rest"
+    whileHover="hover"
   >
     <Card to={item.url}>
       <Image
+        image={item.image}
         transition={{ duration: 0.3 }}
         variants={postBackgroundSizeAnimation}
-        image={item.image}
       />
       <Details className={`border-${background}`}>
         <Title>{item.title}</Title>

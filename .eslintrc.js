@@ -117,6 +117,7 @@ module.exports = {
         '@typescript-eslint/explicit-function-return-type': 0,
         // Reduce props spreading rule to a warning, not an error
         'react/jsx-props-no-spreading': 0,
+        'react/jsx-sort-props': 1,
         'import/order': [
           'error',
           {

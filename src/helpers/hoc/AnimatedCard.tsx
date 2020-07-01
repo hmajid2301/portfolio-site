@@ -13,11 +13,11 @@ export interface Props {
 
 const AnimatedCard = ({ className, children, testId }: Props) => (
   <Card
-    initial="rest"
-    whileHover="hover"
     animate="rest"
     className={className}
     data-testid={testId}
+    initial="rest"
+    whileHover="hover"
   >
     {children}
   </Card>

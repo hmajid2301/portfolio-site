@@ -52,7 +52,7 @@ describe('<MainCard />', () => {
       ['black', 'bg-black'],
     ])('Render with %i color', (color: string, expectedClass: string) => {
       const { getByText } = render(
-        <MainCard textBackground={color} item={item} />
+        <MainCard item={item} textBackground={color} />
       );
       const header = getByText('stegappasaurus');
       expect(header.className).toContain(expectedClass);

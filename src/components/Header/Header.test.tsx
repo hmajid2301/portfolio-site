@@ -11,7 +11,7 @@ describe('<Header />', () => {
     test('Render with default nav bar', () => {
       const links = ['Link1', 'Link2', 'Link3'];
       const { getAllByText } = render(
-        <Header logo={<div>Logo</div>} links={links} />
+        <Header links={links} logo={<div>Logo</div>} />
       );
 
       links.forEach((link) => {
@@ -37,8 +37,8 @@ describe('<Header />', () => {
         const { getByTestId } = render(
           <Header
             background={background}
-            logo={<div>Logo</div>}
             links={links}
+            logo={<div>Logo</div>}
           />
         );
 
@@ -65,9 +65,9 @@ describe('<Header />', () => {
         const links = ['Link1', 'Link2', 'Link3'];
         const { getAllByText } = render(
           <Header
-            logo={<div>Logo</div>}
-            links={links}
             hoverColor={hoverColor}
+            links={links}
+            logo={<div>Logo</div>}
           />
         );
 
@@ -96,7 +96,7 @@ describe('<Header />', () => {
       (logoComp: React.ReactNode, searchString: string) => {
         const links = ['Link1', 'Link2', 'Link3'];
         const { getAllByText } = render(
-          <Header logo={logoComp} links={links} />
+          <Header links={links} logo={logoComp} />
         );
 
         const logos = getAllByText(searchString);
@@ -114,7 +114,7 @@ describe('<Header />', () => {
       'Render with %i links',
       (links: string[]) => {
         const { getAllByText } = render(
-          <Header logo={<div>Haseeb</div>} links={links} />
+          <Header links={links} logo={<div>Haseeb</div>} />
         );
 
         links.forEach((link) => {
@@ -135,7 +135,7 @@ describe('<Header />', () => {
         const links = ['Link1', 'Link2', 'Link3'];
 
         const { getByTestId } = render(
-          <Header logo={<div>Logo</div>} links={links} linkColor={linkColor} />
+          <Header linkColor={linkColor} links={links} logo={<div>Logo</div>} />
         );
 
         const header = getByTestId('Header');

@@ -64,9 +64,9 @@ const Header = ({
       data-testid="Header"
     >
       <DesktopNavLinks
-        role="navigation"
         aria-label="nav"
         css={collapseBreakpointCss.desktopNavLinks}
+        role="navigation"
       >
         {Logo}
         <NavLinks>{getNavLink(links, hoverColor)}</NavLinks>
@@ -75,10 +75,10 @@ const Header = ({
       <MobileNavContainer className={`${collapseBreakpointClass}:hidden `}>
         {Logo}
         <MobileNavLinks
-          initial={{ x: '150%', display: 'none' }}
           animate={animation}
-          css={collapseBreakpointCss.mobileNavLinks}
           className={`bg-${background}`}
+          css={collapseBreakpointCss.mobileNavLinks}
+          initial={{ x: '150%', display: 'none' }}
         >
           <NavLinks>{getMobileNavLink(links, hoverColor)}</NavLinks>
         </MobileNavLinks>
@@ -115,10 +115,10 @@ const NavLinks = styled.div`
 const getNavLink = (links: string[], hoverColor: string) => {
   const NavLink = links.map((link) => (
     <Link
+      key={link}
       className={`text-lg my-2 lg:text-sm lg:mx-6 lg:my-0 font-semibold tracking-wide transition duration-300
       pb-1 border-b-2 border-transparent hover:border-${hoverColor} hocus:text-${hoverColor} hover:text-${hoverColor}`}
       to={`/${link}`}
-      key={link}
     >
       {link}
     </Link>
@@ -142,10 +142,10 @@ const NavToggle = tw.button`z-10 lg:hidden focus:outline-none transition duratio
 const getMobileNavLink = (links: string[], hoverColor: string) => {
   const NavLink = links.map((link) => (
     <Link
+      key={link}
       className={`text-lg my-2 font-semibold tracking-wide transition duration-100
       pb-1 border-b-2 border-transparent hover:border-${hoverColor} hocus:text-${hoverColor} hover:text-${hoverColor}`}
       to={`/${link}`}
-      key={link}
     >
       {link}
     </Link>

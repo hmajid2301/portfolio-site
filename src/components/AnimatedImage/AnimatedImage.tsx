@@ -21,10 +21,10 @@ const postBackgroundSizeAnimation = {
 
 const AnimatedImage = ({ transition = 0.3, image }: Props) => (
   <Image
+    data-testid="Image"
     image={image}
     transition={{ duration: transition }}
     variants={postBackgroundSizeAnimation}
-    data-testid="Image"
   />
 );
 

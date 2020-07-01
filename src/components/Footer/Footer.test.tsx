@@ -81,8 +81,8 @@ describe('<Footer />', () => {
         const links = ['Link1', 'Link2', 'Link3'];
         const { getAllByText } = render(
           <Footer
-            links={links}
             hoverColor={hoverColor}
+            links={links}
             socialButtons={social}
           />
         );

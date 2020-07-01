@@ -38,11 +38,11 @@ const MainCard = ({
   item,
 }: Props) => (
   <Container
+    animate="rest"
     className={`group text-${color}`}
+    data-testid="Container"
     initial="rest"
     whileHover="hover"
-    animate="rest"
-    data-testid="Container"
   >
     <Card to={item.link}>
       <Image
