@@ -11,7 +11,7 @@ export interface Props {
   testId?: string;
 }
 
-const AnimatedCard = ({ className, children, testId }: Props) => (
+const AnimatedCard = ({ className, children, testId = 'Container' }: Props) => (
   <Card
     animate="rest"
     className={className}

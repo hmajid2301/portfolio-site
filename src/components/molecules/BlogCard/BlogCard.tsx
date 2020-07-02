@@ -1,10 +1,11 @@
 import styled from '@emotion/styled';
-import { motion } from 'framer-motion';
 import { Link } from 'gatsby';
 import React from 'react';
 import tw from 'twin.macro';
 
-import { ProgramTags as Tags } from '~/components/ProgramTags';
+import { AnimatedCard } from '~/components/atoms/AnimatedCard';
+import { AnimatedImage } from '~/components/atoms/AnimatedImage';
+import { ProgramTags as Tags } from '~/components/atoms/ProgramTags';
 
 export interface Props {
   /** The background color of post. */
@@ -25,15 +26,6 @@ export type Item = {
   url: string;
 };
 
-const postBackgroundSizeAnimation = {
-  rest: {
-    backgroundSize: '100%',
-  },
-  hover: {
-    backgroundSize: '110%',
-  },
-};
-
 const BlogCard = ({
   background = 'gray-100',
   color = 'blue-500',
@@ -41,18 +33,11 @@ const BlogCard = ({
   textColor = 'gray-700',
 }: Props) => (
   <Container
-    animate="rest"
     className={`group text-${textColor} hover:text-${color} bg-${background}`}
     data-testid={`Card-${item.title}`}
-    initial="rest"
-    whileHover="hover"
   >
     <Card to={item.url}>
-      <Image
-        image={item.image}
-        transition={{ duration: 0.3 }}
-        variants={postBackgroundSizeAnimation}
-      />
+      <AnimatedImage image={item.image} />
       <Details className={`border-${background}`}>
         <Title>{item.title}</Title>
         <MetaContainer>
@@ -67,17 +52,12 @@ const BlogCard = ({
   </Container>
 );
 
-const Container = styled(motion.div)`
+const Container = styled(AnimatedCard)`
   ${tw`lg:mx-4 xl:mx-8 max-w-sm h-full`}
 `;
 
 const Card = styled(Link)`
   ${tw`py-20 lg:py-24`}
-`;
-
-const Image = styled(motion.div)<{ image: string }>`
-  background-image: url("${(props) => props.image}");
-  ${tw`bg-cover bg-center h-64 rounded`}
 `;
 
 const Details = tw.div`p-6 rounded lg:block lg:text-left`;

@@ -1,0 +1,52 @@
+import { Meta, Story, Preview, Props } from '@storybook/addon-docs/blocks';
+
+import Links from './Links';
+
+<Meta title="NavLink" component={NavLink} />
+
+# NavLink
+
+<Preview>
+  <Story
+    name="Basic"
+    args={{
+      color: 'black',
+      link: 'Home',
+      hoverColor: 'blue-500',
+    }}
+  >
+    {(args) => <NavLink {...args} />}
+  </Story>
+</Preview>
+
+<Props story="Basic" />
+
+## Color
+
+You can change the colour of the link text by passing the `color` prop.
+
+<Preview>
+  <Story name="Color">
+    <NavLink color="green-500" link="Home" />
+  </Story>
+</Preview>
+
+## Hover Color
+
+You can change the hover colour of the link text by passing the `hoverColor` prop.
+
+<Preview>
+  <Story name="Hover Color">
+    <NavLink hoverColor="gray-500" link="Home" />
+  </Story>
+</Preview>
+
+## Link
+
+You can change the link text shown by passing the `link` prop.
+
+<Preview>
+  <Story name="Links">
+    <NavLink hoverColor="blue-500" link="Open Source" />
+  </Story>
+</Preview>

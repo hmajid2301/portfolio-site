@@ -4,7 +4,7 @@ import Header from './Header';
 
 import { render } from 'test-utils';
 
-import { Logo } from '~/components/Logo';
+import { Logo } from '~/components/atoms/Logo';
 
 describe('<Header />', () => {
   describe('Default Header', () => {
