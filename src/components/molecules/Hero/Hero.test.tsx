@@ -1,15 +1,15 @@
 import React from 'react';
 
-import Intro from './Intro';
+import Hero from './Hero';
 
 import { render } from 'test-utils';
 
-describe('<Intro />', () => {
+describe('<Hero />', () => {
   describe('Default Intro', () => {
     test('Render with default styles', () => {
-      const { getByTestId } = render(<Intro text="Haseeb" />);
-      const introContainer = getByTestId('IntroContainer');
-      expect(introContainer.className).toContain('bg-white');
+      const { getByTestId } = render(<Hero text="Haseeb" />);
+      const heroContainer = getByTestId('HeroContainer');
+      expect(heroContainer.className).toContain('bg-white');
     });
   });
 
@@ -22,10 +22,10 @@ describe('<Intro />', () => {
       'Render with %i background color',
       (background: string, expectedClass: string) => {
         const { getByTestId } = render(
-          <Intro background={background} text="Haseeb" />
+          <Hero background={background} text="Haseeb" />
         );
-        const introContainer = getByTestId('IntroContainer');
-        expect(introContainer.className).toContain(expectedClass);
+        const heroContainer = getByTestId('HeroContainer');
+        expect(heroContainer.className).toContain(expectedClass);
       }
     );
   });

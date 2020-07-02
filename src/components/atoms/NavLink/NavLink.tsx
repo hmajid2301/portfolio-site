@@ -12,7 +12,6 @@ export interface Props {
 
 const NavLink = ({ color, hoverColor, link }: Props) => (
   <Link
-    key={link}
     className={`border-b-2 border-transparent pb-1 transition duration-300 hover:border-${hoverColor} hover:text-${hoverColor} text-${color}`}
     to={`/${link}`}
   >

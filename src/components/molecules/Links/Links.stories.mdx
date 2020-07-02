@@ -1,0 +1,63 @@
+import { Meta, Story, Preview, Props } from '@storybook/addon-docs/blocks';
+import {
+  AiFillGithub as Github,
+  AiFillGitlab as Gitlab,
+  AiFillMediumCircle as Medium,
+} from 'react-icons/ai';
+import { FaDev as Dev } from 'react-icons/fa';
+
+import { theme } from '~/styles';
+import Links from './Links';
+
+<Meta title="Links" component={Links} />
+
+# Links
+
+<Preview>
+  <Story
+    name="Basic"
+    args={{
+      links: ['Home', 'Blog', 'Projects', 'Open Source'],
+    }}
+  >
+    {(args) => <Links {...args} />}
+  </Story>
+</Preview>
+
+<Props story="Basic" />
+
+## Hover Color
+
+You can change the hover colour of the link text by passing the `hoverColor` prop.
+
+<Preview>
+  <Story name="Hover Colour">
+    <Links
+      hoverColor="purple-500"
+      links={['Home', 'Blog', 'Projects', 'Open Source']}
+    />
+  </Story>
+</Preview>
+
+## Color
+
+You can colour of the text `color` prop.
+
+<Preview>
+  <Story name="Colour">
+    <Links
+      color="green-700"
+      links={['Home', 'Blog', 'Projects', 'Open Source']}
+    />
+  </Story>
+</Preview>
+
+## Links
+
+You can change the links shown by passing the `link` prop.
+
+<Preview>
+  <Story name="Links">
+    <Footer links={['Home', 'Products', 'Pricing', 'Contact Us']} />
+  </Story>
+</Preview>

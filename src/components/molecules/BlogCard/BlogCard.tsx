@@ -34,7 +34,7 @@ const BlogCard = ({
 }: Props) => (
   <Container
     className={`group text-${textColor} hover:text-${color} bg-${background}`}
-    data-testid={`Card-${item.title}`}
+    testId={`Card-${item.title}`}
   >
     <Card to={item.url}>
       <AnimatedImage image={item.image} />

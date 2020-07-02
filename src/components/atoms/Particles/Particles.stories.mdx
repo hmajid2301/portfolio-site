@@ -1,0 +1,34 @@
+import { Meta, Story, Preview, Props } from '@storybook/addon-docs/blocks';
+
+import { theme } from '~/styles';
+import Particles from './Particles';
+
+<Meta title="Particles" component={Particles} />
+
+# Particles
+
+<Preview>
+  <Story
+    name="Basic"
+    args={{
+      color: 'blue-500',
+    }}
+  >
+    {(args) => <Particles {...args} />}
+  </Story>
+</Preview>
+
+<Props story="Basic" />
+
+## Color
+
+You can adjust the particle colour if you pass the `color` prop.
+
+<Preview>
+  <Story name="Particle Color">
+    <div>
+      <Particles color="black" />
+      <Particles color="blue-500" />
+    </div>
+  </Story>
+</Preview>
