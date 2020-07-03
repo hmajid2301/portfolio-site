@@ -1,0 +1,75 @@
+import { Meta, Story, Preview, Props } from '@storybook/addon-docs/blocks';
+import {
+  AiFillGithub as Github,
+  AiFillGitlab as Gitlab,
+  AiFillMediumCircle as Medium,
+} from 'react-icons/ai';
+import { FaDev as Dev } from 'react-icons/fa';
+
+import { theme } from '~/styles';
+import SocialLink from './SocialLink';
+
+<Meta title="SocialLink" component={SocialLink} />
+
+# SocialLink
+
+<Preview>
+  <Story
+    name="Basic"
+    args={{
+      color: 'gray-500',
+      hoverColor: 'blue-500',
+      icon: <Github />,
+      url: 'https://github.com/hmajid2301',
+    }}
+  >
+    {(args) => <SocialLink {...args} />}
+  </Story>
+</Preview>
+
+<Props story="Basic" />
+
+## Hover Color
+
+You can change the hover colour of the social link by passing the `hoverColor` prop.
+
+<Preview>
+  <Story name="Hover Colour">
+    <SocialLink
+      color="gray-500"
+      hoverColor="purple-500"
+      icon={<Github />}
+      url="https://github.com/hmajid2301"
+    />
+  </Story>
+</Preview>
+
+## Color
+
+You can colour of the text `color` prop.
+
+<Preview>
+  <Story name="Colour">
+    <SocialLink
+      color="purple-500"
+      hoverColor="blue-500"
+      icon={<Github />}
+      url="https://github.com/hmajid2301"
+    />
+  </Story>
+</Preview>
+
+## Social Buttons
+
+You can change the social buttons shown by passing the `socialButtons` prop.
+
+<Preview>
+  <Story name="SocialButtons">
+    <SocialLink
+      color="purple-500"
+      hoverColor="blue-500"
+      icon={<Dev />}
+      url="https://dev.to/hmajid2301"
+    />
+  </Story>
+</Preview>

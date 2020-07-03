@@ -1,6 +1,6 @@
 import { Meta, Story, Preview, Props } from '@storybook/addon-docs/blocks';
 
-import Links from './Links';
+import NavLink from './NavLink';
 
 <Meta title="NavLink" component={NavLink} />
 
@@ -20,6 +20,16 @@ import Links from './Links';
 </Preview>
 
 <Props story="Basic" />
+
+## Class Name
+
+You can pass extra (CSS) classes by passing the `className` prop.
+
+<Preview>
+  <Story name="Class Name">
+    <NavLink className="bg-gray-700" link="Home" />
+  </Story>
+</Preview>
 
 ## Color
 

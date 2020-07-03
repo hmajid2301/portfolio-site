@@ -1,0 +1,131 @@
+import { Meta, Story, Preview, Props } from '@storybook/addon-docs/blocks';
+import {
+  AiFillGithub as Github,
+  AiFillGitlab as Gitlab,
+  AiFillMediumCircle as Medium,
+} from 'react-icons/ai';
+import { FaDev as Dev } from 'react-icons/fa';
+
+import { theme } from '~/styles';
+import SocialLinks from './SocialLinks';
+
+<Meta title="SocialLinks" component={SocialLinks} />
+
+# SocialLinks
+
+<Preview>
+  <Story
+    name="Basic"
+    args={{
+      color: 'gray-500',
+      hoverColor: 'blue-500',
+      links: [
+        {
+          icon: <Github />,
+          url: 'https://github.com/hmajid2301',
+        },
+        {
+          icon: <Gitlab />,
+          url: 'https://gitlab.com/hmajid2301',
+        },
+        {
+          icon: <Medium />,
+          url: 'https://medium.com/@hmajid2301',
+        },
+        {
+          icon: <Dev />,
+          url: 'https://dev.to/hmajid2301',
+        },
+      ],
+    }}
+  >
+    {(args) => <SocialLinks {...args} />}
+  </Story>
+</Preview>
+
+<Props story="Basic" />
+
+## Hover Color
+
+You can change the hover colour of the social link by passing the `hoverColor` prop.
+
+<Preview>
+  <Story name="Hover Colour">
+    <SocialLinks
+      color="gray-500"
+      hoverColor="purple-500"
+      links={[
+        {
+          icon: <Github />,
+          url: 'https://github.com/hmajid2301',
+        },
+        {
+          icon: <Gitlab />,
+          url: 'https://gitlab.com/hmajid2301',
+        },
+        {
+          icon: <Medium />,
+          url: 'https://medium.com/@hmajid2301',
+        },
+        {
+          icon: <Dev />,
+          url: 'https://dev.to/hmajid2301',
+        },
+      ]}
+    />
+  </Story>
+</Preview>
+
+## Color
+
+You can colour of the text `color` prop.
+
+<Preview>
+  <Story name="Colour">
+    <SocialLinks
+      color="purple-500"
+      hoverColor="blue-500"
+      links={[
+        {
+          icon: <Github />,
+          url: 'https://github.com/hmajid2301',
+        },
+        {
+          icon: <Gitlab />,
+          url: 'https://gitlab.com/hmajid2301',
+        },
+        {
+          icon: <Medium />,
+          url: 'https://medium.com/@hmajid2301',
+        },
+        {
+          icon: <Dev />,
+          url: 'https://dev.to/hmajid2301',
+        },
+      ]}
+    />
+  </Story>
+</Preview>
+
+## Social Buttons
+
+You can change the social buttons shown by passing the `socialButtons` prop.
+
+<Preview>
+  <Story name="SocialButtons">
+    <SocialLinks
+      color="purple-500"
+      hoverColor="blue-500"
+      links={[
+        {
+          icon: <Github />,
+          url: 'https://github.com/hmajid2301',
+        },
+        {
+          icon: <Gitlab />,
+          url: 'https://gitlab.com/hmajid2301',
+        },
+      ]}
+    />
+  </Story>
+</Preview>

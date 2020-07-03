@@ -6,6 +6,7 @@ import { RiCloseLine as CloseIcon } from 'react-icons/ri';
 import { TiThMenu as MenuIcon } from 'react-icons/ti';
 import tw from 'twin.macro';
 
+import { Links } from '~/components/molecules/Links';
 import useAnimatedNavToggler from '~/helpers/useAnimatedNavToggler';
 
 export interface Props {
@@ -69,7 +70,12 @@ const Header = ({
         role="navigation"
       >
         {Logo}
-        <NavLinks>{getNavLink(links, hoverColor)}</NavLinks>
+        <Links
+          color="black"
+          hoverColor={hoverColor}
+          linkClassName="text-base md:text-lg my-2 lg:mx-6 lg:my-0 font-semibold"
+          links={links}
+        />
       </DesktopNavLinks>
 
       <MobileNavContainer className={`${collapseBreakpointClass}:hidden `}>
@@ -80,7 +86,12 @@ const Header = ({
           css={collapseBreakpointCss.mobileNavLinks}
           initial={{ x: '150%', display: 'none' }}
         >
-          <NavLinks>{getMobileNavLink(links, hoverColor)}</NavLinks>
+          <Links
+            color="black"
+            hoverColor={hoverColor}
+            linkClassName="text-lg my-2 font-semibold tracking-wide transition border-transparent"
+            links={links}
+          />
         </MobileNavLinks>
         <NavToggle
           className={`hocus:text-${hoverColor} ${
@@ -102,56 +113,18 @@ const Header = ({
 
 const HeaderContainer = tw.header`flex justify-between items-center max-w-screen-xl mx-auto font-header w-full`;
 
-const DesktopNavLinks = tw.nav`hidden lg:flex lg:flex-wrap justify-between items-center w-full`;
+const DesktopNavLinks = tw.nav`hidden md:flex md:flex-wrap justify-between items-center w-full`;
 
 const LogoContainer = styled(Link)`
   ${tw`flex items-center border-b-0 ml-0!`};
 `;
 
-const NavLinks = styled.div`
-  ${tw`inline-block`}
-`;
-
-const getNavLink = (links: string[], hoverColor: string) => {
-  const NavLink = links.map((link) => (
-    <Link
-      key={link}
-      className={`text-lg my-2 lg:text-sm lg:mx-6 lg:my-0 font-semibold tracking-wide transition duration-300
-      pb-1 border-b-2 border-transparent hover:border-${hoverColor} hocus:text-${hoverColor} hover:text-${hoverColor}`}
-      to={`/${link}`}
-    >
-      {link}
-    </Link>
-  ));
-
-  return NavLink;
-};
-
-const MobileNavContainer = tw.div`flex flex-wrap w-full justify-between lg:hidden`;
+const MobileNavContainer = tw.div`flex flex-wrap w-full justify-between md:hidden`;
 
 const MobileNavLinks = motion.custom(styled.div`
-  ${tw`lg:hidden z-10 fixed top-0 inset-x-0 mx-4 my-6 p-8 border text-center rounded-lg text-gray-900 `}
-
-  ${NavLinks} {
-    ${tw`flex flex-col items-start`}
-  }
+  ${tw`md:hidden z-10 fixed top-0 inset-x-0 mx-2 mx-2 p-8 border text-center rounded-lg text-gray-900 `}
 `);
 
-const NavToggle = tw.button`z-10 lg:hidden focus:outline-none transition duration-300`;
-
-const getMobileNavLink = (links: string[], hoverColor: string) => {
-  const NavLink = links.map((link) => (
-    <Link
-      key={link}
-      className={`text-lg my-2 font-semibold tracking-wide transition duration-100
-      pb-1 border-b-2 border-transparent hover:border-${hoverColor} hocus:text-${hoverColor} hover:text-${hoverColor}`}
-      to={`/${link}`}
-    >
-      {link}
-    </Link>
-  ));
-
-  return NavLink;
-};
+const NavToggle = tw.button`z-10 md:hidden focus:outline-none transition duration-300`;
 
 export default Header;
