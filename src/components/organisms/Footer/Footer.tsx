@@ -41,7 +41,6 @@ const Footer = ({
           hoverColor={hoverColor}
           links={socialButtons}
         />
-
         <CopyrightText>
           &copy; Copyright 2020, Haseeb Majid. All Rights Reserved.
         </CopyrightText>

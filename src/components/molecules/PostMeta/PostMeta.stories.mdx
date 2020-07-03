@@ -1,0 +1,116 @@
+import { Meta, Story, Preview, Props } from '@storybook/addon-docs/blocks';
+
+import { theme } from '~/styles';
+import PostMeta from './PostMeta';
+
+<Meta title="PostMeta" component={PostMeta} />
+
+# PostMeta
+
+<Preview>
+  <Story
+    name="Basic"
+    args={{
+      date: '20 January 2020',
+      tags: ['angular', 'python', 'gatsby'],
+      title: 'This is a blog post',
+      url: 'http://localhost',
+    }}
+  >
+    {(args) => <PostMeta {...args} />}
+  </Story>
+</Preview>
+
+<Props story="Basic" />
+
+## Color
+
+You can change the colour of the social links and text by passing the `color` prop.
+
+<Preview>
+  <Story name="Color">
+    <PostMeta
+      date="20 January 2020"
+      color="purple-500"
+      tags={['angular', 'python', 'gatsby']}
+      title="This is a blog post"
+      url="http://localhost"
+    />
+  </Story>
+</Preview>
+
+## Date
+
+You can change the date of the blog post by passing the `date` props.
+
+<Preview>
+  <Story name="Date">
+    <PostMeta
+      date="20 January 1995"
+      tags={['angular', 'python', 'gatsby']}
+      title="This is a blog post"
+      url="http://localhost"
+    />
+  </Story>
+</Preview>
+
+## Hover Color
+
+You can change the hover colour of the buttons by passing the `hoverColor` prop.
+
+<Preview>
+  <Story name="Hover Color">
+    <PostMeta
+      date="20 January 2020"
+      hoverColor="purple-500"
+      tags={['angular', 'python', 'gatsby']}
+      title="This is a blog post"
+      url="http://localhost"
+    />
+  </Story>
+</Preview>
+
+## Tags
+
+You can change the tags of the blog post by passing the `tags` props.
+
+<Preview>
+  <Story name="Tags">
+    <PostMeta
+      date="20 January 2020"
+      tags={['docker', 'python', 'firebase']}
+      title="This is a blog post"
+      url="http://localhost"
+    />
+  </Story>
+</Preview>
+
+## Title
+
+You can change the title of the blog post by passing the `title` props.
+
+<Preview>
+  <Story name="Title">
+    <PostMeta
+      date="20 January 2020"
+      tags={['docker', 'python', 'firebase']}
+      title="Another Title to show!"
+      url="http://localhost"
+    />
+  </Story>
+</Preview>
+
+## URL
+
+You can change the share url of the blog post by passing the `url` props.
+
+<Preview>
+  <Story name="URL">
+    <PostMeta
+      date="20 January 2020"
+      tags={['docker', 'python', 'firebase']}
+      title="This is a blog post"
+      url="http://reddit.com"
+    />
+  </Story>
+</Preview>

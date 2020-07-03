@@ -3,14 +3,20 @@ require('dotenv').config({
 });
 
 const plugins = [
-  'gatsby-plugin-react-helmet',
-  'gatsby-transformer-sharp',
-  'gatsby-plugin-sharp',
-  'gatsby-plugin-typescript',
-  'gatsby-plugin-emotion',
-  'gatsby-plugin-remove-serviceworker',
-  'gatsby-plugin-svgr',
-
+  `gatsby-plugin-react-helmet`,
+  `gatsby-transformer-sharp`,
+  `gatsby-plugin-sharp`,
+  `gatsby-plugin-typescript`,
+  `gatsby-plugin-emotion`,
+  `gatsby-plugin-remove-serviceworker`,
+  `gatsby-plugin-svgr`,
+  {
+    resolve: `gatsby-source-filesystem`,
+    options: {
+      name: `blog-posts`,
+      path: `${__dirname}/src/data/blog-posts`,
+    },
+  },
   {
     resolve: 'gatsby-plugin-google-fonts',
     options: {
@@ -18,7 +24,9 @@ const plugins = [
       display: 'swap',
     },
   },
-  'gatsby-plugin-postcss',
+  `gatsby-plugin-postcss`,
+  `gatsby-transformer-remark`,
+  `gatsby-remark-prismjs`,
 ];
 
 // Bundle analyzer, dev only

@@ -29,7 +29,7 @@ const SocialLink = ({ color, hoverColor, icon, url }: Props) => (
 );
 
 const Container = styled.a`
-  ${tw`cursor-pointer inline-block transition duration-300 mx-4`}
+  ${tw`cursor-pointer inline-block transition duration-300`}
 
   svg {
     ${tw`w-10 h-10`}

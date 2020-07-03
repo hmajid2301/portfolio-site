@@ -24,16 +24,19 @@ const SocialLinks = ({
 }: Props) => (
   <SocialLinksContainer>
     {links.map((button) => (
-      <SocialLink
-        color={color}
-        data-testid={`Button-${button.url}`}
-        hoverColor={hoverColor}
-        icon={button.icon}
-        url={button.url}
-      />
+      <LinkContainer>
+        <SocialLink
+          color={color}
+          data-testid={`Button-${button.url}`}
+          hoverColor={hoverColor}
+          icon={button.icon}
+          url={button.url}
+        />
+      </LinkContainer>
     ))}
   </SocialLinksContainer>
 );
 
 const SocialLinksContainer = tw.div`mt-10`;
+const LinkContainer = tw.span`mx-4`;
 export default SocialLinks;

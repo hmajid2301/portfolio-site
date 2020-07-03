@@ -1,4 +1,5 @@
 import React from 'react';
+import 'prismjs/themes/prism-okaidia.css';
 
 import '~/styles/globals.css';
 import { App } from '~/components/App';
