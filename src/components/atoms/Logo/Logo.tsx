@@ -4,7 +4,7 @@ import tw from 'twin.macro';
 export interface Props {
   /** The colour of the opening and closing tags. */
   accent?: string;
-  /** The colour of main text. */
+  /** The color of main text. */
   color?: string;
   /** The colour when you hover over the logo. */
   hoverColor?: string;

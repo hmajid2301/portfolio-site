@@ -1,0 +1,47 @@
+import { Meta, Story, Preview, Props } from '@storybook/addon-docs/blocks';
+
+import SearchBar from './SearchBar';
+
+<Meta title="SearchBar" component={SearchBar} />
+
+# SearchBar
+
+<Preview>
+  <Story
+    name="Basic"
+    args={{
+      color: 'white',
+      background: 'blue-500',
+    }}
+  >
+    {(args) => <SearchBar {...args} />}
+  </Story>
+</Preview>
+
+<Props story="Basic" />
+
+## Background
+
+You can adjust the background colour of bar the by passing the `background` prop.
+
+<Preview>
+  <Story name="Background">
+    <div>
+      <SearchBar background="gray-800" color="white" />
+      <SearchBar background="indigo-500" color="white" />
+    </div>
+  </Story>
+</Preview>
+
+## Color
+
+You can adjust the colour of the text/icon if you pass the `color` prop.
+
+<Preview>
+  <Story name="Color">
+    <div>
+      <SearchBar background="gray-500" color="blue-500" />
+      <SearchBar background="gray-500" color="purple-500" />
+    </div>
+  </Story>
+</Preview>
