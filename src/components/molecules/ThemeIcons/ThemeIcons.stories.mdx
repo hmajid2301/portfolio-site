@@ -1,0 +1,48 @@
+import { Meta, Story, Preview, Props } from '@storybook/addon-docs/blocks';
+
+import ThemeIcons from './ThemeIcons';
+
+<Meta title="ThemeIcons" component={ThemeIcons} />
+
+# ThemeIcons
+
+<Preview>
+  <Story
+    name="Basic"
+    args={{
+      color: 'gray-800',
+      hover: 'blue-500',
+      size: '3xl',
+    }}
+  >
+    {(args) => <ThemeIcons {...args} />}
+  </Story>
+</Preview>
+
+<Props story="Basic" />
+
+## Color
+
+You can adjust the colour of the icon if you pass the `color` prop.
+
+<Preview>
+  <Story name="Color">
+    <div>
+      <ThemeIcons hover="blue-500" color="gray-500" size="3xl" />
+      <ThemeIcons hover="blue-500" color="purple-500" size="3xl" />
+    </div>
+  </Story>
+</Preview>
+
+## Hover
+
+You can adjust the colour on hover of the icon if you pass the `hover` prop.
+
+<Preview>
+  <Story name="Hover">
+    <div>
+      <ThemeIcons hover="green-500" color="gray-800" size="3xl" />
+      <ThemeIcons hover="purple-500" color="gray-800" size="3xl" />
+    </div>
+  </Story>
+</Preview>

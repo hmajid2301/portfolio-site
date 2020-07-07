@@ -11,7 +11,7 @@ export interface Props {
   /** The main text of the logo for example, your name. */
   text: string;
   /** The size of the main text  */
-  size?: 'xs' | 'sm' | 'lg' | 'xl' | '2xl' | '3xl' | '4xl';
+  size?: string;
 }
 
 const Logo = ({
