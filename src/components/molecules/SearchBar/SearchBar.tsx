@@ -1,5 +1,4 @@
-import styled from '@emotion/styled';
-import React, { useState } from 'react';
+import React from 'react';
 import tw from 'twin.macro';
 
 import { SearchIcon } from '~/components/atoms/SearchIcon';
@@ -9,38 +8,24 @@ export interface Props {
   background: string;
   /** The color of text/icon in the bar. */
   color: string;
+  /** The color when you hover/focus in the text input. */
+  hoverColor?: string;
 }
 
-const SearchBar = ({ background, color }: Props) => {
-  const [showSearch, setShowSearch] = useState(false);
-
+const SearchBar = ({ background, color, hoverColor }: Props) => {
   return (
     <SearchBarContainer
-      className={`bg-${background} text-${color}`}
+      className={`bg-${background} text-${color} focus-within:bg-${hoverColor}`}
       data-testid="SearchBar"
-      type="button"
     >
-      <SearchIcon
-        background={background}
-        color={color}
-        onClick={() => setShowSearch(!showSearch)}
-      />
-      <TextInput
-        active={showSearch}
-        className={`placeholder-${color} ${showSearch ? 'ml-3' : 'ml-0'}`}
-        placeholder="Search"
-      />
+      <SearchIcon color={color} hoverColor={hoverColor} />
+      <TextInput className={`placeholder-${color}`} placeholder="Search" />
     </SearchBarContainer>
   );
 };
 
-const SearchBarContainer = tw.button`font-body rounded-full`;
+const SearchBarContainer = tw.div`font-body w-full text-left`;
 
-const TextInput = styled.input<{ active: boolean }>`
-  width: ${(props) => (props.active ? '15rem' : '0')};
-  background: transparent;
-  transition: all 0.3s ease-in-out;
-  ${tw`bg-transparent text-lg`};
-`;
+const TextInput = tw.input`bg-transparent text-lg ml-3 w-9/12`;
 
 export default SearchBar;

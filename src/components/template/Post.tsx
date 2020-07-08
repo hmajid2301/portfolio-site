@@ -3,7 +3,7 @@ import React from 'react';
 
 export default function Template({
   data, // this prop will be injected by the GraphQL query below.
-}) {
+}: any) {
   const { markdownRemark } = data; // data.markdownRemark holds your post data
   const { frontmatter, html } = markdownRemark;
   return (

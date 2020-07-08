@@ -8,12 +8,10 @@ describe('<SearchIcon />', () => {
   describe('Props: Background', () => {
     test('Render with default style', () => {
       const { getByTestId } = render(
-        <SearchIcon background="black" color="white" />
+        <SearchIcon color="white" hoverColor="blue-500" />
       );
       const container = getByTestId('Icon');
-      expect(container.className).toContain(
-        'bg-black hover:bg-white text-white hover:text-black'
-      );
+      expect(container.className).toContain('text-white hover:text-blue-500');
     });
   });
 });

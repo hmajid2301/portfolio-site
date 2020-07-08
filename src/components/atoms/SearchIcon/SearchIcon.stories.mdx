@@ -10,8 +10,9 @@ import SearchIcon from './SearchIcon';
   <Story
     name="Basic"
     args={{
-      color: 'gray-800',
-      background: 'gray-500',
+      background: 'white',
+      color: 'black',
+      hoverColor: 'blue-500',
     }}
   >
     {(args) => <SearchIcon {...args} />}
@@ -27,8 +28,8 @@ You can adjust the background colour of icon the by passing the `background` pro
 <Preview>
   <Story name="Background">
     <div>
-      <SearchIcon background="gray-800" color="white" />
-      <SearchIcon background="indigo-500" color="white" />
+      <SearchIcon background="gray-800" color="white" hoverColor="blue-500" />
+      <SearchIcon background="indigo-500" color="white" hoverColor="blue-500" />
     </div>
   </Story>
 </Preview>
@@ -40,8 +41,33 @@ You can adjust the colour if you pass the `color` prop.
 <Preview>
   <Story name="Color">
     <div>
-      <SearchIcon background="gray-500" color="blue-500" />
-      <SearchIcon background="gray-500" color="purple-500" />
+      <SearchIcon
+        background="gray-500"
+        color="blue-500"
+        hoverColor="blue-500"
+      />
+      <SearchIcon
+        background="gray-500"
+        color="purple-500"
+        hoverColor="blue-500"
+      />
+    </div>
+  </Story>
+</Preview>
+
+## Hover Color
+
+You can adjust the colour if you pass the `color` prop.
+
+<Preview>
+  <Story name="Hover Color">
+    <div>
+      <SearchIcon background="gray-500" color="blue-500" hoverColor="black" />
+      <SearchIcon
+        background="gray-500"
+        color="purple-500"
+        hoverColor="green-500"
+      />
     </div>
   </Story>
 </Preview>

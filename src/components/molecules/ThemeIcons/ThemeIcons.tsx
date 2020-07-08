@@ -52,7 +52,7 @@ const ThemeIcons = ({ color, hover, onClick }: Props) => {
 const Container = tw.span`transition duration-300 cursor-pointer`;
 
 const IconMorph = styled(MorphReplace)`
-  ${tw`fill-current h-8 sm:h-12 md:h-16 lg:h-20 xl:h-24 w-auto`}
+  ${tw`fill-current h-8 w-auto`}
 `;
 
 export default ThemeIcons;

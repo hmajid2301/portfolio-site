@@ -7,6 +7,8 @@ import { TiThMenu as MenuIcon } from 'react-icons/ti';
 import tw from 'twin.macro';
 
 import { Links } from '~/components/molecules/Links';
+import { SearchBar } from '~/components/molecules/SearchBar';
+import { ThemeIcons } from '~/components/molecules/ThemeIcons';
 import useAnimatedNavToggler from '~/helpers/useAnimatedNavToggler';
 
 export interface Props {
@@ -14,11 +16,11 @@ export interface Props {
   background?: string;
   /** When the nav bar should break and become a mobile nav bar. */
   collapseBreakpointClass?: 'sm' | 'md' | 'lg' | 'xl';
-  /** The colour when you hover over the nav bar links. */
+  /** The color when you hover over the nav bar links. */
   hoverColor?: string;
   /** The logo component to display on the left hand side of the nav bar. */
   logo: React.ReactNode;
-  /** The colour of the links text. */
+  /** The color of the links text. */
   linkColor?: string;
   /** The links to show on the nav bar. */
   links: string[];
@@ -70,12 +72,18 @@ const Header = ({
         role="navigation"
       >
         {Logo}
+        <SearchBar
+          background="gray-200"
+          color={linkColor}
+          hoverColor={hoverColor}
+        />
         <Links
           color="black"
           hoverColor={hoverColor}
           linkClassName="text-base md:text-lg my-2 lg:mx-6 lg:my-0 font-semibold"
           links={links}
         />
+        <ThemeIcons color={linkColor} hover={hoverColor} />
       </DesktopNavLinks>
 
       <MobileNavContainer className={`${collapseBreakpointClass}:hidden `}>
@@ -89,7 +97,7 @@ const Header = ({
           <Links
             color="black"
             hoverColor={hoverColor}
-            linkClassName="text-lg my-2 font-semibold tracking-wide transition border-transparent"
+            linkClassName="text-lg my-2 font-extrabold tracking-wide transition border-transparent"
             links={links}
           />
         </MobileNavLinks>
@@ -111,7 +119,7 @@ const Header = ({
   );
 };
 
-const HeaderContainer = tw.header`flex justify-between items-center max-w-screen-xl mx-auto font-header w-full`;
+const HeaderContainer = tw.header`flex justify-between items-center font-header w-full`;
 
 const DesktopNavLinks = tw.nav`hidden md:flex md:flex-wrap justify-between items-center w-full`;
 
