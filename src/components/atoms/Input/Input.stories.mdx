@@ -1,0 +1,72 @@
+import { Meta, Story, Preview, Props } from '@storybook/addon-docs/blocks';
+
+import Input from './Input';
+
+<Meta title="Input" component={Input} />
+
+# Input
+
+<Preview>
+  <Story
+    name="Basic"
+    args={{
+      color: 'white',
+      background: 'gray-800',
+      hoverColor: 'blue-500',
+      placeholder: 'Search',
+    }}
+  >
+    {(args) => <Input {...args} />}
+  </Story>
+</Preview>
+
+<Props story="Basic" />
+
+## Background
+
+You can adjust the background colour of input the by passing the `background` prop.
+
+<Preview>
+  <Story name="Background">
+    <div>
+      <Input background="gray-800" color="white" />
+      <Input background="indigo-500" color="white" />
+    </div>
+  </Story>
+</Preview>
+
+## Color
+
+You can adjust the colour of the input if you pass the `color` prop.
+
+<Preview>
+  <Story name="Color">
+    <div>
+      <Input background="gray-500" color="blue-500" />
+      <Input background="gray-500" color="purple-500" />
+    </div>
+  </Story>
+</Preview>
+
+## Placeholder
+
+You can adjust the placeholder text if you pass the `placeholder` prop.
+
+<Preview>
+  <Story name="Placeholder">
+    <div>
+      <Input
+        background="gray-500"
+        color="blue-500"
+        hoverColor="black"
+        placeholder="Text"
+      />
+      <Input
+        background="gray-500"
+        color="purple-500"
+        hoverColor="blue-900"
+        placeholder="example text"
+      />
+    </div>
+  </Story>
+</Preview>

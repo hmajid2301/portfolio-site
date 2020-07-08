@@ -4,19 +4,17 @@ import Header from './Header';
 
 import { render } from 'test-utils';
 
-import { Logo } from '~/components/atoms/Logo';
+const links = ['Home', 'Blog', 'Projects', 'Open Source'];
 
 describe('<Header />', () => {
   describe('Default Header', () => {
     test('Render with default nav bar', () => {
-      const links = ['Link1', 'Link2', 'Link3'];
-      const { getAllByText } = render(
-        <Header links={links} logo={<div>Logo</div>} />
-      );
+      const { getAllByText } = render(<Header />);
 
       links.forEach((link) => {
         const linkElement = getAllByText(link)[0] as HTMLAnchorElement;
-        expect(linkElement.href).toBe(`http://localhost/${link}`);
+        const linkUrl = link.replace(' ', '%20');
+        expect(linkElement.href).toBe(`http://localhost/${linkUrl}`);
         expect(linkElement.className).toContain(
           `hover:border-blue-500 hover:text-blue-500`
         );
@@ -32,14 +30,7 @@ describe('<Header />', () => {
     ])(
       'Render with %i background color',
       (background: string, expectedClass: string) => {
-        const links = ['Link1', 'Link2', 'Link3'];
-        const { getByTestId } = render(
-          <Header
-            background={background}
-            links={links}
-            logo={<div>Logo</div>}
-          />
-        );
+        const { getByTestId } = render(<Header background={background} />);
 
         const header = getByTestId('Header');
         expect(header.className).toContain(expectedClass);
@@ -55,14 +46,7 @@ describe('<Header />', () => {
     ])(
       'Render with %i hover color',
       (hoverColor: string, expectedClass: string) => {
-        const links = ['Link1', 'Link2', 'Link3'];
-        const { getAllByText } = render(
-          <Header
-            hoverColor={hoverColor}
-            links={links}
-            logo={<div>Logo</div>}
-          />
-        );
+        const { getAllByText } = render(<Header hoverColor={hoverColor} />);
 
         links.forEach((link) => {
           const linkElement = getAllByText(link)[0];
@@ -72,68 +56,15 @@ describe('<Header />', () => {
     );
   });
 
-  describe('Props: Logo', () => {
-    test.each([
-      [<div>Haseeb</div>, 'Haseeb'],
-      [
-        <Logo
-          accent="gray-500"
-          color="black"
-          hoverColor="purple-500"
-          text="xyz.io"
-        />,
-        'xyz.io',
-      ],
-    ])(
-      'Render with %i logo',
-      (logoComp: React.ReactNode, searchString: string) => {
-        const links = ['Link1', 'Link2', 'Link3'];
-        const { getAllByText } = render(
-          <Header links={links} logo={logoComp} />
-        );
-
-        const logos = getAllByText(searchString);
-        logos.forEach((logo) => {
-          expect(logo).toBeTruthy();
-          const logoParent = logo.parentElement as HTMLAnchorElement;
-          expect(logoParent.href).toBe('http://localhost/');
-        });
-      }
-    );
-  });
-
-  describe('Props: Links', () => {
-    test.each([[['Link1', 'Link2']], [['Blog', 'Pricing', 'Product']]])(
-      'Render with %i links',
-      (links: string[]) => {
-        const { getAllByText } = render(
-          <Header links={links} logo={<div>Haseeb</div>} />
-        );
-
-        links.forEach((link) => {
-          const linkElement = getAllByText(link)[0] as HTMLAnchorElement;
-          expect(linkElement.href).toBe(`http://localhost/${link}`);
-        });
-      }
-    );
-  });
-
   describe('Props: Links Color', () => {
     test.each([
       ['black', ''],
       ['gray-700', ''],
-    ])(
-      'Render with %i links color',
-      (linkColor: string, expectedClass: string) => {
-        const links = ['Link1', 'Link2', 'Link3'];
+    ])('Render with %i links color', (color: string, expectedClass: string) => {
+      const { getByTestId } = render(<Header color={color} />);
 
-        const { getByTestId } = render(
-          <Header linkColor={linkColor} links={links} logo={<div>Logo</div>} />
-        );
-
-        const header = getByTestId('Header');
-        expect(header.className).toContain(expectedClass);
-      }
-    );
+      const header = getByTestId('Header');
+      expect(header.className).toContain(expectedClass);
+    });
   });
 });

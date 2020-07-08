@@ -1,0 +1,91 @@
+import { Meta, Story, Preview, Props } from '@storybook/addon-docs/blocks';
+
+import { theme } from '~/styles';
+import DesktopNavbar from './DesktopNavbar';
+
+<Meta title="DesktopNavbar" component={DesktopNavbar} />
+
+# DesktopNavbar
+
+<Preview>
+  <Story
+    name="Basic"
+    args={{links: ['Home', 'Blog', 'Projects', 'Open Source']}}
+  >
+    {(args) => (
+      <DesktopNavbar {...args} />
+    )}
+
+  </Story>
+</Preview>
+
+<Props story="Basic" />
+
+## Background
+
+You can adjust the background colour of the header by passing the `background` prop.
+
+<Preview>
+  <Story name="Background">
+    <div>
+      <DesktopNavbar background="gray-200" />
+      <DesktopNavbar
+        background="blue-500"
+        linkColor="white"
+        hoverColor="gray-200"
+      />
+    </div>
+  </Story>
+</Preview>
+
+## Color
+
+You can change the link colour by passing the `color` prop.
+
+<Preview>
+  <Story name="Color">
+    <div>
+      <DesktopNavbar color="gray-600" />
+      <DesktopNavbar color="orange-600" />
+      <DesktopNavbar color="purple-500" />
+    </div>
+  </Story>
+</Preview>
+
+## Hover Color
+
+You can change the hover colour of the link text by passing the `hoverColor` prop.
+
+<Preview>
+  <Story name="Hover Color">
+    <div>
+      <DesktopNavbar hoverColor="gray-500" />
+      <DesktopNavbar hoverColor="purple-500" />
+      <DesktopNavbar hoverColor="green-500" />
+    </div>
+  </Story>
+</Preview>
+
+## Links
+
+You can change the links shown by passing the `link` prop.
+
+<Preview>
+  <Story name="Links">
+    <div>
+      <DesktopNavbar links={['Home', 'Blog', 'Project', 'Open Source']} />
+      <DesktopNavbar l links={['Link1']} />
+      <DesktopNavbar links={['Home', 'Products', 'Pricing', 'Contact Us']} />
+    </div>
+  </Story>
+</Preview>
+
+## Dark Mode
+
+Example dark mode component.
+
+<Preview>
+  <Story name="Dark Mode">
+    <DesktopNavbar background="gray-800" color={theme.dark.text} />>
+  </Story>
+</Preview>

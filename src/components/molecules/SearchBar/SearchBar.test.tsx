@@ -11,7 +11,7 @@ describe('<SearchBar />', () => {
         <SearchBar background="black" color="white" />
       );
       const container = getByTestId('SearchBar');
-      expect(container.className).toContain('bg-black text-white');
+      expect(container.children[0].className).toContain('bg-black text-white');
     });
   });
 });

@@ -11,6 +11,9 @@ import Logo from './Logo';
   <Story
     name="Basic"
     args={{
+      accent: 'gray-500',
+      color: 'black',
+      hoverColor: 'blue-500',
       text: 'Haseeb',
     }}
   >
@@ -27,8 +30,18 @@ You can adjust the accent (tags) color by passing the `accent` prop.
 <Preview>
   <Story name="Accent Colour">
     <div>
-      <Logo accent="gray-500" color="blue-500" text="Haseeb" />
-      <Logo accent="gray-500" color="black" text="Haseeb" />
+      <Logo
+        accent="gray-500"
+        color="blue-500"
+        text="Haseeb"
+        hoverColor="blue-500"
+      />
+      <Logo
+        accent="gray-500"
+        color="black"
+        text="Haseeb"
+        hoverColor="blue-500"
+      />
     </div>
   </Story>
 </Preview>
@@ -40,8 +53,18 @@ You can change the default colour of the logo by passing the `color` prop.
 <Preview>
   <Story name="Main Text Colour">
     <div>
-      <Logo color="gray-500" text="Haseeb" />
-      <Logo color="blue-500" text="Haseeb" />
+      <Logo
+        accent="gray-500"
+        color="gray-500"
+        text="Haseeb"
+        hoverColor="blue-500"
+      />
+      <Logo
+        accent="gray-500"
+        color="blue-500"
+        text="Haseeb"
+        hoverColor="blue-500"
+      />
     </div>
   </Story>
 </Preview>
@@ -53,8 +76,18 @@ You can change the hover colour of the logo by passing the `hoverColor` prop.
 <Preview>
   <Story name="Hover Colour">
     <div>
-      <Logo text="Haseeb" hoverColor="blue-500" />
-      <Logo text="Haseeb" hoverColor="gray-500" />
+      <Logo
+        accent="gray-500"
+        color="gray-500"
+        text="Haseeb"
+        hoverColor="blue-500"
+      />
+      <Logo
+        accent="gray-500"
+        color="gray-500"
+        text="Haseeb"
+        hoverColor="gray-500"
+      />
     </div>
   </Story>
 </Preview>

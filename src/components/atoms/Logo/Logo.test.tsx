@@ -4,10 +4,16 @@ import Logo, { Props } from './Logo';
 
 import { render } from 'test-utils';
 
+const props = {
+  accent: 'gray-500',
+  color: 'black',
+  hoverColor: 'blue-500',
+};
+
 describe('<Logo />', () => {
   describe('Default Logo', () => {
     test('Render with default styles', () => {
-      const { getByText } = render(<Logo text="Haseeb" />);
+      const { getByText } = render(<Logo {...props} text="Haseeb" />);
       const logoText = getByText('Haseeb');
       expect(logoText.className).toContain(
         'hover:text-blue-500 text-black lg:text-2xl'
@@ -17,7 +23,7 @@ describe('<Logo />', () => {
 
   describe('Props: Text', () => {
     test('Render with text Haseeb', () => {
-      const { getByText } = render(<Logo text="Haseeb" />);
+      const { getByText } = render(<Logo {...props} text="Haseeb" />);
       const logoText = getByText('Haseeb');
       expect(logoText).toBeTruthy();
     });
@@ -69,7 +75,7 @@ describe('<Logo />', () => {
       'Render with %i accent color',
       (accentColor: string, expectedClass: string) => {
         const { getByTestId } = render(
-          <Logo accent={accentColor} text="Haseeb" />
+          <Logo {...props} accent={accentColor} text="Haseeb" />
         );
         const openingTags = getByTestId('OpeningTag');
         const closingTags = getByTestId('ClosingTag');
@@ -85,7 +91,9 @@ describe('<Logo />', () => {
       ['xs' as Props['size'], 'text-xs'],
       ['sm' as Props['size'], 'text-sm'],
     ])('Render with %i text', (size: Props['size'], expectedClass: string) => {
-      const { getByText } = render(<Logo size={size} text="Haseeb" />);
+      const { getByText } = render(
+        <Logo {...props} size={size} text="Haseeb" />
+      );
       const logoText = getByText('Haseeb');
       expect(logoText.className).toContain(expectedClass);
     });

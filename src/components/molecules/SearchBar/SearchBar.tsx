@@ -1,7 +1,9 @@
 import React from 'react';
+import { FaSearch as Search } from 'react-icons/fa';
 import tw from 'twin.macro';
 
-import { SearchIcon } from '~/components/atoms/SearchIcon';
+import { Icon } from '~/components/atoms/Icon';
+import { Input } from '~/components/atoms/Input';
 
 export interface Props {
   /** The background of bar. */
@@ -14,18 +16,18 @@ export interface Props {
 
 const SearchBar = ({ background, color, hoverColor }: Props) => {
   return (
-    <SearchBarContainer
-      className={`bg-${background} text-${color} focus-within:bg-${hoverColor}`}
-      data-testid="SearchBar"
-    >
-      <SearchIcon color={color} hoverColor={hoverColor} />
-      <TextInput className={`placeholder-${color}`} placeholder="Search" />
-    </SearchBarContainer>
+    <SearchContainer data-testid="SearchBar">
+      <Icon
+        background={background}
+        color={color}
+        hoverColor={hoverColor}
+        icon={<Search size="1em" />}
+      />
+      <Input background={background} color={color} placeholder="Search" />
+    </SearchContainer>
   );
 };
 
-const SearchBarContainer = tw.div`font-body w-full text-left`;
-
-const TextInput = tw.input`bg-transparent text-lg ml-3 w-9/12`;
+const SearchContainer = tw.div`flex flex-grow text-left h-12 text-lg focus-within:shadow-outline`;
 
 export default SearchBar;
