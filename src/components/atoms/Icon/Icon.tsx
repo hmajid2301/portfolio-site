@@ -12,13 +12,23 @@ export interface Props {
   icon: React.ReactNode;
   /** The aria-label for this component. */
   label?: string;
+  /** Function to call when the icon is pressed/clicked. */
+  onClick?: () => void;
 }
 
-const Icon = ({ background, color, hoverColor, icon, label }: Props) => (
+const Icon = ({
+  background,
+  color,
+  hoverColor,
+  icon,
+  label,
+  onClick,
+}: Props) => (
   <Container
     aria-label={label}
     className={`bg-${background} text-${color} hover:text-${hoverColor}`}
     data-testid="Icon"
+    onClick={onClick}
   >
     {icon}
   </Container>

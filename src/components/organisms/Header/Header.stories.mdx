@@ -8,14 +8,8 @@ import Header from './Header';
 # Header
 
 <Preview>
-  <Story
-    name="Basic"
-    args={{}}
-  >
-    {(args) => (
-      <Header {...args} />
-    )}
-
+  <Story name="Basic" args={{}}>
+    {(args) => <Header {...args} />}
   </Story>
 </Preview>
 
@@ -29,7 +23,7 @@ You can adjust the background colour of the header by passing the `background` p
   <Story name="Background">
     <div>
       <Header background="gray-200" />
-      <Header background="blue-500" linkColor="white" hoverColor="gray-200" />
+      <Header background="blue-500" color="white" hoverColor="gray-200" />
     </div>
   </Story>
 </Preview>
@@ -59,29 +53,5 @@ You can change the hover colour of the link text by passing the `hoverColor` pro
       <Header hoverColor="purple-500" />
       <Header hoverColor="green-500" />
     </div>
-  </Story>
-</Preview>
-
-## Links
-
-You can change the links show by passing the `links` prop.
-
-<Preview>
-  <Story name="Links">
-    <div>
-      <Header links={['Home', 'Blog', 'Project', 'Open Source']} />
-      <Header links={['Link1']} />
-      <Header links={['Home', 'Products', 'Pricing', 'Contact Us']} />
-    </div>
-  </Story>
-</Preview>
-
-## Dark Mode
-
-Example dark mode component.
-
-<Preview>
-  <Story name="Dark Mode">
-    <Header background="gray-800" color={theme.dark.text} />>
   </Story>
 </Preview>

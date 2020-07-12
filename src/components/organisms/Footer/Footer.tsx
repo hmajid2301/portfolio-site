@@ -49,7 +49,7 @@ const Footer = ({
   </Container>
 );
 
-const Container = tw.div`-mx-4 md:-mx-8 -mb-8 font-header`;
+const Container = tw.footer`-mx-4 md:-mx-8 -mb-8 font-header`;
 
 const Content = tw.div`max-w-screen-xl mx-auto py-20 lg:py-24`;
 

@@ -10,12 +10,14 @@ import DesktopNavbar from './DesktopNavbar';
 <Preview>
   <Story
     name="Basic"
-    args={{links: ['Home', 'Blog', 'Projects', 'Open Source']}}
+    args={{
+      background: 'gray-800',
+      color: 'black',
+      hoverColor: 'blue-500',
+      links: ['Home', 'Blog', 'Projects', 'Open Source'],
+    }}
   >
-    {(args) => (
-      <DesktopNavbar {...args} />
-    )}
-
+    {(args) => <DesktopNavbar {...args} />}
   </Story>
 </Preview>
 

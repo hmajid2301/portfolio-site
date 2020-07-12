@@ -12,9 +12,11 @@ export interface Props {
   color: string;
   /** The color when you hover/focus in the text input. */
   hoverColor?: string;
+  /** Function to call when the input is out of focused. */
+  onBlur?: () => void;
 }
 
-const SearchBar = ({ background, color, hoverColor }: Props) => {
+const SearchBar = ({ background, color, hoverColor, onBlur }: Props) => {
   return (
     <SearchContainer data-testid="SearchBar">
       <Icon
@@ -28,6 +30,7 @@ const SearchBar = ({ background, color, hoverColor }: Props) => {
         background={background}
         color={color}
         label="Search"
+        onBlur={onBlur}
         placeholder="Search"
       />
     </SearchContainer>

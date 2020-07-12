@@ -1,10 +1,20 @@
 import { Meta, Story, Preview, Props } from '@storybook/addon-docs/blocks';
+import { INITIAL_VIEWPORTS } from '@storybook/addon-viewport';
 
 import { theme } from '~/styles';
 
 import MobileNavbar from './MobileNavbar';
 
-<Meta title="MobileNavbar" component={MobileNavbar} />
+<Meta
+  title="MobileNavbar"
+  component={MobileNavbar}
+  parameters={{
+    viewport: {
+      viewports: INITIAL_VIEWPORTS,
+      defaultViewport: 'iphone6',
+    },
+  }}
+/>
 
 # MobileNavbar
 
@@ -12,13 +22,13 @@ import MobileNavbar from './MobileNavbar';
   <Story
     name="Basic"
     args={{
+      background: 'gray-800',
+      color: 'black',
+      hoverColor: 'blue-500',
       links: ['Home', 'Blog', 'Projects', 'Open Source'],
     }}
   >
-    {(args) => (
-      <MobileNavbar {...args} />
-    )}
-
+    {(args) => <MobileNavbar {...args} />}
   </Story>
 </Preview>
 
@@ -30,14 +40,13 @@ You can adjust the background colour of the header by passing the `background` p
 
 <Preview>
   <Story name="Background">
-    <div>
-      <MobileNavbar background="gray-200" />
-      <MobileNavbar
-        background="blue-500"
-        linkColor="white"
-        hoverColor="gray-200"
-      />
-    </div>
+    <MobileNavbar
+      background="white"
+      color="black"
+      hoverColor="blue-500"
+      links={['Home', 'Blog', 'Projects', 'Open Source']}
+    />
+    >
   </Story>
 </Preview>
 
@@ -47,11 +56,12 @@ You can change the link colour by passing the `color` prop.
 
 <Preview>
   <Story name="Color">
-    <div>
-      <MobileNavbar color="gray-600" />
-      <MobileNavbar color="orange-600" />
-      <MobileNavbar color="purple-500" />
-    </div>
+    <MobileNavbar
+      background="white"
+      color="black"
+      hoverColor="blue-500"
+      links={['Home', 'Blog', 'Projects', 'Open Source']}
+    />
   </Story>
 </Preview>
 
@@ -61,11 +71,12 @@ You can change the hover colour of the link text by passing the `hoverColor` pro
 
 <Preview>
   <Story name="Hover Color">
-    <div>
-      <MobileNavbar hoverColor="gray-500" />
-      <MobileNavbar hoverColor="purple-500" />
-      <MobileNavbar hoverColor="green-500" />
-    </div>
+    <MobileNavbar
+      background="blue-500"
+      color="orange-500"
+      hoverColor="purple-500"
+      links={['Home', 'Blog', 'Projects', 'Open Source']}
+    />
   </Story>
 </Preview>
 
@@ -75,11 +86,12 @@ You can change the links shown by passing the `link` prop.
 
 <Preview>
   <Story name="Links">
-    <div>
-      <MobileNavbar links={['Home', 'Blog', 'Project', 'Open Source']} />
-      <MobileNavbar l links={['Link1']} />
-      <MobileNavbar links={['Home', 'Products', 'Pricing', 'Contact Us']} />
-    </div>
+    <MobileNavbar
+      background="blue-500"
+      color="orange-500"
+      hoverColor="purple-500"
+      links={['Home', 'Main Projects', 'What I Use?', 'FAQ']}
+    />
   </Story>
 </Preview>
 
@@ -89,6 +101,11 @@ Example dark mode component.
 
 <Preview>
   <Story name="Dark Mode">
-    <MobileNavbar background="gray-800" color={theme.dark.text} />>
+    <MobileNavbar
+      background="gray-800"
+      color={theme.dark.text}
+      hoverColor="purple-500"
+      links={['Home', 'Main Projects', 'What I Use?', 'FAQ']}
+    />
   </Story>
 </Preview>

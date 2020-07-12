@@ -1,7 +1,5 @@
 import styled from '@emotion/styled';
 import React, { useState } from 'react';
-// eslint-disable-next-line
-// @ts-ignore
 import { MorphReplace } from 'react-svg-morph';
 import tw from 'twin.macro';
 
@@ -42,7 +40,7 @@ const ThemeIcons = ({ color, hover, onClick }: Props) => {
 const Container = tw.span`transition duration-300 cursor-pointer`;
 
 const IconMorph = styled(MorphReplace)`
-  ${tw`fill-current h-8 w-auto`}
+  ${tw`fill-current h-6 w-auto`}
 `;
 
 export default ThemeIcons;

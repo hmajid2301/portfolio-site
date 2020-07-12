@@ -42,6 +42,6 @@ const Links = ({
   </LinksContainer>
 );
 
-const LinksContainer = tw.div`font-medium flex flex-wrap justify-center items-start md:items-center flex-col md:flex-row`;
+const LinksContainer = tw.nav`flex items-center justify-center flex-col sm:flex-row`;
 
 export default Links;

@@ -8,16 +8,25 @@ export interface Props {
   color: string;
   /** The aria-label for this component. */
   label: string;
+  /** Function to call when the input is out of focused. */
+  onBlur?: () => void;
   /** The placeholder text in the input. */
   placeholder?: string;
 }
 
-const Input = ({ background, color, label, placeholder = '' }: Props) => {
+const Input = ({
+  background,
+  color,
+  label,
+  onBlur,
+  placeholder = '',
+}: Props) => {
   return (
     <TextInput
       aria-label={label}
       className={`bg-${background} text-${color} placeholder-${color}`}
       data-testid="Input"
+      onBlur={onBlur}
       placeholder={placeholder}
     />
   );
