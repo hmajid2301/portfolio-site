@@ -6,13 +6,16 @@ export interface Props {
   background: string;
   /** The color of text/icon in the input. */
   color: string;
+  /** The aria-label for this component. */
+  label: string;
   /** The placeholder text in the input. */
   placeholder?: string;
 }
 
-const Input = ({ background, color, placeholder = '' }: Props) => {
+const Input = ({ background, color, label, placeholder = '' }: Props) => {
   return (
     <TextInput
+      aria-label={label}
       className={`bg-${background} text-${color} placeholder-${color}`}
       data-testid="Input"
       placeholder={placeholder}

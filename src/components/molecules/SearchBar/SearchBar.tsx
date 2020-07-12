@@ -22,8 +22,14 @@ const SearchBar = ({ background, color, hoverColor }: Props) => {
         color={color}
         hoverColor={hoverColor}
         icon={<Search size="1em" />}
+        label="Search Icon"
       />
-      <Input background={background} color={color} placeholder="Search" />
+      <Input
+        background={background}
+        color={color}
+        label="Search"
+        placeholder="Search"
+      />
     </SearchContainer>
   );
 };

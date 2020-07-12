@@ -10,13 +10,15 @@ export interface Props {
   hoverColor?: string;
   /** The icon element. */
   icon: React.ReactNode;
+  /** The aria-label for this component. */
+  label?: string;
 }
 
-const Icon = ({ background, color, hoverColor, icon }: Props) => (
+const Icon = ({ background, color, hoverColor, icon, label }: Props) => (
   <Container
+    aria-label={label}
     className={`bg-${background} text-${color} hover:text-${hoverColor}`}
     data-testid="Icon"
-    type="button"
   >
     {icon}
   </Container>

@@ -30,7 +30,7 @@ const AnimatedImage = ({ transition = 0.3, image }: Props) => (
 
 const Image = styled(motion.div)<{ image: string }>`
   background-image: url("${(props) => props.image}");
-  ${tw`bg-cover bg-center h-64 rounded cursor-pointer`}
+  ${tw`bg-auto bg-no-repeat bg-center h-64 rounded cursor-pointer`}
 `;
 
 export default AnimatedImage;
