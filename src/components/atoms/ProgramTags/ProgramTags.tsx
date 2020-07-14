@@ -26,6 +26,10 @@ const languages: Language = {
     background: '#ffcb2b',
     color: '#222',
   },
+  gatsby: {
+    background: '#663399',
+    color: '#fff',
+  },
   javascript: { background: '#f0db4f', color: '#222' },
   linux: { background: '#222', color: '#4FF14F' },
   python: { background: '#3572A5', color: '#fff' },

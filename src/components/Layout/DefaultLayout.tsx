@@ -1,6 +1,7 @@
 /* eslint-disable react/jsx-props-no-spreading */
-import { css } from '@emotion/core';
 import React from 'react';
+
+import { SEO } from '~/components/SEO';
 
 type Props = {};
 
@@ -10,16 +11,10 @@ const DefaultLayout: React.FC<Props> = ({
   ...props
 }) => {
   return (
-    <>
-      <div
-        css={css`
-          overflow: hidden;
-        `}
-        {...props}
-      >
-        {children}
-      </div>
-    </>
+    <div className="overflow-hidden" {...props}>
+      <SEO />
+      {children}
+    </div>
   );
 };
 

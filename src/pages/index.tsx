@@ -2,7 +2,6 @@ import styled from '@emotion/styled';
 import React from 'react';
 
 import { Layout } from '~/components/Layout';
-import { SEO } from '~/components/SEO';
 
 const Container = styled.div`
   display: flex;
@@ -16,7 +15,6 @@ const Container = styled.div`
 const Index: React.FC = () => {
   return (
     <Layout>
-      <SEO />
       <Container />
     </Layout>
   );

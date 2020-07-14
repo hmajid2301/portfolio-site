@@ -1,0 +1,100 @@
+.blog-post {
+  @apply leading-relaxed text-sm;
+}
+
+@screen sm {
+  .blog-post {
+    @apply text-base;
+  }
+}
+
+@screen lg {
+  .blog-post {
+    @apply text-lg;
+  }
+}
+
+.blog-post h1,
+.blog-post h2 {
+  @apply text-xl my-6 font-semibold;
+}
+
+.blog-post h3,
+.blog-post h4,
+.blog-post h5,
+.blog-post h6 {
+  @apply text-lg my-3 font-semibold;
+}
+
+@screen sm {
+  .blog-post h1,
+  .blog-post h2 {
+    @apply text-2xl;
+  }
+  .blog-post h3,
+  .blog-post h4,
+  .blog-post h5,
+  .blog-post h6 {
+    @apply text-xl;
+  }
+}
+
+.blog-post a {
+  @apply text-blue-600;
+}
+
+.blog-post a:hover {
+  @apply underline;
+}
+
+.blog-post p {
+  @apply mb-4;
+}
+
+.blog-post ul,
+.blog-post ol {
+  @apply mb-4 ml-8;
+}
+
+.blog-post li > p,
+.blog-post li > ul,
+.blog-post li > ol {
+  @apply mb-0;
+}
+
+.blog-post ol {
+  @apply list-decimal;
+}
+
+.blog-post ul {
+  @apply list-disc;
+}
+
+.blog-post blockquote {
+  @apply px-4 mb-4 border-l-8 border-blue-500 py-4;
+}
+
+.blog-post pre {
+  @apply px-5 mb-4 border-l-8 border-blue-500 pt-2;
+}
+
+.blog-post blockquote > p {
+  @apply mb-0;
+}
+
+.blog-post td,
+.blog-post th {
+  @apply px-2 py-1 border border-gray-400;
+}
+
+.blog-post tr:nth-child(odd) {
+  @apply bg-gray-100;
+}
+
+.blog-post table {
+  @apply mb-6;
+}
+
+.blog-post :not(pre) > code.language-text {
+  white-space: pre-line;
+}

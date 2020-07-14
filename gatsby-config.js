@@ -13,8 +13,8 @@ const plugins = [
   {
     resolve: `gatsby-source-filesystem`,
     options: {
-      name: `blog-posts`,
-      path: `${__dirname}/src/data/blog-posts`,
+      name: `blog`,
+      path: `${__dirname}/src/data/blog`,
     },
   },
   {
@@ -25,8 +25,23 @@ const plugins = [
     },
   },
   `gatsby-plugin-postcss`,
-  `gatsby-transformer-remark`,
-  `gatsby-remark-prismjs`,
+  {
+    resolve: `gatsby-transformer-remark`,
+    options: {
+      plugins: [
+        {
+          resolve: `gatsby-remark-prismjs`,
+          options: {
+            classPrefix: 'language-',
+            inlineCodeMarker: null,
+            aliases: {},
+            showLineNumbers: false,
+            noInlineHighlight: false,
+          },
+        },
+      ],
+    },
+  },
 ];
 
 // Bundle analyzer, dev only

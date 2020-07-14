@@ -36,7 +36,7 @@ module.exports = {
       },
       fontFamily: {
         header: ['Inter'],
-        body: ['Muli'],
+        body: ['Open Sans'],
       },
     },
   },

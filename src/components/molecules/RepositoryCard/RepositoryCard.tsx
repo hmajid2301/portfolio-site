@@ -22,8 +22,8 @@ export interface Props {
 }
 
 export type Item = {
-  name: string;
   description: string;
+  name: string;
   link: string;
   stars: number;
   url: string;

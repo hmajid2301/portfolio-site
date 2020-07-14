@@ -81,11 +81,11 @@ const PostMeta = ({
   );
 };
 
-const Container = tw.div`flex flex-col mx-auto max-w-2xl my-20 font-body`;
+const Container = tw.div`flex flex-col my-20 font-body`;
 
 const Date = tw.div`text-base md:text-xl mb-3 italic`;
 
-const Title = tw.div`text-4xl md:text-6xl mb-3 font-thin`;
+const Title = tw.div`text-2xl md:text-4xl mb-3 font-thin`;
 
 const ListContainer = tw.div`flex flex-row justify-center mb-4`;
 

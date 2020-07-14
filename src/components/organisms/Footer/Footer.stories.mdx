@@ -14,30 +14,7 @@ import Footer from './Footer';
 # Footer
 
 <Preview>
-  <Story
-    name="Basic"
-    args={{
-      links: ['Home', 'Blog', 'Projects', 'Open Source'],
-      socialButtons: [
-        {
-          icon: <Github />,
-          url: 'https://github.com/hmajid2301',
-        },
-        {
-          icon: <Gitlab />,
-          url: 'https://gitlab.com/hmajid2301',
-        },
-        {
-          icon: <Medium />,
-          url: 'https://medium.com/@hmajid2301',
-        },
-        {
-          icon: <Dev />,
-          url: 'https://dev.to/hmajid2301',
-        },
-      ],
-    }}
-  >
+  <Story name="Basic" args={{}}>
     {(args) => <Footer {...args} />}
   </Story>
 </Preview>
@@ -50,28 +27,7 @@ You can adjust the background colour of the footer by passing the `background` p
 
 <Preview>
   <Story name="Background">
-    <Footer
-      background="white"
-      links={['Home', 'Blog', 'Projects', 'Open Source']}
-      socialButtons={[
-        {
-          icon: <Github />,
-          url: 'https://github.com/hmajid2301',
-        },
-        {
-          icon: <Gitlab />,
-          url: 'https://gitlab.com/hmajid2301',
-        },
-        {
-          icon: <Medium />,
-          url: 'https://medium.com/@hmajid2301',
-        },
-        {
-          icon: <Dev />,
-          url: 'https://dev.to/hmajid2301',
-        },
-      ]}
-    />
+    <Footer background="white" />
   </Story>
 </Preview>
 
@@ -81,28 +37,7 @@ You can change the hover colour of the link text by passing the `hoverColor` pro
 
 <Preview>
   <Story name="Hover Colour">
-    <Footer
-      hoverColor="purple-500"
-      links={['Home', 'Blog', 'Projects', 'Open Source']}
-      socialButtons={[
-        {
-          icon: <Github />,
-          url: 'https://github.com/hmajid2301',
-        },
-        {
-          icon: <Gitlab />,
-          url: 'https://gitlab.com/hmajid2301',
-        },
-        {
-          icon: <Medium />,
-          url: 'https://medium.com/@hmajid2301',
-        },
-        {
-          icon: <Dev />,
-          url: 'https://dev.to/hmajid2301',
-        },
-      ]}
-    />
+    <Footer hoverColor="purple-500" />
   </Story>
 </Preview>
 
@@ -112,80 +47,7 @@ You can colour of the text `color` prop.
 
 <Preview>
   <Story name="Colour">
-    <Footer
-      color="green-700"
-      links={['Home', 'Blog', 'Projects', 'Open Source']}
-      socialButtons={[
-        {
-          icon: <Github />,
-          url: 'https://github.com/hmajid2301',
-        },
-        {
-          icon: <Gitlab />,
-          url: 'https://gitlab.com/hmajid2301',
-        },
-        {
-          icon: <Medium />,
-          url: 'https://medium.com/@hmajid2301',
-        },
-        {
-          icon: <Dev />,
-          url: 'https://dev.to/hmajid2301',
-        },
-      ]}
-    />
-  </Story>
-</Preview>
-
-## Links
-
-You can change the links shown by passing the `link` prop.
-
-<Preview>
-  <Story name="Links">
-    <Footer
-      links={['Home', 'Products', 'Pricing', 'Contact Us']}
-      socialButtons={[
-        {
-          icon: <Github />,
-          url: 'https://github.com/hmajid2301',
-        },
-        {
-          icon: <Gitlab />,
-          url: 'https://gitlab.com/hmajid2301',
-        },
-        {
-          icon: <Medium />,
-          url: 'https://medium.com/@hmajid2301',
-        },
-        {
-          icon: <Dev />,
-          url: 'https://dev.to/hmajid2301',
-        },
-      ]}
-    />
-  </Story>
-</Preview>
-
-## Social Buttons
-
-You can change the social buttons shown by passing the `socialButtons` prop.
-
-<Preview>
-  <Story name="SocialButtons">
-    <Footer
-      links={['Home', 'Products', 'Pricing', 'Contact Us']}
-      socialButtons={[
-        {
-          icon: <Github />,
-          url: 'https://github.com/hmajid2301',
-        },
-        {
-          icon: <Dev />,
-          url: 'https://dev.to/hmajid2301',
-        },
-      ]}
-    />
+    <Footer color="green-700" />
   </Story>
 </Preview>
 
@@ -196,29 +58,7 @@ Example dark mode component.
 <Preview>
   <Story name="Dark Mode">
     <div class={`bg-${theme.dark.background}`}>
-      <Footer
-        color={theme.dark.text}
-        background="gray-800"
-        links={['Home', 'Products', 'Pricing', 'Contact Us']}
-        socialButtons={[
-          {
-            icon: <Github />,
-            url: 'https://github.com/hmajid2301',
-          },
-          {
-            icon: <Gitlab />,
-            url: 'https://gitlab.com/hmajid2301',
-          },
-          {
-            icon: <Medium />,
-            url: 'https://medium.com/@hmajid2301',
-          },
-          {
-            icon: <Dev />,
-            url: 'https://dev.to/hmajid2301',
-          },
-        ]}
-      />
+      <Footer color={theme.dark.text} background="gray-800" />
     </div>
   </Story>
 </Preview>
