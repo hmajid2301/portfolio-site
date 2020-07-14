@@ -4,6 +4,8 @@ import tw from 'twin.macro';
 export interface Props {
   /** The background of the icon. */
   background?: string;
+  /** Extra classes to assign to this component. */
+  className?: string;
   /** The color of the icon. */
   color: string;
   /** The color of icon on hover. */
@@ -18,6 +20,7 @@ export interface Props {
 
 const Icon = ({
   background,
+  className,
   color,
   hoverColor,
   icon,
@@ -26,7 +29,7 @@ const Icon = ({
 }: Props) => (
   <Container
     aria-label={label}
-    className={`bg-${background} text-${color} hover:text-${hoverColor}`}
+    className={`bg-${background} text-${color} hover:text-${hoverColor} ${className}`}
     data-testid="Icon"
     onClick={onClick}
   >
@@ -34,6 +37,6 @@ const Icon = ({
   </Container>
 );
 
-const Container = tw.button`px-2 h-full w-auto transition duration-300 inline-block`;
+const Container = tw.button`h-full w-auto transition duration-300 inline-block`;
 
 export default Icon;

@@ -4,6 +4,8 @@ import tw from 'twin.macro';
 export interface Props {
   /** The background of the input. */
   background: string;
+  /** Extra classes to apply */
+  className?: string;
   /** The color of text/icon in the input. */
   color: string;
   /** The aria-label for this component. */
@@ -16,6 +18,7 @@ export interface Props {
 
 const Input = ({
   background,
+  className,
   color,
   label,
   onBlur,
@@ -24,7 +27,7 @@ const Input = ({
   return (
     <TextInput
       aria-label={label}
-      className={`bg-${background} text-${color} placeholder-${color}`}
+      className={`bg-${background} text-${color} placeholder-${color} ${className}`}
       data-testid="Input"
       onBlur={onBlur}
       placeholder={placeholder}

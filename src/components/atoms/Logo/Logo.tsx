@@ -16,8 +16,7 @@ export interface Props {
 
 const Logo = ({ accent, color, hoverColor, text, size = '2xl' }: Props) => (
   <LogoContainer
-    className={`hover:text-${hoverColor} text-${color} lg:text-${size}
-    md:text-xl sm:text-md text-sm`}
+    className={`hover:text-${hoverColor} text-${color} md:text-${size} text-lg`}
   >
     <Tag className={`text-${accent}`} data-testid="OpeningTag">
       &lt;

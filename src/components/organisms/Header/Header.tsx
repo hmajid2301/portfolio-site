@@ -41,6 +41,6 @@ const Header = ({
   );
 };
 
-const HeaderContainer = tw.header`flex font-header w-full`;
+const HeaderContainer = tw.header`font-header`;
 
 export default Header;

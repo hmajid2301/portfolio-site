@@ -1,4 +1,6 @@
-import React from 'react';
+import styled from '@emotion/styled';
+import { motion } from 'framer-motion';
+import React, { useState } from 'react';
 import { FaSearch as Search } from 'react-icons/fa';
 import tw from 'twin.macro';
 
@@ -12,15 +14,16 @@ export interface Props {
   color: string;
   /** The color when you hover/focus in the text input. */
   hoverColor?: string;
-  /** Function to call when the input is out of focused. */
-  onBlur?: () => void;
 }
 
-const SearchBar = ({ background, color, hoverColor, onBlur }: Props) => {
-  return (
+const SearchBar = ({ background, color, hoverColor }: Props) => {
+  const [showSearch, setShowSearch] = useState(false);
+
+  const SearchInput = (
     <SearchContainer data-testid="SearchBar">
       <Icon
         background={background}
+        className="px-2"
         color={color}
         hoverColor={hoverColor}
         icon={<Search size="1em" />}
@@ -28,15 +31,58 @@ const SearchBar = ({ background, color, hoverColor, onBlur }: Props) => {
       />
       <Input
         background={background}
+        className="px-2"
         color={color}
         label="Search"
-        onBlur={onBlur}
         placeholder="Search"
       />
     </SearchContainer>
   );
+
+  return (
+    <Container>
+      <DesktopSearch>{SearchInput}</DesktopSearch>
+      <MobileSearch>
+        <Icon
+          color={color}
+          hoverColor={hoverColor}
+          icon={<Search size="1em" />}
+          label="Search Icon"
+          onClick={() => setShowSearch(!showSearch)}
+        />
+
+        {showSearch && (
+          <SearchOverlay
+            onClick={(e) => {
+              if (e.target === e.currentTarget) {
+                setShowSearch(!showSearch);
+              }
+            }}
+            onKeyPress={(e) => {
+              if (e.target === e.currentTarget) {
+                setShowSearch(!showSearch);
+              }
+            }}
+            role="presentation"
+          >
+            {SearchInput}
+          </SearchOverlay>
+        )}
+      </MobileSearch>
+    </Container>
+  );
 };
 
-const SearchContainer = tw.div`flex flex-grow text-left h-12 text-lg focus-within:shadow-outline`;
+const Container = tw.div`flex-grow`;
+
+const SearchContainer = tw.div`flex w-full text-left h-12 text-lg focus-within:shadow-outline`;
+
+const DesktopSearch = tw.div`hidden lg:flex`;
+
+const MobileSearch = tw.div`flex lg:hidden`;
+
+const SearchOverlay = motion.custom(styled.div`
+  ${tw`absolute bg-black inset-0 flex items-center justify-center p-5 bg-opacity-75`}
+`);
 
 export default SearchBar;

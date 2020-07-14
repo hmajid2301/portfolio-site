@@ -42,14 +42,14 @@ const DesktopNavbar = ({
     <Links
       color="black"
       hoverColor={hoverColor}
-      linkClassName="text-base md:text-lg my-2 lg:mx-6 lg:my-0 font-semibold"
+      linkClassName="text-base lg:text-base xl:text-lg my-2 lg:mx-4 xl:md-6 lg:my-0 font-semibold"
       links={links}
     />
     <ThemeIcons color={color} hover={hoverColor} />
   </Navbar>
 );
 
-const Navbar = tw.nav`hidden md:flex items-center justify-between w-full space-x-8 shadow p-4`;
+const Navbar = tw.nav`hidden lg:flex items-center justify-between w-full space-x-4 md:space-x-8 shadow p-4`;
 
 const LogoContainer = styled(Link)`
   ${tw`border-b-0 ml-0!`};

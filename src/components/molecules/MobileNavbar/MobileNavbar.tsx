@@ -1,15 +1,13 @@
 import styled from '@emotion/styled';
 import { motion } from 'framer-motion';
 import { Link } from 'gatsby';
-import React, { useState } from 'react';
-import { FaSearch as Search } from 'react-icons/fa';
+import React from 'react';
 import {
   RiCloseLine as CloseIcon,
   RiMenuLine as MenuIcon,
 } from 'react-icons/ri';
 import tw from 'twin.macro';
 
-import { Icon } from '~/components/atoms/Icon';
 import { Logo } from '~/components/atoms/Logo';
 import { Links } from '~/components/molecules/Links';
 import { SearchBar } from '~/components/molecules/SearchBar';
@@ -34,7 +32,6 @@ const MobileNavbar = ({
   links,
 }: Props) => {
   const { showNavLinks, animation, toggleNavbar } = useAnimatedNavToggler();
-  const [showSearch, setShowSearch] = useState(false);
 
   return (
     <MobileNavContainer>
@@ -59,15 +56,13 @@ const MobileNavbar = ({
         />
       </MobileNavLinks>
       <IconContainer>
-        <Icon
-          background={background}
+        <SearchBar
+          background="gray-200"
           color={color}
           hoverColor={hoverColor}
-          icon={<Search size="1em" />}
-          label="Search Icon"
-          onClick={() => setShowSearch(!showSearch)}
         />
         <NavToggle
+          aria-label="Toggles navigation bar."
           className={`hover:text-${hoverColor} ${
             showNavLinks ? 'open' : 'closed'
           }`}
@@ -83,49 +78,22 @@ const MobileNavbar = ({
 
         <ThemeIcons color={color} hover={hoverColor} />
       </IconContainer>
-
-      {showSearch && (
-        <SearchOverlay
-          onClick={(e) => {
-            if (e.target === e.currentTarget) {
-              setShowSearch(!showSearch);
-            }
-          }}
-          onKeyPress={(e) => {
-            if (e.target === e.currentTarget) {
-              setShowSearch(!showSearch);
-            }
-          }}
-          role="presentation"
-        >
-          <SearchBar
-            background="gray-200"
-            color={color}
-            hoverColor={hoverColor}
-            onBlur={() => setShowSearch(!showSearch)}
-          />
-        </SearchOverlay>
-      )}
     </MobileNavContainer>
   );
 };
 
-const MobileNavContainer = tw.div`flex font-header justify-between sm:hidden`;
+const MobileNavContainer = tw.div`flex justify-between items-center lg:hidden`;
 
 const LogoContainer = styled(Link)`
   ${tw`border-b-0 ml-0!`};
 `;
 
 const MobileNavLinks = motion.custom(styled.div`
-  ${tw`sm:hidden fixed mt-2 top-0 inset-x-0 mx-2 p-8 border text-center rounded-lg`}
+  ${tw`lg:hidden fixed mt-2 top-0 inset-x-0 mx-2 p-8 border text-center rounded-lg`}
 `);
 
-const NavToggle = tw.button`z-10 sm:hidden focus:outline-none transition duration-300`;
+const NavToggle = tw.button`z-10 lg:hidden focus:outline-none transition duration-300`;
 
-const IconContainer = tw.div`flex flex-row space-x-3`;
-
-const SearchOverlay = motion.custom(styled.div`
-  ${tw`absolute bg-black inset-0 flex items-center justify-center p-5 bg-opacity-75`}
-`);
+const IconContainer = tw.div`flex flex-row space-x-3 items-center`;
 
 export default MobileNavbar;
