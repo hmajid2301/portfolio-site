@@ -1,0 +1,6 @@
+.git
+.vscode
+public
+.cache
+node_modules
+coverage
