@@ -2,7 +2,7 @@ import { Meta, Story, Preview, Props } from '@storybook/addon-docs/blocks';
 
 import ProgramTags from './ProgramTags';
 
-<Meta title="ProgramTags" component={ProgramTags} />
+<Meta title="Atoms | ProgramTags" component={ProgramTags} />
 
 # ProgramTags
 
@@ -10,7 +10,7 @@ import ProgramTags from './ProgramTags';
   <Story
     name="Basic"
     args={{
-      text: "typescript",
+      text: 'typescript',
     }}
   >
     {(args) => <ProgramTags {...args} />}
@@ -19,7 +19,7 @@ import ProgramTags from './ProgramTags';
 
 <Props story="Basic" />
 
-## Text 
+## Text
 
 You can adjust the main text of the component by passing the `text` prop. The colour and background will be determined
 by the text typically it will the name of a technology or programming language.
