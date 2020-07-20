@@ -3,8 +3,6 @@ import React from 'react';
 
 import { Layout } from '~/components/Layout';
 import { BlogPost } from '~/components/organisms/BlogPost';
-import { Footer } from '~/components/organisms/Footer';
-import { Header } from '~/components/organisms/Header';
 
 export interface Props {
   data: {
@@ -28,11 +26,9 @@ export interface Props {
 export default function BlogPostTemplate({ data }: Props) {
   const { markdownRemark } = data;
   const { frontmatter, html } = markdownRemark;
-  console.log(frontmatter, html);
 
   return (
     <Layout>
-      <Header />
       <BlogPost
         data={html}
         date={frontmatter.date}
@@ -40,7 +36,6 @@ export default function BlogPostTemplate({ data }: Props) {
         tags={frontmatter.tags}
         title={frontmatter.title}
       />
-      <Footer />
     </Layout>
   );
 }

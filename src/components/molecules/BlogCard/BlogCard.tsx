@@ -19,9 +19,9 @@ export interface Props {
 }
 
 export type Item = {
-  tags?: string[];
   date?: string;
   image: string;
+  tags?: string[];
   title: string;
   url: string;
 };

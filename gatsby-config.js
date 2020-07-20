@@ -6,6 +6,13 @@ const plugins = [
   `gatsby-plugin-react-helmet`,
   `gatsby-transformer-sharp`,
   `gatsby-plugin-sharp`,
+  `gatsby-remark-copy-linked-files`,
+  {
+    resolve: `gatsby-remark-images`,
+    options: {
+      maxWidth: 1080,
+    },
+  },
   `gatsby-plugin-typescript`,
   `gatsby-plugin-emotion`,
   `gatsby-plugin-remove-serviceworker`,
@@ -14,7 +21,7 @@ const plugins = [
     resolve: `gatsby-source-filesystem`,
     options: {
       name: `blog`,
-      path: `${__dirname}/src/data/blog`,
+      path: `${__dirname}/src/content/blog`,
     },
   },
   {
