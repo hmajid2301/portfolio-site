@@ -5,6 +5,7 @@ import {
   AiFillMediumCircle as Medium,
 } from 'react-icons/ai';
 import { FaDev as Dev } from 'react-icons/fa';
+import { GoKey as Key } from 'react-icons/go';
 import tw from 'twin.macro';
 
 import { Links } from '~/components/molecules/Links';
@@ -46,6 +47,10 @@ const Footer = ({
     {
       icon: <Dev />,
       url: 'https://dev.to/hmajid2301',
+    },
+    {
+      icon: <Key />,
+      url: '/static/public.gpg',
     },
   ];
 

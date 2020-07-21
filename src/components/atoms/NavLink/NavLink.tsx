@@ -15,7 +15,7 @@ export interface Props {
 const NavLink = ({ color, className, hoverColor, link }: Props) => (
   <Link
     className={`border-b-2 border-transparent pb-1 transition duration-300 hover:border-${hoverColor} hover:text-${hoverColor} text-${color} ${className}`}
-    to={`/${link}`}
+    to={`/${link.toLowerCase()}`}
   >
     {link}
   </Link>

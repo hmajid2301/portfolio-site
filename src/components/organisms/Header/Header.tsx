@@ -18,7 +18,7 @@ const Header = ({
   color = 'black',
   hoverColor = 'blue-500',
 }: Props) => {
-  const links = ['Home', 'Blog', 'Projects', 'Open Source'];
+  const links = ['Home', 'Blog', 'Projects', 'Open Source', 'Uses'];
 
   return (
     <HeaderContainer
