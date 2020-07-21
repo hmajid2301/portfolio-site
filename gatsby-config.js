@@ -6,6 +6,9 @@ const plugins = [
   `gatsby-plugin-react-helmet`,
   `gatsby-transformer-sharp`,
   `gatsby-plugin-sharp`,
+  `gatsby-plugin-typescript`,
+  `gatsby-plugin-emotion`,
+  `gatsby-plugin-svgr`,
   `gatsby-remark-copy-linked-files`,
   {
     resolve: `gatsby-remark-images`,
@@ -13,10 +16,6 @@ const plugins = [
       maxWidth: 1080,
     },
   },
-  `gatsby-plugin-typescript`,
-  `gatsby-plugin-emotion`,
-  `gatsby-plugin-remove-serviceworker`,
-  `gatsby-plugin-svgr`,
   {
     resolve: `gatsby-source-filesystem`,
     options: {
@@ -49,6 +48,31 @@ const plugins = [
       ],
     },
   },
+  {
+    resolve: `gatsby-plugin-manifest`,
+    options: {
+      name: `haseebmajid.dev`,
+      short_name: `Haseeb Majid`,
+      start_url: `/`,
+      background_color: `#222`,
+      theme_color: `#367ee9`,
+      display: `standalone`,
+      icon: `src/assets/images/icon.png`,
+      icons: [
+        {
+          src: `/favicons/android-chrome-192x192.png`,
+          sizes: `192x192`,
+          type: `image/png`,
+        },
+        {
+          src: `/favicons/android-chrome-512x512.png`,
+          sizes: `512x512`,
+          type: `image/png`,
+        },
+      ],
+    },
+  },
+  `gatsby-plugin-offline`,
 ];
 
 // Bundle analyzer, dev only

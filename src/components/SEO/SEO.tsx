@@ -30,6 +30,25 @@ const SEO: React.FC<Props> = ({ children, description = '', title }) => {
             content={process.env.GATSBY_SITE_URL + location.pathname}
             property="og:url"
           />
+
+          <link
+            href="/favicons/apple-touch-icon.png"
+            rel="apple-touch-icon"
+            sizes="180x180"
+          />
+          <link
+            href="/favicons/favicon-32x32.png"
+            rel="icon"
+            sizes="32x32"
+            type="image/png"
+          />
+          <link
+            href="/favicons/favicon-16x16.png"
+            rel="icon"
+            sizes="16x16"
+            type="image/png"
+          />
+
           <meta content="website" property="og:type" />
           <meta content={title} property="og:title" />
           <meta content={metaDescription} property="og:description" />
