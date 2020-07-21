@@ -1,1 +1,1 @@
-export { default as BlogCard } from './BlogCard';
+export { default as BlogCard, BlogItem } from './BlogCard';

@@ -14,15 +14,19 @@ export interface Props {
   /** The background color of the overlay text. */
   textBackground?: string;
   /** The item to show in the card. */
-  item: Item;
+  item: MainCardItem;
 }
 
-export type Item = {
-  name: string;
+export interface MainCardItem {
+  /** A short description of the project. */
   description: string;
+  /** The project name. */
+  name: string;
+  /** An image to display for the project. */
   image: string;
-  link: string;
-};
+  /** A link to project. */
+  url: string;
+}
 
 const MainCard = ({
   background = 'black',
@@ -31,7 +35,7 @@ const MainCard = ({
   item,
 }: Props) => (
   <Container className={`group text-${color}`} data-testid="Container">
-    <Card to={item.link}>
+    <Card to={item.url}>
       <AnimatedImage image={item.image} />
       <OverlayContainer className={`bg-${background}`}>
         <HeaderText className={`bg-${textBackground}`}>{item.name}</HeaderText>

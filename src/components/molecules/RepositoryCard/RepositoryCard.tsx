@@ -18,24 +18,23 @@ export interface Props {
   /** The colour when you hover over the nav bar links. */
   hover?: string;
   /** The item to show in the card. */
-  item: Item;
+  item: RepositoryItem;
 }
 
-export type Item = {
+export interface RepositoryItem {
+  /** A short description of the project. */
   description: string;
+  /** The project name. */
   name: string;
+  /** Link to the project. */
   link: string;
+  /** The number of stars on the github repo. */
   stars: number;
+  /** The url of the project. */
   url: string;
-};
+}
 
-const RepositoryCard = ({
-  accent = 'gray-700',
-  background = 'white',
-  color = 'gray-800',
-  hover = 'blue-500',
-  item,
-}: Props) => {
+const RepositoryCard = ({ accent, background, color, hover, item }: Props) => {
   const itemClass = `text-${accent} hover:text-${hover}`;
 
   return (

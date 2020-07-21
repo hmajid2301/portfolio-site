@@ -1,27 +1,45 @@
 import { Meta, Story, Preview, Props } from '@storybook/addon-docs/blocks';
 
 import { theme } from '~/styles';
-import RepositoryCard from './RepositoryCard';
+import RepositoryList from './RepositoryList';
 
-<Meta title="Molecules | RepositoryCard" component={RepositoryCard} />
+<Meta title="Organisms | RepositoryList" component={RepositoryList} />
 
-# RepositoryCard
+# RepositoryList
 
 <Preview>
   <Story
     name="Basic"
     args={{
-      item: {
-        name: 'stegappasaurus',
-        description:
-          'An mobile app, created using React Native. Uses steganography to hide messages in images.',
-        link: '/project/stegappasaurus',
-        stars: 4,
-        url: 'https://gitlab.com/hmajid2301/stegappasaurus',
-      },
+      data: [
+        {
+          name: 'stegappasaurus',
+          description:
+            'An mobile app, created using React Native. Uses steganography to hide messages in images.',
+          link: '/project/stegappasaurus',
+          stars: 4,
+          url: 'https://gitlab.com/hmajid2301/stegappasaurus',
+        },
+        {
+          name: 'composerisation',
+          description:
+            'Converts commands between docker run and docker compose.',
+          link: '/project/composerisation',
+          stars: 1,
+          url: 'https://gitlab.com/hmajid2301/composerisation',
+        },
+        {
+          name: 'another_one',
+          description:
+            'Converts commands between docker run and docker compose.',
+          link: '/project/composerisation',
+          stars: 10,
+          url: 'https://gitlab.com/hmajid2301/composerisation',
+        },
+      ],
     }}
   >
-    {(args) => <RepositoryCard {...args} />}
+    {(args) => <RepositoryList {...args} />}
   </Story>
 </Preview>
 
@@ -33,7 +51,7 @@ You can adjust the accent (title and meta items) color by passing the `accent` p
 
 <Preview>
   <Story name="Accent Colour">
-    <RepositoryCard
+    <RepositoryList
       accent="gray-500"
       item={{
         name: 'stegappasaurus',
@@ -53,7 +71,7 @@ You can adjust the background colour of the card by passing the `background` pro
 
 <Preview>
   <Story name="Background">
-    <RepositoryCard
+    <RepositoryList
       background="gray-100"
       item={{
         name: 'stegappasaurus',
@@ -73,7 +91,7 @@ You can change the colour of the text by passing the `color` prop.
 
 <Preview>
   <Story name="Color">
-    <RepositoryCard
+    <RepositoryList
       color="gray-500"
       item={{
         name: 'stegappasaurus',
@@ -93,7 +111,7 @@ You can change the hover colour of the accent elements (title and meta items) by
 
 <Preview>
   <Story name="Hover Color">
-    <RepositoryCard
+    <RepositoryList
       hover="purple-500"
       item={{
         name: 'stegappasaurus',
@@ -113,7 +131,7 @@ You can change the contents of the card by passing the `item` prop.
 
 <Preview>
   <Story name="Item">
-    <RepositoryCard
+    <RepositoryList
       item={{
         name: 'composerisation',
         description: 'Converts commands between docker run and docker compose.',
@@ -131,7 +149,7 @@ Example dark mode component.
 
 <Preview>
   <Story name="Dark Mode">
-    <RepositoryCard
+    <RepositoryList
       accent="gray-200"
       background={theme.dark.background}
       color={theme.dark.text}

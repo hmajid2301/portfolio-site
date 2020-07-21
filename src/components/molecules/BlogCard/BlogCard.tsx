@@ -13,25 +13,25 @@ export interface Props {
   /** The color of main text. */
   color?: string;
   /** The blog to show in the post. */
-  item: Item;
+  item: BlogItem;
   /** The text color of the main text. */
   textColor?: string;
 }
 
-export type Item = {
-  date?: string;
+export interface BlogItem {
+  /** The post date. */
+  date: string;
+  /** Path to the cover image. */
   image: string;
-  tags?: string[];
+  /** A list of tags for the article i.e. related topics. */
+  tags: string[];
+  /** The title of the blog post. */
   title: string;
+  /** The unique slug/url of the blog post. */
   url: string;
-};
+}
 
-const BlogCard = ({
-  background = 'gray-100',
-  color = 'blue-500',
-  item,
-  textColor = 'gray-700',
-}: Props) => (
+const BlogCard = ({ background, color, item, textColor }: Props) => (
   <Container
     className={`group text-${textColor} hover:text-${color} bg-${background}`}
     testId={`Card-${item.title}`}

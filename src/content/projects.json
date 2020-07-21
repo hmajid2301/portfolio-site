@@ -1,0 +1,14 @@
+{
+  "stegappasaurus": {
+    "name": "Stegappasaurus",
+    "description": "Stegappasaurus is an open-source free mobile application, built using React Native. This application uses steganography algorithms to hide data within images. The project was originally conceptualised as a third-year project for university. It has since then been completely rewritten. It was originally written using Ionic/Apache Cordova.",
+    "image": "/static/projects/",
+    "url": "https://gitlab.com/hmajid2301/stegappasaurus"
+  },
+  "composerisation": {
+    "name": "Composerisation",
+    "description": "Composerisation is an open-source CLI tool, built using Python. The tool allows you to convert between docker-compose and Docker CLI syntax. You can also visit the website to use the tool instead of installing it to your local machine.",
+    "image": "/static/projects/",
+    "url": "https://gitlab.com/hmajid2301/composerisation"
+  }
+}
