@@ -10,7 +10,7 @@ const item = {
     'An mobile app, created using React Native. Uses steganography to hide messages in images.',
   image:
     'https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=700&h=400',
-  link: '/project/stegappasaurus',
+  url: '/project/stegappasaurus',
 };
 
 describe('<MainCard />', () => {
@@ -66,7 +66,7 @@ describe('<MainCard />', () => {
         description: 'Converts commands between docker run and docker compose.',
         image:
           'https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=700&h=400',
-        link: '/project/composerisation',
+        url: '/project/composerisation',
       };
       const { getByText } = render(<MainCard item={otherItem} />);
 

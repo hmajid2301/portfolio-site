@@ -28,7 +28,7 @@ describe('<RepositoryCard />', () => {
         const header = getByText('stegappasaurus');
         expect(header.parentElement?.className).toContain(expectedClass);
         expect((header as HTMLAnchorElement).href).toBe(
-          'http://localhost/project/stegappasaurus'
+          'https://gitlab.com/hmajid2301/stegappasaurus'
         );
       }
     );

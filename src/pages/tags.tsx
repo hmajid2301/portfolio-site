@@ -1,18 +1,25 @@
 import { Link, graphql } from 'gatsby';
 import React from 'react';
 
-import { Helmet } from 'react-helmet';
+export interface Props {
+  data: {
+    allMarkdownRemark: {
+      group: Tag[];
+    };
+  };
+}
+
+export interface Tag {
+  fieldValue: string;
+  totalCount: number;
+}
 
 const TagsPage = ({
   data: {
     allMarkdownRemark: { group },
-    site: {
-      siteMetadata: { title },
-    },
   },
-}) => (
+}: Props) => (
   <div>
-    <Helmet title={title} />
     <div>
       <h1>Tags</h1>
       <ul>

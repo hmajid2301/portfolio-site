@@ -16,7 +16,7 @@ describe('<Logo />', () => {
       const { getByText } = render(<Logo {...props} text="Haseeb" />);
       const logoText = getByText('Haseeb');
       expect(logoText.className).toContain(
-        'hover:text-blue-500 text-black lg:text-2xl'
+        'hover:text-blue-500 text-black md:text-2xl'
       );
     });
   });

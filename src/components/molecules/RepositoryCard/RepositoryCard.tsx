@@ -27,7 +27,7 @@ export interface RepositoryItem {
   /** The project name. */
   name: string;
   /** Link to the project. */
-  link: string;
+  link?: string;
   /** The number of stars on the github repo. */
   stars: number;
   /** The url of the project. */
@@ -43,7 +43,7 @@ const RepositoryCard = ({ accent, background, color, hover, item }: Props) => {
       data-testid="Container"
     >
       <HeaderText className={`text-${accent} hover:text-${hover}`}>
-        <HeaderLink to={item.link}>{item.name}</HeaderLink>
+        <HeaderLink to={item.url}>{item.name}</HeaderLink>
       </HeaderText>
       <MainText>{item.description}</MainText>
       <MetaContainer color={color}>

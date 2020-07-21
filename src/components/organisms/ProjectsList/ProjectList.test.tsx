@@ -26,9 +26,7 @@ describe('<ProjectList />', () => {
   test('Render with default styles', () => {
     const { getByText } = render(<ProjectList projectItems={data} />);
 
-    const codeBlock = getByText(
-      'Converts commands between docker run and docker compose'
-    );
+    const codeBlock = getByText('composerisation');
     expect(codeBlock).toBeTruthy();
   });
 });

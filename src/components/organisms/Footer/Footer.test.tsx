@@ -12,7 +12,9 @@ describe('<Footer />', () => {
 
       links.forEach((link) => {
         const linkElement = getAllByText(link)[0] as HTMLAnchorElement;
-        expect(linkElement.href).toBe(`http://localhost/${link}`);
+        expect(linkElement.href).toBe(
+          `http://localhost/${link.replace(' ', '%20')}`
+        );
         expect(linkElement.className).toContain(
           'hover:border-blue-500 hover:text-blue-500'
         );

@@ -13,10 +13,12 @@ const item = {
   url: 'https://timerse.com',
 };
 
-describe('<BlogItem />', () => {
-  describe('Default BlogItem', () => {
+describe('<BlogCard />', () => {
+  describe('Default BlogCard', () => {
     test('Render with default styles', () => {
-      const { getByTestId } = render(<BlogCard item={item} />);
+      const { getByTestId } = render(
+        <BlogCard item={item} textColor="gray-700" />
+      );
       const cardContainer = getByTestId(
         'Card-Tips on how to travel safely in foreign countries'
       );
