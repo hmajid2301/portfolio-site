@@ -23,6 +23,8 @@ export interface Props {
   date: string;
   /** The color on hover of the social links. */
   hoverColor?: string;
+  /** How long it'll take to finish the article. */
+  readingTime?: string;
   /** The tags/categories related to this blog post. */
   tags?: string[];
   /** The title of this blog post. */
@@ -35,6 +37,7 @@ const PostMeta = ({
   color = 'gray-800',
   date,
   hoverColor = 'blue-500',
+  readingTime,
   tags,
   title,
   url,
@@ -63,6 +66,7 @@ const PostMeta = ({
   return (
     <Container className={`text-${color} text-center`}>
       <Date>{date}</Date>
+      <Date>{readingTime}</Date>
       <Title>{title}</Title>
       {tags && (
         <ListContainer>

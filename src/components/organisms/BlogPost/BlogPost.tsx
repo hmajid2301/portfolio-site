@@ -10,18 +10,26 @@ export interface Props {
   data: string;
   /** The date of the blog post. */
   date: string;
+  /** How long it'll take to finish the article. */
+  readingTime: string;
+  /** The unique slug/url of the blog post. */
+  slug: string;
   /** A list of tags for the article i.e. related topics. */
   tags: string[];
   /** The title of the blog post. */
   title: string;
-  /** The unique slug/url of the blog post. */
-  slug: string;
 }
 
-const BlogPost = ({ data, date, tags, title, slug }: Props) => {
+const BlogPost = ({ data, date, readingTime, slug, tags, title }: Props) => {
   return (
     <BlogContainer className="blog-post-container">
-      <PostMeta date={date} tags={tags} title={title} url={slug} />
+      <PostMeta
+        date={date}
+        readingTime={readingTime}
+        tags={tags}
+        title={title}
+        url={slug}
+      />
       <div className="blog-post">
         <div
           className="blog-post-content"

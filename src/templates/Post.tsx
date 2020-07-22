@@ -7,6 +7,13 @@ import { BlogPost } from '~/components/organisms/BlogPost';
 export interface Props {
   data: {
     markdownRemark: {
+      fields: {
+        /** How long it'll take to finish the article. */
+        readingTime: {
+          text: string;
+        };
+      };
+
       frontmatter: {
         /** The post date. */
         date: string;
@@ -25,13 +32,14 @@ export interface Props {
 
 export default function BlogPostTemplate({ data }: Props) {
   const { markdownRemark } = data;
-  const { frontmatter, html } = markdownRemark;
+  const { fields, frontmatter, html } = markdownRemark;
 
   return (
     <Layout>
       <BlogPost
         data={html}
         date={frontmatter.date}
+        readingTime={fields.readingTime.text}
         slug={frontmatter.slug}
         tags={frontmatter.tags}
         title={frontmatter.title}
@@ -49,6 +57,11 @@ export const pageQuery = graphql`
         slug
         title
         tags
+      }
+      fields {
+        readingTime {
+          text
+        }
       }
     }
   }
