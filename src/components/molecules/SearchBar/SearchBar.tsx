@@ -1,5 +1,8 @@
 import styled from '@emotion/styled';
+import { Index, SerialisedIndexData } from 'elasticlunr';
 import { motion } from 'framer-motion';
+import { Link, graphql, StaticQuery } from 'gatsby';
+
 import React, { useState } from 'react';
 import { FaSearch as Search } from 'react-icons/fa';
 import tw from 'twin.macro';
@@ -16,10 +19,40 @@ export interface Props {
   hoverColor?: string;
 }
 
-const SearchBar = ({ background, color, hoverColor }: Props) => {
-  const [showSearch, setShowSearch] = useState(false);
+interface Page {
+  id: string;
+  field: string;
+  title: string;
+  path: string;
+  tags: string;
+}
 
-  const SearchInput = (
+const SearchInput = ({
+  background,
+  color,
+  hoverColor,
+  searchIndex,
+}: {
+  background: string;
+  color: string;
+  hoverColor?: string;
+  searchIndex: SerialisedIndexData<Page>;
+}) => {
+  const index = Index.load(searchIndex);
+  const [query, setQuery] = useState('');
+  const [results, setResults] = useState<Page[]>([]);
+
+  function search(evt: React.ChangeEvent<HTMLInputElement>) {
+    setQuery(evt.target.value);
+    const res = index
+      .search(query, { fields: { field: { expand: true } } })
+      .map(({ ref }) => {
+        return index.documentStore.getDoc(ref);
+      });
+    setResults(res);
+  }
+
+  return (
     <SearchContainer data-testid="SearchBar">
       <Icon
         background={background}
@@ -34,14 +67,44 @@ const SearchBar = ({ background, color, hoverColor }: Props) => {
         className="px-2"
         color={color}
         label="Search"
+        onChange={search}
         placeholder="Search"
+        value={query}
       />
+      {results.map((page: Page) => (
+        <li key={page.title}>
+          <Link to={`/blog/${page.path}`}>{page.title}</Link>
+          {`: ${page.tags}`}
+        </li>
+      ))}
     </SearchContainer>
   );
+};
+
+const SearchBar = ({ background, color, hoverColor }: Props) => {
+  const [showSearch, setShowSearch] = useState(false);
 
   return (
     <Container>
-      <DesktopSearch>{SearchInput}</DesktopSearch>
+      <DesktopSearch>
+        <StaticQuery
+          query={graphql`
+            query SearchIndexQuery {
+              siteSearchIndex {
+                index
+              }
+            }
+          `}
+          render={(data) => (
+            <SearchInput
+              background={background}
+              color={color}
+              hoverColor={hoverColor}
+              searchIndex={data.siteSearchIndex.index}
+            />
+          )}
+        />
+      </DesktopSearch>
       <MobileSearch>
         <Icon
           color={color}
@@ -65,7 +128,23 @@ const SearchBar = ({ background, color, hoverColor }: Props) => {
             }}
             role="presentation"
           >
-            {SearchInput}
+            <StaticQuery
+              query={graphql`
+                query SearchIndexQuery {
+                  siteSearchIndex {
+                    index
+                  }
+                }
+              `}
+              render={(data) => (
+                <SearchInput
+                  background={background}
+                  color={color}
+                  hoverColor={hoverColor}
+                  searchIndex={data.siteSearchIndex.index}
+                />
+              )}
+            />
           </SearchOverlay>
         )}
       </MobileSearch>

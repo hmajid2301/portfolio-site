@@ -24,6 +24,21 @@ const plugins = [
     },
   },
   {
+    resolve: `@gatsby-contrib/gatsby-plugin-elasticlunr-search`,
+    options: {
+      fields: [`title`, `tags`, `html`],
+      resolvers: {
+        MarkdownRemark: {
+          title: (node) => node.frontmatter.title,
+          tags: (node) => node.frontmatter.tags,
+          path: (node) => node.frontmatter.slug,
+          html: (node) => node.internal.content,
+        },
+      },
+    },
+  },
+
+  {
     resolve: 'gatsby-plugin-google-fonts',
     options: {
       fonts: [`Lora:400,700`],

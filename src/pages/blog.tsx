@@ -41,13 +41,15 @@ const Blog = ({
   const blogItem: BlogItem[] = [];
   edges.forEach((element) => {
     const { frontmatter } = element.node;
-    blogItem.push({
-      date: frontmatter.date,
-      image: frontmatter.cover_image.publicURL,
-      tags: frontmatter.tags,
-      title: frontmatter.title,
-      url: frontmatter.slug,
-    });
+    if (frontmatter.title !== 'Uses') {
+      blogItem.push({
+        date: frontmatter.date,
+        image: frontmatter.cover_image.publicURL,
+        tags: frontmatter.tags,
+        title: frontmatter.title,
+        url: frontmatter.slug,
+      });
+    }
   });
 
   return (

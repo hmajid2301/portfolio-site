@@ -10,10 +10,12 @@ export interface Props {
   color: string;
   /** The aria-label for this component. */
   label: string;
-  /** Function to call when the input is out of focused. */
-  onBlur?: () => void;
+  /** Function to call when the input is changed. */
+  onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
   /** The placeholder text in the input. */
   placeholder?: string;
+  /** The text shown in the input */
+  value?: string;
 }
 
 const Input = ({
@@ -21,16 +23,19 @@ const Input = ({
   className,
   color,
   label,
-  onBlur,
+  onChange,
   placeholder = '',
+  value,
 }: Props) => {
   return (
     <TextInput
       aria-label={label}
       className={`bg-${background} text-${color} placeholder-${color} ${className}`}
       data-testid="Input"
-      onBlur={onBlur}
+      onChange={onChange}
       placeholder={placeholder}
+      type="text"
+      value={value}
     />
   );
 };

@@ -36,12 +36,12 @@ tests:unit:
     - master
     - tags
   script:
-    - yarn test --silent
+    - yarn test --silent --passWithNoTests
 
 tests:coverage:
   stage: test
   only:
     - master
   script:
-    - yarn coverage
+    - yarn coverage --passWithNoTests
   coverage: /All\sfiles.*?\s+(\d+.\d+)/

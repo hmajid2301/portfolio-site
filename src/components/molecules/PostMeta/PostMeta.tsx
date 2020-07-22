@@ -24,7 +24,7 @@ export interface Props {
   /** The color on hover of the social links. */
   hoverColor?: string;
   /** The tags/categories related to this blog post. */
-  tags: string[];
+  tags?: string[];
   /** The title of this blog post. */
   title: string;
   /** The url to share with the social links. */
@@ -64,13 +64,15 @@ const PostMeta = ({
     <Container className={`text-${color} text-center`}>
       <Date>{date}</Date>
       <Title>{title}</Title>
-      <ListContainer>
-        {tags.map((category) => (
-          <Item>
-            <ProgramTags key={category} text={category} />
-          </Item>
-        ))}
-      </ListContainer>
+      {tags && (
+        <ListContainer>
+          {tags.map((category) => (
+            <Item>
+              <ProgramTags key={category} text={category} />
+            </Item>
+          ))}
+        </ListContainer>
+      )}
 
       <ListContainer>
         {socialMedia.map((social) => (
