@@ -1,0 +1,13 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.theme-light {
+  --background: #f8f8f8;
+  --primary: #0d0106;
+}
+
+.theme-dark {
+  --background: #12181b;
+  --primary: #eaeaea;
+}

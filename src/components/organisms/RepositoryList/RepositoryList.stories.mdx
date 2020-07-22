@@ -1,0 +1,46 @@
+import { Meta, Story, Preview, Props } from '@storybook/addon-docs/blocks';
+
+import { theme } from '~/styles';
+import RepositoryList from './RepositoryList';
+
+<Meta title="Organisms | RepositoryList" component={RepositoryList} />
+
+# RepositoryList
+
+<Preview>
+  <Story
+    name="Basic"
+    args={{
+      data: [
+        {
+          name: 'stegappasaurus',
+          description:
+            'An mobile app, created using React Native. Uses steganography to hide messages in images.',
+          link: '/project/stegappasaurus',
+          stars: 4,
+          url: 'https://gitlab.com/hmajid2301/stegappasaurus',
+        },
+        {
+          name: 'composerisation',
+          description:
+            'Converts commands between docker run and docker compose.',
+          link: '/project/composerisation',
+          stars: 1,
+          url: 'https://gitlab.com/hmajid2301/composerisation',
+        },
+        {
+          name: 'another_one',
+          description:
+            'Converts commands between docker run and docker compose.',
+          link: '/project/composerisation',
+          stars: 10,
+          url: 'https://gitlab.com/hmajid2301/composerisation',
+        },
+      ],
+    }}
+  >
+    {(args) => <RepositoryList {...args} />}
+  </Story>
+</Preview>
+
+<Props story="Basic" />

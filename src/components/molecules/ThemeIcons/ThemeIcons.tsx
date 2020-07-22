@@ -1,9 +1,10 @@
 import styled from '@emotion/styled';
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { MorphReplace } from 'react-svg-morph';
 import tw from 'twin.macro';
 
 import { DarkIcon, LightIcon } from '~/components/atoms/Icon';
+import { ThemeContext } from '~/providers/Theme';
 
 export interface Props {
   /** The color of icon. */
@@ -15,10 +16,14 @@ export interface Props {
 }
 
 const ThemeIcons = ({ color, hover, onClick }: Props) => {
-  const [isLight, setTheme] = useState(true);
+  const { theme, setTheme } = useContext(ThemeContext);
 
   function themeChange() {
-    setTheme(!isLight);
+    if (theme === 'light') {
+      setTheme('dark');
+    } else {
+      setTheme('light');
+    }
     if (onClick) {
       onClick();
     }
@@ -31,7 +36,11 @@ const ThemeIcons = ({ color, hover, onClick }: Props) => {
       onClick={() => themeChange()}
     >
       <IconMorph>
-        {isLight ? <LightIcon key="light" /> : <DarkIcon key="dark" />}
+        {theme === 'light' ? (
+          <LightIcon key="light" />
+        ) : (
+          <DarkIcon key="dark" />
+        )}
       </IconMorph>
     </Container>
   );

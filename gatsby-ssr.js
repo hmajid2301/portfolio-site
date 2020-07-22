@@ -1,13 +1,19 @@
 import React from 'react';
 
-import { App } from './src/components/App';
+import { App } from '~/components/App';
+import ThemeContextProvider from '~/providers/Theme';
+import '~/styles/global.css';
 
 require('dotenv').config({
   path: '.env',
 });
 
 // Duplicated in gatsby-browser.js for client side rendering
-export const wrapRootElement = (props) => <App {...props} />;
+export const wrapRootElement = (props) => (
+  <ThemeContextProvider>
+    <App {...props} />
+  </ThemeContextProvider>
+);
 
 export const onRenderBody = ({ setHeadComponents }) => {
   // Async embed code from Typekit/Adobe @link https://helpx.adobe.com/fonts/using/embed-codes.html#JavaScriptembedcode

@@ -4,7 +4,7 @@ import { configure, addDecorator, addParameters } from '@storybook/react';
 import { INITIAL_VIEWPORTS } from '@storybook/addon-viewport';
 
 // We will address this later.
-import '../src/styles/globals.css';
+import '../src/styles/global.css';
 import './main.css';
 
 // automatically import all files ending in *.stories.js

@@ -128,7 +128,7 @@ const SearchBar = ({ background, color, hoverColor }: Props) => {
             }}
             role="presentation"
           >
-            <StaticQuery
+            {/* <StaticQuery
               query={graphql`
                 query SearchIndexQuery {
                   siteSearchIndex {
@@ -144,7 +144,7 @@ const SearchBar = ({ background, color, hoverColor }: Props) => {
                   searchIndex={data.siteSearchIndex.index}
                 />
               )}
-            />
+            /> */}
           </SearchOverlay>
         )}
       </MobileSearch>
