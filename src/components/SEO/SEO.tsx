@@ -38,9 +38,9 @@ const SEO = ({
     `
   );
 
-  const metaTitle = title || site.siteMetaData.description;
-  const metaDescription = description || site.siteMetaData.description;
-  const metaKeywords = keywords || site.siteMetaData.keywords;
+  const metaTitle = title || site.siteMetadata.title;
+  const metaDescription = description || site.siteMetadata.description;
+  const metaKeywords = keywords || site.siteMetadata.keywords;
   const image =
     metaImage && metaImage.src
       ? `${site.siteMetadata.siteUrl}${metaImage.src}`
@@ -127,6 +127,10 @@ const SEO = ({
             metaImage
               ? [
                   {
+                    property: 'image',
+                    content: image,
+                  },
+                  {
                     property: 'og:image',
                     content: image,
                   },
@@ -137,6 +141,10 @@ const SEO = ({
                   {
                     property: 'og:image:height',
                     content: metaImage.height,
+                  },
+                  {
+                    property: 'twitter:image',
+                    content: image,
                   },
                   {
                     name: 'twitter:card',

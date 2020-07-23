@@ -71,7 +71,7 @@ const PostMeta = ({
       {tags && (
         <ListContainer>
           {tags.map((category) => (
-            <Item>
+            <Item key={category}>
               <ProgramTags key={category} text={category} />
             </Item>
           ))}

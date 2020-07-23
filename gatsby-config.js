@@ -11,6 +11,7 @@ const plugins = [
   `gatsby-plugin-svgr`,
   `gatsby-remark-copy-linked-files`,
   `gatsby-plugin-sitemap`,
+  `gatsby-plugin-postcss`,
   {
     resolve: `gatsby-remark-images`,
     options: {
@@ -20,8 +21,8 @@ const plugins = [
   {
     resolve: `gatsby-source-filesystem`,
     options: {
-      name: `blog`,
-      path: `${__dirname}/src/content/blog`,
+      name: `content`,
+      path: `${__dirname}/src/content`,
     },
   },
   {
@@ -38,7 +39,14 @@ const plugins = [
       },
     },
   },
-
+  {
+    resolve: `gatsby-source-git`,
+    options: {
+      name: `Articles`,
+      remote: `https://gitlab.com/hmajid2301/articles.git`,
+      branch: `feature/develop`,
+    },
+  },
   {
     resolve: 'gatsby-plugin-google-fonts',
     options: {
@@ -46,7 +54,17 @@ const plugins = [
       display: 'swap',
     },
   },
-  `gatsby-plugin-postcss`,
+  {
+    resolve: 'gatsby-plugin-webpack-bundle-analyser-v2',
+    options: {
+      options: {
+        analyzerMode: `server`,
+        analyzerPort: `8888`,
+        defaultSizes: 'gzip',
+        devMode: true,
+      },
+    },
+  },
   {
     resolve: `gatsby-transformer-remark`,
     options: {
@@ -92,19 +110,15 @@ const plugins = [
   `gatsby-plugin-offline`,
 ];
 
-// Bundle analyzer, dev only
-if (process.env.ENABLE_BUNDLE_ANALYZER === '1') {
-  plugins.push('gatsby-plugin-webpack-bundle-analyser-v2');
-}
-
 const siteUrl =
-  process.env.URL || process.env.DEPLOY_URL || `https://haseebmaji.dev`;
+  process.env.URL || process.env.DEPLOY_URL || `https://haseebmajid.dev`;
 
 module.exports = {
   siteMetadata: {
     title: `Haseeb Majid Dev`,
     author: `Haseeb Majid`,
     description: `Haseeb Majid's personal portfolio website and blog.`,
+    keywords: ['portfolio', 'blog', 'haseeb majid'],
     siteUrl,
     social: {},
   },

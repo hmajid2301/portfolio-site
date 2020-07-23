@@ -39,7 +39,7 @@ const BlogList = ({
 
 const BlogRow = ({ background, color, data, textColor }: Props) => {
   const blogRow = data.map((blogItem: BlogItem) => (
-    <BlogCardContainer>
+    <BlogCardContainer key={blogItem.title}>
       <BlogCard
         background={background}
         color={color}

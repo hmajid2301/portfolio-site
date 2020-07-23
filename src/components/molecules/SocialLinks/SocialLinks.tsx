@@ -24,7 +24,7 @@ const SocialLinks = ({
 }: Props) => (
   <SocialLinksContainer>
     {links.map((button) => (
-      <LinkContainer>
+      <LinkContainer key={button.url}>
         <SocialLink
           color={color}
           data-testid={`Button-${button.url}`}

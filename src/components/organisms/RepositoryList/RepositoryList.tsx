@@ -52,7 +52,7 @@ const RepoRow = ({
   hover,
 }: Props) => {
   const blogRow = data.map((repositoryItem: RepositoryItem) => (
-    <RepositoryCardContainer>
+    <RepositoryCardContainer key={repositoryItem.name}>
       <RepositoryCard
         accent={accent}
         background={background}

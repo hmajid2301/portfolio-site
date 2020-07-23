@@ -19,6 +19,16 @@ export interface Props {
         date: string;
         /** A list of tags for the article i.e. related topics. */
         tags: string[];
+        /** Path to featured image. */
+        image?: {
+          childImageSharp: {
+            resize: {
+              src: string;
+              width: number;
+              height: number;
+            };
+          };
+        };
         /** The title of the blog post. */
         title: string;
         /** The unique slug/url of the blog post. */
@@ -39,6 +49,9 @@ export default function BlogPostTemplate({ data }: Props) {
   return (
     <Layout
       description={excerpt}
+      image={
+        frontmatter.image ? frontmatter.image.childImageSharp.resize : undefined
+      }
       keywords={frontmatter.tags}
       pathname={`/blog/${frontmatter.slug}`}
       title={frontmatter.title}
@@ -65,6 +78,15 @@ export const pageQuery = graphql`
         slug
         title
         tags
+        image: cover_image {
+          childImageSharp {
+            resize(width: 1200) {
+              src
+              height
+              width
+            }
+          }
+        }
       }
       fields {
         readingTime {

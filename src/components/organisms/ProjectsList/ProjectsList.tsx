@@ -44,7 +44,7 @@ const ProjectCardRow = ({
   textBackground,
 }: Props) => {
   const projectRow = projectItems.map((projectItem: MainCardItem) => (
-    <ProjectCardContainer>
+    <ProjectCardContainer key={projectItem.name}>
       <MainCard
         background={background}
         color={color}

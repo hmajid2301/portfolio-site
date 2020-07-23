@@ -72,7 +72,10 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
   const posts = result.data.postsRemark.edges;
   posts.forEach(({ node }) => {
     createPage({
-      path: `/blog/${node.frontmatter.slug}`,
+      path:
+        node.frontmatter.slug === 'uses'
+          ? `${node.frontmatter.slug}`
+          : `/blog/${node.frontmatter.slug}`,
       component: blogPostTemplate,
       context: {
         slug: node.frontmatter.slug,
