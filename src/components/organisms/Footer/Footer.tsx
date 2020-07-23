@@ -50,7 +50,7 @@ const Footer = ({
     },
     {
       icon: <Key />,
-      url: '/static/public.gpg',
+      url: '/public.gpg',
     },
   ];
 

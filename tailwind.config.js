@@ -39,8 +39,9 @@ module.exports = {
         },
       },
       fontFamily: {
-        header: ['Inter'],
-        body: ['Open Sans'],
+        header: ['Fira Sans'],
+        body: ['Muli'],
+        code: ['Fira Code'],
       },
     },
   },

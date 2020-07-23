@@ -48,10 +48,11 @@ const plugins = [
     },
   },
   {
-    resolve: 'gatsby-plugin-google-fonts',
+    resolve: 'gatsby-plugin-web-font-loader',
     options: {
-      fonts: [`Lora:400,700`],
-      display: 'swap',
+      google: {
+        families: ['Fira Sans', 'Muli', 'Fira Code'],
+      },
     },
   },
   {

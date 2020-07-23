@@ -4,7 +4,6 @@ import React from 'react';
 import Helmet, { HelmetProps } from 'react-helmet';
 
 type Props = {
-  /** Description text for the description meta tags */
   description?: string;
   keywords?: string[];
   image?: {
@@ -160,22 +159,7 @@ const SEO = ({
           )}
           title={metaTitle}
           titleTemplate="%s | Haseeb Majid's Blog"
-        >
-          <link
-            href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap"
-            rel="stylesheet"
-          />
-
-          <link
-            href="https://fonts.googleapis.com/css2?family=Muli&display=swap"
-            rel="stylesheet"
-          />
-
-          <link
-            href="https://fonts.googleapis.com/css2?family=Inter:wght@600,900&display=swap"
-            rel="stylesheet"
-          />
-        </Helmet>
+        />
       )}
     </Location>
   );
