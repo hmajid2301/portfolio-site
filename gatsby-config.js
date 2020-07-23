@@ -10,6 +10,7 @@ const plugins = [
   `gatsby-plugin-emotion`,
   `gatsby-plugin-svgr`,
   `gatsby-remark-copy-linked-files`,
+  `gatsby-plugin-sitemap`,
   {
     resolve: `gatsby-remark-images`,
     options: {
@@ -96,6 +97,16 @@ if (process.env.ENABLE_BUNDLE_ANALYZER === '1') {
   plugins.push('gatsby-plugin-webpack-bundle-analyser-v2');
 }
 
+const siteUrl =
+  process.env.URL || process.env.DEPLOY_URL || `https://haseebmaji.dev`;
+
 module.exports = {
+  siteMetadata: {
+    title: `Haseeb Majid Dev`,
+    author: `Haseeb Majid`,
+    description: `Haseeb Majid's personal portfolio website and blog.`,
+    siteUrl,
+    social: {},
+  },
   plugins,
 };

@@ -26,16 +26,23 @@ export interface Props {
       };
       /** The blog post as a HTML string. */
       html: string;
+      /** The first 160 chars. */
+      excerpt: string;
     };
   };
 }
 
 export default function BlogPostTemplate({ data }: Props) {
   const { markdownRemark } = data;
-  const { fields, frontmatter, html } = markdownRemark;
+  const { fields, frontmatter, html, excerpt } = markdownRemark;
 
   return (
-    <Layout>
+    <Layout
+      description={excerpt}
+      keywords={frontmatter.tags}
+      pathname={`/blog/${frontmatter.slug}`}
+      title={frontmatter.title}
+    >
       <BlogPost
         data={html}
         date={frontmatter.date}
@@ -52,6 +59,7 @@ export const pageQuery = graphql`
   query($slug: String!) {
     markdownRemark(frontmatter: { slug: { eq: $slug } }) {
       html
+      excerpt(pruneLength: 160)
       frontmatter {
         date(formatString: "YYYY-MM-DD")
         slug

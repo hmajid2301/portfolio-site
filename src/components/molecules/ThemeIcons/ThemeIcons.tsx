@@ -1,5 +1,5 @@
 import styled from '@emotion/styled';
-import React, { useState, useContext } from 'react';
+import React, { useContext } from 'react';
 import { MorphReplace } from 'react-svg-morph';
 import tw from 'twin.macro';
 

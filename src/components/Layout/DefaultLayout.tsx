@@ -1,4 +1,3 @@
-/* eslint-disable react/jsx-props-no-spreading */
 import React, { useContext } from 'react';
 
 import { Footer } from '~/components/organisms/Footer';
@@ -6,13 +5,27 @@ import { Header } from '~/components/organisms/Header';
 import { SEO } from '~/components/SEO';
 import { ThemeContext } from '~/providers/Theme';
 
-type Props = {};
+interface Props {
+  children: React.ReactNode;
+  description?: string;
+  keywords?: string[];
+  image?: {
+    src: string;
+    height: number;
+    width: number;
+  };
+  pathname?: string;
+  title?: string;
+}
 
-const DefaultLayout: React.FC<Props> = ({
+const DefaultLayout = ({
   children,
-
-  ...props
-}) => {
+  description,
+  keywords,
+  image: metaImage,
+  pathname,
+  title,
+}: Props) => {
   const { theme } = useContext(ThemeContext);
 
   return (
@@ -20,10 +33,15 @@ const DefaultLayout: React.FC<Props> = ({
       className={`overflow-hidden ${
         theme === 'light' ? 'theme-light' : 'theme-dark'
       } bg-background`}
-      {...props}
     >
       <Header />
-      <SEO />
+      <SEO
+        description={description}
+        image={metaImage}
+        keywords={keywords}
+        pathname={pathname}
+        title={title}
+      />
       {children}
       <Footer />
     </div>
