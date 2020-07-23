@@ -2,12 +2,19 @@
 @tailwind components;
 @tailwind utilities;
 
+.root {
+  --primary: #367ee9;
+  --secondary: ##a0aec0;
+}
+
 .theme-light {
   --background: #f8f8f8;
-  --primary: #0d0106;
+  --main: #0d0106;
+  --header: #2d3748;
 }
 
 .theme-dark {
   --background: #12181b;
-  --primary: #eaeaea;
+  --main: #eaeaea;
+  --header: ##f7fafc;
 }
