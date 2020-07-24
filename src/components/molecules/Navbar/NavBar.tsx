@@ -55,12 +55,12 @@ const NavBar = ({ links }: Props) => {
   );
 };
 
-const NavToggle = tw.button`z-10 lg:hidden focus:outline-none transition duration-300 hover:text-primary`;
+const DesktopNavLinks = tw.nav`hidden lg:flex`;
 
-const MobileNavLinks = motion.custom(styled.div`
+const MobileNavLinks = motion.custom(styled.nav`
   ${tw`lg:hidden flex fixed mt-2 top-0 inset-x-0 mx-2 p-8 border text-center rounded-lg bg-background`}
 `);
 
-const DesktopNavLinks = tw.div`hidden lg:flex`;
+const NavToggle = tw.button`z-10 lg:hidden focus:outline-none transition duration-300 hover:text-primary`;
 
 export default NavBar;

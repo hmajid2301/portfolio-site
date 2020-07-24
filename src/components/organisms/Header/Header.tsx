@@ -19,31 +19,27 @@ const Header = () => {
 
   return (
     <HeaderContainer>
-      <Navbar>
-        <Row>
-          <LogoContainer to="/">
-            <Logo />
-          </LogoContainer>
-        </Row>
+      <Row>
+        <LogoContainer to="/">
+          <Logo />
+        </LogoContainer>
+      </Row>
 
-        <Row>
-          <NavBar links={links} />
-          <SearchBar />
-          <ThemeIcons />
-        </Row>
-      </Navbar>
+      <Row>
+        <NavBar links={links} />
+        <SearchBar />
+        <ThemeIcons />
+      </Row>
     </HeaderContainer>
   );
 };
 
-const Navbar = tw.div`flex items-center justify-around p-4 max-w-screen-xl mx-auto`;
+const HeaderContainer = tw.header`flex items-center justify-around p-4 max-w-screen-xl mx-auto font-header text-main bg-background`;
 
 const Row = tw.div`flex flex-row space-x-4`;
 
 const LogoContainer = styled(Link)`
   ${tw`border-b-0 ml-0!`};
 `;
-
-const HeaderContainer = tw.header`font-header text-main bg-background`;
 
 export default Header;
