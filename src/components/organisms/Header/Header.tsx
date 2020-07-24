@@ -1,46 +1,49 @@
+import styled from '@emotion/styled';
+import { Link } from 'gatsby';
 import React from 'react';
+
 import tw from 'twin.macro';
 
-import { DesktopNavbar } from '~/components/molecules/DesktopNavbar';
-import { MobileNavbar } from '~/components/molecules/MobileNavbar';
+import { Logo } from '~/components/atoms/Logo';
+import { NavBar } from '~/components/molecules/Navbar';
+import { SearchBar } from '~/components/molecules/SearchBar';
+import { ThemeIcons } from '~/components/molecules/ThemeIcons';
 
-export interface Props {
-  /** The background color of the header. */
-  background?: string;
-  /** The color of the links text. */
-  color?: string;
-  /** The color when you hover over the nav bar links. */
-  hoverColor?: string;
-}
-
-const Header = ({
-  background = 'white',
-  color = 'black',
-  hoverColor = 'blue-500',
-}: Props) => {
-  const links = ['Home', 'Blog', 'Projects', 'Open Source', 'Uses'];
+const Header = () => {
+  const links = [
+    { name: 'Home', link: '/' },
+    { name: 'Blog', link: '/blog' },
+    { name: 'Tags', link: '/tags' },
+    { name: 'Uses', link: '/uses' },
+  ];
 
   return (
-    <HeaderContainer
-      className={`text-${color} bg-${background}`}
-      data-testid="Header"
-    >
-      <DesktopNavbar
-        background={background}
-        color={color}
-        hoverColor={hoverColor}
-        links={links}
-      />
-      <MobileNavbar
-        background={background}
-        color={color}
-        hoverColor={hoverColor}
-        links={links}
-      />
+    <HeaderContainer>
+      <Navbar>
+        <Row>
+          <LogoContainer to="/">
+            <Logo />
+          </LogoContainer>
+        </Row>
+
+        <Row>
+          <NavBar links={links} />
+          <SearchBar />
+          <ThemeIcons />
+        </Row>
+      </Navbar>
     </HeaderContainer>
   );
 };
 
-const HeaderContainer = tw.header`font-header`;
+const Navbar = tw.div`flex items-center justify-around p-4 max-w-screen-xl mx-auto`;
+
+const Row = tw.div`flex flex-row space-x-4`;
+
+const LogoContainer = styled(Link)`
+  ${tw`border-b-0 ml-0!`};
+`;
+
+const HeaderContainer = tw.header`font-header text-main bg-background`;
 
 export default Header;

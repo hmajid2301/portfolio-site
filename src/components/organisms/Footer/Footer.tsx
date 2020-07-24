@@ -30,7 +30,13 @@ const Footer = ({
   color = 'gray-700',
   hoverColor = 'blue-500',
 }: Props) => {
-  const links = ['Home', 'Blog', 'Projects', 'Open Source'];
+  const links = [
+    { name: 'Home', link: '/' },
+    { name: 'Blog', link: '/blog' },
+    { name: 'Tags', link: '/tags' },
+    { name: 'Uses', link: '/uses' },
+  ];
+
   const socialButtons: SocialButton[] = [
     {
       icon: <Github />,
@@ -61,7 +67,7 @@ const Footer = ({
     >
       <Content>
         <Row>
-          <Links color={color} hoverColor={hoverColor} links={links} />
+          <Links links={links} />
           <SocialLinks
             color={color}
             hoverColor={hoverColor}

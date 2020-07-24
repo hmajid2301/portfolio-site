@@ -11,37 +11,30 @@ export type SocialButton = {
 export interface Props {
   /** Extra CSS classes to assign to this container component. */
   className?: string;
-  /** The color main text on the footer. */
-  color?: string;
-  /** The color on hover text of the footer. */
-  hoverColor?: string;
   /** Extra CSS classes to assign to this link component. */
   linkClassName?: string;
   /** The links to show on the footer. */
-  links: string[];
+  links: {
+    /** The name of the link to show. */
+    name: string;
+    /** Where to link to on the website. */
+    link: string;
+  }[];
 }
 
-const Links = ({
-  className,
-  color = 'gray-700',
-  hoverColor = 'blue-500',
-  linkClassName,
-  links,
-}: Props) => (
+const Links = ({ className, linkClassName, links }: Props) => (
   <LinksContainer className={className}>
     {links.map((link) => (
       <NavLink
-        key={link}
-        aria-label={`Opens link to ${link} page`}
-        className={`mt-2 mx-4 ${linkClassName}`}
-        color={color}
-        hoverColor={hoverColor}
+        key={link.link}
+        aria-label={`Opens link to ${link.name} page`}
+        className={`mx-3 ${linkClassName}`}
         link={link}
       />
     ))}
   </LinksContainer>
 );
 
-const LinksContainer = tw.nav`flex items-center justify-center flex-col sm:flex-row`;
+const LinksContainer = tw.nav`flex items-center justify-center flex-col lg:flex-row`;
 
 export default Links;

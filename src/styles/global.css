@@ -2,13 +2,23 @@
 @tailwind components;
 @tailwind utilities;
 
-.root {
+.root,
+#root {
   --primary: #367ee9;
   --secondary: ##a0aec0;
+  --accent: #718096;
+  --background: #fff;
+  --main: #0d0106;
+  --header: #2d3748;
+}
+
+.active::after {
+  opacity: 1 !important;
+  transform: translateY(0) !important;
 }
 
 .theme-light {
-  --background: #f8f8f8;
+  --background: #fff;
   --main: #0d0106;
   --header: #2d3748;
 }

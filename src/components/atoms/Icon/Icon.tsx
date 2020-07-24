@@ -2,14 +2,8 @@ import React from 'react';
 import tw from 'twin.macro';
 
 export interface Props {
-  /** The background of the icon. */
-  background?: string;
   /** Extra classes to assign to this component. */
   className?: string;
-  /** The color of the icon. */
-  color: string;
-  /** The color of icon on hover. */
-  hoverColor?: string;
   /** The icon element. */
   icon: React.ReactNode;
   /** The aria-label for this component. */
@@ -18,19 +12,10 @@ export interface Props {
   onClick?: () => void;
 }
 
-const Icon = ({
-  background,
-  className,
-  color,
-  hoverColor,
-  icon,
-  label,
-  onClick,
-}: Props) => (
+const Icon = ({ className, icon, label, onClick }: Props) => (
   <Container
     aria-label={label}
-    className={`bg-${background} text-${color} hover:text-${hoverColor} ${className}`}
-    data-testid="Icon"
+    className={`bg-background text-main hover:text-primary ${className}`}
     onClick={onClick}
   >
     {icon}

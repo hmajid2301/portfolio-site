@@ -2,34 +2,20 @@ import React from 'react';
 import tw from 'twin.macro';
 
 export interface Props {
-  /** The colour of the opening and closing tags. */
-  accent: string;
-  /** The color of main text. */
-  color: string;
-  /** The colour when you hover over the logo. */
-  hoverColor: string;
-  /** The main text of the logo for example, your name. */
-  text: string;
   /** The size of the main text  */
   size?: string;
 }
 
-const Logo = ({ accent, color, hoverColor, text, size = '2xl' }: Props) => (
-  <LogoContainer
-    className={`hover:text-${hoverColor} text-${color} md:text-${size} text-lg`}
-  >
-    <Tag className={`text-${accent}`} data-testid="OpeningTag">
-      &lt;
-    </Tag>
-    {text}
-    <Tag className={`text-${accent}`} data-testid="ClosingTag">
-      /&gt;
-    </Tag>
+const Logo = ({ size = '2xl' }: Props) => (
+  <LogoContainer className={`hover:text-primary md:text-${size}`}>
+    <Tag>&lt;</Tag>
+    Haseeb
+    <Tag>/&gt;</Tag>
   </LogoContainer>
 );
 
-const LogoContainer = tw.div`cursor-pointer font-header font-black tracking-wide `;
+const LogoContainer = tw.div`cursor-pointer font-header tracking-wide text-2xl font-bold`;
 
-const Tag = tw.span``;
+const Tag = tw.span`text-accent`;
 
 export default Logo;

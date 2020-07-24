@@ -13,8 +13,10 @@ module.exports = {
       colors: {
         primary: 'var(--primary)',
         secondary: 'var(--secondary)',
+        main: 'var(--main)',
         background: 'var(--background)',
-        text: 'var(--text)',
+        header: 'var(--header)',
+        accent: 'var(--accent)',
         blue: {
           100: '#EBF2FD',
           200: '#CDDFFA',

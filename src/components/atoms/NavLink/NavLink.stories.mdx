@@ -10,9 +10,7 @@ import NavLink from './NavLink';
   <Story
     name="Basic"
     args={{
-      color: 'black',
       link: 'Home',
-      hoverColor: 'blue-500',
     }}
   >
     {(args) => <NavLink {...args} />}
@@ -21,42 +19,12 @@ import NavLink from './NavLink';
 
 <Props story="Basic" />
 
-## Class Name
-
-You can pass extra (CSS) classes by passing the `className` prop.
-
-<Preview>
-  <Story name="Class Name">
-    <NavLink className="bg-gray-700" link="Home" />
-  </Story>
-</Preview>
-
-## Color
-
-You can change the colour of the link text by passing the `color` prop.
-
-<Preview>
-  <Story name="Color">
-    <NavLink color="green-500" link="Home" />
-  </Story>
-</Preview>
-
-## Hover Color
-
-You can change the hover colour of the link text by passing the `hoverColor` prop.
-
-<Preview>
-  <Story name="Hover Color">
-    <NavLink hoverColor="gray-500" link="Home" />
-  </Story>
-</Preview>
-
 ## Link
 
 You can change the link text shown by passing the `link` prop.
 
 <Preview>
   <Story name="Links">
-    <NavLink hoverColor="blue-500" link="Open Source" />
+    <NavLink link="Open Source" />
   </Story>
 </Preview>

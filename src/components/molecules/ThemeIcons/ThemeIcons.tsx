@@ -7,15 +7,11 @@ import { DarkIcon, LightIcon } from '~/components/atoms/Icon';
 import { ThemeContext } from '~/providers/Theme';
 
 export interface Props {
-  /** The color of icon. */
-  color: string;
-  /** The color of the icon on hover. */
-  hover: string;
   /** Function to call when an icon is pressed. */
   onClick?: () => void;
 }
 
-const ThemeIcons = ({ color, hover, onClick }: Props) => {
+const ThemeIcons = ({ onClick }: Props) => {
   const { theme, setTheme } = useContext(ThemeContext);
 
   function themeChange() {
@@ -30,11 +26,7 @@ const ThemeIcons = ({ color, hover, onClick }: Props) => {
   }
 
   return (
-    <Container
-      className={`text-${color} hover:text-${hover}`}
-      data-testid="Icon"
-      onClick={() => themeChange()}
-    >
+    <ThemeIconContainer onClick={() => themeChange()}>
       <IconMorph>
         {theme === 'light' ? (
           <LightIcon key="light" />
@@ -42,11 +34,11 @@ const ThemeIcons = ({ color, hover, onClick }: Props) => {
           <DarkIcon key="dark" />
         )}
       </IconMorph>
-    </Container>
+    </ThemeIconContainer>
   );
 };
 
-const Container = tw.span`transition duration-300 cursor-pointer`;
+const ThemeIconContainer = tw.span`transition duration-300 cursor-pointer hover:text-primary`;
 
 const IconMorph = styled(MorphReplace)`
   ${tw`fill-current h-6 w-auto`}
