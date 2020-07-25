@@ -5,69 +5,24 @@ import {
   RepositoryCard,
   RepositoryItem,
 } from '~/components/molecules/RepositoryCard';
-import chunkData from '~/helpers/chunkData';
 
 export interface Props {
-  /** The colour of the title and the meta items. */
-  accent?: string;
-  /** The background color of the header. */
-  background?: string;
-  /** The colour of main text. */
-  color?: string;
-  /** The colour when you hover over the nav bar links. */
-  hover?: string;
   /** The item to show in the card. */
-  repositoryItems: RepositoryItem[];
+  items: RepositoryItem[];
 }
 
-const RepositoryList = ({
-  accent = 'gray-700',
-  background = 'white',
-  color = 'gray-800',
-  hover = 'blue-500',
-  repositoryItems,
-}: Props) => {
-  const data: RepositoryItem[][] = chunkData(repositoryItems, 3);
+const RepositoryList = ({ items: repositoryItems }: Props) => (
+  <RepositoryListContainer>
+    {repositoryItems.map((item) => (
+      <RepositoryCardContainer key={item.url}>
+        <RepositoryCard item={item} />
+      </RepositoryCardContainer>
+    ))}
+  </RepositoryListContainer>
+);
 
-  return (
-    <div>
-      {data.map((repoRow) => (
-        <RepoRow
-          accent={accent}
-          background={background}
-          color={color}
-          hover={hover}
-          repositoryItems={repoRow}
-        />
-      ))}
-    </div>
-  );
-};
+const RepositoryListContainer = tw.div`grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-4`;
 
-const RepoRow = ({
-  accent,
-  background,
-  color,
-  repositoryItems: data,
-  hover,
-}: Props) => {
-  const blogRow = data.map((repositoryItem: RepositoryItem) => (
-    <RepositoryCardContainer key={repositoryItem.name}>
-      <RepositoryCard
-        accent={accent}
-        background={background}
-        color={color}
-        hover={hover}
-        item={repositoryItem}
-      />
-    </RepositoryCardContainer>
-  ));
-
-  return <RepositoryRowContainer>{blogRow}</RepositoryRowContainer>;
-};
-
-const RepositoryRowContainer = tw.div`flex flex-col md:flex-row items-center`;
-
-const RepositoryCardContainer = tw.div`m-4`;
+const RepositoryCardContainer = tw.div`mb-4`;
 
 export default RepositoryList;

@@ -66,6 +66,10 @@ const Header = () => {
   );
 };
 
+const HeaderContainer = tw.header`flex items-center justify-around p-4 max-w-screen-xl mx-auto font-header text-header bg-background`;
+
+const Row = tw.div`flex flex-row space-x-4`;
+
 const DesktopNavLinks = tw.div`hidden lg:flex`;
 
 const MobileNavLinks = styled.div<{ showNavLinks: boolean }>`
@@ -77,10 +81,6 @@ const MobileNavLinks = styled.div<{ showNavLinks: boolean }>`
 `;
 
 const NavToggle = tw.button`z-10 lg:hidden focus:outline-none transition duration-300 hover:text-primary`;
-
-const HeaderContainer = tw.header`flex items-center justify-around p-4 max-w-screen-xl mx-auto font-header text-header bg-background`;
-
-const Row = tw.div`flex flex-row space-x-4`;
 
 const LogoContainer = styled(Link)`
   ${tw`border-b-0 ml-0!`};

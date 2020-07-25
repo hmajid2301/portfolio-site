@@ -2,63 +2,28 @@ import React from 'react';
 import tw from 'twin.macro';
 
 import { MainCard, MainCardItem } from '~/components/molecules/MainCard';
-import chunkData from '~/helpers/chunkData';
 
 export interface Props {
-  /** The background color of the overlay. */
-  background?: string;
-  /** The color of main text. */
-  color?: string;
   /** The background color of the overlay text. */
   textBackground?: string;
   /** The item to show in the card. */
   projectItems: MainCardItem[];
 }
 
-const ProjectList = ({
-  background = 'black',
-  color = 'white',
-  textBackground = 'blue-500',
-  projectItems,
-}: Props) => {
-  const data: MainCardItem[][] = chunkData(projectItems, 2);
-
+const ProjectList = ({ projectItems }: Props) => {
   return (
-    <div>
-      {data.map((projectRow) => (
-        <ProjectCardRow
-          background={background}
-          color={color}
-          projectItems={projectRow}
-          textBackground={textBackground}
-        />
+    <ProjectListContainer>
+      {projectItems.map((item) => (
+        <ProjectCardContainer key={item.name}>
+          <MainCard item={item} />
+        </ProjectCardContainer>
       ))}
-    </div>
+    </ProjectListContainer>
   );
 };
 
-const ProjectCardRow = ({
-  background,
-  color,
-  projectItems,
-  textBackground,
-}: Props) => {
-  const projectRow = projectItems.map((projectItem: MainCardItem) => (
-    <ProjectCardContainer key={projectItem.name}>
-      <MainCard
-        background={background}
-        color={color}
-        item={projectItem}
-        textBackground={textBackground}
-      />
-    </ProjectCardContainer>
-  ));
+const ProjectListContainer = tw.div`grid grid-cols-1 lg:grid-cols-1 xl:grid-cols-2 gap-4`;
 
-  return <ProjectRowContainer>{projectRow}</ProjectRowContainer>;
-};
-
-const ProjectRowContainer = tw.div`flex flex-col md:flex-row items-center`;
-
-const ProjectCardContainer = tw.div`m-4`;
+const ProjectCardContainer = tw.div`mb-24`;
 
 export default ProjectList;

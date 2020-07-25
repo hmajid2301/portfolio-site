@@ -1,6 +1,5 @@
 import { Meta, Story, Preview, Props } from '@storybook/addon-docs/blocks';
 
-import { theme } from '~/styles';
 import RepositoryList from './RepositoryList';
 
 <Meta title="Organisms | RepositoryList" component={RepositoryList} />
@@ -11,7 +10,7 @@ import RepositoryList from './RepositoryList';
   <Story
     name="Basic"
     args={{
-      data: [
+      items: [
         {
           name: 'stegappasaurus',
           description:

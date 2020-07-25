@@ -1,6 +1,5 @@
 import { Meta, Story, Preview, Props } from '@storybook/addon-docs/blocks';
 
-import { theme } from '~/styles';
 import Hero from './Hero';
 
 <Meta title="Molecules | Hero" component={Hero} />
@@ -12,7 +11,7 @@ import Hero from './Hero';
     name="Basic"
     args={{
       text:
-        "Hi, It's Haseeb. I'm a software engineer. Welcome to my website and blog.",
+        "Hello, I'm Haseeb a software engineer. Welcome to my website and blog.",
       showParticles: true,
     }}
   >
@@ -22,40 +21,6 @@ import Hero from './Hero';
 
 <Props story="Basic" />
 
-## Background
-
-You can adjust the background colour of the component by passing the `background` prop.
-
-<Preview>
-  <Story name="Background">
-    <div>
-      <Hero background="gray-200" text="Hello my name is Haseeb." />
-      <Hero background="yellow-500" text="Hello my name is Haseeb." />
-    </div>
-  </Story>
-</Preview>
-
-## Color
-
-You can adjust the colour of the text by passing the `color` prop.
-
-<Preview>
-  <Story name="Color">
-    <div>
-      <Hero
-        background="gray-200"
-        color="black"
-        text="Hello my name is Haseeb."
-      />
-      <Hero
-        background="indigo-100"
-        color="blue-500"
-        text="Hello my name is Haseeb."
-      />
-    </div>
-  </Story>
-</Preview>
-
 ## Text
 
 You can adjust the main text of the component by passing the `text` prop.
@@ -63,16 +28,8 @@ You can adjust the main text of the component by passing the `text` prop.
 <Preview>
   <Story name="Text">
     <div>
-      <Hero
-        background="gray-200"
-        color="black"
-        text="Hello this is a new message."
-      />
-      <Hero
-        background="indigo-100"
-        color="blue-500"
-        text="Another random message."
-      />
+      <Hero text="Hello this is a new message." />
+      <Hero text="Another random message." />
     </div>
   </Story>
 </Preview>
@@ -84,18 +41,8 @@ If you want to show the particles you can pass the `showParticles` prop.
 <Preview>
   <Story name="Show Particles">
     <div>
-      <Hero
-        background="gray-200"
-        color="black"
-        text="Hello my name is Haseeb."
-        showParticles
-      />
-      <Hero
-        background="indigo-100"
-        color="blue-500"
-        text="Hello my name is Haseeb."
-        showParticles
-      />
+      <Hero text="Hello my name is Haseeb." showParticles />
+      <Hero text="Hello my name is Haseeb." showParticles />
     </div>
   </Story>
 </Preview>
@@ -108,35 +55,15 @@ You can adjust the particle colour if you pass the `particleColor` prop.
   <Story name="Particle Color">
     <div>
       <Hero
-        background="gray-200"
-        color="black"
         text="Hello my name is Haseeb."
         showParticles
         particleColor="#367ee9"
       />
       <Hero
-        background="indigo-100"
-        color="blue-500"
         text="Hello my name is Haseeb."
         showParticles
         particleColor="#ff00ff"
       />
     </div>
-  </Story>
-</Preview>
-
-## Dark Mode
-
-Example dark mode component.
-
-<Preview>
-  <Story name="Dark Mode">
-    <Hero
-      background={theme.dark.background}
-      color={theme.dark.text}
-      text="Hello my name is Haseeb."
-      particleColor="#fff"
-      showParticles
-    />
   </Story>
 </Preview>

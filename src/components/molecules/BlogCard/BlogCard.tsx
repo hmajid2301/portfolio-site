@@ -8,14 +8,8 @@ import { AnimatedImage } from '~/components/atoms/AnimatedImage';
 import { ProgramTags as Tags } from '~/components/atoms/ProgramTags';
 
 export interface Props {
-  /** The background color of post. */
-  background?: string;
-  /** The color of main text. */
-  color?: string;
   /** The blog to show in the post. */
   item: BlogItem;
-  /** The text color of the main text. */
-  textColor?: string;
 }
 
 export interface BlogItem {
@@ -31,14 +25,11 @@ export interface BlogItem {
   url: string;
 }
 
-const BlogCard = ({ background, color, item, textColor }: Props) => (
-  <Container
-    className={`group text-${textColor} hover:text-${color} bg-${background}`}
-    testId={`Card-${item.title}`}
-  >
+const BlogCard = ({ item }: Props) => (
+  <Container className="group">
     <Card to={`/blog/${item.url}`}>
       <AnimatedImage image={item.image} />
-      <Details className={`border-${background}`}>
+      <Details>
         <Title>{item.title}</Title>
         <MetaContainer>
           {item.tags &&
@@ -46,14 +37,14 @@ const BlogCard = ({ background, color, item, textColor }: Props) => (
               <Tags key={category} text={category} />
             ))}
         </MetaContainer>
-        <Date className={`text-${textColor}`}>{item.date}</Date>
+        <Date>{item.date}</Date>
       </Details>
     </Card>
   </Container>
 );
 
 const Container = styled(AnimatedCard)`
-  ${tw`lg:mx-4 xl:mx-8 max-w-sm h-full`}
+  ${tw`lg:mx-4 xl:mx-8 max-w-sm h-full text-main bg-background2 mx-auto`}
 `;
 
 const Card = styled(Link)`

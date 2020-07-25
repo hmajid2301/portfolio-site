@@ -1,27 +1,36 @@
 module.exports = {
   theme: {
-    themeVariants: ['dark'],
-    inset: {
-      '0': 0,
-      auto: 'auto',
-      '1/8': '12.5%',
-      '1/4': '25%',
-      '1/2': '50%',
-      '3/4': '75%',
-    },
-    maxHeight: {
-      '0': '0',
-      '1/4': '25%',
-      '1/2': '50%',
-      '3/4': '75%',
-      full: '100%',
-    },
     extend: {
+      inset: {
+        '0': 0,
+        auto: 'auto',
+        '1/8': '12.5%',
+        '1/4': '25%',
+        '1/2': '50%',
+        '3/4': '75%',
+      },
+      maxHeight: {
+        '0': '0',
+        '1/4': '25%',
+        '1/2': '50%',
+        '3/4': '75%',
+      },
+      minHeight: {
+        '0': '0',
+        '1/4': '25%',
+        '1/2': '50%',
+        '3/4': '75%',
+        '3/4-screen': '75vh',
+      },
+      screens: {
+        '2xl': '1580px',
+      },
       colors: {
         primary: 'var(--primary)',
         secondary: 'var(--secondary)',
         main: 'var(--main)',
         background: 'var(--background)',
+        background2: 'var(--background2)',
         header: 'var(--header)',
         accent: 'var(--accent)',
         blue: {

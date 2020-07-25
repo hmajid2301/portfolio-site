@@ -3,8 +3,7 @@ import React from 'react';
 import tw from 'twin.macro';
 
 import { Layout } from '~/components/Layout';
-import { BlogItem } from '~/components/molecules/BlogCard';
-import { BlogList } from '~/components/organisms/BlogList';
+import { BlogList, QueryItem } from '~/components/organisms/BlogList';
 
 export interface Props {
   data: {
@@ -14,49 +13,12 @@ export interface Props {
   };
 }
 
-export interface QueryItem {
-  node: {
-    frontmatter: {
-      /** The post date. */
-      date: string;
-      cover_image: {
-        /** Path to the cover image. */
-        publicURL: string;
-      };
-      /** A list of tags for the article i.e. related topics. */
-      tags: string[];
-      /** The title of the blog post. */
-      title: string;
-      /** The unique slug/url of the blog post. */
-      slug: string;
-    };
-  };
-}
-
-const Blog = ({
-  data: {
-    allMarkdownRemark: { edges },
-  },
-}: Props) => {
-  const blogItem: BlogItem[] = [];
-  edges.forEach((element) => {
-    const { frontmatter } = element.node;
-    if (frontmatter.title !== 'Uses') {
-      blogItem.push({
-        date: frontmatter.date,
-        image: frontmatter.cover_image.publicURL,
-        tags: frontmatter.tags,
-        title: frontmatter.title,
-        url: frontmatter.slug,
-      });
-    }
-  });
-
+const Blog = ({ data }: Props) => {
   return (
-    <Layout>
+    <Layout title="Blog">
       <BlogContainer>
         <Header>Blog</Header>
-        <BlogList data={blogItem} />
+        <BlogList data={data} />
       </BlogContainer>
     </Layout>
   );

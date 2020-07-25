@@ -1,11 +1,8 @@
 import { render } from '@testing-library/react';
-import { ThemeProvider } from 'emotion-theming';
 import React, { ReactElement, ComponentProps, FunctionComponent } from 'react';
 
-import { theme } from '~/styles';
-
 const AllTheProviders: React.FC = ({ children }) => {
-  return <ThemeProvider theme={theme}>{children}</ThemeProvider>;
+  return <div>{children}</div>;
 };
 
 const customRender = (

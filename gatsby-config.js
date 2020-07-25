@@ -51,7 +51,7 @@ const plugins = [
     resolve: 'gatsby-plugin-web-font-loader',
     options: {
       google: {
-        families: ['Fira Sans:700', 'Muli', 'Fira Code'],
+        families: ['Fira Sans:600,700,900', 'Muli:300,600', 'Fira Code'],
       },
     },
   },

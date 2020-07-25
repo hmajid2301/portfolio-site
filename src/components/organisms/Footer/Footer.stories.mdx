@@ -6,7 +6,6 @@ import {
 } from 'react-icons/ai';
 import { FaDev as Dev } from 'react-icons/fa';
 
-import { theme } from '~/styles';
 import Footer from './Footer';
 
 <Meta title="Organisms | Footer" component={Footer} />
@@ -48,17 +47,5 @@ You can colour of the text `color` prop.
 <Preview>
   <Story name="Colour">
     <Footer color="green-700" />
-  </Story>
-</Preview>
-
-## Dark Mode
-
-Example dark mode component.
-
-<Preview>
-  <Story name="Dark Mode">
-    <div class={`bg-${theme.dark.background}`}>
-      <Footer color={theme.dark.text} background="gray-800" />
-    </div>
   </Story>
 </Preview>
