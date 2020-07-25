@@ -24,7 +24,7 @@ const Input = ({
   return (
     <TextInput
       aria-label={label}
-      className={`bg-background text-main placeholder-main ${className}`}
+      className={`bg-background text-header placeholder-main ${className}`}
       onChange={onChange}
       placeholder={placeholder}
       type="text"

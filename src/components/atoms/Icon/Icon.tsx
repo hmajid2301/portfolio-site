@@ -15,7 +15,7 @@ export interface Props {
 const Icon = ({ className, icon, label, onClick }: Props) => (
   <Container
     aria-label={label}
-    className={`bg-background text-main hover:text-primary ${className}`}
+    className={`bg-background text-header hover:text-primary ${className}`}
     onClick={onClick}
   >
     {icon}
