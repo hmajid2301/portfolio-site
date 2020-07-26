@@ -1,4 +1,11 @@
 import React from 'react';
+import {
+  AiFillGithub as Github,
+  AiFillGitlab as Gitlab,
+  AiFillMediumCircle as Medium,
+} from 'react-icons/ai';
+import { FaDev as Dev } from 'react-icons/fa';
+import { GoKey as Key } from 'react-icons/go';
 
 const config = {
   meta: {
@@ -9,6 +16,28 @@ const config = {
         and <span className="text-primary">blog</span>.
       </span>
     ),
+    social: [
+      {
+        icon: <Github />,
+        url: 'https://github.com/hmajid2301',
+      },
+      {
+        icon: <Gitlab />,
+        url: 'https://gitlab.com/hmajid2301',
+      },
+      {
+        icon: <Medium />,
+        url: 'https://medium.com/@hmajid2301',
+      },
+      {
+        icon: <Dev />,
+        url: 'https://dev.to/hmajid2301',
+      },
+      {
+        icon: <Key />,
+        url: '/public.gpg',
+      },
+    ],
   },
   projects: {
     stegappasaurus: {

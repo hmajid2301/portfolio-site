@@ -8,7 +8,7 @@
   --secondary: #a0aec0;
   --accent: #718096;
   --background: #fff;
-  --background2: #f7fafc;
+  --secondary-background: #f7fafc;
   --main: #0d0106;
   --header: #2d3748;
 }
@@ -20,14 +20,14 @@
 
 .theme-light {
   --background: #fff;
-  --background2: #f7fafc;
+  --secondary-background: #f7fafc;
   --main: #0d0106;
   --header: #2d3748;
 }
 
 .theme-dark {
   --background: #0e141b;
-  --background2: #1b2128;
+  --secondary-background: #1b2128;
   --main: #ffffff;
   --header: #eaeaea;
 }

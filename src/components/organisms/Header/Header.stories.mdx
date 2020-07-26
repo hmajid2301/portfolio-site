@@ -8,7 +8,17 @@ import Header from './Header';
 # Header
 
 <Preview>
-  <Story name="Basic" args={{}}>
+  <Story
+    name="Basic"
+    args={{
+      links: [
+        { name: 'Home', link: '/' },
+        { name: 'Blog', link: '/blog' },
+        { name: 'Tags', link: '/tags' },
+        { name: 'Uses', link: '/uses' },
+      ],
+    }}
+  >
     {(args) => (
       <ThemeContextProvider>
         <Header {...args} />
@@ -18,44 +28,3 @@ import Header from './Header';
 </Preview>
 
 <Props story="Basic" />
-
-## Background
-
-You can adjust the background colour of the header by passing the `background` prop.
-
-<Preview>
-  <Story name="Background">
-    <div>
-      <Header background="gray-200" />
-      <Header background="blue-500" color="white" hoverColor="gray-200" />
-    </div>
-  </Story>
-</Preview>
-
-## Color
-
-You can change the link colour by passing the `color` prop.
-
-<Preview>
-  <Story name="Color">
-    <div>
-      <Header color="gray-600" />
-      <Header color="orange-600" />
-      <Header color="purple-500" />
-    </div>
-  </Story>
-</Preview>
-
-## Hover Color
-
-You can change the hover colour of the link text by passing the `hoverColor` prop.
-
-<Preview>
-  <Story name="Hover Color">
-    <div>
-      <Header hoverColor="gray-500" />
-      <Header hoverColor="purple-500" />
-      <Header hoverColor="green-500" />
-    </div>
-  </Story>
-</Preview>

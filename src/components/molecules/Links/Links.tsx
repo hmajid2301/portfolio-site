@@ -28,7 +28,7 @@ const Links = ({ className, linkClassName, links }: Props) => (
       <NavLink
         key={link.link}
         aria-label={`Opens link to ${link.name} page`}
-        className={`mx-3 ${linkClassName}`}
+        className={`mx-3 my-2 ${linkClassName}`}
         link={link}
       />
     ))}

@@ -3,6 +3,7 @@ import React, { useContext } from 'react';
 import { Footer } from '~/components/organisms/Footer';
 import { Header } from '~/components/organisms/Header';
 import { SEO } from '~/components/SEO';
+import config from '~/config/website';
 import { ThemeContext } from '~/providers/Theme';
 
 interface Props {
@@ -27,6 +28,14 @@ const DefaultLayout = ({
   title,
 }: Props) => {
   const { theme } = useContext(ThemeContext);
+  const links = [
+    { name: 'Home', link: '/' },
+    { name: 'Blog', link: '/blog' },
+    { name: 'Tags', link: '/tags' },
+    { name: 'Uses', link: '/uses' },
+  ];
+
+  const { meta } = config;
 
   return (
     <div
@@ -34,7 +43,7 @@ const DefaultLayout = ({
         theme === 'light' ? 'theme-light' : 'theme-dark'
       } bg-background`}
     >
-      <Header />
+      <Header links={links} />
       <SEO
         description={description}
         image={metaImage}
@@ -43,7 +52,7 @@ const DefaultLayout = ({
         title={title}
       />
       {children}
-      <Footer />
+      <Footer links={links} socialButtons={meta.social} />
     </div>
   );
 };

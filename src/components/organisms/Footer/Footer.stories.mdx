@@ -13,39 +13,19 @@ import Footer from './Footer';
 # Footer
 
 <Preview>
-  <Story name="Basic" args={{}}>
+  <Story
+    name="Basic"
+    args={{
+      links: [
+        { name: 'Home', link: '/' },
+        { name: 'Blog', link: '/blog' },
+        { name: 'Tags', link: '/tags' },
+        { name: 'Uses', link: '/uses' },
+      ],
+    }}
+  >
     {(args) => <Footer {...args} />}
   </Story>
 </Preview>
 
 <Props story="Basic" />
-
-## Background
-
-You can adjust the background colour of the footer by passing the `background` prop.
-
-<Preview>
-  <Story name="Background">
-    <Footer background="white" />
-  </Story>
-</Preview>
-
-## Hover Color
-
-You can change the hover colour of the link text by passing the `hoverColor` prop.
-
-<Preview>
-  <Story name="Hover Colour">
-    <Footer hoverColor="purple-500" />
-  </Story>
-</Preview>
-
-## Color
-
-You can colour of the text `color` prop.
-
-<Preview>
-  <Story name="Colour">
-    <Footer color="green-700" />
-  </Story>
-</Preview>

@@ -2,6 +2,8 @@ import React from 'react';
 import tw from 'twin.macro';
 
 export interface Props {
+  /** The background of the icon. */
+  background?: string;
   /** Extra classes to assign to this component. */
   className?: string;
   /** The icon element. */
@@ -12,16 +14,22 @@ export interface Props {
   onClick?: () => void;
 }
 
-const Icon = ({ className, icon, label, onClick }: Props) => (
+const Icon = ({
+  background = 'transparent',
+  className,
+  icon,
+  label,
+  onClick,
+}: Props) => (
   <Container
     aria-label={label}
-    className={`bg-background text-header hover:text-primary ${className}`}
+    className={`bg-${background} ${className}`}
     onClick={onClick}
   >
     {icon}
   </Container>
 );
 
-const Container = tw.button`h-full w-auto transition duration-300 inline-block`;
+const Container = tw.button`h-full w-auto transition duration-300 inline-block text-header hover:text-primary`;
 
 export default Icon;

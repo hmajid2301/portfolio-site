@@ -14,14 +14,16 @@ import { Links } from '~/components/molecules/Links';
 import { SearchBar } from '~/components/molecules/SearchBar';
 import { ThemeIcons } from '~/components/molecules/ThemeIcons';
 
-const Header = () => {
-  const links = [
-    { name: 'Home', link: '/' },
-    { name: 'Blog', link: '/blog' },
-    { name: 'Tags', link: '/tags' },
-    { name: 'Uses', link: '/uses' },
-  ];
+export interface Props {
+  links: {
+    /** The name of the link to show. */
+    name: string;
+    /** Where to link to on the website. */
+    link: string;
+  }[];
+}
 
+const Header = ({ links }: Props) => {
   const [showNavLinks, setShowNavLinks] = useState(false);
   return (
     <>
@@ -68,7 +70,7 @@ const Header = () => {
 
 const HeaderContainer = tw.header`flex items-center justify-around p-4 max-w-screen-xl mx-auto font-header text-header bg-background`;
 
-const Row = tw.div`flex flex-row space-x-4`;
+const Row = tw.div`flex flex-row space-x-4 items-center`;
 
 const DesktopNavLinks = tw.div`hidden lg:flex`;
 

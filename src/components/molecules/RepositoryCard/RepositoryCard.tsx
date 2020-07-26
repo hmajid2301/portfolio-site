@@ -40,7 +40,7 @@ const RepositoryCard = ({ item }: Props) => {
   );
 };
 
-const Container = tw.div`flex-grow flex-wrap items-start rounded-md mx-auto px-8 py-8 max-w-md shadow font-body bg-background2 text-main hover:shadow-lg`;
+const Container = tw.div`flex-grow flex-wrap items-start rounded-md mx-auto px-8 py-8 max-w-md shadow font-body bg-secondary-background text-main hover:shadow-lg`;
 
 const HeaderText = tw.h1`text-lg hover:text-primary pb-8 hover:cursor-pointer font-semibold`;
 

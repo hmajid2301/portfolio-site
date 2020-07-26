@@ -16,8 +16,6 @@ import SocialLinks from './SocialLinks';
   <Story
     name="Basic"
     args={{
-      color: 'gray-500',
-      hoverColor: 'blue-500',
       links: [
         {
           icon: <Github />,
@@ -43,68 +41,6 @@ import SocialLinks from './SocialLinks';
 </Preview>
 
 <Props story="Basic" />
-
-## Hover Color
-
-You can change the hover colour of the social link by passing the `hoverColor` prop.
-
-<Preview>
-  <Story name="Hover Color">
-    <SocialLinks
-      color="gray-500"
-      hoverColor="purple-500"
-      links={[
-        {
-          icon: <Github />,
-          url: 'https://github.com/hmajid2301',
-        },
-        {
-          icon: <Gitlab />,
-          url: 'https://gitlab.com/hmajid2301',
-        },
-        {
-          icon: <Medium />,
-          url: 'https://medium.com/@hmajid2301',
-        },
-        {
-          icon: <Dev />,
-          url: 'https://dev.to/hmajid2301',
-        },
-      ]}
-    />
-  </Story>
-</Preview>
-
-## Color
-
-You can colour of the text `color` prop.
-
-<Preview>
-  <Story name="Color">
-    <SocialLinks
-      color="purple-500"
-      hoverColor="blue-500"
-      links={[
-        {
-          icon: <Github />,
-          url: 'https://github.com/hmajid2301',
-        },
-        {
-          icon: <Gitlab />,
-          url: 'https://gitlab.com/hmajid2301',
-        },
-        {
-          icon: <Medium />,
-          url: 'https://medium.com/@hmajid2301',
-        },
-        {
-          icon: <Dev />,
-          url: 'https://dev.to/hmajid2301',
-        },
-      ]}
-    />
-  </Story>
-</Preview>
 
 ## Social Buttons
 

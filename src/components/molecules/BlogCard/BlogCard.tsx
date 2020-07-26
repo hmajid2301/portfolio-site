@@ -44,7 +44,7 @@ const BlogCard = ({ item }: Props) => (
 );
 
 const Container = styled(AnimatedCard)`
-  ${tw`lg:mx-4 xl:mx-8 max-w-sm h-full text-main bg-background2 mx-auto`}
+  ${tw`lg:mx-4 xl:mx-8 max-w-sm h-full text-main bg-secondary-background mx-auto`}
 `;
 
 const Card = styled(Link)`
