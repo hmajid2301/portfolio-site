@@ -28,13 +28,14 @@ const plugins = [
   {
     resolve: `@gatsby-contrib/gatsby-plugin-elasticlunr-search`,
     options: {
-      fields: [`title`, `tags`, `html`],
+      fields: [`title`, `tags`, `html`, `excerpt`],
       resolvers: {
         MarkdownRemark: {
           title: (node) => node.frontmatter.title,
           tags: (node) => node.frontmatter.tags,
           path: (node) => node.frontmatter.slug,
           html: (node) => node.internal.content,
+          excerpt: (node) => node.excerpt,
         },
       },
     },
@@ -44,7 +45,7 @@ const plugins = [
     options: {
       name: `Articles`,
       remote: `https://gitlab.com/hmajid2301/articles.git`,
-      branch: `feature/develop`,
+      branch: `master`,
     },
   },
   {

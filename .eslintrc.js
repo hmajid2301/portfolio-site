@@ -107,6 +107,7 @@ module.exports = {
         'plugin:prettier/recommended',
       ],
       rules: {
+        '@typescript-eslint/ban-ts-ignore': 'off',
         'no-use-before-define': 'off',
         '@typescript-eslint/no-use-before-define': ['off'],
         // This project uses TS. Disable prop-types check

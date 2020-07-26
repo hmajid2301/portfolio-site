@@ -1,0 +1,30 @@
+import { Meta, Story, Preview, Props } from '@storybook/addon-docs/blocks';
+
+import SearchItems from './SearchItems';
+
+<Meta title="Molecules | SearchItems" component={SearchItems} />
+
+# SearchItems
+
+<Preview>
+  <Story
+    name="Basic"
+    args={{
+      results: [
+        {
+          id: '24eb1eed-77a1-5be8-a694-dbce11285f76',
+          title: 'React Hooks, Context & Local Storage',
+          tags: ['react', 'reacthooks', 'reactcontext'],
+          path: 'react-hooks-context-and_local-storage',
+          html:
+            '\n> Photo by Cristian Palmer on Unsplash\n\nIn this article, I will show how you can use React Context with React Hooks to store global state across a React app,\nthen store that state in local storage. This can be used for example to store light vs dark theme, then whenever the\nuser visits your website again they will have the same theme they last selected. Which leads to an improved experience.\n\n## Structure\n\n',
+          excerpt: '',
+        },
+      ],
+    }}
+  >
+    {(args) => <SearchItems {...args} />}
+  </Story>
+</Preview>
+
+<Props story="Basic" />

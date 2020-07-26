@@ -19,7 +19,7 @@ function getInitialColorMode() {
     return mql.matches ? 'dark' : 'light';
   }
 
-  return 'light';
+  return 'dark';
 }
 
 export const ThemeContext: Context<ThemeContext> = React.createContext(
