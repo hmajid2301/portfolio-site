@@ -1,1 +1,1 @@
-export { default as SearchBar } from './SearchItems';
+export { default as SearchItems, Page } from './SearchItems';

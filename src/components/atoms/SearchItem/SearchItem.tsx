@@ -1,24 +1,42 @@
 import { Link } from 'gatsby';
 import React from 'react';
+import Highlighter from 'react-highlight-words';
 import tw from 'twin.macro';
 
 export interface Props {
+  /** The excerpt for the search results. */
   content: string;
+  /** Path to the blog post. */
   path: string;
+  /** Title of the blog post. */
   title: string;
+  /** The query made, used for highlighting. */
+  query: string;
 }
 
-const SearchItem = ({ content, path, title }: Props) => (
+const SearchItem = ({ content, path, title, query }: Props) => (
   <SearchItemContainer>
     <SearchTitle>
       <Link
         className="hover:text-white hover:bg-primary hover:p-1 rounded"
         to={`/blog/${path}`}
       >
-        {title}
+        <Highlighter
+          autoEscape
+          highlightStyle={{ backgroundColor: '#ffd54f' }}
+          searchWords={query.split(' ')}
+          textToHighlight={title}
+        />
       </Link>
     </SearchTitle>
-    <MainText>{content.substring(0, 200)}...</MainText>
+    <MainText>
+      <Highlighter
+        autoEscape
+        highlightStyle={{ backgroundColor: '#ffd54f' }}
+        searchWords={query.split(' ')}
+        textToHighlight={`${content.substring(0, 200)}...`}
+      />
+    </MainText>
     <ReadMore className="hover:text-primary text-lg py-2" type="button">
       <Link to={`/blog/${path}`}>Read More</Link>
     </ReadMore>

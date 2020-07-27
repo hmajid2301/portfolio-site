@@ -3,10 +3,14 @@ import React from 'react';
 import { SearchItem } from '~/components/atoms/SearchItem';
 
 export interface Props {
+  /** The results from the search. */
   results: Page[];
+  /** The query made, used for highlighting. */
+  query: string;
 }
 
 export interface Page {
+  /** The query made, used for highlighting. */
   id: string;
   title: string;
   path: string;
@@ -14,11 +18,16 @@ export interface Page {
   html: string;
 }
 
-const SearchItems = ({ results }: Props) => (
+const SearchItems = ({ results, query }: Props) => (
   <ul>
     {results.map((page: Page) => (
       <li key={page.title}>
-        <SearchItem content={page.html} path={page.path} title={page.title} />
+        <SearchItem
+          content={page.html}
+          path={page.path}
+          query={query}
+          title={page.title}
+        />
       </li>
     ))}
   </ul>

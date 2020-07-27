@@ -8,62 +8,64 @@ export interface Props {
   color: string;
 }
 
-const Particles = ({ color }: Props) => (
-  <ParticleContainer
-    params={{
-      particles: {
-        number: {
-          value: 160,
-          density: {
+const Particles = ({ color }: Props) => {
+  return (
+    <ParticleContainer
+      params={{
+        particles: {
+          number: {
+            value: 160,
+            density: {
+              enable: false,
+            },
+          },
+          color: {
+            value: color,
+          },
+          size: {
+            value: 5,
+            random: true,
+            anim: {
+              speed: 3,
+              size_min: 0.7,
+            },
+          },
+          line_linked: {
             enable: false,
           },
-        },
-        color: {
-          value: color,
-        },
-        size: {
-          value: 5,
-          random: true,
-          anim: {
+          move: {
+            random: true,
             speed: 3,
-            size_min: 0.7,
           },
         },
-        line_linked: {
-          enable: false,
-        },
-        move: {
-          random: true,
-          speed: 3,
-        },
-      },
-      interactivity: {
-        events: {
-          onhover: {
-            enable: true,
-            mode: 'bubble',
+        interactivity: {
+          events: {
+            onhover: {
+              enable: true,
+              mode: 'bubble',
+            },
+            onclick: {
+              enable: true,
+              mode: 'repulse',
+            },
           },
-          onclick: {
-            enable: true,
-            mode: 'repulse',
-          },
-        },
-        modes: {
-          bubble: {
-            distance: 250,
-            duration: 2,
-            size: 0,
-            opacity: 0,
-          },
-          repulse: {
-            distance: 400,
-            duration: 4,
+          modes: {
+            bubble: {
+              distance: 250,
+              duration: 2,
+              size: 0,
+              opacity: 0,
+            },
+            repulse: {
+              distance: 400,
+              duration: 4,
+            },
           },
         },
-      },
-    }}
-  />
-);
+      }}
+    />
+  );
+};
 
 const ParticleContainer = styled(ParticlesEffect)`
   ${tw`h-full w-full absolute inset-0 pointer-events-none`}

@@ -1,23 +1,13 @@
 import { Index, SerialisedIndexData } from 'elasticlunr';
 import React, { useState, useEffect } from 'react';
-import { FaSearch as Search } from 'react-icons/fa';
+import { FaSearch as SearchIcon } from 'react-icons/fa';
 import tw from 'twin.macro';
-
-import SearchItems from '../SearchItems/SearchItems';
 
 import { Icon } from '~/components/atoms/Icon';
 import { Input } from '~/components/atoms/Input';
+import { SearchItems, Page } from '~/components/molecules/SearchItems';
 
-interface Page {
-  id: string;
-  field: string;
-  title: string;
-  path: string;
-  tags: string;
-  html: string;
-}
-
-const SearchInput = ({
+const Search = ({
   searchIndex,
 }: {
   searchIndex: SerialisedIndexData<Page>;
@@ -43,7 +33,7 @@ const SearchInput = ({
       <SearchInputContainer>
         <Icon
           className="px-2"
-          icon={<Search size="1em" />}
+          icon={<SearchIcon size="1em" />}
           label="Search Icon"
         />
         <Input
@@ -59,7 +49,7 @@ const SearchInput = ({
         />
       </SearchInputContainer>
       <ul>
-        <SearchItems results={results} />
+        <SearchItems query={query} results={results} />
       </ul>
     </SearchContainer>
   );
@@ -68,4 +58,5 @@ const SearchInput = ({
 const SearchContainer = tw.div`max-w-screen-md mx-auto pt-8`;
 
 const SearchInputContainer = tw.div`flex w-full text-left h-12 text-lg focus-within:shadow-outline my-8`;
-export default SearchInput;
+
+export default Search;

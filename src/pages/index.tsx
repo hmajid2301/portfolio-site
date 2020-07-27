@@ -36,7 +36,7 @@ const Index = ({ data }: Props) => {
 
   return (
     <Layout title="Home">
-      <Hero showParticles text={meta.hero} />
+      <Hero text={meta.hero} />
       <Container className="max-w-screen-2xl mx-auto">
         <section className="my-10">
           <Header>Latest Posts</Header>

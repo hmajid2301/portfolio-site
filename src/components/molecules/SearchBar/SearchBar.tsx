@@ -2,11 +2,11 @@ import styled from '@emotion/styled';
 import { graphql, StaticQuery } from 'gatsby';
 
 import React, { useState, useContext } from 'react';
-import { FaSearch as Search } from 'react-icons/fa';
+import { FaSearch as SearchIcon } from 'react-icons/fa';
 import tw from 'twin.macro';
 
 import { Icon } from '~/components/atoms/Icon';
-import { SearchInput } from '~/components/molecules/SearchInput';
+import { Search } from '~/components/organisms/Search';
 import { ThemeContext } from '~/providers/Theme';
 
 const SearchBar = () => {
@@ -16,7 +16,7 @@ const SearchBar = () => {
   return (
     <Container>
       <Icon
-        icon={<Search size="1.3em" />}
+        icon={<SearchIcon size="1.3em" />}
         label="Search Icon"
         onClick={() => setShowSearch(!showSearch)}
       />
@@ -45,9 +45,9 @@ const SearchBar = () => {
             }
           `}
           render={(data) => (
-            <SearchInputContainer>
-              <SearchInput searchIndex={data.siteSearchIndex.index} />
-            </SearchInputContainer>
+            <SearchContainer>
+              <Search searchIndex={data.siteSearchIndex.index} />
+            </SearchContainer>
           )}
         />
       </SearchOverlay>
@@ -57,7 +57,7 @@ const SearchBar = () => {
 
 const Container = tw.div`flex-grow flex`;
 
-const SearchInputContainer = tw.div`overflow-y-scroll h-screen w-full`;
+const SearchContainer = tw.div`overflow-y-scroll h-screen w-full`;
 
 const SearchOverlay = styled.div<{
   showSearch: boolean;

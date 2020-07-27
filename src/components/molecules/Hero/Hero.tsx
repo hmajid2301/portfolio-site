@@ -9,12 +9,11 @@ import { ThemeContext } from '~/providers/Theme';
 export interface Props {
   /** The text shown on the hero panel for example, your name. */
   text: string | JSX.Element;
-  /** If set to True will show particles in the background. */
-  showParticles?: boolean;
 }
 
-const Hero = ({ text, showParticles = false }: Props) => {
+const Hero = ({ text }: Props) => {
   const { theme } = useContext(ThemeContext);
+  const color = theme === 'light' ? '#000' : '#fff';
 
   return (
     <HeroContainer>
@@ -22,9 +21,7 @@ const Hero = ({ text, showParticles = false }: Props) => {
         <MainText>{text}</MainText>
       </TextContainer>
 
-      {showParticles && (
-        <Particles color={theme === 'light' ? '#000' : '#fff'} />
-      )}
+      <Particles color={color} />
     </HeroContainer>
   );
 };
