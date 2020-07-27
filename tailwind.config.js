@@ -30,7 +30,7 @@ module.exports = {
         secondary: 'var(--secondary)',
         main: 'var(--main)',
         background: 'var(--background)',
-        background2: 'var(--background2)',
+        'secondary-background': 'var(--secondary-background)',
         header: 'var(--header)',
         accent: 'var(--accent)',
         blue: {
