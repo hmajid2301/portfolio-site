@@ -39,7 +39,7 @@ const DefaultLayout = ({
 
   return (
     <div
-      className={`overflow-hidden ${
+      className={`${
         theme === 'light' ? 'theme-light' : 'theme-dark'
       } bg-background`}
     >

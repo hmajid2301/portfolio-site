@@ -1,6 +1,5 @@
 import React from 'react';
 
-import { App } from '~/components/App';
 import ThemeContextProvider from '~/providers/Theme';
 import '~/styles/global.css';
 
@@ -9,9 +8,9 @@ require('dotenv').config({
 });
 
 // Duplicated in gatsby-browser.js for client side rendering
-export const wrapRootElement = (props) => (
+export const wrapRootElement = ({ element }) => (
   <ThemeContextProvider>
-    <App {...props} />
+    <div className="root overflow-hidden">{element}</div>
   </ThemeContextProvider>
 );
 
