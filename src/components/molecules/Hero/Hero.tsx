@@ -21,7 +21,8 @@ const Hero = ({ text }: Props) => {
         <MainText>{text}</MainText>
       </TextContainer>
 
-      <Particles color={color} />
+      {theme === 'light' && <Particles color={color} />}
+      {theme === 'dark' && <Particles color={color} />}
     </HeroContainer>
   );
 };

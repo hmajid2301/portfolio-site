@@ -8,7 +8,6 @@ interface ThemeContext {
 function getInitialColorMode() {
   const persistedColorPreference = window.localStorage.getItem('@Theme');
   const hasPersistedPreference = typeof persistedColorPreference === 'string';
-
   if (hasPersistedPreference) {
     return persistedColorPreference;
   }
@@ -26,7 +25,7 @@ export const ThemeContext: Context<ThemeContext> = React.createContext(
   {} as ThemeContext
 );
 
-const ThemeContextProvider = ({ children }: { children: React.ReactNode }) => {
+const ThemeProvider = ({ children }: { children: React.ReactNode }) => {
   const [theme, setTheme] = useState('dark');
 
   useEffect(() => {
@@ -48,4 +47,4 @@ const ThemeContextProvider = ({ children }: { children: React.ReactNode }) => {
   );
 };
 
-export default ThemeContextProvider;
+export default ThemeProvider;

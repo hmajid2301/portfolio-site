@@ -38,7 +38,7 @@ const Index = ({ data }: Props) => {
     <Layout title="Home">
       <Hero text={meta.hero} />
       <Container className="max-w-screen-2xl mx-auto">
-        <section className="my-10">
+        <section className="my-20">
           <Header>Latest Posts</Header>
           <BlogList data={data} />
         </section>
