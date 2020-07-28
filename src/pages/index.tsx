@@ -37,31 +37,34 @@ const Index = ({ data }: Props) => {
   return (
     <Layout title="Home">
       <Hero text={meta.hero} />
-      <Container className="max-w-screen-2xl mx-auto">
-        <section className="my-20">
+      <Container>
+        <Section className="my-20">
           <Header>Latest Posts</Header>
           <BlogList data={data} />
-        </section>
+        </Section>
 
-        <section className="my-10">
+        {/* <Section className="my-10">
           <Header>Main Projects</Header>
           <ProjectList projectItems={projectItems} />
-        </section>
+        </Section> */}
 
-        <section>
+        <Section className="mb-20">
           <Header>Other Projects</Header>
           <RepositoryList items={repositoryItems} />
-        </section>
+        </Section>
       </Container>
     </Layout>
   );
 };
 
 const Container = styled.div`
+  ${tw`mx-auto`};
   max-width: 1750px;
 `;
 
-const Header = tw.h1`mx-5 lg:mx-0 font-header font-semibold max-w-lg my-10 text-5xl text-header`;
+const Section = tw.section`flex flex-col`;
+
+const Header = tw.h1`font-header my-10 font-semibold max-w-lg ml-10 text-5xl text-header`;
 
 export const pageQuery = graphql`
   query {

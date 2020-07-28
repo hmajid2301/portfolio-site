@@ -1,16 +1,20 @@
-import { Link, graphql } from 'gatsby';
+import { graphql } from 'gatsby';
 import React from 'react';
+import tw from 'twin.macro';
 
+import { ProgramTags } from '~/components/atoms/ProgramTags';
 import { Layout } from '~/components/Layout';
+import { BlogList, QueryItem } from '~/components/organisms/BlogList';
 
 export interface Props {
   pageContext: {
+    /** The current tag. */
     tag: string;
   };
   data: {
     allMarkdownRemark: {
-      edges: TagItem[];
-      totalCount: number;
+      /** A list of blog posts to show. */
+      edges: QueryItem[];
     };
   };
 }
@@ -26,30 +30,24 @@ export interface TagItem {
   };
 }
 
-const Tags = ({ pageContext, data }: Props) => {
+const Tags  = ({ pageContext, data }: Props) => {
   const { tag } = pageContext;
-  const { edges, totalCount } = data.allMarkdownRemark;
-  const tagHeader = `${totalCount} post${
-    totalCount === 1 ? '' : 's'
-  } tagged with "${tag}"`;
 
   return (
-    <Layout>
-      <h1>{tagHeader}</h1>
-      <ul>
-        {edges.map(({ node }) => {
-          const { slug, title } = node.frontmatter;
-          return (
-            <li key={slug}>
-              <Link to={slug}>{title}</Link>
-            </li>
-          );
-        })}
-      </ul>
-      <Link to="/tags">All tags</Link>
+    <Layout title={`Tags - ${tag}`}>
+      <TagsContainer>
+        <ProgramTags size="4xl" text={tag} />
+        <BlogItems>
+          <BlogList data={data} />
+        </BlogItems>
+      </TagsContainer>
     </Layout>
   );
 };
+
+const TagsContainer = tw.div`max-w-screen-xl mx-auto min-h-screen`;
+
+const BlogItems = tw.div`my-10`;
 
 export default Tags;
 
@@ -64,8 +62,18 @@ export const pageQuery = graphql`
       edges {
         node {
           frontmatter {
+            date(formatString: "YYYY-MM-DD")
             slug
             title
+            tags
+            cover_image {
+              publicURL
+              childImageSharp {
+                sizes(maxWidth: 1240) {
+                  srcSet
+                }
+              }
+            }
           }
         }
       }

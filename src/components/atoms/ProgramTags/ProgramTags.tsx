@@ -1,69 +1,43 @@
 import styled from '@emotion/styled';
+import { Link } from 'gatsby';
 import React from 'react';
 import tw from 'twin.macro';
 
+import { languages, defaultLangauge } from './data';
+
 export interface Props {
+  /** Extra css classes to apply to tag container. */
+  className?: string;
+  /** The text/language to show in a tag format i.e. javascript. */
   text: string;
+  /** The font-size of the program tags. */
+  size?: string;
 }
 
-type Language = {
-  [name: string]: {
-    background: string;
-    color: string;
-  };
-};
-
-const languages: Language = {
-  docker: {
-    background: '#384d54',
-    color: '#fff',
-  },
-  dockercompose: {
-    background: '#bac9d9',
-    color: '#222',
-  },
-  firebase: {
-    background: '#ffcb2b',
-    color: '#222',
-  },
-  gatsby: {
-    background: '#663399',
-    color: '#fff',
-  },
-  javascript: { background: '#f0db4f', color: '#222' },
-  linux: { background: '#222', color: '#4FF14F' },
-  python: { background: '#3572A5', color: '#fff' },
-  react: { background: '#222', color: '#00d8ff' },
-  reactnative: { background: '#222', color: '#00d8ff' },
-  typescript: { background: '#2775c3', color: '#fff' },
-};
-
-const defaultLangauge = {
-  background: '#22262f',
-  color: '#dbe1e8',
-};
-
-const ProgramTags = ({ text }: Props) => {
+const ProgramTags = ({ className, text, size = 'base' }: Props) => {
   const language = languages[text] || defaultLangauge;
 
   return (
-    <TagContainer data-testid="TagContainer" href={`/tags/${text}`}>
-      <TextContainer background={language.background} color={language.color}>
+    <TagContainer className={className} to={`/tags/${text}`}>
+      <TextContainer
+        background={language.background}
+        className={`text-${size} m-2`}
+        color={language.color}
+      >
         #{text}
       </TextContainer>
     </TagContainer>
   );
 };
 
-const TagContainer = styled.a`
+const TagContainer = styled(Link)`
   text-decoration: none;
 `;
 
 const TextContainer = styled.span<{ background: string; color: string }>`
   background-color: ${(props) => props.background};
   color: ${(props) => props.color};
-  display: 'flex'
-    ${tw`text-base rounded p-2 font-header font-semibold px-3 tracking-wide`};
+  ${tw`rounded p-2 font-header font-semibold tracking-wide bg-opacity-25 hover:bg-primary hover:text-header transition duration-300`};
 `;
 
 export default ProgramTags;

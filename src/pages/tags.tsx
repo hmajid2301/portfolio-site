@@ -1,17 +1,22 @@
-import { Link, graphql } from 'gatsby';
+import { graphql } from 'gatsby';
 import React from 'react';
+import tw from 'twin.macro';
+
+import { ProgramTags } from '~/components/atoms/ProgramTags';
+import { Layout } from '~/components/Layout';
 
 export interface Props {
   data: {
     allMarkdownRemark: {
+      /** A list of tags to show. */
       group: Tag[];
     };
   };
 }
 
 export interface Tag {
+  /** A name of the tag. */
   fieldValue: string;
-  totalCount: number;
 }
 
 const TagsPage = ({
@@ -19,21 +24,23 @@ const TagsPage = ({
     allMarkdownRemark: { group },
   },
 }: Props) => (
-  <div>
-    <div>
-      <h1>Tags</h1>
-      <ul>
+  <Layout title="Tags">
+    <TagsContainer>
+      <Header>Tags</Header>
+      <TagItem>
         {group.map((tag) => (
-          <li key={tag.fieldValue}>
-            <Link to={`/tags/${tag.fieldValue}`}>
-              {tag.fieldValue} ({tag.totalCount})
-            </Link>
-          </li>
+          <ProgramTags className="py-1 my-1" size="2xl" text={tag.fieldValue} />
         ))}
-      </ul>
-    </div>
-  </div>
+      </TagItem>
+    </TagsContainer>
+  </Layout>
 );
+
+const TagsContainer = tw.div`max-w-screen-xl mx-auto min-h-screen`;
+
+const TagItem = tw.div`my-10 flex flex-wrap`;
+
+const Header = tw.h1`font-header font-bold text-3xl text-header my-10`;
 
 export default TagsPage;
 

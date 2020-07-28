@@ -8,6 +8,7 @@ import { BlogList, QueryItem } from '~/components/organisms/BlogList';
 export interface Props {
   data: {
     allMarkdownRemark: {
+      /** A list of blog posts to show. */
       edges: QueryItem[];
     };
   };
