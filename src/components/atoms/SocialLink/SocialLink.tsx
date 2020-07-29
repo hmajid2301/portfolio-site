@@ -8,7 +8,7 @@ export interface Props {
   /** The social Icon to show. */
   icon: React.ReactNode;
   /** The url to link to when the social link is pressed. */
-  url: string;
+  url?: string;
 }
 
 const SocialLink = ({ icon, url }: Props) => (
@@ -23,7 +23,7 @@ const SocialLink = ({ icon, url }: Props) => (
 );
 
 const Container = styled.a`
-  ${tw`cursor-pointer inline-block transition duration-300 hover:text-primary text-header`}
+  ${tw`cursor-pointer inline-block transition duration-300 text-main hover:text-primary`}
 
   svg {
     ${tw`w-10 h-10`}

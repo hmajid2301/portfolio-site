@@ -40,11 +40,7 @@
 }
 
 .blog-post a {
-  @apply text-blue-600;
-}
-
-.blog-post a:hover {
-  @apply underline;
+  @apply text-primary underline;
 }
 
 .blog-post p {
@@ -97,4 +93,37 @@
 
 .blog-post :not(pre) > code.language-text {
   white-space: pre-line;
+}
+
+code[class*='language-'] {
+  @apply font-code text-lg;
+}
+
+.gatsby-highlight::before {
+  content: attr(data-language);
+  background: #222;
+  margin-left: 8px;
+  @apply absolute px-5 uppercase top-0 left-0;
+}
+
+.gatsby-highlight {
+  @apply my-5 relative;
+}
+
+.gatsby-highlight::after {
+  content: 'copy';
+  background: #222;
+  @apply absolute p-1 top-0 right-0;
+}
+
+.gatsby-highlight:hover {
+  @apply cursor-pointer;
+}
+
+.gatsby-highlight:active:after {
+  background-color: #444;
+}
+
+.gatsby-highlight pre[class*='language-'] {
+  @apply p-5 pt-10;
 }

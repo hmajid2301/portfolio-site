@@ -1,11 +1,18 @@
-import React from 'react';
+import React, { useRef, useEffect } from 'react';
+import { ToastContainer, toast } from 'react-toastify';
 import tw from 'twin.macro';
-import 'prismjs/themes/prism-okaidia.css';
+import 'gatsby-prismjs-dracula';
+import 'react-toastify/dist/ReactToastify.css';
 
 import { PostMeta } from '~/components/molecules/PostMeta';
 import '~/styles/blog.css';
+import { ReadingProgress } from '~/components/molecules/ReadingProgress';
+import { ShareButton } from '~/components/molecules/ShareButtons';
+import copyToClipboard from '~/utils/copyToClipboard';
 
 export interface Props {
+  /** Cover Image for the article. */
+  coverImage?: string;
   /** The blog post as a HTML string. */
   data: string;
   /** The date of the blog post. */
@@ -18,28 +25,75 @@ export interface Props {
   tags: string[];
   /** The title of the blog post. */
   title: string;
+  /** The number of words in the article. */
+  words?: string;
 }
 
-const BlogPost = ({ data, date, readingTime, slug, tags, title }: Props) => {
+const BlogPost = ({
+  coverImage,
+  data,
+  date,
+  readingTime,
+  slug,
+  tags,
+  title,
+  words,
+}: Props) => {
+  const target = useRef<HTMLDivElement>(null);
+
+  function copyText(element: HTMLPreElement) {
+    if (element.className?.startsWith('language-')) {
+      const codeText = element.innerText;
+      copyToClipboard(codeText);
+      toast.dark('Copied to clipboard 📒.');
+      toast.clearWaitingQueue();
+    }
+  }
+
+  useEffect(() => {
+    window.addEventListener('click', (event) =>
+      copyText(event?.target as HTMLPreElement)
+    );
+    return () =>
+      window.removeEventListener('click', (event) =>
+        copyText(event?.target as HTMLPreElement)
+      );
+  });
+
   return (
     <BlogContainer className="blog-post-container">
+      <ReadingProgress target={target} />
       <PostMeta
+        coverImage={coverImage}
         date={date}
         readingTime={readingTime}
         tags={tags}
         title={title}
-        url={slug}
+        words={words}
       />
-      <div className="blog-post">
+      <div ref={target} className="blog-post">
         <div
-          className="blog-post-content"
+          className="blog-post-content px-10"
           dangerouslySetInnerHTML={{ __html: data }}
         />
+        <ShareButton slug={slug} />
       </div>
+      <ToastContainer
+        autoClose={2000}
+        closeOnClick
+        draggable
+        hideProgressBar
+        limit={1}
+        newestOnTop={false}
+        pauseOnFocusLoss
+        pauseOnHover
+        position="bottom-center"
+        rtl={false}
+      />
     </BlogContainer>
   );
 };
 
-const BlogContainer = tw.div`max-w-screen-lg mx-auto font-body text-main`;
+const BlogContainer = tw.div`max-w-screen-xl mx-auto font-body text-main bg-secondary-background rounded py-5 my-5`;
 
 export default BlogPost;

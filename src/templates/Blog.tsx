@@ -11,6 +11,7 @@ export interface Props {
         /** How long it'll take to finish the article. */
         readingTime: {
           text: string;
+          words: string;
         };
       };
 
@@ -34,6 +35,7 @@ export interface Props {
         /** The unique slug/url of the blog post. */
         slug: string;
       };
+
       /** The blog post as a HTML string. */
       html: string;
       /** The first 160 chars. */
@@ -57,12 +59,14 @@ export default function BlogTemplate({ data }: Props) {
       title={frontmatter.title}
     >
       <BlogPost
+        coverImage={frontmatter.image?.childImageSharp.resize.src}
         data={html}
         date={frontmatter.date}
         readingTime={fields.readingTime.text}
         slug={frontmatter.slug}
         tags={frontmatter.tags}
         title={frontmatter.title}
+        words={fields.readingTime.words}
       />
     </Layout>
   );
@@ -90,6 +94,7 @@ export const pageQuery = graphql`
       }
       fields {
         readingTime {
+          words
           text
         }
       }

@@ -58,7 +58,7 @@ module.exports = {
       },
       fontFamily: {
         header: ['Fira Sans'],
-        body: ['Muli'],
+        body: ['Poppins'],
         code: ['Fira Code'],
       },
     },
