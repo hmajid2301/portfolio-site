@@ -19,7 +19,7 @@ const NavLink = ({ className, link }: Props) => (
   <LinkElement
     activeClassName="active"
     className={`text-header ${className}`}
-    to={`/${link.link}`}
+    to={`/${link.link}/`}
   >
     {link.name}
   </LinkElement>

@@ -3,9 +3,6 @@ import { Link as Card } from 'gatsby';
 import React from 'react';
 import tw from 'twin.macro';
 
-import { AnimatedCard } from '~/components/atoms/AnimatedCard';
-import { AnimatedImage } from '~/components/atoms/AnimatedImage';
-
 export interface Props {
   /** The item to show in the card. */
   item: MainCardItem;
@@ -25,7 +22,7 @@ export interface MainCardItem {
 const MainCard = ({ item }: Props) => (
   <Container className="group">
     <Card to={item.url}>
-      <AnimatedImage image={item.image} />
+      <div />
       <OverlayContainer>
         <HeaderText>{item.name}</HeaderText>
         <MainText>{item.description}</MainText>
@@ -34,7 +31,7 @@ const MainCard = ({ item }: Props) => (
   </Container>
 );
 
-const Container = styled(AnimatedCard)`
+const Container = styled.div`
   ${tw`relative items-start rounded max-w-lg font-body text-white mx-auto`}
 `;
 

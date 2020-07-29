@@ -11,9 +11,11 @@ const config = {
   meta: {
     hero: (
       <span>
-        Hello, I&apos;m <span className="text-primary">Haseeb</span>, a software
-        engineer. Welcome to my <span className="text-primary">website</span>{' '}
-        and <span className="text-primary">blog</span>.
+        Hello, I&apos;m <span className="text-primary">Haseeb</span>
+        {'  '} 🧑‍💻, a software engineer 🖥️. Welcome to my{' '}
+        <span className="text-primary">website</span> and{' '}
+        <span className="text-primary">blog</span>
+        {'  '}📒.
       </span>
     ),
     social: [

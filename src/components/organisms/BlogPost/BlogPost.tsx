@@ -40,6 +40,6 @@ const BlogPost = ({ data, date, readingTime, slug, tags, title }: Props) => {
   );
 };
 
-const BlogContainer = tw.div`max-w-screen-lg mx-auto font-body`;
+const BlogContainer = tw.div`max-w-screen-lg mx-auto font-body text-main`;
 
 export default BlogPost;

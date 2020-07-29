@@ -40,7 +40,7 @@ const TagsContainer = tw.div`max-w-screen-xl mx-auto min-h-screen`;
 
 const TagItem = tw.div`my-10 flex flex-wrap`;
 
-const Header = tw.h1`font-header font-bold text-3xl text-header my-10`;
+const Header = tw.h1`font-header font-bold text-3xl text-header my-10 ml-5`;
 
 export default TagsPage;
 

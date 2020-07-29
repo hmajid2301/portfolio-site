@@ -19,6 +19,7 @@ export interface Props {
 
 export interface QueryItem {
   node: {
+    excerpt: string;
     frontmatter: {
       /** The post date. */
       date: string;
@@ -39,9 +40,11 @@ export interface QueryItem {
 const BlogList = ({ data }: Props) => {
   const blogItems: BlogItem[] = [];
   data.allMarkdownRemark.edges.forEach((element) => {
-    const { frontmatter } = element.node;
+    const { frontmatter, excerpt } = element.node;
+
     if (frontmatter.title !== 'Uses') {
       blogItems.push({
+        description: excerpt,
         date: frontmatter.date,
         image: frontmatter.cover_image.publicURL,
         tags: frontmatter.tags,

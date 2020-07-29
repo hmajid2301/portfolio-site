@@ -29,10 +29,10 @@ const DefaultLayout = ({
 }: Props) => {
   const { theme } = useContext(ThemeContext);
   const links = [
-    { name: 'Home', link: '/' },
-    { name: 'Blog', link: '/blog' },
-    { name: 'Tags', link: '/tags' },
-    { name: 'Uses', link: '/uses' },
+    { name: '🏠️ Home', link: '/' },
+    { name: '✍️ Blog', link: '/blog' },
+    { name: '🔖 Tags', link: '/tags' },
+    { name: '📋 Uses', link: '/uses' },
   ];
 
   const { meta } = config;

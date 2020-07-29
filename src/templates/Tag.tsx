@@ -30,7 +30,7 @@ export interface TagItem {
   };
 }
 
-const Tags  = ({ pageContext, data }: Props) => {
+const TagTemplate = ({ pageContext, data }: Props) => {
   const { tag } = pageContext;
 
   return (
@@ -49,7 +49,7 @@ const TagsContainer = tw.div`max-w-screen-xl mx-auto min-h-screen`;
 
 const BlogItems = tw.div`my-10`;
 
-export default Tags;
+export default TagTemplate;
 
 export const pageQuery = graphql`
   query($tag: String) {

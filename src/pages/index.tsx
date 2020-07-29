@@ -9,7 +9,7 @@ import { Hero } from '~/components/molecules/Hero';
 import { MainCardItem } from '~/components/molecules/MainCard';
 import { RepositoryItem } from '~/components/molecules/RepositoryCard';
 import { BlogList, QueryItem } from '~/components/organisms/BlogList';
-import { ProjectList } from '~/components/organisms/ProjectsList';
+// import { ProjectList } from '~/components/organisms/ProjectsList';
 import { RepositoryList } from '~/components/organisms/RepositoryList';
 import config from '~/config/website';
 
@@ -75,6 +75,7 @@ export const pageQuery = graphql`
       edges {
         node {
           id
+          excerpt(pruneLength: 100)
           frontmatter {
             date(formatString: "YYYY-MM-DD")
             slug

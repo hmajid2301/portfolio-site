@@ -42,7 +42,7 @@ export interface Props {
   };
 }
 
-export default function BlogPostTemplate({ data }: Props) {
+export default function BlogTemplate({ data }: Props) {
   const { markdownRemark } = data;
   const { fields, frontmatter, html, excerpt } = markdownRemark;
 

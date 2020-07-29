@@ -18,10 +18,10 @@ const ProgramTags = ({ className, text, size = 'base' }: Props) => {
   const language = languages[text] || defaultLangauge;
 
   return (
-    <TagContainer className={className} to={`/tags/${text}`}>
+    <TagContainer className={className} to={`/tags/${text}/`}>
       <TextContainer
         background={language.background}
-        className={`text-${size} m-2`}
+        className={`text-${size} mx-1`}
         color={language.color}
       >
         #{text}

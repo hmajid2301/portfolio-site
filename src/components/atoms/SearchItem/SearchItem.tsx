@@ -19,7 +19,7 @@ const SearchItem = ({ content, path, title, query }: Props) => (
     <SearchTitle>
       <Link
         className="hover:text-white hover:bg-primary hover:p-1 rounded"
-        to={`/blog/${path}`}
+        to={`/blog/${path}/`}
       >
         <Highlighter
           autoEscape
@@ -38,7 +38,7 @@ const SearchItem = ({ content, path, title, query }: Props) => (
       />
     </MainText>
     <ReadMore className="hover:text-primary text-lg py-2" type="button">
-      <Link to={`/blog/${path}`}>Read More</Link>
+      <Link to={`/blog/${path}/`}>Read More</Link>
     </ReadMore>
   </SearchItemContainer>
 );

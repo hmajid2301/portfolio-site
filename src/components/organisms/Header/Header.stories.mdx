@@ -1,6 +1,6 @@
 import { Meta, Story, Preview, Props } from '@storybook/addon-docs/blocks';
 
-import ThemeContextProvider from '~/providers/Theme';
+import ThemeProvider from '~/providers/Theme';
 import Header from './Header';
 
 <Meta title="Organisms | Header" component={Header} />
@@ -20,9 +20,9 @@ import Header from './Header';
     }}
   >
     {(args) => (
-      <ThemeContextProvider>
+      <ThemeProvider>
         <Header {...args} />
-      </ThemeContextProvider>
+      </ThemeProvider>
     )}
   </Story>
 </Preview>

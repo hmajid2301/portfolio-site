@@ -24,7 +24,7 @@ export interface RepositoryItem {
 
 const RepositoryCard = ({ item }: Props) => {
   return (
-    <Container>
+    <RepositoryContainer>
       <HeaderText>{item.name}</HeaderText>
       <MainText>{item.description}</MainText>
       <MetaContainer>
@@ -36,11 +36,12 @@ const RepositoryCard = ({ item }: Props) => {
           <Star /> {item.stars}
         </MetaItem>
       </MetaContainer>
-    </Container>
+    </RepositoryContainer>
   );
 };
 
-const Container = tw.div`flex-grow flex-wrap items-start rounded-md mx-auto px-8 py-8 max-w-md shadow font-body bg-secondary-background text-main hover:shadow-lg`;
+const RepositoryContainer = tw.div`flex-grow flex-wrap items-start rounded-md mx-auto px-8 py-8 max-w-md shadow font-body
+bg-secondary-background text-main transform hover:-translate-y-6 transition duration-300`;
 
 const HeaderText = tw.h1`text-lg hover:text-primary pb-8 hover:cursor-pointer font-semibold`;
 

@@ -40,8 +40,8 @@ exports.onCreateWebpackConfig = function addPathMapping({
 
 exports.createPages = async ({ actions, graphql, reporter }) => {
   const { createPage } = actions;
-  const blogPostTemplate = path.resolve('src/templates/Post.tsx');
-  const tagTemplate = path.resolve('src/templates/Tags.tsx');
+  const blogPostTemplate = path.resolve('src/templates/Blog.tsx');
+  const tagTemplate = path.resolve('src/templates/Tag.tsx');
   const result = await graphql(`
     {
       postsRemark: allMarkdownRemark(
@@ -54,6 +54,7 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
               slug
               tags
             }
+            excerpt(pruneLength: 100)
           }
         }
       }

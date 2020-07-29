@@ -1,3 +1,4 @@
+import styled from '@emotion/styled';
 import { graphql } from 'gatsby';
 import React from 'react';
 import tw from 'twin.macro';
@@ -25,9 +26,12 @@ const Blog = ({ data }: Props) => {
   );
 };
 
-const BlogContainer = tw.div`mx-auto max-w-lg py-20`;
+const BlogContainer = styled.section`
+  ${tw`mx-auto my-20`};
+  max-width: 1750px;
+`;
 
-const Header = tw.h1`font-header font-bold text-3xl`;
+const Header = tw.h1`font-header font-bold text-3xl text-main py-10 ml-10`;
 
 export default Blog;
 
@@ -37,7 +41,7 @@ export const pageQuery = graphql`
       edges {
         node {
           id
-          excerpt(pruneLength: 250)
+          excerpt(pruneLength: 100)
           frontmatter {
             date(formatString: "YYYY-MM-DD")
             slug
