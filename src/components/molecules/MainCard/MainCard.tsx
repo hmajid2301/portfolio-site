@@ -22,7 +22,6 @@ export interface MainCardItem {
 const MainCard = ({ item }: Props) => (
   <Container className="group">
     <Card to={item.url}>
-      <div />
       <OverlayContainer>
         <HeaderText>{item.name}</HeaderText>
         <MainText>{item.description}</MainText>

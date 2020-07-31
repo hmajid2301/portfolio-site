@@ -6,8 +6,7 @@ import tw from 'twin.macro';
 
 import { Layout } from '~/components/Layout';
 import { Hero } from '~/components/molecules/Hero';
-import { MainCardItem } from '~/components/molecules/MainCard';
-import { RepositoryItem } from '~/components/molecules/RepositoryCard';
+import ImageCards from '~/components/molecules/ImageCards/ImageCards';
 import { BlogList, QueryItem } from '~/components/organisms/BlogList';
 // import { ProjectList } from '~/components/organisms/ProjectsList';
 import { RepositoryList } from '~/components/organisms/RepositoryList';
@@ -22,17 +21,7 @@ export interface Props {
 }
 
 const Index = ({ data }: Props) => {
-  const { meta, projects, repositories } = config;
-
-  const projectItems: MainCardItem[] = [];
-  Object.values(projects).forEach((value) => {
-    projectItems.push(value);
-  });
-
-  const repositoryItems: RepositoryItem[] = [];
-  Object.values(repositories).forEach((value) => {
-    repositoryItems.push(value);
-  });
+  const { meta, repositories, history } = config;
 
   return (
     <Layout title="Home">
@@ -48,9 +37,14 @@ const Index = ({ data }: Props) => {
           <ProjectList projectItems={projectItems} />
         </Section> */}
 
-        <Section className="mb-20">
+        <Section className="my-10">
           <Header>Other Projects</Header>
-          <RepositoryList items={repositoryItems} />
+          <RepositoryList items={repositories} />
+        </Section>
+
+        <Section className="mb-20">
+          <Header>Site History</Header>
+          <ImageCards items={history} />
         </Section>
       </Container>
     </Layout>

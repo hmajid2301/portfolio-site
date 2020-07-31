@@ -25,6 +25,9 @@ module.exports = {
         '3/4': '75%',
         '3/4-screen': '75vh',
       },
+      height: {
+        80: '30rem',
+      },
       screens: {
         '2xl': '1580px',
       },

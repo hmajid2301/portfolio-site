@@ -1,0 +1,33 @@
+import { Meta, Story, Preview, Props } from '@storybook/addon-docs/blocks';
+
+import ImageCards from './ImageCards';
+
+<Meta title="Molecules | ImageCards" component={ImageCards} />
+
+# ImageCards
+
+<Preview>
+  <Story
+    name="Basic"
+    args={{
+      items: [
+        {
+          alt: 'V1 of site',
+          image: 'history/v1.svg',
+          link: 'https://v1.haseebmajid.dev',
+          text: 'V1',
+        },
+        {
+          alt: 'V2 of site',
+          image: 'history/v2.svg',
+          link: 'https://v2.haseebmajid.dev',
+          text: 'V2',
+        },
+      ],
+    }}
+  >
+    {(args) => <ImageCards {...args} />}
+  </Story>
+</Preview>
+
+<Props story="Basic" />

@@ -79,7 +79,7 @@ const MobileNavLinks = styled.div<{ showNavLinks: boolean }>`
   max-height: ${(props) => (props.showNavLinks ? '100vh' : 0)};
   margin-left: 0 !important;
   transition: max-height 0.4s ease-in-out;
-  ${tw`lg:hidden flex fixed inset-x-0 p-8 border text-center bg-background`}
+  ${tw`lg:hidden flex fixed inset-x-0 p-8 text-center bg-background z-10`}
 `;
 
 const NavToggle = tw.button`z-10 lg:hidden focus:outline-none transition duration-300 hover:text-primary`;

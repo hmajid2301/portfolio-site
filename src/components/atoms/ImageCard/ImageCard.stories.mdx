@@ -1,0 +1,23 @@
+import { Meta, Story, Preview, Props } from '@storybook/addon-docs/blocks';
+
+import ImageCard from './ImageCard';
+
+<Meta title="Atoms | ImageCard" component={ImageCard} />
+
+# ImageCard
+
+<Preview>
+  <Story
+    name="Basic"
+    args={{
+      alt: 'V1 of site',
+      image: 'history/v1.svg',
+      link: 'https://v1.haseebmajid.dev',
+      text: 'V1',
+    }}
+  >
+    {(args) => <ImageCard {...args} />}
+  </Story>
+</Preview>
+
+<Props story="Basic" />
