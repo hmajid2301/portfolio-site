@@ -21,7 +21,7 @@ export interface Props {
 }
 
 const Index = ({ data }: Props) => {
-  const { meta, repositories, history } = config;
+  const { meta, projects, repositories, history } = config;
 
   return (
     <Layout title="Home">
@@ -32,10 +32,10 @@ const Index = ({ data }: Props) => {
           <BlogList data={data} />
         </Section>
 
-        {/* <Section className="my-10">
+        <Section className="my-10">
           <Header>Main Projects</Header>
-          <ProjectList projectItems={projectItems} />
-        </Section> */}
+          <ImageCards items={projects} />
+        </Section>
 
         <Section className="my-10">
           <Header>Other Projects</Header>

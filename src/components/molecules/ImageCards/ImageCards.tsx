@@ -23,8 +23,8 @@ const ImageCards = ({ items }: Props) => (
   </ImageListContainer>
 );
 
-const ImageListContainer = tw.div`flex flex-row justify-center relative`;
+const ImageListContainer = tw.div`grid grid-cols-2 relative`;
 
-const ImageCardContainer = tw.div`mx-4 flex`;
+const ImageCardContainer = tw.div`m-4 flex`;
 
 export default ImageCards;

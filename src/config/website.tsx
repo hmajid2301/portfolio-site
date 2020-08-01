@@ -43,32 +43,28 @@ const config = {
   },
   projects: [
     {
-      name: 'Stegappasaurus',
-      description:
-        'Stegappasaurus is an open-source free mobile application, built using React Native. This application uses steganography algorithms to hide data within images.',
+      alt: 'Stegappasaurus app on a vector mobile',
+      text: 'Stegappasaurus',
       image: '/projects/stegappasaurus.png',
-      url: 'https://gitlab.com/hmajid2301/stegappasaurus',
+      link: 'https://stegappasaurus.haseebmajid.dev',
     },
     {
-      name: 'Composerisation',
-      description:
-        'Composerisation is an open-source CLI tool, built using Python. The tool allows you to convert between docker-compose and Docker CLI syntax. You can also visit the website to use the tool instead of installing it to your local machine.',
-      image: '/projects/composerisation.png',
-      url: 'https://gitlab.com/hmajid2301/composerisation',
-    },
-    {
-      name: 'Charity Shop Exchange',
-      description:
-        'Charity Shop Exchange is a website which allows customers to order books and DvDs of a specific genre from a charity shop within their local area. They are able to subscribe to a monthly package. It initially created in the Codevid hackathon and won best project of week 3.',
-      image: '/projects/charity-shop.png',
-      url: 'https://github.com/Charity-Shop-Exchange/Charity-Shop-Exchange',
-    },
-    {
-      name: '[WIP]: Nerf Tank',
-      description: `A remote control car built using arduino, which has a nerf gun.
-    It uses ML to determine who it should shot and then tracks the target.`,
+      alt: 'WIP for nerf tank.',
+      text: '[WIP]: Nerf Tank',
       image: '/projects/nerf.jpg',
-      url: 'https://gitlab.com/hmajid2301/nerf-tank',
+      link: 'https://gitlab.com/hmajid2301/nerf-tank',
+    },
+    {
+      alt: 'Composerisation demo website.',
+      text: 'Composerisation',
+      image: '/projects/composerisation.svg',
+      link: 'https://composerisation.haseebmajid.dev',
+    },
+    {
+      alt: 'Charity shop exchange website.',
+      text: 'Charity Shop Exchange',
+      image: '/projects/charity-shop.svg',
+      link: 'https://charityshopexchange.com/',
     },
   ],
   repositories: [
