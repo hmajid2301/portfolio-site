@@ -2,6 +2,8 @@ require('dotenv').config({
   path: '.env',
 });
 
+const isProduction = process.env.NODE_ENV === 'production';
+
 const plugins = [
   `gatsby-plugin-react-helmet`,
   `gatsby-transformer-sharp`,
@@ -11,6 +13,13 @@ const plugins = [
   `gatsby-plugin-svgr`,
   `gatsby-plugin-sitemap`,
   `gatsby-plugin-postcss`,
+  {
+    resolve: `gatsby-plugin-goatcounter`,
+    options: {
+      code: isProduction ? 'https://haseebmajid.goatcounter.com' : '',
+      allowLocal: !isProduction,
+    },
+  },
   {
     resolve: `gatsby-source-filesystem`,
     options: {
