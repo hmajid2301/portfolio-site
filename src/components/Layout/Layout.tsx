@@ -30,9 +30,10 @@ const DefaultLayout = ({
   const { theme } = useContext(ThemeContext);
   const links = [
     { name: '🏠️ Home', link: '/' },
-    { name: '✍️ Blog', link: '/blog' },
-    { name: '🔖 Tags', link: '/tags' },
-    { name: '📋 Uses', link: '/uses' },
+    { name: '✍️ Blog', link: '/blog/' },
+    { name: '🔖 Tags', link: '/tags/' },
+    { name: '🧮️ Stats', link: '/stats/' },
+    { name: '📋 Uses', link: '/uses/' },
   ];
 
   const { meta } = config;

@@ -1,14 +1,12 @@
 import styled from '@emotion/styled';
 import { graphql } from 'gatsby';
 import React from 'react';
-
 import tw from 'twin.macro';
 
 import { Layout } from '~/components/Layout';
 import { Hero } from '~/components/molecules/Hero';
 import ImageCards from '~/components/molecules/ImageCards/ImageCards';
 import { BlogList, QueryItem } from '~/components/organisms/BlogList';
-// import { ProjectList } from '~/components/organisms/ProjectsList';
 import { RepositoryList } from '~/components/organisms/RepositoryList';
 import config from '~/config/website';
 

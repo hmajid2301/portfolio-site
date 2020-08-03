@@ -14,6 +14,10 @@ const languages: Language = {
     background: '#e13a1c',
     color: '#fff',
   },
+  css: {
+    background: '#178fce',
+    color: '#fff',
+  },
   docker: {
     background: '#384d54',
     color: '#fff',
@@ -71,6 +75,7 @@ const languages: Language = {
   sqlalchemy: { background: '#778877', color: '#000' },
   testing: { background: '#fde628', color: '#000' },
   tox: { background: '#6b7c6b', color: '#fff' },
+  tailwindcss: { background: '#1ab4b7', color: '#fff' },
   typescript: { background: '#2775c3', color: '#fff' },
   'visual-studio': { background: '#1d71ae', color: '#fff' },
   virtualbox: { background: '#1f3a60', color: '#fff' },

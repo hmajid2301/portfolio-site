@@ -1,0 +1,28 @@
+import { Meta, Story, Preview, Props } from '@storybook/addon-docs/blocks';
+
+import VerticalBarChart from './VerticalBarChart';
+
+<Meta title="Molecules | VerticalBarChart" component={VerticalBarChart} />
+
+# VerticalBarChart
+
+<Preview>
+  <Story
+    name="Basic"
+    args={{
+      data: [
+        { name: 'Monday', count: 5, percent: 12 },
+        { name: 'Tuesday', count: 7, percent: 15 },
+        { name: 'Wednesday', count: 9, percent: 18 },
+        { name: 'Thursday', count: 1, percent: 1 },
+        { name: 'Friday', count: 2, percent: 5 },
+        { name: 'Saturday', count: 0, percent: 0 },
+        { name: 'Sunday', count: 8, percent: 3 },
+      ],
+    }}
+  >
+    {(args) => <VerticalBarChart {...args} />}
+  </Story>
+</Preview>
+
+<Props story="Basic" />

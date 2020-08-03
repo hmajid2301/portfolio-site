@@ -1,0 +1,23 @@
+import { Meta, Story, Preview, Props } from '@storybook/addon-docs/blocks';
+
+import DonutChart from './DonutChart';
+
+<Meta title="Molecules | DonutChart" component={DonutChart} />
+
+# DonutChart
+
+<Preview>
+  <Story
+    name="Basic"
+    args={{
+      length: 10,
+      title: 'Average word count',
+      total: 3700,
+      unit: 'words',
+    }}
+  >
+    {(args) => <DonutChart {...args} />}
+  </Story>
+</Preview>
+
+<Props story="Basic" />
