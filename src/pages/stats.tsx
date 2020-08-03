@@ -42,7 +42,7 @@ const Stats = ({ data }: Props) => {
   objectToDataArray(monthData, totalPosts, months);
 
   return (
-    <Layout title="Dashboard">
+    <Layout title="Blog Statistics">
       <Section>
         <DonutChart
           length={totalPosts}
