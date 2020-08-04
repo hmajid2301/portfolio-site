@@ -18,8 +18,6 @@ was inspired by [Wes Bros](https://wesbos.com/uses).
 
 - I use a ⌨️ [Corsair K70](https://www.corsair.com/us/en/k70-rgb-gaming-keyboard) with cherry mx brown switches as my keyboard and an [M65 Elite](https://www.corsair.com/us/en/Categories/Products/Gaming-Mice/FPS-Fast-Action-Mice/M65-RGB-ELITE/p/CH-9309011-N) as my mouse
 
-![neofetch output](images/neofetch.png)
-
 ### 📑 Editor
 
 - [Visual Studio Code](https://code.visualstudio.com/) is my current editor. I swapped over a few years ago from PyCharm.
@@ -61,8 +59,6 @@ I built this site </> using the following technologies:
 - Gatsby
 - Typescript
 - Storybook
-- TailwindCSS
-- EmotionJS
-- Jest
+- TailwindCSS/EmotionJS
 - Netlify
 - Gitlab CI

@@ -79,16 +79,9 @@ module.exports = ({ config }) => {
   // Mirror project aliases for some reason (should be picked up by .babelrc)
   // ========================================================
   config.resolve.alias['~/utils'] = path.resolve(__dirname, '../src/utils');
-  config.resolve.alias['~/theme'] = path.resolve(__dirname, '../src/theme');
   config.resolve.alias['~/components'] = path.resolve(
     __dirname,
     '../src/components'
-  );
-  config.resolve.alias['~/images'] = path.resolve(__dirname, '../src/images');
-  config.resolve.alias['~/icons'] = path.resolve(__dirname, '../src/icons');
-  config.resolve.alias['@theme/styled'] = path.resolve(
-    __dirname,
-    '../src/styled'
   );
 
   return config;

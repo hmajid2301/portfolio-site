@@ -1,4 +1,4 @@
-import Img, { FluidObject } from 'gatsby-image';
+import { FluidObject } from 'gatsby-image';
 import React from 'react';
 import tw from 'twin.macro';
 
@@ -29,7 +29,7 @@ const PostMeta = ({
 }: Props) => {
   return (
     <MetaContainer>
-      <Img alt="Cover for article." fluid={coverImage} />
+      <img alt="Cover for article." loading="lazy" src={coverImage?.srcWebp} />
       <Title>{title}</Title>
       <Date>Date Published: {date}</Date>
       <Date>

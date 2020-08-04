@@ -16,8 +16,7 @@
       {
         "root": ["./src"],
         "alias": {
-          "~": "./src",
-          "@theme/styled": "./src/styled"
+          "~": "./src"
         }
       }
     ]

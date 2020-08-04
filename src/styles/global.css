@@ -13,11 +13,6 @@
   --header: #2d3748;
 }
 
-.active::after {
-  opacity: 1 !important;
-  transform: translateY(0) !important;
-}
-
 .theme-light {
   --background: #fff;
   --secondary-background: #f7fafc;
@@ -30,4 +25,9 @@
   --secondary-background: #1b2128;
   --main: #ffffff;
   --header: #eaeaea;
+}
+
+.active::after {
+  opacity: 1 !important;
+  transform: translateY(0) !important;
 }

@@ -20,8 +20,7 @@
     "downlevelIteration": true,
     "baseUrl": "./",
     "paths": {
-      "~/*": ["src/*"],
-      "@theme/styled": ["src/styled"]
+      "~/*": ["src/*"]
     }
   },
   "include": ["./src/**/*", "./test-utils/**/*", "./__mocks__/**/*"],

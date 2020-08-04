@@ -8,8 +8,8 @@ type Props = {
   keywords?: string[];
   image?: {
     src: string;
-    height: number;
-    width: number;
+    height?: number;
+    width?: number;
   };
   ogType: string;
   pathname?: string;

@@ -80,7 +80,7 @@ export const pageQuery = graphql`
         slug
         title
         tags
-        cover_image {
+        image: cover_image {
           childImageSharp {
             fluid {
               srcWebp

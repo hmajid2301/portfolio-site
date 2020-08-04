@@ -22,10 +22,7 @@ module.exports = {
       // Resolve Aliases
       // =================================
       alias: {
-        map: [
-          ['~', './src'],
-          ['@theme/styled', './src/styled'],
-        ],
+        map: [['~', './src']],
         extensions: ['.js', '.jsx', '.ts', '.tsx', 'json', '.d.ts'],
       },
     },

@@ -16,7 +16,7 @@ const plugins = [
   {
     resolve: `gatsby-plugin-goatcounter`,
     options: {
-      code: isProduction ? 'haseebmajid' : '',
+      code: isProduction ? process.env.GOATCOUNTER_CODE : '',
       allowLocal: !isProduction,
     },
   },
@@ -43,21 +43,21 @@ const plugins = [
     },
   },
   {
+    resolve: 'gatsby-plugin-web-font-loader',
+    options: {
+      google: {
+        families: ['Fira Sans:600,700,900', 'Fira Code', 'Poppins:300,400,600'],
+      },
+    },
+  },
+  {
     resolve: `gatsby-source-git`,
     options: {
       name: `Articles`,
-      remote: `https://gitlab.com/hmajid2301/articles.git`,
+      remote: process.env.ARTICLE_GIT_URL,
       branch: `master`,
     },
   },
-  // {
-  //   resolve: 'gatsby-plugin-web-font-loader',
-  //   options: {
-  //     google: {
-  //       families: ['Fira Sans:600,700,900', 'Fira Code', 'Poppins:300,400,600'],
-  //     },
-  //   },
-  // },
   {
     resolve: 'gatsby-plugin-webpack-bundle-analyser-v2',
     options: {
