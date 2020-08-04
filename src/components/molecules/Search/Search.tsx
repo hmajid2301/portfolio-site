@@ -1,5 +1,5 @@
 import { Index, SerialisedIndexData } from 'elasticlunr';
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { FaSearch as SearchIcon } from 'react-icons/fa';
 import tw from 'twin.macro';
 
@@ -15,9 +15,11 @@ const Search = ({
   const index = Index.load(searchIndex);
   const [query, setQuery] = useState('');
   const [results, setResults] = useState<Page[]>([]);
+  const searchInput = React.createRef<HTMLInputElement>();
 
   useEffect(() => {
     searchResults('react');
+    searchInput.current?.focus();
   }, []);
 
   function searchResults(searchQuery: string) {
@@ -37,6 +39,7 @@ const Search = ({
           label="Search Icon"
         />
         <Input
+          ref={searchInput}
           className="px-2"
           label="Search"
           onChange={(e: React.ChangeEvent<HTMLInputElement>) => {

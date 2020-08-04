@@ -11,7 +11,7 @@ import tw from 'twin.macro';
 
 import { Logo } from '~/components/atoms/Logo';
 import { Links } from '~/components/molecules/Links';
-import { SearchBar } from '~/components/molecules/SearchBar';
+import { SearchBar } from '~/components/organisms/SearchBar';
 import { ThemeIcons } from '~/components/molecules/ThemeIcons';
 
 export interface Props {

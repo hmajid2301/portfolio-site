@@ -1,18 +1,19 @@
+import { FluidObject } from 'gatsby-image';
 import React, { useRef, useEffect } from 'react';
 import { ToastContainer, toast } from 'react-toastify';
 import tw from 'twin.macro';
 import 'gatsby-prismjs-dracula';
 import 'react-toastify/dist/ReactToastify.css';
 
-import { PostMeta } from '~/components/molecules/PostMeta';
 import '~/styles/blog.css';
+import { PostMeta } from '~/components/molecules/PostMeta';
 import { ReadingProgress } from '~/components/molecules/ReadingProgress';
 import { ShareButton } from '~/components/molecules/ShareButtons';
 import copyToClipboard from '~/utils/copyToClipboard';
 
 export interface Props {
   /** Cover Image for the article. */
-  coverImage?: string;
+  coverImage?: FluidObject;
   /** The blog post as a HTML string. */
   data: string;
   /** The date of the blog post. */

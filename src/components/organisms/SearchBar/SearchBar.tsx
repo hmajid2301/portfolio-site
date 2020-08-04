@@ -1,17 +1,27 @@
 import styled from '@emotion/styled';
 import { graphql, StaticQuery } from 'gatsby';
 
-import React, { useState, useContext } from 'react';
+import React, { useState, useContext, useRef } from 'react';
 import { FaSearch as SearchIcon } from 'react-icons/fa';
 import tw from 'twin.macro';
 
 import { Icon } from '~/components/atoms/Icon';
-import { Search } from '~/components/organisms/Search';
+import { Search } from '~/components/molecules/Search';
 import { ThemeContext } from '~/providers/Theme';
 
 const SearchBar = () => {
   const [showSearch, setShowSearch] = useState(false);
   const { theme } = useContext(ThemeContext);
+
+  function toggleSearch(
+    event:
+      | React.KeyboardEvent<HTMLDivElement>
+      | React.MouseEvent<HTMLDivElement>
+  ) {
+    if ((event.target as HTMLInputElement).placeholder !== 'Search') {
+      setShowSearch(!showSearch);
+    }
+  }
 
   return (
     <Container>
@@ -23,16 +33,8 @@ const SearchBar = () => {
 
       <SearchOverlay
         currentTheme={theme}
-        onClick={(e) => {
-          if ((e.target as HTMLInputElement).placeholder !== 'Search') {
-            setShowSearch(!showSearch);
-          }
-        }}
-        onKeyPress={(e) => {
-          if ((e.target as HTMLInputElement).placeholder !== 'Search') {
-            setShowSearch(!showSearch);
-          }
-        }}
+        onClick={(e) => toggleSearch(e)}
+        onKeyPress={(e) => toggleSearch(e)}
         role="presentation"
         showSearch={showSearch}
       >
@@ -46,7 +48,9 @@ const SearchBar = () => {
           `}
           render={(data) => (
             <SearchContainer>
-              <Search searchIndex={data.siteSearchIndex.index} />
+              {showSearch && (
+                <Search searchIndex={data.siteSearchIndex.index} />
+              )}
             </SearchContainer>
           )}
         />

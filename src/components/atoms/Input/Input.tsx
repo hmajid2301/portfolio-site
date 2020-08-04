@@ -14,15 +14,10 @@ export interface Props {
   value?: string;
 }
 
-const Input = ({
-  className,
-  label,
-  onChange,
-  placeholder = '',
-  value,
-}: Props) => {
-  return (
+const Input = React.forwardRef<HTMLInputElement, Props>(
+  ({ className, label, onChange, placeholder = '', value }, ref) => (
     <TextInput
+      ref={ref}
       aria-label={label}
       className={`bg-background text-header placeholder-main ${className}`}
       onChange={onChange}
@@ -30,8 +25,8 @@ const Input = ({
       type="text"
       value={value}
     />
-  );
-};
+  )
+);
 
 const TextInput = tw.input`inline px-2 h-full font-body w-full text-left inline text-lg transition duration-300`;
 

@@ -10,7 +10,6 @@ const plugins = [
   `gatsby-plugin-sharp`,
   `gatsby-plugin-typescript`,
   `gatsby-plugin-emotion`,
-  `gatsby-plugin-svgr`,
   `gatsby-plugin-sitemap`,
   `gatsby-plugin-postcss`,
   `gatsby-plugin-robots-txt`,
@@ -51,14 +50,14 @@ const plugins = [
       branch: `master`,
     },
   },
-  {
-    resolve: 'gatsby-plugin-web-font-loader',
-    options: {
-      google: {
-        families: ['Fira Sans:600,700,900', 'Fira Code', 'Poppins:300,400,600'],
-      },
-    },
-  },
+  // {
+  //   resolve: 'gatsby-plugin-web-font-loader',
+  //   options: {
+  //     google: {
+  //       families: ['Fira Sans:600,700,900', 'Fira Code', 'Poppins:300,400,600'],
+  //     },
+  //   },
+  // },
   {
     resolve: 'gatsby-plugin-webpack-bundle-analyser-v2',
     options: {
@@ -121,7 +120,12 @@ const plugins = [
       ],
     },
   },
-  `gatsby-plugin-offline`,
+  {
+    resolve: `gatsby-plugin-offline`,
+    options: {
+      precachePages: [`/blog/*`],
+    },
+  },
 ];
 
 const siteUrl =

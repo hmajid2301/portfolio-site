@@ -24,7 +24,7 @@ const DefaultLayout = ({
   children,
   description,
   keywords,
-  image: metaImage = { src: '/static/og-image.jpg' },
+  image: metaImage = { src: '/og-image.jpg' },
   ogType = 'website',
   pathname,
   title,

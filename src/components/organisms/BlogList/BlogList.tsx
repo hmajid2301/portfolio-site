@@ -1,3 +1,4 @@
+import { FluidObject } from 'gatsby-image';
 import React from 'react';
 import tw from 'twin.macro';
 
@@ -24,6 +25,9 @@ export interface QueryItem {
       /** The post date. */
       date: string;
       cover_image: {
+        childImageSharp: {
+          fluid: FluidObject;
+        };
         /** Path to the cover image. */
         publicURL: string;
       };
@@ -41,12 +45,11 @@ const BlogList = ({ data }: Props) => {
   const blogItems: BlogItem[] = [];
   data.allMarkdownRemark.edges.forEach((element) => {
     const { frontmatter, excerpt } = element.node;
-
     if (frontmatter.title !== 'Uses') {
       blogItems.push({
         description: excerpt,
         date: frontmatter.date,
-        image: frontmatter.cover_image.publicURL,
+        image: frontmatter.cover_image.childImageSharp.fluid,
         tags: frontmatter.tags,
         title: frontmatter.title,
         url: frontmatter.slug,

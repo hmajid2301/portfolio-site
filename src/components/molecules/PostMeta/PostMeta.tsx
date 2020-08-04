@@ -1,3 +1,4 @@
+import Img, { FluidObject } from 'gatsby-image';
 import React from 'react';
 import tw from 'twin.macro';
 
@@ -5,7 +6,7 @@ import { ProgramTags } from '~/components/atoms/ProgramTags';
 
 export interface Props {
   /** Cover Image for the article. */
-  coverImage?: string;
+  coverImage?: FluidObject;
   /** The data of the blog post. */
   date: string;
   /** How long it'll take to finish the article. */
@@ -28,7 +29,7 @@ const PostMeta = ({
 }: Props) => {
   return (
     <MetaContainer>
-      <img alt="Cover for article." src={coverImage} />
+      <Img alt="Cover for article." fluid={coverImage} />
       <Title>{title}</Title>
       <Date>Date Published: {date}</Date>
       <Date>

@@ -23,7 +23,7 @@ const Index = ({ data }: Props) => {
 
   return (
     <Layout title="Home">
-      {/* <Hero text={meta.hero} /> */}
+      <Hero text={meta.hero} />
       <Container>
         <Section className="my-20">
           <Header>Latest Posts</Header>
@@ -74,10 +74,11 @@ export const pageQuery = graphql`
             title
             tags
             cover_image {
-              publicURL
               childImageSharp {
-                sizes(maxWidth: 1240) {
-                  srcSet
+                fluid {
+                  srcWebp
+                  srcSetWebp
+                  ...GatsbyImageSharpFluid
                 }
               }
             }

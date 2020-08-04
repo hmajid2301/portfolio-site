@@ -1,4 +1,5 @@
 import { graphql } from 'gatsby';
+import { FluidObject } from 'gatsby-image';
 import React from 'react';
 
 import { Layout } from '~/components/Layout';
@@ -23,11 +24,7 @@ export interface Props {
         /** Path to featured image. */
         image?: {
           childImageSharp: {
-            resize: {
-              src: string;
-              width: number;
-              height: number;
-            };
+            fluid: FluidObject;
           };
         };
         /** The title of the blog post. */
@@ -52,7 +49,7 @@ export default function BlogTemplate({ data }: Props) {
     <Layout
       description={excerpt}
       image={
-        frontmatter.image ? frontmatter.image.childImageSharp.resize : undefined
+        frontmatter.image ? frontmatter.image.childImageSharp.fluid : undefined
       }
       keywords={frontmatter.tags}
       ogType="article"
@@ -60,7 +57,7 @@ export default function BlogTemplate({ data }: Props) {
       title={frontmatter.title}
     >
       <BlogPost
-        coverImage={frontmatter.image?.childImageSharp.resize.src}
+        coverImage={frontmatter.image?.childImageSharp.fluid}
         data={html}
         date={frontmatter.date}
         readingTime={fields.readingTime.text}
@@ -83,12 +80,12 @@ export const pageQuery = graphql`
         slug
         title
         tags
-        image: cover_image {
+        cover_image {
           childImageSharp {
-            resize(width: 1200) {
-              src
-              height
-              width
+            fluid {
+              srcWebp
+              srcSetWebp
+              ...GatsbyImageSharpFluid
             }
           }
         }

@@ -1,5 +1,6 @@
 import styled from '@emotion/styled';
 import { Link } from 'gatsby';
+import Img, { FluidObject } from 'gatsby-image';
 import React from 'react';
 import tw from 'twin.macro';
 
@@ -16,7 +17,7 @@ export interface BlogItem {
   /** The description of the article (excerpt). */
   description: string;
   /** Path to the cover image. */
-  image: string;
+  image: FluidObject;
   /** A list of tags for the article i.e. related topics. */
   tags: string[];
   /** The title of the blog post. */
@@ -29,7 +30,7 @@ const BlogCard = ({ item }: Props) => (
   <BlogCardContainer>
     <Card to={`/blog/${item.url}/`}>
       <ImageContainer>
-        <Image alt="Cover for article." src={item.image} />
+        <Image alt="Cover for article." fluid={item.image} loading="lazy" />
       </ImageContainer>
       <Details>
         <Title>{item.title}</Title>
@@ -56,7 +57,9 @@ hover:-translate-y-2 transition duration-300`;
 
 const ImageContainer = tw.div`h-64 cursor-pointer overflow-y-hidden`;
 
-const Image = tw.img`w-full`;
+const Image = styled(Img)`
+  ${tw`w-full`}
+`;
 
 const Card = styled(Link)`
   ${tw`py-20 lg:py-24`}
