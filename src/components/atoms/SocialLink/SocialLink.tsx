@@ -16,6 +16,7 @@ const SocialLink = ({ icon, url }: Props) => (
     key={url}
     aria-label={`Opens link to ${icon} page`}
     href={url}
+    rel="noreferrer"
     target="_blank"
   >
     {icon}

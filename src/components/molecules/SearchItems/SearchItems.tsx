@@ -10,11 +10,15 @@ export interface Props {
 }
 
 export interface Page {
-  /** The query made, used for highlighting. */
+  /** The id of the page. */
   id: string;
+  /** The title of the page. */
   title: string;
+  /** The path to the page. */
   path: string;
+  /** The tags of that page. */
   tags: string;
+  /** The contents of the page . */
   html: string;
 }
 

@@ -23,7 +23,7 @@ const Index = ({ data }: Props) => {
 
   return (
     <Layout title="Home">
-      <Hero text={meta.hero} />
+      {/* <Hero text={meta.hero} /> */}
       <Container>
         <Section className="my-20">
           <Header>Latest Posts</Header>
@@ -56,7 +56,7 @@ const Container = styled.div`
 
 const Section = tw.section`flex flex-col`;
 
-const Header = tw.h1`font-header my-10 font-semibold max-w-lg ml-10 text-5xl text-header`;
+const Header = tw.h1`font-header my-10 font-semibold max-w-lg ml-10 text-3xl lg:text-5xl text-header`;
 
 export const pageQuery = graphql`
   query {

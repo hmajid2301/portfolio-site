@@ -54,7 +54,7 @@ const BlogCard = ({ item }: Props) => (
 const BlogCardContainer = tw.div`lg:mx-4 xl:mx-8 max-w-md h-full text-main bg-secondary-background mx-auto transform
 hover:-translate-y-2 transition duration-300`;
 
-const ImageContainer = tw.div`h-64 cursor-pointer`;
+const ImageContainer = tw.div`h-64 cursor-pointer overflow-y-hidden`;
 
 const Image = tw.img`w-full`;
 

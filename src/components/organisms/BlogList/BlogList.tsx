@@ -57,7 +57,7 @@ const BlogList = ({ data }: Props) => {
   return (
     <BlogRowContainer>
       {blogItems.map((blogItem) => (
-        <BlogCard item={blogItem} />
+        <BlogCard key={blogItem.title} item={blogItem} />
       ))}
     </BlogRowContainer>
   );

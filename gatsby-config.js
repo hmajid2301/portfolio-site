@@ -13,10 +13,11 @@ const plugins = [
   `gatsby-plugin-svgr`,
   `gatsby-plugin-sitemap`,
   `gatsby-plugin-postcss`,
+  `gatsby-plugin-robots-txt`,
   {
     resolve: `gatsby-plugin-goatcounter`,
     options: {
-      code: isProduction ? 'https://haseebmajid.goatcounter.com' : '',
+      code: isProduction ? 'haseebmajid' : '',
       allowLocal: !isProduction,
     },
   },

@@ -57,13 +57,13 @@ const config = {
     {
       alt: 'Composerisation demo website.',
       text: 'Composerisation',
-      image: '/projects/composerisation.svg',
+      image: '/projects/composerisation.png',
       link: 'https://composerisation.haseebmajid.dev',
     },
     {
       alt: 'Charity shop exchange website.',
       text: 'Charity Shop Exchange',
-      image: '/projects/charity-shop.svg',
+      image: '/projects/charity-shop.png',
       link: 'https://charityshopexchange.com/',
     },
   ],
@@ -113,13 +113,13 @@ const config = {
   history: [
     {
       alt: 'V1 of site',
-      image: 'history/v1.svg',
+      image: 'history/v1.png',
       link: 'https://v1.haseebmajid.dev',
       text: 'Version 1',
     },
     {
       alt: 'V2 of site',
-      image: 'history/v2.svg',
+      image: 'history/v2.png',
       link: 'https://v2.haseebmajid.dev',
       text: 'Version 2',
     },

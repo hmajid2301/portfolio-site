@@ -11,6 +11,7 @@ type Props = {
     height: number;
     width: number;
   };
+  ogType: string;
   pathname?: string;
 } & HelmetProps;
 
@@ -18,6 +19,7 @@ const SEO = ({
   description,
   keywords,
   image: metaImage,
+  ogType,
   pathname,
   title,
 }: Props) => {
@@ -104,7 +106,7 @@ const SEO = ({
             },
             {
               property: `og:type`,
-              content: `website`,
+              content: ogType,
             },
             {
               property: `og:url`,

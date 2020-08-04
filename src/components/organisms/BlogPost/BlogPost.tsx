@@ -42,7 +42,10 @@ const BlogPost = ({
   const target = useRef<HTMLDivElement>(null);
 
   function copyText(element: HTMLPreElement) {
-    if (element.className?.startsWith('language-')) {
+    if (
+      typeof element.className === 'string' &&
+      element.className.startsWith('language-')
+    ) {
       const codeText = element.innerText;
       copyToClipboard(codeText);
       toast.dark('Copied to clipboard 📒.');
@@ -94,6 +97,6 @@ const BlogPost = ({
   );
 };
 
-const BlogContainer = tw.div`max-w-screen-xl mx-auto font-body text-main bg-secondary-background rounded py-5 my-5`;
+const BlogContainer = tw.div`max-w-screen-xl mx-auto font-body text-main bg-secondary-background rounded py-5 my-5 px-2 lg:px-0`;
 
 export default BlogPost;

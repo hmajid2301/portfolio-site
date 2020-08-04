@@ -28,11 +28,15 @@ const RepositoryCard = ({ item }: Props) => {
       <HeaderText>{item.name}</HeaderText>
       <MainText>{item.description}</MainText>
       <MetaContainer>
-        <MetaItem href={item.url}>
+        <MetaItem href={item.url} rel="noreferrer" target="_blank">
           <Compass /> More Info
         </MetaItem>
 
-        <MetaItem href={`${item.url}/stargazers`}>
+        <MetaItem
+          href={`${item.url}/stargazers`}
+          rel="noreferrer"
+          target="_blank"
+        >
           <Star /> {item.stars}
         </MetaItem>
       </MetaContainer>

@@ -55,6 +55,7 @@ export default function BlogTemplate({ data }: Props) {
         frontmatter.image ? frontmatter.image.childImageSharp.resize : undefined
       }
       keywords={frontmatter.tags}
+      ogType="article"
       pathname={`/blog/${frontmatter.slug}/`}
       title={frontmatter.title}
     >

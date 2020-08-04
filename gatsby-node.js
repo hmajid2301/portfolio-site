@@ -50,11 +50,11 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
       ) {
         edges {
           node {
+            excerpt(pruneLength: 100)
             frontmatter {
               slug
               tags
             }
-            excerpt(pruneLength: 100)
           }
         }
       }

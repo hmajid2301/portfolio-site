@@ -55,6 +55,6 @@ const Date = tw.div`text-base my-2`;
 
 const ListContainer = tw.div`flex flex-wrap mt-5 mb-10`;
 
-const Item = tw.span`mr-1`;
+const Item = tw.span`mt-4 lg:mr-1`;
 
 export default PostMeta;

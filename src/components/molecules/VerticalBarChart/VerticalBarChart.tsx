@@ -57,6 +57,6 @@ const VerticalBarElement = tw.div`flex flex-wrap h-full bg-secondary-background 
 
 const Title = tw.h1`text-2xl text-main my-10`;
 
-const Text = tw.p`text-center`;
+const Text = tw.p`text-sm md:text-base text-center`;
 
 export default VerticalBarChart;

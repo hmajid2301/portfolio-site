@@ -12,9 +12,10 @@ interface Props {
   keywords?: string[];
   image?: {
     src: string;
-    height: number;
-    width: number;
+    height?: number;
+    width?: number;
   };
+  ogType?: string;
   pathname?: string;
   title?: string;
 }
@@ -23,7 +24,8 @@ const DefaultLayout = ({
   children,
   description,
   keywords,
-  image: metaImage,
+  image: metaImage = { src: '/static/og-image.jpg' },
+  ogType = 'website',
   pathname,
   title,
 }: Props) => {
@@ -49,6 +51,7 @@ const DefaultLayout = ({
         description={description}
         image={metaImage}
         keywords={keywords}
+        ogType={ogType}
         pathname={pathname}
         title={title}
       />

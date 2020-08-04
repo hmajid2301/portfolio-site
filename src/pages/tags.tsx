@@ -36,7 +36,7 @@ const TagsPage = ({
   </Layout>
 );
 
-const TagsContainer = tw.div`max-w-screen-xl mx-auto min-h-screen`;
+const TagsContainer = tw.div`max-w-screen-xl mx-auto min-h-screen px-4`;
 
 const TagItem = tw.div`my-10 flex flex-wrap`;
 

@@ -1,1 +1,5 @@
-export { default as BlogList, QueryItem } from './BlogList';
+import BlogList, { QueryItem as Item } from './BlogList';
+
+export default BlogList;
+export type QueryItem = Item;
+export { BlogList };
