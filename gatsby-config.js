@@ -54,7 +54,7 @@ const plugins = [
     resolve: `gatsby-source-git`,
     options: {
       name: `Articles`,
-      remote: process.env.ARTICLE_GIT_URL,
+      remote: `https://gitlab.com/hmajid2301/articles.git`,
       branch: `master`,
     },
   },
