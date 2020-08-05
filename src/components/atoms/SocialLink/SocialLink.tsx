@@ -12,18 +12,19 @@ export interface Props {
 }
 
 const SocialLink = ({ icon, url }: Props) => (
-  <Container
+  <SocialLinkContainer
     key={url}
     aria-label={`Opens link to ${icon} page`}
+    data-cy="SocialLink"
     href={url}
     rel="noreferrer"
     target="_blank"
   >
     {icon}
-  </Container>
+  </SocialLinkContainer>
 );
 
-const Container = styled.a`
+const SocialLinkContainer = styled.a`
   ${tw`cursor-pointer inline-block transition duration-300 text-main hover:text-primary`}
 
   svg {

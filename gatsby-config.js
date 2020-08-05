@@ -54,7 +54,7 @@ const plugins = [
     resolve: `gatsby-source-git`,
     options: {
       name: `Articles`,
-      remote: `https://gitlab.com/hmajid2301/articles.git`,
+      remote: process.env.ARTICLE_GIT_URL,
       branch: `master`,
     },
   },
@@ -67,6 +67,12 @@ const plugins = [
         defaultSizes: 'gzip',
         devMode: true,
       },
+    },
+  },
+  {
+    resolve: `gatsby-plugin-canonical-urls`,
+    options: {
+      siteUrl: `https://haseebmajid.dev`,
     },
   },
   {

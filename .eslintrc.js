@@ -6,6 +6,8 @@ module.exports = {
   globals: {
     // Gatsby Config
     __PATH_PREFIX__: true,
+    cy: true,
+    Cypress: true,
   },
   env: {
     // Allow `window` global

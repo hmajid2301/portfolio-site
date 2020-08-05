@@ -87,7 +87,7 @@ const config = {
       url: 'https://github.com/hmajid2301/articles',
       description:
         'This repo contains all the articles written by me, in markdown and also all of their example source code.',
-      stars: 55,
+      stars: 57,
     },
     {
       name: 'gitlab-github-mirror-repo',

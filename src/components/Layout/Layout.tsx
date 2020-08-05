@@ -3,7 +3,7 @@ import React, { useContext } from 'react';
 import { SEO } from '~/components/atoms/SEO';
 import { Footer } from '~/components/organisms/Footer';
 import { Header } from '~/components/organisms/Header';
-import config from '~/config/website';
+import config from '~/config';
 import { ThemeContext } from '~/providers/Theme';
 
 interface Props {
@@ -33,7 +33,7 @@ const DefaultLayout = ({
   const links = [
     { name: '🏠️ Home', link: '/' },
     { name: '✍️ Blog', link: '/blog/' },
-    { name: '🔖 Tags', link: '/tags/' },
+    { name: '🔖 Tags', link: '/tag/' },
     { name: '🧮️ Stats', link: '/stats/' },
     { name: '📋 Uses', link: '/uses/' },
   ];

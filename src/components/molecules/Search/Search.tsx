@@ -1,5 +1,5 @@
 import { Index, SerialisedIndexData } from 'elasticlunr';
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect } from 'react';
 import { FaSearch as SearchIcon } from 'react-icons/fa';
 import tw from 'twin.macro';
 
@@ -41,6 +41,7 @@ const Search = ({
         <Input
           ref={searchInput}
           className="px-2"
+          dataId="SearchBar"
           label="Search"
           onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
             const searchQuery = e.target.value;

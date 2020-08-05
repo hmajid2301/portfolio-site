@@ -109,7 +109,7 @@ function objectToDataArray(
   });
 }
 
-const Section = tw.section`max-w-xl lg:mx-auto my-10 mx-4`;
+const Section = tw.section`max-w-xl mx-auto my-10 px-4`;
 
 export const pageQuery = graphql`
   query MyQuery {

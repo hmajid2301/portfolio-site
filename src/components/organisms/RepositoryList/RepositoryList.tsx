@@ -14,7 +14,7 @@ export interface Props {
 const RepositoryList = ({ items: repositoryItems }: Props) => (
   <RepositoryListContainer>
     {repositoryItems.map((item) => (
-      <RepositoryCardContainer key={item.url}>
+      <RepositoryCardContainer key={item.url} data-cy="RepositoryCard">
         <RepositoryCard item={item} />
       </RepositoryCardContainer>
     ))}

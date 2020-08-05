@@ -4,6 +4,8 @@ import tw from 'twin.macro';
 export interface Props {
   /** Extra classes to apply */
   className?: string;
+  /** The data test id of the icon. */
+  dataId?: string;
   /** The aria-label for this component. */
   label: string;
   /** Function to call when the input is changed. */
@@ -15,11 +17,12 @@ export interface Props {
 }
 
 const Input = React.forwardRef<HTMLInputElement, Props>(
-  ({ className, label, onChange, placeholder = '', value }, ref) => (
+  ({ className, dataId, label, onChange, placeholder = '', value }, ref) => (
     <TextInput
       ref={ref}
       aria-label={label}
       className={`bg-background text-header placeholder-main ${className}`}
+      data-cy={dataId}
       onChange={onChange}
       placeholder={placeholder}
       type="text"

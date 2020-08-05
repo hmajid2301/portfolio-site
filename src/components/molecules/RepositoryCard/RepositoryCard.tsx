@@ -47,7 +47,7 @@ const RepositoryCard = ({ item }: Props) => {
 const RepositoryContainer = tw.div`flex-grow flex-wrap items-start rounded-md mx-auto px-8 py-8 max-w-md shadow font-body
 bg-secondary-background text-main transform hover:-translate-y-6 transition duration-300`;
 
-const HeaderText = tw.h1`text-lg hover:text-primary pb-8 hover:cursor-pointer font-semibold`;
+const HeaderText = tw.h1`text-lg hover:text-primary pb-8 font-semibold`;
 
 const MainText = tw.p`text-base pb-8`;
 

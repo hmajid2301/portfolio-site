@@ -100,7 +100,7 @@ abstraction.
 
 ### 🗂 Config
 
-There is one main config file, `config/website.tsx` which contains all configurable data for the site. This includes what projects to show, which (Gitlab/Github) repo's to show
+There is one main config file, `config/index.tsx` which contains all configurable data for the site. This includes what projects to show, which (Gitlab/Github) repo's to show
 and even the text in the `hero` panel.
 
 ### 🌳 .env

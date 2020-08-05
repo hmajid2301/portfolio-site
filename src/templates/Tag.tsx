@@ -32,6 +32,7 @@ export interface TagItem {
 
 const TagTemplate = ({ pageContext, data }: Props) => {
   const { tag } = pageContext;
+  console.log(data);
 
   return (
     <Layout title={`Tags - ${tag}`}>
@@ -70,8 +71,10 @@ export const pageQuery = graphql`
             cover_image {
               publicURL
               childImageSharp {
-                sizes(maxWidth: 1240) {
-                  srcSet
+                fluid {
+                  srcWebp
+                  srcSetWebp
+                  ...GatsbyImageSharpFluid
                 }
               }
             }

@@ -8,7 +8,7 @@ import { Hero } from '~/components/molecules/Hero';
 import ImageCards from '~/components/molecules/ImageCards/ImageCards';
 import { BlogList, QueryItem } from '~/components/organisms/BlogList';
 import { RepositoryList } from '~/components/organisms/RepositoryList';
-import config from '~/config/website';
+import config from '~/config';
 
 export interface Props {
   data: {
@@ -32,7 +32,7 @@ const Index = ({ data }: Props) => {
 
         <Section className="my-10">
           <Header>Main Projects</Header>
-          <ImageCards items={projects} />
+          <ImageCards dataId="MainProject" items={projects} />
         </Section>
 
         <Section className="my-10">
@@ -42,7 +42,7 @@ const Index = ({ data }: Props) => {
 
         <Section className="mb-20">
           <Header>Site History</Header>
-          <ImageCards items={history} />
+          <ImageCards dataId="HistoryCard" items={history} />
         </Section>
       </Container>
     </Layout>

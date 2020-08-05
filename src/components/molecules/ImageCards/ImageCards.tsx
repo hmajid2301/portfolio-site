@@ -4,14 +4,16 @@ import tw from 'twin.macro';
 import { ImageCard, ChartData } from '~/components/atoms/ImageCard';
 
 export interface Props {
+  /** The cypress dataId */
+  dataId?: string;
   /** The items to show in the image card list. */
   items: ChartData[];
 }
 
-const ImageCards = ({ items }: Props) => (
+const ImageCards = ({ dataId, items }: Props) => (
   <ImageListContainer>
     {items.map((item) => (
-      <ImageCardContainer key={item.text}>
+      <ImageCardContainer key={item.text} data-cy={dataId}>
         <ImageCard
           alt={item.alt}
           image={item.image}

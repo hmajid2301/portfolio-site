@@ -11,8 +11,8 @@ import tw from 'twin.macro';
 
 import { Logo } from '~/components/atoms/Logo';
 import { Links } from '~/components/molecules/Links';
-import { SearchBar } from '~/components/organisms/SearchBar';
 import { ThemeIcons } from '~/components/molecules/ThemeIcons';
+import { SearchBar } from '~/components/organisms/SearchBar';
 
 export interface Props {
   links: {
@@ -44,6 +44,7 @@ const Header = ({ links }: Props) => {
           </DesktopNavLinks>
           <NavToggle
             aria-label="Toggles navigation bar."
+            data-cy="NavToggle"
             onClick={() => setShowNavLinks(!showNavLinks)}
             type="button"
           >

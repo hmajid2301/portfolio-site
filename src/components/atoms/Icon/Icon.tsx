@@ -6,6 +6,8 @@ export interface Props {
   background?: string;
   /** Extra classes to assign to this component. */
   className?: string;
+  /** The data test id of the icon. */
+  dataId?: string;
   /** The icon element. */
   icon: React.ReactNode;
   /** The aria-label for this component. */
@@ -17,19 +19,21 @@ export interface Props {
 const Icon = ({
   background = 'transparent',
   className,
+  dataId,
   icon,
   label,
   onClick,
 }: Props) => (
-  <Container
+  <IconContainer
     aria-label={label}
     className={`bg-${background} ${className}`}
+    data-cy={dataId}
     onClick={onClick}
   >
     {icon}
-  </Container>
+  </IconContainer>
 );
 
-const Container = tw.button`h-full w-auto transition duration-300 inline-block text-header hover:text-primary`;
+const IconContainer = tw.button`h-full w-auto transition duration-300 inline-block text-header hover:text-primary`;
 
 export default Icon;
