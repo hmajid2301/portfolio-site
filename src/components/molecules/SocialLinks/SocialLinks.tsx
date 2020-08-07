@@ -10,12 +10,12 @@ export type SocialButton = {
 
 export interface Props {
   /** The social links. */
-  links: SocialButton[];
+  buttons: SocialButton[];
 }
 
-const SocialLinks = ({ links }: Props) => (
+const SocialLinks = ({ buttons }: Props) => (
   <SocialLinksContainer>
-    {links.map((button) => (
+    {buttons.map((button) => (
       <LinkContainer key={button.url}>
         <SocialLink icon={button.icon} url={button.url} />
       </LinkContainer>

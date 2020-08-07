@@ -22,6 +22,28 @@ import Footer from './Footer';
         { name: 'Tags', link: '/tag' },
         { name: 'Uses', link: '/uses' },
       ],
+      buttons: [
+        {
+          icon: <Github />,
+          url: 'https://github.com/hmajid2301',
+        },
+        {
+          icon: <Gitlab />,
+          url: 'https://gitlab.com/hmajid2301',
+        },
+        {
+          icon: <Medium />,
+          url: 'https://medium.com/@hmajid2301',
+        },
+        {
+          icon: <Dev />,
+          url: 'https://dev.to/hmajid2301',
+        },
+        {
+          icon: <Key />,
+          url: '/public.gpg',
+        },
+      ],
     }}
   >
     {(args) => <Footer {...args} />}
@@ -29,3 +51,75 @@ import Footer from './Footer';
 </Preview>
 
 <Props story="Basic" />
+
+## Links
+
+You can adjust the links shown by passing `link` prop.
+
+<Preview>
+  <Story name="Links">
+    <Footer
+      buttons={[
+        {
+          icon: <Github />,
+          url: 'https://github.com/hmajid2301',
+        },
+        {
+          icon: <Gitlab />,
+          url: 'https://gitlab.com/hmajid2301',
+        },
+        {
+          icon: <Medium />,
+          url: 'https://medium.com/@hmajid2301',
+        },
+      ]}
+      links={[
+        { name: '🏠️ Home', link: '/' },
+        { name: '✍️ Blog', link: '/blog/' },
+        { name: '🔖 Tags', link: '/tag/' },
+        { name: '🧮️ Stats', link: '/stats/' },
+        { name: '📋 Uses', link: '/uses/' },
+      ]}
+    />
+  </Story>
+</Preview>
+
+## Buttons
+
+You can adjust the social buttons shown by passing `buttons` prop.
+
+<Preview>
+  <Story name="Buttons">
+    <Footer
+      buttons={[
+        {
+          icon: <Github />,
+          url: 'https://github.com/hmajid2301',
+        },
+        {
+          icon: <Gitlab />,
+          url: 'https://gitlab.com/hmajid2301',
+        },
+        {
+          icon: <Medium />,
+          url: 'https://medium.com/@hmajid2301',
+        },
+        {
+          icon: <Dev />,
+          url: 'https://dev.to/hmajid2301',
+        },
+        {
+          icon: <Key />,
+          url: '/public.gpg',
+        },
+      ]}
+      links={[
+        { name: '🏠️ Home', link: '/' },
+        { name: '✍️ Blog', link: '/blog/' },
+        { name: '🔖 Tags', link: '/tag/' },
+        { name: '🧮️ Stats', link: '/stats/' },
+        { name: '📋 Uses', link: '/uses/' },
+      ]}
+    />
+  </Story>
+</Preview>

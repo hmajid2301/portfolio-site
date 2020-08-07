@@ -28,3 +28,23 @@ import Header from './Header';
 </Preview>
 
 <Props story="Basic" />
+
+## Links
+
+You can adjust the links shown by passing `link` prop.
+
+<Preview>
+  <Story name="Links">
+    <ThemeProvider>
+      <Header
+        links={[
+          { name: '🏠️ Home', link: '/' },
+          { name: '✍️ Blog', link: '/blog/' },
+          { name: '🔖 Tags', link: '/tag/' },
+          { name: '🧮️ Stats', link: '/stats/' },
+          { name: '📋 Uses', link: '/uses/' },
+        ]}
+      />
+    </ThemeProvider>
+  </Story>
+</Preview>

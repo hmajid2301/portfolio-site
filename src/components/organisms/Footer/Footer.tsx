@@ -24,7 +24,7 @@ const Footer = ({ links, socialButtons }: Props) => (
     <Content>
       <Row>
         <Links links={links} />
-        <SocialLinks links={socialButtons} />
+        <SocialLinks buttons={socialButtons} />
         <CopyrightText>
           &copy; Copyright 2020, Haseeb Majid. All Rights Reserved.
         </CopyrightText>

@@ -16,7 +16,13 @@ import Links from './Links';
   <Story
     name="Basic"
     args={{
-      links: ['Home', 'Blog', 'Projects', 'Open Source'],
+      links: [
+        { name: '🏠️ Home', link: '/' },
+        { name: '✍️ Blog', link: '/blog/' },
+        { name: '🔖 Tags', link: '/tag/' },
+        { name: '🧮️ Stats', link: '/stats/' },
+        { name: '📋 Uses', link: '/uses/' },
+      ],
     }}
   >
     {(args) => <Links {...args} />}
@@ -25,38 +31,18 @@ import Links from './Links';
 
 <Props story="Basic" />
 
-## Hover Color
-
-You can change the hover colour of the link text by passing the `hoverColor` prop.
-
-<Preview>
-  <Story name="Hover Colour">
-    <Links
-      hoverColor="purple-500"
-      links={['Home', 'Blog', 'Projects', 'Open Source']}
-    />
-  </Story>
-</Preview>
-
-## Color
-
-You can colour of the text `color` prop.
-
-<Preview>
-  <Story name="Colour">
-    <Links
-      color="green-700"
-      links={['Home', 'Blog', 'Projects', 'Open Source']}
-    />
-  </Story>
-</Preview>
-
 ## Links
 
 You can change the links shown by passing the `link` prop.
 
 <Preview>
   <Story name="Links">
-    <Footer links={['Home', 'Products', 'Pricing', 'Contact Us']} />
+    <Links
+      links={[
+        { name: '🏠️ Home', link: '/' },
+        { name: '✍️ Blog', link: '/blog/' },
+        { name: '📋 Uses', link: '/uses/' },
+      ]}
+    />
   </Story>
 </Preview>

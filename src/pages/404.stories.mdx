@@ -1,0 +1,15 @@
+import { Meta, Story, Preview, Props } from '@storybook/addon-docs/blocks';
+
+import PageNotFound from './404';
+
+<Meta title="Pages | 404" component={PageNotFound} />
+
+# 404
+
+<Preview>
+  <Story name="Basic" args={{}}>
+    {(args) => <PageNotFound {...args} />}
+  </Story>
+</Preview>
+
+<Props story="Basic" />

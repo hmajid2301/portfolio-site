@@ -53,7 +53,7 @@ const Search = ({
         />
       </SearchInputContainer>
       <ul>
-        <SearchItems query={query} results={results} />
+        <SearchItems query={query} results={results} urlPrepend="/blog/" />
       </ul>
     </SearchContainer>
   );

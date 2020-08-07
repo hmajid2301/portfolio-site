@@ -61,7 +61,7 @@ export default function BlogTemplate({ data }: Props) {
         data={html}
         date={frontmatter.date}
         readingTime={fields.readingTime.text}
-        slug={frontmatter.slug}
+        slug={`/blog/${frontmatter.slug}/`}
         tags={frontmatter.tags}
         title={frontmatter.title}
         words={fields.readingTime.words}

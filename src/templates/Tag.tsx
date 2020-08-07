@@ -32,8 +32,6 @@ export interface TagItem {
 
 const TagTemplate = ({ pageContext, data }: Props) => {
   const { tag } = pageContext;
-  console.log(data);
-
   return (
     <Layout title={`Tags - ${tag}`}>
       <TagsContainer>

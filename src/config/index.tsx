@@ -9,6 +9,7 @@ import { GoKey as Key } from 'react-icons/go';
 
 const config = {
   meta: {
+    name: 'Haseeb',
     hero: (
       <span>
         Hello, I&apos;m <span className="text-primary">Haseeb</span>

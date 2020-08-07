@@ -80,7 +80,7 @@ const BlogPost = ({
           className="blog-post-content px-10"
           dangerouslySetInnerHTML={{ __html: data }}
         />
-        <ShareButton slug={slug} />
+        <ShareButton link={slug} />
       </div>
       <ToastContainer
         autoClose={2000}

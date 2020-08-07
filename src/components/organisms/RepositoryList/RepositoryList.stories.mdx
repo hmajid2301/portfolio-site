@@ -43,3 +43,30 @@ import RepositoryList from './RepositoryList';
 </Preview>
 
 <Props story="Basic" />
+
+## Items
+
+You can adjust the items passed to the component by passing the `items` prop.
+
+<Preview>
+  <Story name="items">
+    <RepositoryList
+      items={[
+        {
+          name: 'stegappasaurus',
+          description:
+            'An mobile app, created using React Native. Uses steganography to hide messages in images.',
+          stars: 4,
+          url: 'https://gitlab.com/hmajid2301/stegappasaurus',
+        },
+        {
+          name: 'composerisation',
+          description:
+            'Converts commands between docker run and docker compose.',
+          stars: 1,
+          url: 'https://gitlab.com/hmajid2301/composerisation',
+        },
+      ]}
+    />
+  </Story>
+</Preview>

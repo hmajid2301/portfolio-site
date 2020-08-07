@@ -1,0 +1,15 @@
+import { Meta, Story, Preview, Props } from '@storybook/addon-docs/blocks';
+
+import Index from './index';
+
+<Meta title="Pages | Home Page" component={Index} />
+
+# Home Page
+
+<Preview>
+  <Story name="Basic" args={{}}>
+    {(args) => <Index {...args} />}
+  </Story>
+</Preview>
+
+<Props story="Basic" />

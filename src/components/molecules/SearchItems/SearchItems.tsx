@@ -7,6 +7,8 @@ export interface Props {
   results: Page[];
   /** The query made, used for highlighting. */
   query: string;
+  /** The contents to prepend to the path url i.e. /blog/ . */
+  urlPrepend: string;
 }
 
 export interface Page {
@@ -22,13 +24,13 @@ export interface Page {
   html: string;
 }
 
-const SearchItems = ({ results, query }: Props) => (
+const SearchItems = ({ results, query, urlPrepend }: Props) => (
   <ul>
     {results.map((page: Page) => (
-      <li key={page.title}>
+      <li key={page.id}>
         <SearchItem
           content={page.html}
-          path={page.path}
+          path={`${urlPrepend}/${page.path}/`}
           query={query}
           title={page.title}
         />

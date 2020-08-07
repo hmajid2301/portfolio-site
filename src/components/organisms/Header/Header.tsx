@@ -14,6 +14,8 @@ import { Links } from '~/components/molecules/Links';
 import { ThemeIcons } from '~/components/molecules/ThemeIcons';
 import { SearchBar } from '~/components/organisms/SearchBar';
 
+import config from '~/config';
+
 export interface Props {
   links: {
     /** The name of the link to show. */
@@ -30,7 +32,7 @@ const Header = ({ links }: Props) => {
       <HeaderContainer>
         <Row>
           <LogoContainer to="/">
-            <Logo />
+            <Logo text={config.meta.name} />
           </LogoContainer>
         </Row>
 

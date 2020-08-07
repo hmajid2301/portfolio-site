@@ -15,11 +15,11 @@ import {
 import tw from 'twin.macro';
 
 export interface Props {
-  /** The slug of the blog post to share. */
-  slug: string;
+  /** The url of the post to share. */
+  link: string;
 }
 
-const BlogPost = ({ slug }: Props) => {
+const ShareButton = ({ link }: Props) => {
   const { site } = useStaticQuery(
     graphql`
       query {
@@ -32,7 +32,7 @@ const BlogPost = ({ slug }: Props) => {
     `
   );
 
-  const url = `${site.siteMetadata.siteUrl}/blog/${slug}/`;
+  const url = `${site.siteMetadata.siteUrl}/${link}/`;
   const classes = 'hover:text-primary transition duration-300 mx-2';
 
   const socialMedia = [
@@ -55,4 +55,4 @@ const BlogPost = ({ slug }: Props) => {
 
 const ShareContainer = tw.div`mx-10 py-5 border-accent border-t-2`;
 
-export default BlogPost;
+export default ShareButton;

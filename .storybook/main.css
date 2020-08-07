@@ -1,3 +1,26 @@
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: Fira Sans;
+  font-weight: 900;
+  padding-bottom: 20px;
+}
+
+h1 {
+  font-size: 50px;
+}
+
+h2 {
+  font-size: 35px;
+}
+
+h3 {
+  font-size: 26px;
+}
+
 p code {
   line-height: 1;
   margin: 0 2px;
@@ -8,6 +31,10 @@ p code {
   border: 1px solid #eeeeee;
   color: #367ee9;
   background-color: #f8f8f8;
+}
+
+p a {
+  color: rgb(2, 151, 245);
 }
 
 blockquote {

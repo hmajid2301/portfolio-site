@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 
-import { SEO } from '~/components/atoms/SEO';
+import SEO from './SEO';
+
 import { Footer } from '~/components/organisms/Footer';
 import { Header } from '~/components/organisms/Header';
 import config from '~/config';

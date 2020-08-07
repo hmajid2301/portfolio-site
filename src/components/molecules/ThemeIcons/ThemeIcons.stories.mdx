@@ -13,3 +13,13 @@ import ThemeIcons from './ThemeIcons';
 </Preview>
 
 <Props story="Basic" />
+
+## OnClick
+
+You can define the function to be called when the icons are pressed by passing `onClick` prop.
+
+<Preview>
+  <Story name="onClick">
+    <ThemeIcons onClick={() => console.log('Pressed Icon')} />
+  </Story>
+</Preview>

@@ -7,9 +7,19 @@ import Progress from './Progress';
 # Progress
 
 <Preview>
-  <Story name="Basic" args={{}}>
+  <Story name="Basic" args={{ width: 40 }}>
     {(args) => <Progress />}
   </Story>
 </Preview>
 
 <Props story="Basic" />
+
+## Width
+
+You can adjust the width of the progress by passing the `width` props.
+
+<Preview>
+  <Story name="Width">
+    <Progress width={85} />
+  </Story>
+</Preview>

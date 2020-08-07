@@ -10,10 +10,13 @@ import PostMeta from './PostMeta';
   <Story
     name="Basic"
     args={{
-      date: '20 January 2020',
+      coverImage:
+        'https://images.unsplash.com/photo-1505783495551-523774fe88b4?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=934&q=80',
+      date: '2020-01-12',
+      readingTime: '10 mins',
       tags: ['angular', 'python', 'gatsby'],
       title: 'This is a blog post',
-      url: 'http://localhost',
+      words: '1000',
     }}
   >
     {(args) => <PostMeta {...args} />}
@@ -22,94 +25,104 @@ import PostMeta from './PostMeta';
 
 <Props story="Basic" />
 
-## Color
+## Cover Image
 
-You can change the colour of the social links and text by passing the `color` prop.
+You can change the cover image shown by passing the `coverImage` prop.
 
 <Preview>
-  <Story name="Color">
+  <Story name="Cover Image">
     <PostMeta
-      date="20 January 2020"
-      color="purple-500"
+      coverImage="https://images.unsplash.com/photo-1574144611937-0df059b5ef3e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1000&q=80"
+      date="2020-01-12"
+      readingTime="10 mins"
       tags={['angular', 'python', 'gatsby']}
       title="This is a blog post"
-      url="http://localhost"
+      words="1000"
     />
   </Story>
 </Preview>
 
 ## Date
 
-You can change the date of the blog post by passing the `date` props.
+You can change the date shown by passing the `date` prop.
 
 <Preview>
   <Story name="Date">
     <PostMeta
-      date="20 January 1995"
+      coverImage="https://images.unsplash.com/photo-1505783495551-523774fe88b4?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=934&q=80"
+      date="2020-10-20"
+      readingTime="10 mins"
       tags={['angular', 'python', 'gatsby']}
       title="This is a blog post"
-      url="http://localhost"
+      words="1000"
     />
   </Story>
 </Preview>
 
-## Hover Color
+## ReadingTime
 
-You can change the hover colour of the buttons by passing the `hoverColor` prop.
+You can change the date shown by passing the `readingTime` prop.
 
 <Preview>
-  <Story name="Hover Color">
+  <Story name="ReadingTime">
     <PostMeta
-      date="20 January 2020"
-      hoverColor="purple-500"
+      coverImage="https://images.unsplash.com/photo-1505783495551-523774fe88b4?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=934&q=80"
+      date="2020-10-20"
+      readingTime="8 mins"
       tags={['angular', 'python', 'gatsby']}
       title="This is a blog post"
-      url="http://localhost"
+      words="1000"
     />
   </Story>
 </Preview>
 
 ## Tags
 
-You can change the tags of the blog post by passing the `tags` props.
+You can adjust the tags shown by passing the `tags` prop.
 
 <Preview>
   <Story name="Tags">
     <PostMeta
-      date="20 January 2020"
-      tags={['docker', 'python', 'firebase']}
+      coverImage="https://images.unsplash.com/photo-1505783495551-523774fe88b4?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=934&q=80"
+      date="2020-10-20"
+      readingTime="8 mins"
+      tags={['typescript', 'tailwindcss', 'gatsby']}
       title="This is a blog post"
-      url="http://localhost"
+      words="1000"
     />
   </Story>
 </Preview>
 
 ## Title
 
-You can change the title of the blog post by passing the `title` props.
+You can adjust the title shown by passing the `title` prop.
 
 <Preview>
   <Story name="Title">
     <PostMeta
-      date="20 January 2020"
-      tags={['docker', 'python', 'firebase']}
-      title="Another Title to show!"
-      url="http://localhost"
+      coverImage="https://images.unsplash.com/photo-1505783495551-523774fe88b4?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=934&q=80"
+      date="2020-10-20"
+      readingTime="8 mins"
+      tags={['typescript', 'tailwindcss', 'gatsby']}
+      title="This is another blog post"
+      words="1000"
     />
   </Story>
 </Preview>
 
-## URL
+## Words
 
-You can change the share url of the blog post by passing the `url` props.
+You can adjust the word count by passing the `words` prop.
 
 <Preview>
-  <Story name="URL">
+  <Story name="Words">
     <PostMeta
-      date="20 January 2020"
-      tags={['docker', 'python', 'firebase']}
-      title="This is a blog post"
-      url="http://reddit.com"
+      coverImage="https://images.unsplash.com/photo-1505783495551-523774fe88b4?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=934&q=80"
+      date="2020-10-20"
+      readingTime="8 mins"
+      tags={['typescript', 'tailwindcss', 'gatsby']}
+      title="This is another blog post"
+      words="1"
     />
   </Story>
 </Preview>

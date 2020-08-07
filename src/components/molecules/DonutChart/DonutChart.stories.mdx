@@ -21,3 +21,59 @@ import DonutChart from './DonutChart';
 </Preview>
 
 <Props story="Basic" />
+
+## Length
+
+You can adjust the length of the items `length` prop, this is used to work out the average.
+
+<Preview>
+  <Story name="Length">
+    <DonutChart
+      length={20}
+      title="Average word count"
+      total={3700}
+      unit="words"
+    />
+  </Story>
+</Preview>
+
+## Title
+
+You can adjust the title of the chart by passing the `title` prop.
+
+<Preview>
+  <Story name="Title">
+    <DonutChart length={10} title="Average chart" total={3700} unit="words" />
+  </Story>
+</Preview>
+
+## Total
+
+You can adjust the total number of the elements (added together) `total` prop, this is used
+to work out the average.
+
+<Preview>
+  <Story name="Total">
+    <DonutChart
+      length={10}
+      title="Average word count"
+      total={1800}
+      unit="words"
+    />
+  </Story>
+</Preview>
+
+## Unit
+
+You can adjust the unit shown by passing the `unit` prop.
+
+<Preview>
+  <Story name="Unit">
+    <DonutChart
+      length={10}
+      title="Average word count"
+      total={3700}
+      unit="randomUnit"
+    />
+  </Story>
+</Preview>

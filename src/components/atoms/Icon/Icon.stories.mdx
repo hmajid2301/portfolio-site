@@ -21,14 +21,32 @@ import Icon from './Icon';
 
 <Props story="Basic" />
 
+## Background
+
+You change the icon background by passing the `background` prop.
+
+<Preview>
+  <Story name="Background">
+    <Icon background="red-500" icon={<Sun />} />
+  </Story>
+</Preview>
+
 ## Icon
 
 You can the icon by passing the `icon` prop.
 
 <Preview>
   <Story name="Icon">
-    <div>
-      <Icon color="blue-500" hoverColor="black" icon={<Sun />} />
-    </div>
+    <Icon icon={<Sun />} />
+  </Story>
+</Preview>
+
+## OnClick
+
+You can call a function onClick by passing the `onClick` prop.
+
+<Preview>
+  <Story name="OnClick">
+    <Icon icon={<Sun />} onClick={() => console.log('Hello!')} />
   </Story>
 </Preview>

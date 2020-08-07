@@ -10,7 +10,7 @@ import ShareButton from './ShareButton';
   <Story
     name="Basic"
     args={{
-      slug: 'my-first-post',
+      link: '/blog/my-first-post',
     }}
   >
     {(args) => <ShareButton {...args} />}
@@ -18,3 +18,13 @@ import ShareButton from './ShareButton';
 </Preview>
 
 <Props story="Basic" />
+
+## Link
+
+You can adjust the link to share by passing `link` prop.
+
+<Preview>
+  <Story name="Link">
+    <ShareButton link="/blog/my-second-post" />
+  </Story>
+</Preview>

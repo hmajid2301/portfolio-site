@@ -10,7 +10,10 @@ import NavLink from './NavLink';
   <Story
     name="Basic"
     args={{
-      link: 'Home',
+      link: {
+        name: 'Home',
+        link: '/',
+      },
     }}
   >
     {(args) => <NavLink {...args} />}
@@ -25,6 +28,6 @@ You can change the link text shown by passing the `link` prop.
 
 <Preview>
   <Story name="Links">
-    <NavLink link="Open Source" />
+    <NavLink link={{ name: 'Stats', link: '/stats/' }} />
   </Story>
 </Preview>

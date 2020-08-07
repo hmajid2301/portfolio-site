@@ -27,6 +27,6 @@ hover:-translate-y-2 transition duration-300 mx-4`;
 
 const OverlayContainer = tw.div`absolute inset-0 opacity-0 group-hover:opacity-100 ease-out duration-200 bg-black bg-opacity-50`;
 
-const OverlayText = tw.h1`text-lg lg:text-2xl relative top-1/8 left-0 py-2 px-8 inline w-auto font-header bg-primary text-main`;
+const OverlayText = tw.h1`text-lg lg:text-2xl relative top-1/8 left-0 py-2 px-8 inline w-auto font-header bg-primary text-white`;
 
 export default ImageCard;

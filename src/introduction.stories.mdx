@@ -12,3 +12,64 @@ import {
 This project uses Tailwindcss so a lot of colour props are passed in as CSS classes that
 Tailwind applies styling to i.e. `text-blue-500` to use the primary blue. You can find the
 full colour palette [here](https://tailwindcss.com/docs/customizing-colors/#default-color-palette).
+The colours are set by global css variables.
+
+## Colours
+
+### Light Theme
+
+<ColorPalette>
+  <ColorItem title="theme.color.background" colors={['#fff']} />
+  <ColorItem title="theme.color.secondary-background" colors={['#f7fafc']} />
+  <ColorItem title="theme.color.main" colors={['#0d0106']} />
+  <ColorItem title="theme.color.header" colors={['#2d3748']} />
+</ColorPalette>
+
+### Dark Theme
+
+<ColorPalette>
+  <ColorItem title="theme.color.background" colors={['#0e141b']} />
+  <ColorItem title="theme.color.secondary-background" colors={['#1b2128']} />
+  <ColorItem title="theme.color.main" colors={['#ffffff']} />
+  <ColorItem title="theme.color.header" colors={['#eaeaea']} />
+</ColorPalette>
+
+### Shared
+
+<ColorPalette>
+  <ColorItem title="theme.color.primary" colors={['#367ee9']} />
+  <ColorItem title="theme.color.secondary" colors={['#a0aec0']} />
+  <ColorItem title="theme.color.accent" colors={['#718096']} />
+</ColorPalette>
+
+## Typography
+
+### Header
+
+**Font**: Fira Sans
+
+<Typeset
+  fontFamily="Fira Sans"
+  fontSizes={[10, 20, 30, 40, 50]}
+  fontWeight={900}
+/>
+
+### Body
+
+**Font**: Poppins
+
+<Typeset
+  fontFamily="Poppins"
+  fontSizes={[10, 20, 30, 40, 50]}
+  fontWeight={400}
+/>
+
+### Code
+
+**Font**: Fira Code
+
+<Typeset
+  fontFamily="Fira Code"
+  fontSizes={[10, 20, 30, 40, 50]}
+  fontWeight={400}
+/>

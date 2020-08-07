@@ -14,6 +14,7 @@ import SearchItem from './SearchItem';
         '> Photo by Cristian Palmer on Unsplash In this article, I will show how you can use React Context with React Hooks to store global state across a React app, then store that state in local storage. T',
       path: 'test-url',
       title: 'React Hooks, Context & Local Storage',
+      query: 'React',
     }}
   >
     {(args) => <SearchItem {...args} />}
@@ -21,3 +22,63 @@ import SearchItem from './SearchItem';
 </Preview>
 
 <Props story="Basic" />
+
+## Content
+
+You can change the contents of the search item by passing the `content` prop.
+
+<Preview>
+  <Story name="Content">
+    <SearchItem
+      content="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent scelerisque tincidunt odio, eu fermentum dui tristique in. Donec tempor congue pharetra. Curabitur imperdiet fermentum leo, sed suscipit sem mollis vel. Suspendisse ac interdum ligula. Vivamus vitae ultricies magna. Suspendisse potenti. Cras tristique risus felis, varius porttitor justo sollicitudin vitae. Donec ac metus interdum tellus vehicula ultrices nec sagittis diam."
+      path="test-url"
+      title="React Hooks, Context Local Storage"
+      query="React"
+    />
+  </Story>
+</Preview>
+
+## Path
+
+You can change the url to open when the link is clicked by passing the `path` prop.
+
+<Preview>
+  <Story name="Path">
+    <SearchItem
+      content="> Photo by Cristian Palmer on Unsplash In this article, I will show how you can use React Context with React Hooks to store global state across a React app, then store that state in local storage. T"
+      path="another-test"
+      title="React Hooks, Context Local Storage"
+      query="React"
+    />
+  </Story>
+</Preview>
+
+## Title
+
+You can change the title of the item by passing the `title` prop.
+
+<Preview>
+  <Story name="Title">
+    <SearchItem
+      content="> Photo by Cristian Palmer on Unsplash In this article, I will show how you can use React Context with React Hooks to store global state across a React app, then store that state in local storage. T"
+      path="another-test"
+      title="A random title"
+      query="React"
+    />
+  </Story>
+</Preview>
+
+## Query
+
+You can change the what is highlighted by passing the `query` prop.
+
+<Preview>
+  <Story name="Query">
+    <SearchItem
+      content="Hello this is random. > Photo by Cristian Palmer on Unsplash In this article, I will show how you can use React Context with React Hooks to store global state across a React app."
+      path="another-test"
+      title="A random title"
+      query="random"
+    />
+  </Story>
+</Preview>

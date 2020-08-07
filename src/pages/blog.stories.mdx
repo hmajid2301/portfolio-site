@@ -1,0 +1,55 @@
+import { Meta, Story, Preview, Props } from '@storybook/addon-docs/blocks';
+
+import blog from './blog';
+
+<Meta title="Pages | Blog" component={blog} />
+
+# blog
+
+<Preview>
+  <Story
+    name="Basic"
+    args={{
+      data: {
+        allMarkdownRemark: {
+          edges: [
+            {
+              node: {
+                excerpt:
+                  'TailwindCSS allows us to use pre-defined classes instead of defining our CSS styles. In this article, we will go over\nhow we can use Custom properties…',
+                frontmatter: {
+                  date: '2020-08-05',
+                  slug: 'tailwindcss-with-css-variables',
+                  tags: ['gatsby', 'documentation', 'tailwindcss', 'css'],
+                  title: 'TailwindCSS with CSS variables',
+                  image: {
+                    childImageSharp: {
+                      fluid: {
+                        aspectRatio: 2.380952380952381,
+                        base64:
+                          'data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAIABQDASIAAhEBAxEB/8QAFgABAQEAAAAAAAAAAAAAAAAAAAIF/8QAFQEBAQAAAAAAAAAAAAAAAAAAAAH/2gAMAwEAAhADEAAAAd6RKC//xAAYEAACAwAAAAAAAAAAAAAAAAABEgAhMf/aAAgBAQABBQK4WUZ//8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAwEBPwE//8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAgEBPwE//8QAFhAAAwAAAAAAAAAAAAAAAAAAABBh/9oACAEBAAY/Air/xAAZEAEAAgMAAAAAAAAAAAAAAAARAFEBITH/2gAIAQEAAT8hzQmwFIg9n//aAAwDAQACAAMAAAAQ98//xAAWEQADAAAAAAAAAAAAAAAAAAABEDH/2gAIAQMBAT8QMX//xAAUEQEAAAAAAAAAAAAAAAAAAAAQ/9oACAECAQE/ED//xAAcEAABAwUAAAAAAAAAAAAAAAABABFxITFRkeH/2gAIAQEAAT8Q7To6HgA32oCDyv/Z',
+                        sizes: '(max-width: 800px) 100vw, 800px',
+                        src:
+                          '/static/a7c8591872fc071fe3af7b74e3ec5df8/14b42/cover.jpg',
+                        srcSet:
+                          '/static/a7c8591872fc071fe3af7b74e3ec5df8/f836f/cover.jpg 200w,\n/static/a7c8591872fc071fe3af7b74e3ec5df8/2244e/cover.jpg 400w,\n/static/a7c8591872fc071fe3af7b74e3ec5df8/14b42/cover.jpg 800w,\n/static/a7c8591872fc071fe3af7b74e3ec5df8/a7715/cover.jpg 1000w',
+                        srcSetWebp:
+                          '/static/a7c8591872fc071fe3af7b74e3ec5df8/61e93/cover.webp 200w,\n/static/a7c8591872fc071fe3af7b74e3ec5df8/1f5c5/cover.webp 400w,\n/static/a7c8591872fc071fe3af7b74e3ec5df8/58556/cover.webp 800w,\n/static/a7c8591872fc071fe3af7b74e3ec5df8/e30b5/cover.webp 1000w',
+                        srcWebp:
+                          '/static/a7c8591872fc071fe3af7b74e3ec5df8/58556/cover.webp',
+                      },
+                    },
+                  },
+                },
+              },
+            },
+          ],
+        },
+      },
+    }}
+  >
+    {(args) => <blog {...args} />}
+  </Story>
+</Preview>
+
+<Props story="Basic" />

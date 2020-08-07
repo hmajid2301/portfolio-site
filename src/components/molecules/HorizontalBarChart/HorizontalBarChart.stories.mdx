@@ -19,6 +19,7 @@ import HorizontalBarChart from './HorizontalBarChart';
         { name: 'Saturday', count: 0, percent: 0 },
         { name: 'Sunday', count: 8, percent: 3 },
       ],
+      title: 'Posts per day',
     }}
   >
     {(args) => <HorizontalBarChart {...args} />}
@@ -26,3 +27,44 @@ import HorizontalBarChart from './HorizontalBarChart';
 </Preview>
 
 <Props story="Basic" />
+
+## Data
+
+You can adjust the data passed to the component by passing the `data` prop.
+
+<Preview>
+  <Story name="Data">
+    <HorizontalBarChart
+      data={[
+        { name: 'Monday', count: 0, percent: 0 },
+        { name: 'Tuesday', count: 5, percent: 15 },
+        { name: 'Wednesday', count: 3, percent: 18 },
+        { name: 'Thursday', count: 1, percent: 1 },
+        { name: 'Friday', count: 2, percent: 30 },
+        { name: 'Saturday', count: 0, percent: 0 },
+        { name: 'Sunday', count: 8, percent: 5 },
+      ]}
+    />
+  </Story>
+</Preview>
+
+## Title
+
+You can adjust the title of the chart by passing the `title` prop.
+
+<Preview>
+  <Story name="Title">
+    <HorizontalBarChart
+      data={[
+        { name: 'Monday', count: 0, percent: 0 },
+        { name: 'Tuesday', count: 5, percent: 15 },
+        { name: 'Wednesday', count: 3, percent: 18 },
+        { name: 'Thursday', count: 1, percent: 1 },
+        { name: 'Friday', count: 2, percent: 30 },
+        { name: 'Saturday', count: 0, percent: 0 },
+        { name: 'Sunday', count: 8, percent: 5 },
+      ]}
+      title="Chart"
+    />
+  </Story>
+</Preview>

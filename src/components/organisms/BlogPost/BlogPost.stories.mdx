@@ -1,10 +1,4 @@
 import { Meta, Story, Preview, Props } from '@storybook/addon-docs/blocks';
-import {
-  AiFillGithub as Github,
-  AiFillGitlab as Gitlab,
-  AiFillMediumCircle as Medium,
-} from 'react-icons/ai';
-import { FaDev as Dev } from 'react-icons/fa';
 
 import BlogPost from './BlogPost';
 
@@ -16,11 +10,9 @@ import BlogPost from './BlogPost';
   <Story
     name="Basic"
     args={{
+      coverImage:
+        'https://images.unsplash.com/photo-1593642634524-b40b5baae6bb?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2089&q=80',
       date: '2020-06-29',
-      slug: '/blog/my-first-post',
-      tags: ['gatsby', 'documentation', 'mdx'],
-      title:
-        'How to use Storybooks, Gatsby, Babel, Tailwind, Typescript together',
       data: `<blockquote>
 <p>Cover image from, <a href="https://worldvectorlogo.com/downloaded/storybook-1">World Vector Logo</a></p>
 </blockquote>
@@ -54,6 +46,12 @@ of components called "Doc Blocks", that allow Storybook to translate MDX files i
 <p>Now let's see how we add tailwindcss to this site:</p>
 <div class="gatsby-highlight" data-language="bash"><pre style="counter-reset: linenumber 4" class="language-bash line-numbers"><code class="language-bash"><span class="token function">yarn</span> <span class="token function">add</span> gatsby-plugin-typescript gatsby-plugin-postcss tailwindcss twin.macro postcss-preset-env
 `,
+      readingTime: '2 Minutes',
+      slug: 'my-first-post',
+      tags: ['gatsby', 'documentation', 'mdx'],
+      title:
+        'How to use Storybooks, Gatsby, Babel, Tailwind, Typescript together',
+      words: '1000',
     }}
   >
     {(args) => <BlogPost {...args} />}

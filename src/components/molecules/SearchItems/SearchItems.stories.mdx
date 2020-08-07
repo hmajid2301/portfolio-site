@@ -20,7 +20,18 @@ import SearchItems from './SearchItems';
             '\n> Photo by Cristian Palmer on Unsplash\n\nIn this article, I will show how you can use React Context with React Hooks to store global state across a React app,\nthen store that state in local storage. This can be used for example to store light vs dark theme, then whenever the\nuser visits your website again they will have the same theme they last selected. Which leads to an improved experience.\n\n## Structure\n\n',
           excerpt: '',
         },
+        {
+          id: '24eb1eed-77a1-5be8-a694-dbce11285f77',
+          title: 'React Hooks, Context & Local Storage II',
+          tags: ['react', 'react-hooks', 'react-context'],
+          path: 'react-hooks-context-and-local-storage2',
+          html:
+            '> Photo by Cristian Palmer on Unsplash In this article, I will show how you can use React Context with React Hooks to store global state across a React app, then store that state in local storage. T',
+          excerpt: '',
+        },
       ],
+      query: 'React',
+      urlPrepend: '/blog/',
     }}
   >
     {(args) => <SearchItems {...args} />}
@@ -28,3 +39,102 @@ import SearchItems from './SearchItems';
 </Preview>
 
 <Props story="Basic" />
+
+## Results
+
+You can change the results shown by passing the `results` prop.
+
+<Preview>
+  <Story name="Results">
+    <SearchItems
+      results={[
+        {
+          id: '24eb1eed-77a1-5be8-a694-dbce11285f77',
+          title: 'React Hooks, Context & Local Storage II',
+          tags: ['react', 'react-hooks', 'react-context'],
+          path: 'react-hooks-context-and-local-storage4',
+          html:
+            '> Photo by Cristian Palmer on Unsplash In this article, I will show how you can use React Context with React Hooks to store global state across a React app, then store that state in local storage. T',
+          excerpt: '',
+        },
+        {
+          id: '24eb1eed-77a1-5be8-a694-dbce11285f76',
+          title: 'React Hooks, Context & Local Storage',
+          tags: ['react', 'reacthooks', 'reactcontext'],
+          path: 'react-hooks-context-and-local-storage2',
+          html:
+            '\n> Photo by Cristian Palmer on Unsplash\n\nIn this article, I will show how you can use React Context with React Hooks to store global state across a React app,\nthen store that state in local storage. This can be used for example to store light vs dark theme, then whenever the\nuser visits your website again they will have the same theme they last selected. Which leads to an improved experience.\n\n## Structure\n\n',
+          excerpt: '',
+        },
+      ]}
+      query="Hook"
+      urlPrepend="/blog/"
+    />
+  </Story>
+</Preview>
+
+## Query
+
+You can change the highlighted results shown by passing the `query` prop.
+
+<Preview>
+  <Story name="Query">
+    <SearchItems
+      results={[
+        {
+          id: '24eb1eed-77a1-5be8-a694-dbce11285f77',
+          title: 'React Hooks, Context & Local Storage II',
+          tags: ['react', 'react-hooks', 'react-context'],
+          path: 'react-hooks-context-and-local-storage4',
+          html:
+            '> Photo by Cristian Palmer on Unsplash In this article, I will show how you can use React Context with React Hooks to store global state across a React app, then store that state in local storage. T',
+          excerpt: '',
+        },
+        {
+          id: '24eb1eed-77a1-5be8-a694-dbce11285f76',
+          title: 'React Hooks, Context & Local Storage',
+          tags: ['react', 'reacthooks', 'reactcontext'],
+          path: 'react-hooks-context-and-local-storage2',
+          html:
+            '\n> Photo by Cristian Palmer on Unsplash\n\nIn this article, I will show how you can use React Context with React Hooks to store global state across a React app,\nthen store that state in local storage. This can be used for example to store light vs dark theme, then whenever the\nuser visits your website again they will have the same theme they last selected. Which leads to an improved experience.\n\n## Structure\n\n',
+          excerpt: '',
+        },
+      ]}
+      query="React"
+      urlPrepend="/blog/"
+    />
+  </Story>
+</Preview>
+
+## UrlPrepend
+
+You what to prepend to the link it should take you to by passing the `urlPrepend` prop.
+
+<Preview>
+  <Story name="UrlPrepend">
+    <SearchItems
+      results={[
+        {
+          id: '24eb1eed-77a1-5be8-a694-dbce11285f77',
+          title: 'React Hooks, Context & Local Storage II',
+          tags: ['react', 'react-hooks', 'react-context'],
+          path: 'react-hooks-context-and-local-storage4',
+          html:
+            '> Photo by Cristian Palmer on Unsplash In this article, I will show how you can use React Context with React Hooks to store global state across a React app, then store that state in local storage. T',
+          excerpt: '',
+        },
+        {
+          id: '24eb1eed-77a1-5be8-a694-dbce11285f76',
+          title: 'React Hooks, Context & Local Storage',
+          tags: ['react', 'reacthooks', 'reactcontext'],
+          path: 'react-hooks-context-and-local-storage2',
+          html:
+            '\n> Photo by Cristian Palmer on Unsplash\n\nIn this article, I will show how you can use React Context with React Hooks to store global state across a React app,\nthen store that state in local storage. This can be used for example to store light vs dark theme, then whenever the\nuser visits your website again they will have the same theme they last selected. Which leads to an improved experience.\n\n## Structure\n\n',
+          excerpt: '',
+        },
+      ]}
+      query="React"
+      urlPrepend="/tag/"
+    />
+  </Story>
+</Preview>

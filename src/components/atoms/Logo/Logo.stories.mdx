@@ -7,12 +7,25 @@ import Logo from './Logo';
 # Logo
 
 <Preview>
-  <Story name="Basic" args={{}}>
+  <Story name="Basic" args={{ text: 'Haseeb' }}>
     {(args) => <Logo {...args} />}
   </Story>
 </Preview>
 
 <Props story="Basic" />
+
+## Text
+
+You can also adjust the text of the logo by passing the `Text` prop.
+
+<Preview>
+  <Story name="Text">
+    <div>
+      <Logo text="John Smith" />
+      <Logo text="Haseeb Majid" />
+    </div>
+  </Story>
+</Preview>
 
 ## Size
 
@@ -21,13 +34,13 @@ You can also adjust the size of the logo by passing the `size` prop.
 <Preview>
   <Story name="Text Size">
     <div>
-      <Logo accent="gray-700" size="xs" text="Haseeb" />
-      <Logo accent="gray-700" size="sm" text="Haseeb" />
-      <Logo accent="gray-700" size="lg" text="Haseeb" />
-      <Logo accent="gray-700" size="xl" text="Haseeb" />
-      <Logo accent="gray-700" size="2xl" text="Haseeb" />
-      <Logo accent="gray-700" size="3xl" text="Haseeb" />
-      <Logo accent="gray-700" size="4xl" text="Haseeb" />
+      <Logo size="xs" text="Haseeb" />
+      <Logo size="sm" text="Haseeb" />
+      <Logo size="lg" text="Haseeb" />
+      <Logo size="xl" text="Haseeb" />
+      <Logo size="2xl" text="Haseeb" />
+      <Logo size="3xl" text="Haseeb" />
+      <Logo size="4xl" text="Haseeb" />
     </div>
   </Story>
 </Preview>
