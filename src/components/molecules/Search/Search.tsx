@@ -1,6 +1,5 @@
 import { Index, SerialisedIndexData } from 'elasticlunr';
 import React, { useState, useEffect } from 'react';
-import { FaSearch as SearchIcon } from 'react-icons/fa';
 import tw from 'twin.macro';
 
 import { Icon } from '~/components/atoms/Icon';
@@ -33,11 +32,7 @@ const Search = ({
   return (
     <SearchContainer>
       <SearchInputContainer>
-        <Icon
-          className="px-2"
-          icon={<SearchIcon size="1em" />}
-          label="Search Icon"
-        />
+        <Icon className="px-2" icon="search" label="Search Icon" />
         <Input
           ref={searchInput}
           className="px-2"

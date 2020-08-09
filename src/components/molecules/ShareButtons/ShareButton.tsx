@@ -1,18 +1,14 @@
 import { useStaticQuery, graphql } from 'gatsby';
 import React from 'react';
 import {
-  AiOutlineTwitter as Twitter,
-  AiFillLinkedin as LinkedIn,
-} from 'react-icons/ai';
-import { FaFacebookF as Facebook } from 'react-icons/fa';
-import { GrReddit as Reddit } from 'react-icons/gr';
-import {
   FacebookShareButton,
   LinkedinShareButton,
   RedditShareButton,
   TwitterShareButton,
 } from 'react-share';
 import tw from 'twin.macro';
+
+import { Icon } from '~/components/atoms/Icon';
 
 export interface Props {
   /** The url of the post to share. */
@@ -37,16 +33,16 @@ const ShareButton = ({ link }: Props) => {
 
   const socialMedia = [
     <FacebookShareButton url={url}>
-      <Facebook className={classes} />
+      <Icon className={classes} icon="facebook" />
     </FacebookShareButton>,
     <LinkedinShareButton url={url}>
-      <LinkedIn className={classes} />
+      <Icon className={classes} icon="linkedin" />
     </LinkedinShareButton>,
     <RedditShareButton url={url}>
-      <Reddit className={classes} />
+      <Icon className={classes} icon="reddit" />
     </RedditShareButton>,
     <TwitterShareButton url={url}>
-      <Twitter className={classes} />
+      <Icon className={classes} icon="twitter" />
     </TwitterShareButton>,
   ];
 

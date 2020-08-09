@@ -1,6 +1,7 @@
 [![pipeline status](https://gitlab.com/hmajid2301/personal-site/badges/master/pipeline.svg)](https://gitlab.com/hmajid2301/personal-site/commits/master)
 [![coverage report](https://gitlab.com/hmajid2301/personal-site/badges/master/coverage.svg)](https://gitlab.com/hmajid2301/personal-site/commits/master)
 [![Netlify Status](https://api.netlify.com/api/v1/badges/a9f5a378-240a-4f9e-a6ea-32a2db54d30f/deploy-status)](https://app.netlify.com/sites/inspiring-tesla-e1acd1/deploys)
+[![This project is using Percy.io for visual regression testing.](https://percy.io/static/images/percy-badge.svg)](https://percy.io/b2e6b2bc/personal-site)
 
 - [🎉 Introduction](#-introduction)
 - [✨ Development](#-development)
@@ -12,7 +13,8 @@
   - [⛵️ Lighthouse score](#️-lighthouse-score)
   - [⚛️ Atomic Design](#️-atomic-design)
   - [🗂 Config](#-config)
-  - [🌳 .env](#-env)
+    - [🔧 config](#-config-1)
+    - [🌳 .env](#-env)
   - [🌞/🌝 Themes switcher](#-themes-switcher)
   - [🔎 SEO component](#-seo-component)
   - [📈 GoatCounter analytics tracking](#-goatcounter-analytics-tracking)
@@ -100,19 +102,23 @@ abstraction.
 
 ### 🗂 Config
 
-There is one main config file, `config/index.tsx` which contains all configurable data for the site. This includes what projects to show, which (Gitlab/Github) repo's to show
+There are a few ways to configure the project.
+
+#### 🔧 config
+
+There is one main config file, `config/config.json` which contains all configurable data for the site. This includes what projects to show, which (Gitlab/Github) repo's to show
 and even the text in the `hero` panel.
-
-### 🌳 .env
-
-Alongside the config file we also have a `.env` file which stores some config values
-use by `gatsby-config.js`. You can look at the `.env.sample` file to see what format
-it expects the file to be in.
 
 One key config field is which git repo to fetch the article data from. I prefer
 to keep my articles in a separate repo to the blog, so the articles get "imported" at
 build time via a gatsby plugin
 [`gatsby-source-git`](https://github.com/stevetweeddale/gatsby-source-git).
+
+#### 🌳 .env
+
+Alongside the config file we also have a `.env` file which stores some config values
+use by `gatsby-config.js`. You can look at the `.env.sample` file to see what format
+it expects the file to be in.
 
 ### 🌞/🌝 Themes switcher
 

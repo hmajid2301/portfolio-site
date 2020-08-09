@@ -1,10 +1,8 @@
 import styled from '@emotion/styled';
 import React from 'react';
-import {
-  AiOutlineCompass as Compass,
-  AiOutlineStar as Star,
-} from 'react-icons/ai';
 import tw from 'twin.macro';
+
+import { Icon } from '~/components/atoms/Icon';
 
 export interface Props {
   /** The item to show in the card. */
@@ -29,7 +27,7 @@ const RepositoryCard = ({ item }: Props) => {
       <MainText>{item.description}</MainText>
       <MetaContainer>
         <MetaItem href={item.url} rel="noreferrer" target="_blank">
-          <Compass /> More Info
+          <Icon icon="compass" /> More Info
         </MetaItem>
 
         <MetaItem
@@ -37,7 +35,7 @@ const RepositoryCard = ({ item }: Props) => {
           rel="noreferrer"
           target="_blank"
         >
-          <Star /> {item.stars}
+          <Icon icon="star" /> {item.stars}
         </MetaItem>
       </MetaContainer>
     </RepositoryContainer>

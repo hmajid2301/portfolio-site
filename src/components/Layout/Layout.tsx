@@ -4,7 +4,7 @@ import SEO from './SEO';
 
 import { Footer } from '~/components/organisms/Footer';
 import { Header } from '~/components/organisms/Header';
-import config from '~/config';
+import config from '~/config/config.json';
 import { ThemeContext } from '~/providers/Theme';
 
 interface Props {
@@ -39,7 +39,7 @@ const DefaultLayout = ({
     { name: '📋 Uses', link: '/uses/' },
   ];
 
-  const { meta } = config;
+  const { social } = config;
 
   return (
     <div
@@ -57,7 +57,7 @@ const DefaultLayout = ({
         title={title}
       />
       {children}
-      <Footer links={links} socialButtons={meta.social} />
+      <Footer links={links} socialButtons={social} />
     </div>
   );
 };

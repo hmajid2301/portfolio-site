@@ -1,20 +1,14 @@
 import styled from '@emotion/styled';
-
 import { Link } from 'gatsby';
 import React, { useState } from 'react';
-
-import {
-  RiCloseLine as CloseIcon,
-  RiMenuLine as MenuIcon,
-} from 'react-icons/ri';
 import tw from 'twin.macro';
 
+import { Icon } from '~/components/atoms/Icon';
 import { Logo } from '~/components/atoms/Logo';
 import { Links } from '~/components/molecules/Links';
 import { ThemeIcons } from '~/components/molecules/ThemeIcons';
 import { SearchBar } from '~/components/organisms/SearchBar';
-
-import config from '~/config';
+import config from '~/config/config.json';
 
 export interface Props {
   links: {
@@ -27,12 +21,14 @@ export interface Props {
 
 const Header = ({ links }: Props) => {
   const [showNavLinks, setShowNavLinks] = useState(false);
+  const { misc } = config;
+
   return (
     <>
       <HeaderContainer>
         <Row>
           <LogoContainer to="/">
-            <Logo text={config.meta.name} />
+            <Logo text={misc.logo} />
           </LogoContainer>
         </Row>
 
@@ -51,9 +47,9 @@ const Header = ({ links }: Props) => {
             type="button"
           >
             {showNavLinks ? (
-              <CloseIcon className="w-6 h-6" />
+              <Icon className="w-6 h-6" icon="close" />
             ) : (
-              <MenuIcon className="w-6 h-6" />
+              <Icon className="w-6 h-6" icon="menu" />
             )}
           </NavToggle>
           <SearchBar />

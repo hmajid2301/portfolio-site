@@ -2,6 +2,10 @@ require('dotenv').config({
   path: '.env',
 });
 
+const config = require('./src/config/config.json');
+
+const { siteData, misc } = config;
+
 const isProduction = process.env.NODE_ENV === 'production';
 
 const plugins = [
@@ -13,6 +17,7 @@ const plugins = [
   `gatsby-plugin-sitemap`,
   `gatsby-plugin-postcss`,
   `gatsby-plugin-robots-txt`,
+  `gatsby-plugin-percy`,
   {
     resolve: `gatsby-plugin-goatcounter`,
     options: {
@@ -54,7 +59,7 @@ const plugins = [
     resolve: `gatsby-source-git`,
     options: {
       name: `Articles`,
-      remote: process.env.ARTICLE_GIT_URL,
+      remote: misc.article_git_url,
       branch: `master`,
     },
   },
@@ -72,7 +77,7 @@ const plugins = [
   {
     resolve: `gatsby-plugin-canonical-urls`,
     options: {
-      siteUrl: `https://haseebmajid.dev`,
+      siteUrl: misc.canonical_url,
     },
   },
   {
@@ -105,8 +110,8 @@ const plugins = [
   {
     resolve: `gatsby-plugin-manifest`,
     options: {
-      name: `haseebmajid.dev`,
-      short_name: `Haseeb Majid`,
+      name: siteData.title,
+      short_name: siteData.author,
       start_url: `/`,
       background_color: `#222`,
       theme_color: `#367ee9`,
@@ -134,16 +139,13 @@ const plugins = [
   },
 ];
 
-const siteUrl =
-  process.env.URL || process.env.DEPLOY_URL || `https://haseebmajid.dev`;
-
 module.exports = {
   siteMetadata: {
     title: `Haseeb Majid Dev`,
     author: `Haseeb Majid`,
     description: `Haseeb Majid's personal portfolio website and blog.`,
-    keywords: ['portfolio', 'blog', 'haseeb majid'],
-    siteUrl,
+    keywords: siteData.keywords,
+    siteUrl: siteData.siteUrl,
     social: {},
   },
   plugins,

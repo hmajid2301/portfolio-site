@@ -8,7 +8,7 @@ import { Hero } from '~/components/molecules/Hero';
 import ImageCards from '~/components/molecules/ImageCards/ImageCards';
 import { BlogList, QueryItem } from '~/components/organisms/BlogList';
 import { RepositoryList } from '~/components/organisms/RepositoryList';
-import config from '~/config';
+import config from '~/config/config.json';
 
 export interface Props {
   data: {
@@ -19,11 +19,11 @@ export interface Props {
 }
 
 const Index = ({ data }: Props) => {
-  const { meta, projects, repositories, history } = config;
+  const { misc, projects, repositories, history } = config;
 
   return (
     <Layout title="Home">
-      <Hero text={meta.hero} />
+      <Hero name={misc.logo} />
       <Container>
         <Section className="my-20">
           <Header>Latest Posts</Header>
