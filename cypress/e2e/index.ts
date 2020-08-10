@@ -2,7 +2,7 @@
 /// <reference types="cypress" />
 /// <reference types="@types/testing-library__cypress" />
 
-import config from '../../src/config';
+import config from '../../src/config/config.json';
 
 describe(`Home Page`, () => {
   it(`check hero text loads`, () => {

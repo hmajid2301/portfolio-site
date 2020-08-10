@@ -149,3 +149,7 @@ sketch
 
 # End of https://www.gitignore.io/api/node,react,linux,visualstudiocode
 .env
+cypress/videos
+cypress/screenshots
+# Local Netlify folder
+.netlify

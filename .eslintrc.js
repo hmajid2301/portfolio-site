@@ -111,6 +111,7 @@ module.exports = {
         '@typescript-eslint/no-use-before-define': ['off'],
         // This project uses TS. Disable prop-types check
         'react/prop-types': 'off',
+        'react/require-default-props': 'off',
         // Allow snake_case due to inconsistent APIs
         '@typescript-eslint/camelcase': 0,
         // Makes no sense to allow type inferrence for expression parameters, but require typing the response

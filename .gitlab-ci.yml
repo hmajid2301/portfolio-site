@@ -2,6 +2,8 @@ image: node:12.13.0
 
 stages:
   - test
+  - build
+  - deploy
 
 before_script:
   - yarn install
@@ -38,10 +40,37 @@ tests:unit:
   script:
     - yarn test --silent --passWithNoTests
 
-tests:coverage:
-  stage: test
+# tests:coverage:
+#   stage: test
+#   image: cypress/browsers:node12.14.1-chrome83-ff77
+#   # only:
+#   #   - master
+#   script:
+#     - yarn test:e2e:ci
+#     - npx nyc report --reporter=text-summary
+#   coverage: /Statements\s+:\s(\d+.?\d+)%/
+
+build:site:
+  stage: build
   only:
     - master
   script:
-    - yarn coverage --passWithNoTests
-  coverage: /All\sfiles.*?\s+(\d+.\d+)/
+    - echo "test=test" > .env
+    - wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key add -
+    - echo 'deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main' |  tee /etc/apt/sources.list.d/google-chrome.list
+    - apt-get update
+    - apt-get install google-chrome-stable -y
+    - yarn run build
+  artifacts:
+    paths:
+      - public
+
+deploy:site:
+  stage: deploy
+  only:
+    - master
+  script:
+    - npm i -g netlify-cli
+    - netlify deploy --site $NETLIFY_SITE_ID --auth $NETLIFY_PERSONAL_TOKEN --prod --message $CI_COMMIT_TITLE
+  dependencies:
+    - build:site

@@ -1,8 +1,6 @@
 import styled from '@emotion/styled';
 import { graphql, StaticQuery } from 'gatsby';
-
 import React, { useState, useContext } from 'react';
-import { FaSearch as SearchIcon } from 'react-icons/fa';
 import tw from 'twin.macro';
 
 import { Icon } from '~/components/atoms/Icon';
@@ -27,9 +25,10 @@ const SearchBar = () => {
     <SearchComponent>
       <Icon
         dataId="SearchIcon"
-        icon={<SearchIcon size="1.3em" />}
+        icon="search"
         label="Search Icon"
         onClick={() => setShowSearch(!showSearch)}
+        size="1.3em"
       />
 
       <SearchOverlay

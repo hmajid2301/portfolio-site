@@ -14,6 +14,6 @@ describe(`/blob/{blog}`, () => {
   it(`selecting tag in article takes you to tag`, () => {
     cy.visit('/blog/');
     cy.contains('React Hooks, Context & Local Storage').click({ force: true });
-    cy.contains('#react-native').click().assertRoute('/tag/react-native/');
+    cy.contains('#react').click().assertRoute('/tag/react/');
   });
 });

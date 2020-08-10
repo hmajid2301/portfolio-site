@@ -28,7 +28,7 @@ const ShareButton = ({ link }: Props) => {
     `
   );
 
-  const url = `${site.siteMetadata.siteUrl}/${link}/`;
+  const url = `${site.siteMetadata.siteUrl}${link}`;
   const classes = 'hover:text-primary transition duration-300 mx-2';
 
   const socialMedia = [

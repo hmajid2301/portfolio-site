@@ -64,17 +64,6 @@ const plugins = [
     },
   },
   {
-    resolve: 'gatsby-plugin-webpack-bundle-analyser-v2',
-    options: {
-      options: {
-        analyzerMode: `server`,
-        analyzerPort: `8888`,
-        defaultSizes: 'gzip',
-        devMode: true,
-      },
-    },
-  },
-  {
     resolve: `gatsby-plugin-canonical-urls`,
     options: {
       siteUrl: misc.canonical_url,

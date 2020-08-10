@@ -5,7 +5,9 @@ import { Links } from '~/components/molecules/Links';
 import { SocialLinks } from '~/components/molecules/SocialLinks';
 
 export type SocialButton = {
-  icon: React.ReactNode;
+  /** The icon name. i.e. github. */
+  icon: string;
+  /** The url to go to when the icon is pressed. */
   url: string;
 };
 

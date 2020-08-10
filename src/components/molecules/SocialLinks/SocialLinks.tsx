@@ -4,7 +4,7 @@ import tw from 'twin.macro';
 import { SocialLink } from '~/components/atoms/SocialLink';
 
 export type SocialButton = {
-  icon: React.ReactNode;
+  icon: string;
   url: string;
 };
 

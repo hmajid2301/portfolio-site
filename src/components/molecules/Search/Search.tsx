@@ -47,9 +47,7 @@ const Search = ({
           value={query}
         />
       </SearchInputContainer>
-      <ul>
-        <SearchItems query={query} results={results} urlPrepend="/blog/" />
-      </ul>
+      <SearchItems query={query} results={results} urlPrepend="/blog" />
     </SearchContainer>
   );
 };

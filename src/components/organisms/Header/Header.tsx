@@ -47,9 +47,9 @@ const Header = ({ links }: Props) => {
             type="button"
           >
             {showNavLinks ? (
-              <Icon className="w-6 h-6" icon="close" />
+              <Icon className="w-6 h-6" icon="close" size="1.3em" />
             ) : (
-              <Icon className="w-6 h-6" icon="menu" />
+              <Icon className="w-6 h-6" icon="menu" size="1.3em" />
             )}
           </NavToggle>
           <SearchBar />

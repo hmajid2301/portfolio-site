@@ -33,6 +33,8 @@ export interface Props {
   label?: string;
   /** Function to call when the icon is pressed/clicked. */
   onClick?: () => void;
+  /** The size of the icon. */
+  size?: string;
 }
 
 const Icon = ({
@@ -42,6 +44,7 @@ const Icon = ({
   icon,
   label,
   onClick,
+  size = '1em',
 }: Props) => {
   const icons: { [name: string]: JSX.Element } = {
     github: <Github />,
@@ -67,7 +70,7 @@ const Icon = ({
       data-cy={dataId}
       onClick={onClick}
     >
-      {icons[icon]}
+      {React.cloneElement(icons[icon], { size })}
     </IconContainer>
   );
 };

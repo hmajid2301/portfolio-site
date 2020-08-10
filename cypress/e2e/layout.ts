@@ -2,7 +2,7 @@
 /// <reference types="cypress" />
 /// <reference types="@types/testing-library__cypress" />
 
-import config from '../../src/config';
+import config from '../../src/config/config.json';
 
 describe(`Layout`, () => {
   it(`check header links work`, () => {
@@ -41,6 +41,6 @@ describe(`Layout`, () => {
   it(`check social links work`, () => {
     cy.visit('/');
     cy.get('[data-cy=SocialLink]').first().click();
-    cy.url().should('be', config.meta.social[0].url);
+    cy.url().should('be', config.social[0].url);
   });
 });

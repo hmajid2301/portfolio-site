@@ -2,11 +2,13 @@ import styled from '@emotion/styled';
 import React from 'react';
 import tw from 'twin.macro';
 
+import { Icon } from '~/components/atoms/Icon';
+
 export interface Props {
   /** Extra CSS classes to assign to this component. */
   className?: string;
   /** The social Icon to show. */
-  icon: React.ReactNode;
+  icon: string;
   /** The url to link to when the social link is pressed. */
   url?: string;
 }
@@ -20,7 +22,7 @@ const SocialLink = ({ icon, url }: Props) => (
     rel="noreferrer"
     target="_blank"
   >
-    {icon}
+    <Icon icon={icon} />
   </SocialLinkContainer>
 );
 
