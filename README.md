@@ -18,6 +18,7 @@
   - [🌞/🌝 Themes switcher](#-themes-switcher)
   - [🔎 SEO component](#-seo-component)
   - [📈 GoatCounter analytics tracking](#-goatcounter-analytics-tracking)
+  - [💚 Gitlab CI](#-gitlab-ci)
   - [📝 Uses Page](#-uses-page)
 - [🏚️ Previous Versions](#️-previous-versions)
 - [🔚 Appendix](#-appendix)
@@ -74,9 +75,7 @@ yarn run test
 
 ### 📦 Deployment
 
-This application is currently deployed using [`Netlify`](netlify.com) where it auto rebuilds the site
-every time I push code to master. You can easily extend the `.gitlab-ci.yml` file to
-use CI/CD to auto-deploy your site anywhere you like.
+This application is currently deployed to [`Netlify`](netlify.com) it is deployed using gitlab CI to deploy the site.
 
 ## 🎉 Features
 
@@ -86,8 +85,6 @@ You can easily take this portfolio site and configure it for your own use!
 
 The application comes with storybook ready to use you just need to edit the `*.stories.mdx` files within the component
 folders. You can create your storybook website using: `yarn run storybook`.
-
-> Info: An example version can be found at [storybook.haseebmajid.dev](https://haseebmajid.dev).
 
 ### ⛵️ Lighthouse score
 
@@ -136,6 +133,17 @@ it's a blog post with a cover image.
 ### 📈 GoatCounter analytics tracking
 
 The site sends usage statistics to [GoatCounter](https://www.goatcounter.com/) all you have to do is create an account
+
+### 💚 Gitlab CI
+
+We have a `.gitlab-ci.yml`, which will provide jobs to run various linting jobs, e2e tests
+and building the site and publishing to Netlify. It needs the following environment variables
+passed as CI variables:
+
+- GOATCOUNTER_CODE
+- NETLIFY_PERSONAL_TOKEN
+- NETLIFY_SITE_ID
+- PERCY_TOKEN
 
 ### 📝 Uses Page
 

@@ -71,6 +71,6 @@ deploy:site:
     - master
   script:
     - npm i -g netlify-cli
-    - netlify deploy --site $NETLIFY_SITE_ID --auth $NETLIFY_PERSONAL_TOKEN --prod --message $CI_COMMIT_TITLE
+    - netlify deploy --site $NETLIFY_SITE_ID --auth $NETLIFY_PERSONAL_TOKEN --prod --message "$CI_COMMIT_TITLE" --dir public/
   dependencies:
     - build:site

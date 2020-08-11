@@ -3,6 +3,8 @@ import { useStaticQuery, graphql } from 'gatsby';
 import React from 'react';
 import Helmet, { HelmetProps } from 'react-helmet';
 
+import config from '~/config/config.json';
+
 type Props = {
   description?: string;
   keywords?: string[];
@@ -38,6 +40,8 @@ const SEO = ({
       }
     `
   );
+
+  const { siteData } = config;
 
   const metaTitle = title || site.siteMetadata.title;
   const metaDescription = description || site.siteMetadata.description;
@@ -160,7 +164,7 @@ const SEO = ({
                 ]
           )}
           title={metaTitle}
-          titleTemplate="%s | Haseeb Majid's Blog"
+          titleTemplate={`%s | ${siteData.author}'s Blog`}
         />
       )}
     </Location>

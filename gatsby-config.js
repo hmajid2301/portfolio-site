@@ -130,9 +130,9 @@ const plugins = [
 
 module.exports = {
   siteMetadata: {
-    title: `Haseeb Majid Dev`,
-    author: `Haseeb Majid`,
-    description: `Haseeb Majid's personal portfolio website and blog.`,
+    title: siteData.title,
+    author: siteData.author,
+    description: siteData.description,
     keywords: siteData.keywords,
     siteUrl: siteData.siteUrl,
     social: {},
