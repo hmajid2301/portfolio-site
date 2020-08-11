@@ -18,7 +18,7 @@ const config = {
     '^~/(.*)$': '<rootDir>/src/$1',
   },
   moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx', 'json', 'node'],
-  testPathIgnorePatterns: ['node_modules', '.cache', 'public'],
+  testPathIgnorePatterns: ['node_modules', '.cache', 'public', 'cypress'],
   // Gatsby includes un-transpiled ES6 code. Exclude the gatsby module.
   transformIgnorePatterns: ['node_modules/(?!(gatsby)/)'],
   globals: {

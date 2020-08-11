@@ -1,5 +1,15 @@
 image: node:12.13.0
 
+variables:
+  CYPRESS_CACHE_FOLDER: '$CI_PROJECT_DIR/cache/Cypress'
+
+cache:
+  key: ${CI_COMMIT_REF_SLUG}
+  paths:
+    - .npm
+    - cache/Cypress
+    - node_modules
+
 stages:
   - test
   - build
@@ -38,24 +48,28 @@ tests:unit:
     - master
     - tags
   script:
-    - yarn test --silent --passWithNoTests
+    - yarn test:unit --silent --passWithNoTests
 
-# tests:coverage:
-#   stage: test
-#   image: cypress/browsers:node12.14.1-chrome83-ff77
-#   # only:
-#   #   - master
-#   script:
-#     - yarn test:e2e:ci
-#     - npx nyc report --reporter=text-summary
-#   coverage: /Statements\s+:\s(\d+.?\d+)%/
+tests:smoke:
+  image: cypress/browsers:node12.14.1-chrome83-ff77
+  stage: test
+  except:
+    - master
+    - tags
+  script:
+    - yarn cypress install
+    - yarn test:e2e:smoke
+  artifacts:
+    paths:
+      - cypress/videos
+      - cypress/screenshots
 
 build:site:
   stage: build
   only:
     - master
   script:
-    - echo "test=test" > .env
+    - echo "PERCY_TOKEN=${PERCY_TOKEN}" > .env
     - wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key add -
     - echo 'deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main' |  tee /etc/apt/sources.list.d/google-chrome.list
     - apt-get update

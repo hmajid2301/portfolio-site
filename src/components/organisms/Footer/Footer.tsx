@@ -3,6 +3,7 @@ import tw from 'twin.macro';
 
 import { Links } from '~/components/molecules/Links';
 import { SocialLinks } from '~/components/molecules/SocialLinks';
+import config from '~/config/config.json';
 
 export type SocialButton = {
   /** The icon name. i.e. github. */
@@ -28,7 +29,7 @@ const Footer = ({ links, socialButtons }: Props) => (
         <Links links={links} />
         <SocialLinks buttons={socialButtons} />
         <CopyrightText>
-          &copy; Copyright 2020, Haseeb Majid. All Rights Reserved.
+          &copy; Copyright 2020, {config.siteData.author}. All Rights Reserved.
         </CopyrightText>
       </Row>
     </Content>
