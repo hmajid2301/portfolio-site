@@ -165,7 +165,7 @@ update the file at `src/content/uses.md`.
 
 ### 🖼️ Inspired By
 
-- Site template by [duncanleung](https://github.com/duncanleung/gatsby-typescript-emotion-storybook)
+- Project template by [duncanleung](https://github.com/duncanleung/gatsby-typescript-emotion-storybook)
 - [Treact](https://treact.owaiskhan.me)
 - [Matthias Kretschmann](https://matthiaskretschmann.com/)
 - [Paul Scanlon](https://paulie.dev/posts/)
