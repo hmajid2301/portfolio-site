@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
     "baseUrl": "../node_modules",
-    "outDir": "e2e/build",
+    "outDir": "integration/build",
     "strict": true,
     "sourceMap": false,
     "jsx": "react",
@@ -10,7 +10,12 @@
     "allowSyntheticDefaultImports": true,
     "resolveJsonModule": true,
     "lib": ["es2015", "es2017", "dom"],
-    "types": ["cypress", "@testing-library/cypress/typings"]
+    "types": ["cypress", "@testing-library/cypress/typings", "node"]
   },
-  "include": ["e2e/*.ts", "support/*.ts", "../node_modules/cypress"]
+  "include": [
+    "integration/*.ts",
+    "support/*.ts",
+    "../node_modules/cypress",
+    "a/blog.ts"
+  ]
 }

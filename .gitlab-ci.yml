@@ -1,7 +1,7 @@
 image: node:12.13.0
 
 variables:
-  CYPRESS_CACHE_FOLDER: '$CI_PROJECT_DIR/cache/Cypress'
+  CYPRESS_CACHE_FOLDER: "$CI_PROJECT_DIR/cache/Cypress"
 
 cache:
   key: ${CI_COMMIT_REF_SLUG}
@@ -24,7 +24,7 @@ lint:
     - master
     - tags
   script:
-    - yarn lint
+    - yarn run lint
 
 format:
   stage: test
@@ -32,7 +32,7 @@ format:
     - master
     - tags
   script:
-    - yarn format:check
+    - yarn run format:check
 
 types:check:
   stage: test
@@ -40,7 +40,7 @@ types:check:
     - master
     - tags
   script:
-    - yarn types:check
+    - yarn run types:check
 
 tests:unit:
   stage: test
@@ -48,9 +48,29 @@ tests:unit:
     - master
     - tags
   script:
-    - yarn test:unit --silent --passWithNoTests
+    - yarn run test:unit --silent --passWithNoTests
 
 tests:smoke:
+  image: cypress/browsers:node12.14.1-chrome83-ff77
+  stage: test
+  only:
+    - master
+  script:
+    - yarn cypress install
+    - yarn start-server-and-test "yarn develop" http://localhost:8000 "cypress run --config-file cypress-smoke.json --browser chrome"
+  artifacts:
+    paths:
+      - cypress/videos
+      - cypress/screenshots
+
+tests:visual:
+  stage: test
+  only:
+    - master
+  script:
+    - USE_PERCY=true yarn build
+
+tests:integration:
   image: cypress/browsers:node12.14.1-chrome83-ff77
   stage: test
   except:
@@ -58,7 +78,7 @@ tests:smoke:
     - tags
   script:
     - yarn cypress install
-    - yarn test:e2e:smoke
+    - yarn start-server-and-test "yarn develop" http://localhost:8000 "cypress run --browser chrome"
   artifacts:
     paths:
       - cypress/videos
@@ -85,6 +105,6 @@ deploy:site:
     - master
   script:
     - npm i -g netlify-cli
-    - netlify deploy --site $NETLIFY_SITE_ID --auth $NETLIFY_PERSONAL_TOKEN --prod --message "$CI_COMMIT_TITLE" --dir public/
+    - yarn deploy --site $NETLIFY_SITE_ID --auth $NETLIFY_PERSONAL_TOKEN --message "$CI_COMMIT_TITLE"
   dependencies:
     - build:site

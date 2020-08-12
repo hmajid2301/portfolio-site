@@ -23,8 +23,8 @@ export interface Props {
 }
 
 const Footer = ({ links, socialButtons }: Props) => (
-  <Container>
-    <Content>
+  <FooterContainer data-cy="Footer">
+    <FooterContent>
       <Row>
         <Links links={links} />
         <SocialLinks buttons={socialButtons} />
@@ -32,13 +32,13 @@ const Footer = ({ links, socialButtons }: Props) => (
           &copy; Copyright 2020, {config.siteData.author}. All Rights Reserved.
         </CopyrightText>
       </Row>
-    </Content>
-  </Container>
+    </FooterContent>
+  </FooterContainer>
 );
 
-const Container = tw.footer`bg-secondary-background font-header`;
+const FooterContainer = tw.footer`bg-secondary-background font-header`;
 
-const Content = tw.div`max-w-screen-xl mx-auto py-20 lg:py-24`;
+const FooterContent = tw.div`max-w-screen-xl mx-auto py-20 lg:py-24`;
 
 const Row = tw.div`flex items-center justify-center flex-col px-8`;
 

@@ -38,8 +38,8 @@ const Search = ({
           className="px-2"
           dataId="SearchBar"
           label="Search"
-          onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
-            const searchQuery = e.target.value;
+          onChange={(event: React.ChangeEvent<HTMLInputElement>) => {
+            const searchQuery = event.target.value;
             setQuery(searchQuery);
             searchResults(searchQuery);
           }}

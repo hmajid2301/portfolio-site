@@ -1,7 +1,7 @@
 ---
 title: Uses
 slug: uses
-date: '2020-08-31'
+date: '2020-08-01'
 cover_image: 'images/neofetch.png'
 ---
 

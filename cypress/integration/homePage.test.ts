@@ -5,10 +5,10 @@
 import config from '../../src/config/config.json';
 
 describe(`Home Page`, () => {
-  it(`check hero text loads`, () => {
+  it(`check hero loads`, () => {
     cy.visit('/');
-    cy.contains("I'm Haseeb");
-    cy.get('#tsparticles');
+    cy.log('Check hero text loads.');
+    cy.contains(`Hello, I'm ${config.misc.logo}`, { timeout: 10000 });
   });
 
   it(`check latest posts are loading`, () => {
@@ -16,7 +16,7 @@ describe(`Home Page`, () => {
     cy.get('[data-cy=BlogCard]').should('have.length', 3);
   });
 
-  it(`check tags link are working`, () => {
+  it(`check tags link are working in blog post`, () => {
     cy.visit('/');
     cy.get('[data-cy=BlogCard]')
       .first()
@@ -50,38 +50,50 @@ describe(`Home Page`, () => {
 
   it(`check main projects are loading`, () => {
     cy.visit('/');
-    cy.get('[data-cy=MainProject]').should('have.length', 4);
+    cy.get('[data-cy=MainProject]').should(
+      'have.length',
+      config.projects.length
+    );
   });
 
   it(`check main project opens link`, () => {
+    const project = config.projects[0];
     cy.visit('/');
-    cy.contains('Composerisation').click();
-    cy.url().should('be', 'https://composerisation.haseebmajid.dev/');
+    cy.contains(project.text).click();
+    cy.url().should('be', project.link);
   });
 
   it(`check repository cards are loading`, () => {
     cy.visit('/');
-    cy.get('[data-cy=RepositoryCard]').should('have.length', 6);
+    cy.get('[data-cy=RepositoryCard]').should(
+      'have.length',
+      config.repositories.length
+    );
   });
 
   it(`check repository cards opens link`, () => {
+    const repo = config.repositories[0];
     cy.visit('/');
     cy.get('[data-cy=RepositoryCard]')
       .first()
       .within(() => {
         cy.contains('More Info').click();
       });
-    cy.url().should('be', config.repositories[0].url);
+    cy.url().should('be', repo.url);
   });
 
   it(`check history cards are loading`, () => {
     cy.visit('/');
-    cy.get('[data-cy=HistoryCard]').should('have.length', 2);
+    cy.get('[data-cy=HistoryCard]').should(
+      'have.length',
+      config.history.length
+    );
   });
 
   it(`check history cards open link`, () => {
+    const history = config.history[0];
     cy.visit('/');
     cy.get('[data-cy=HistoryCard]').first().click();
-    cy.url().should('be', config.history[0].link);
+    cy.url().should('be', history.link);
   });
 });

@@ -148,7 +148,7 @@ passed as CI variables:
 ### 📝 Uses Page
 
 Inspired by the [uses.tech](https://uses.tech/) site. Add your own `/uses/` all you need to do it
-update the file at `src/content/uses.md`.
+update the file at `src/content/uses.md` to include what you use.
 
 ## 🏚️ Previous Versions
 

@@ -17,7 +17,7 @@ const plugins = [
   `gatsby-plugin-sitemap`,
   `gatsby-plugin-postcss`,
   `gatsby-plugin-robots-txt`,
-  `gatsby-plugin-percy`,
+  process.env.USER_PRECY ? `gatsby-plugin-percy` : `gatsby-plugin-robots-txt`,
   {
     resolve: `gatsby-plugin-goatcounter`,
     options: {
@@ -60,7 +60,7 @@ const plugins = [
     options: {
       name: `Articles`,
       remote: misc.article_git_url,
-      branch: `master`,
+      branch: `feature/a`,
     },
   },
   {
