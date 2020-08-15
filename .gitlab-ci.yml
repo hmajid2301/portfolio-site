@@ -13,6 +13,7 @@ cache:
 stages:
   - check
   - test
+  - e2e
   - build
   - deploy
 
@@ -90,7 +91,7 @@ electrons-5:
   extends: .job_template
 
 tests:visual:
-  stage: test
+  stage: e2e
   only:
     - master
   script:
