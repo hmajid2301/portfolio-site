@@ -1,7 +1,20 @@
 image: node:12.13.0
 
+.job_template:
+  image: cypress/browsers:node12.14.1-chrome83-ff77
+  stage: test
+  except:
+    - master
+    - tags
+  script:
+    - yarn cypress install
+    - yarn start-server-and-test "yarn develop" http://localhost:8000 "cypress run --browser chrome --record --parallel"
+  artifacts:
+    paths:
+      - cypress/videos
+      - cypress/screenshots
 variables:
-  CYPRESS_CACHE_FOLDER: "$CI_PROJECT_DIR/cache/Cypress"
+  CYPRESS_CACHE_FOLDER: '$CI_PROJECT_DIR/cache/Cypress'
 
 cache:
   key: ${CI_COMMIT_REF_SLUG}
@@ -70,19 +83,16 @@ tests:visual:
   script:
     - USE_PERCY=true yarn build
 
-tests:integration:
-  image: cypress/browsers:node12.14.1-chrome83-ff77
-  stage: test
-  except:
-    - master
-    - tags
-  script:
-    - yarn cypress install
-    - yarn start-server-and-test "yarn develop" http://localhost:8000 "cypress run --browser chrome"
-  artifacts:
-    paths:
-      - cypress/videos
-      - cypress/screenshots
+electrons-1:
+  extends: .job_template
+electrons-2:
+  extends: .job_template
+electrons-3:
+  extends: .job_template
+electrons-4:
+  extends: .job_template
+electrons-5:
+  extends: .job_template
 
 build:site:
   stage: build
