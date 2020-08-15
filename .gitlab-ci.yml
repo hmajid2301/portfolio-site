@@ -6,7 +6,6 @@ variables:
 cache:
   key: ${CI_COMMIT_REF_SLUG}
   paths:
-    - .npm
     - cache/Cypress
     - node_modules
 
@@ -95,6 +94,7 @@ tests:visual:
   only:
     - master
   script:
+    - echo "PERCY_TOKEN=${PERCY_TOKEN}" > .env
     - USE_PERCY=true yarn build
 
 build:site:
@@ -102,7 +102,7 @@ build:site:
   only:
     - master
   script:
-    - echo "PERCY_TOKEN=${PERCY_TOKEN}" > .env
+    - touch .env
     - wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key add -
     - echo 'deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main' |  tee /etc/apt/sources.list.d/google-chrome.list
     - apt-get update
