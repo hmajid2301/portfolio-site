@@ -40,7 +40,7 @@
 }
 
 .blog-post a {
-  @apply text-primary underline;
+  @apply text-main underline;
 }
 
 .blog-post p {

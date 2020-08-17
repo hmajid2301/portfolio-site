@@ -11,7 +11,7 @@
     "coverage": "test:e2e:ci && report:coverage",
     "cy:open": "cypress open",
     "cy:run": "cypress run",
-    "cy:open:smoke": "cypress run --config-file cypress-smoke.json --browser chrome",
+    "cy:open:smoke": "cypress open --config-file cypress-smoke.json --browser chromium",
     "debug": "yarn clean && node --nolazy --inspect-brk node_modules/.bin/gatsby develop",
     "deploy": "netlify deploy --dir public/ --prod",
     "develop": "yarn clean && node --max-http-header-size=16385 node_modules/.bin/gatsby develop",

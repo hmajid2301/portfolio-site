@@ -22,7 +22,7 @@ const SocialLink = ({ icon, url }: Props) => (
     rel="noreferrer"
     target="_blank"
   >
-    <Icon icon={icon} />
+    <Icon icon={icon} label={`Social link button icon for: ${icon}`} />
   </SocialLinkContainer>
 );
 

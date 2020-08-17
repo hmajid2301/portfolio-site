@@ -11,6 +11,8 @@ export type SocialButton = {
 export interface Props {
   /** Extra CSS classes to assign to this container component. */
   className?: string;
+  /** Unique aria-label for this a11y. */
+  label?: string;
   /** Extra CSS classes to assign to this link component. */
   linkClassName?: string;
   /** The links to show on the footer. */
@@ -22,8 +24,8 @@ export interface Props {
   }[];
 }
 
-const Links = ({ className, linkClassName, links }: Props) => (
-  <LinksContainer className={className}>
+const Links = ({ className, linkClassName, label, links }: Props) => (
+  <LinksContainer aria-label={label} className={className}>
     {links.map((link) => (
       <NavLink
         key={link.link}

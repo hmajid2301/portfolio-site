@@ -26,7 +26,7 @@ const Footer = ({ links, socialButtons }: Props) => (
   <FooterContainer data-cy="Footer">
     <FooterContent>
       <Row>
-        <Links links={links} />
+        <Links label="navigation bar in footer" links={links} />
         <SocialLinks buttons={socialButtons} />
         <CopyrightText>
           &copy; Copyright 2020, {config.siteData.author}. All Rights Reserved.

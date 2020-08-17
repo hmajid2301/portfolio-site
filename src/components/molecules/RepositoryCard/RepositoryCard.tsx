@@ -27,7 +27,11 @@ const RepositoryCard = ({ item }: Props) => {
       <MainText>{item.description}</MainText>
       <MetaContainer>
         <MetaItem href={item.url} rel="noreferrer" target="_blank">
-          <Icon icon="compass" /> More Info
+          <Icon
+            icon="compass"
+            label={`Button for more information about repo ${item.name}`}
+          />{' '}
+          More Info
         </MetaItem>
 
         <MetaItem
@@ -35,7 +39,11 @@ const RepositoryCard = ({ item }: Props) => {
           rel="noreferrer"
           target="_blank"
         >
-          <Icon icon="star" /> {item.stars}
+          <Icon
+            icon="star"
+            label={`number of stars on github/gitlab for ${item.name}`}
+          />{' '}
+          {item.stars}
         </MetaItem>
       </MetaContainer>
     </RepositoryContainer>
