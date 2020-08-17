@@ -74,7 +74,7 @@ export const pageQuery = graphql`
   query($slug: String!) {
     markdownRemark(frontmatter: { slug: { eq: $slug } }) {
       html
-      excerpt(pruneLength: 160)
+      excerpt(pruneLength: 100)
       frontmatter {
         date(formatString: "YYYY-MM-DD")
         slug
