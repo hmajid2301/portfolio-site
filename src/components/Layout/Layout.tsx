@@ -56,7 +56,7 @@ const DefaultLayout = ({
         pathname={pathname}
         title={title}
       />
-      {children}
+      <main>{children}</main>
       <Footer links={links} socialButtons={social} />
     </div>
   );

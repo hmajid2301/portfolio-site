@@ -1,30 +1,18 @@
 image: node:12.13.0
 
-.job_template:
-  image: cypress/browsers:node12.14.1-chrome83-ff77
-  stage: test
-  except:
-    - master
-    - tags
-  script:
-    - yarn cypress install
-    - yarn start-server-and-test "yarn develop" http://localhost:8000 "cypress run --browser chrome --record --parallel"
-  artifacts:
-    paths:
-      - cypress/videos
-      - cypress/screenshots
 variables:
   CYPRESS_CACHE_FOLDER: '$CI_PROJECT_DIR/cache/Cypress'
 
 cache:
   key: ${CI_COMMIT_REF_SLUG}
   paths:
-    - .npm
     - cache/Cypress
     - node_modules
 
 stages:
+  - check
   - test
+  - e2e
   - build
   - deploy
 
@@ -32,7 +20,7 @@ before_script:
   - yarn install
 
 lint:
-  stage: test
+  stage: check
   except:
     - master
     - tags
@@ -40,7 +28,7 @@ lint:
     - yarn run lint
 
 format:
-  stage: test
+  stage: check
   except:
     - master
     - tags
@@ -48,7 +36,7 @@ format:
     - yarn run format:check
 
 types:check:
-  stage: test
+  stage: check
   except:
     - master
     - tags
@@ -56,7 +44,7 @@ types:check:
     - yarn run types:check
 
 tests:unit:
-  stage: test
+  stage: check
   except:
     - master
     - tags
@@ -76,30 +64,47 @@ tests:smoke:
       - cypress/videos
       - cypress/screenshots
 
-tests:visual:
-  stage: test
+tests:e2e:
+  image: cypress/browsers:node12.14.1-chrome83-ff77
+  stage: e2e
   only:
     - master
   script:
-    - USE_PERCY=true yarn build
+    - yarn cypress install
+    - yarn start-server-and-test "yarn develop" http://localhost:8000 "cypress run --config-file cypress-e2e.json --browser chrome"
+  artifacts:
+    paths:
+      - cypress/videos
+      - cypress/screenshots
 
-electrons-1:
-  extends: .job_template
-electrons-2:
-  extends: .job_template
-electrons-3:
-  extends: .job_template
-electrons-4:
-  extends: .job_template
-electrons-5:
-  extends: .job_template
+# .job_template:
+#   image: cypress/browsers:node12.14.1-chrome83-ff77
+#   stage: test
+#   except:
+#     - master
+#     - tags
+#   script:
+#     - yarn cypress install
+#     - yarn start-server-and-test "yarn develop" http://localhost:8000 "cypress run --browser chrome --record --parallel"
+#   artifacts:
+#     paths:
+#       - cypress/videos
+#       - cypress/screenshots
+
+tests:visual:
+  stage: e2e
+  only:
+    - master
+  script:
+    - echo "PERCY_TOKEN=${PERCY_TOKEN}" > .env
+    - USE_PERCY=true yarn build
 
 build:site:
   stage: build
   only:
     - master
   script:
-    - echo "PERCY_TOKEN=${PERCY_TOKEN}" > .env
+    - touch .env
     - wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key add -
     - echo 'deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main' |  tee /etc/apt/sources.list.d/google-chrome.list
     - apt-get update

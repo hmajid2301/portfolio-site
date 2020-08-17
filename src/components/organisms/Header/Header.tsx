@@ -36,6 +36,7 @@ const Header = ({ links }: Props) => {
           <DesktopNavLinks>
             <Links
               className="mx-24"
+              label="Laptop/Desktop navigation links"
               linkClassName=" text-base lg:text-base xl:text-lg font-semibold"
               links={links}
             />
@@ -47,9 +48,19 @@ const Header = ({ links }: Props) => {
             type="button"
           >
             {showNavLinks ? (
-              <Icon className="w-6 h-6" icon="close" size="1.3em" />
+              <Icon
+                className="w-6 h-6"
+                icon="close"
+                label="Close Menu Button"
+                size="1.3em"
+              />
             ) : (
-              <Icon className="w-6 h-6" icon="menu" size="1.3em" />
+              <Icon
+                className="w-6 h-6"
+                icon="menu"
+                label="Open Menu Button"
+                size="1.3em"
+              />
             )}
           </NavToggle>
           <SearchBar />
@@ -59,6 +70,7 @@ const Header = ({ links }: Props) => {
 
       <MobileNavLinks showNavLinks={showNavLinks}>
         <Links
+          label="Mobile/Tablet navigation links"
           linkClassName="text-lg my-2 font-bold transition border-transparent"
           links={links}
         />

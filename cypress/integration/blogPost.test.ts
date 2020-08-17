@@ -4,6 +4,7 @@
 
 import { Props as PostData } from '../../src/templates/Blog';
 import graphqlFixture from '../fixtures/graphql.json';
+import config from '../../src/config/config.json';
 
 describe(`Blog Post`, () => {
   let posts: { node: PostData['data']['markdownRemark'] }[];
@@ -49,24 +50,59 @@ describe(`Blog Post`, () => {
       posts = res.body.data.allMarkdownRemark.edges;
     });
   });
-  it(`check all the posts are loading`, () => {
+
+  // it(`check all the posts are loading`, () => {
+  //   posts.slice(0, 9).forEach((post) => {
+  //     const { date, title, tags } = post.node.frontmatter;
+  //     const { readingTime } = post.node.fields;
+  //     cy.visit('/blog/');
+  //     cy.contains(title).click({ force: true });
+  //     cy.contains(date);
+  //     cy.contains(`${readingTime.text} / ${readingTime.words}`, {
+  //       timeout: 10000,
+  //     });
+  //     tags.forEach((tag) => {
+  //       cy.contains(tag);
+  //     });
+  //     cy.contains('Share', { timeout: 10000 })
+  //       .findAllByRole('button')
+  //       .each((button) => {
+  //         cy.wrap(button).click();
+  //       });
+  //   });
+  // });
+
+  it(`check seo meta data is correct`, () => {
     posts.slice(0, 9).forEach((post) => {
-      const { date, title, tags } = post.node.frontmatter;
-      const { readingTime } = post.node.fields;
+      const { title, tags } = post.node.frontmatter;
+      const { excerpt } = post.node;
       cy.visit('/blog/');
       cy.contains(title).click({ force: true });
-      cy.contains(date);
-      cy.contains(`${readingTime.text} / ${readingTime.words}`, {
-        timeout: 10000,
+
+      cy.url().then((url) => {
+        cy.get('meta[property="og:url"]').should(
+          'have.attr',
+          'content',
+          url.replace('http://localhost:8000', config.misc.canonical_url)
+        );
       });
-      tags.forEach((tag) => {
-        cy.contains(tag);
-      });
-      cy.contains('Share', { timeout: 10000 })
-        .findAllByRole('button')
-        .each((button) => {
-          cy.wrap(button).click();
-        });
+
+      cy.get('meta[property="og:title"]').should('have.attr', 'content', title);
+      cy.get('meta[name="keywords"]').should(
+        'have.attr',
+        'content',
+        tags.toString()
+      );
+      cy.get('meta[property="og:description"]').should(
+        'have.attr',
+        'content',
+        excerpt
+      );
+      cy.get('meta[property="og:type"]').should(
+        'have.attr',
+        'content',
+        'article'
+      );
     });
   });
 

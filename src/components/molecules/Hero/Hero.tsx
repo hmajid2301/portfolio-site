@@ -34,7 +34,7 @@ const Hero = ({ name }: Props) => {
   );
 };
 
-const HeroContainer = tw.main`min-h-3/4-screen flex flex-col content-center justify-center items-center max-w-full
+const HeroContainer = tw.div`min-h-3/4-screen flex flex-col content-center justify-center items-center max-w-full
 mx-auto font-header p-4 m-4 relative text-header bg-background font-black`;
 
 const TextContainer = styled(Typist)`

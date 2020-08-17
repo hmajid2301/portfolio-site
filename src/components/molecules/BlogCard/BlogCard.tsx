@@ -69,7 +69,7 @@ const Details = tw.div`p-6 lg:block lg:text-left`;
 
 const Description = tw.p`font-body my-2`;
 
-const Title = tw.h5`mt-4 leading-snug font-header font-bold text-lg pb-1`;
+const Title = tw.h1`mt-4 leading-snug font-header font-bold text-lg pb-1`;
 
 const MetaContainer = tw.div`flex flex-wrap items-center leading-none my-5`;
 

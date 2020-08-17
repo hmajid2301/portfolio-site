@@ -12,11 +12,11 @@ const languages: Language = {
   },
   ci: {
     background: '#e13a1c',
-    color: '#fff',
+    color: '#000',
   },
   css: {
     background: '#178fce',
-    color: '#fff',
+    color: '#000',
   },
   docker: {
     background: '#384d54',
@@ -44,7 +44,7 @@ const languages: Language = {
   },
   gitlab: {
     background: '#fc6d26',
-    color: '#fff',
+    color: '#000',
   },
   flask: {
     background: '#000',
@@ -59,10 +59,10 @@ const languages: Language = {
   linux: { background: '#222', color: '#4FF14F' },
   openapi: { background: '#4c5b31', color: '#fff' },
   python: { background: '#3572A5', color: '#fff' },
-  programming: { background: '#367ee9', color: '#fff' },
+  programming: { background: '#367ee9', color: '#000' },
   project: {
     background: '#009e49',
-    color: '#fff',
+    color: '#000',
   },
   pytest: {
     background: '#009bdb',
@@ -74,8 +74,8 @@ const languages: Language = {
   storybook: { background: '#ff4785', color: '#000' },
   sqlalchemy: { background: '#778877', color: '#000' },
   testing: { background: '#fde628', color: '#000' },
-  tox: { background: '#6b7c6b', color: '#fff' },
-  tailwindcss: { background: '#1ab4b7', color: '#fff' },
+  tox: { background: '#6b7c6b', color: '#000' },
+  tailwindcss: { background: '#1ab4b7', color: '#000' },
   typescript: { background: '#2775c3', color: '#fff' },
   'visual-studio': { background: '#1d71ae', color: '#fff' },
   virtualbox: { background: '#1f3a60', color: '#fff' },

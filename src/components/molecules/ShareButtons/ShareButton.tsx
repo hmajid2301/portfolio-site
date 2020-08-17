@@ -33,16 +33,16 @@ const ShareButton = ({ link }: Props) => {
 
   const socialMedia = [
     <FacebookShareButton url={url}>
-      <Icon className={classes} icon="facebook" />
+      <Icon className={classes} icon="facebook" label="Facebook share button" />
     </FacebookShareButton>,
     <LinkedinShareButton url={url}>
-      <Icon className={classes} icon="linkedin" />
+      <Icon className={classes} icon="linkedin" label="LinkedIn share button" />
     </LinkedinShareButton>,
     <RedditShareButton url={url}>
-      <Icon className={classes} icon="reddit" />
+      <Icon className={classes} icon="reddit" label="Reddit share button" />
     </RedditShareButton>,
     <TwitterShareButton url={url}>
-      <Icon className={classes} icon="twitter" />
+      <Icon className={classes} icon="twitter" label="Twitter share button" />
     </TwitterShareButton>,
   ];
 

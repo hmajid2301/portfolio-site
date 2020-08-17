@@ -22,7 +22,7 @@ export interface Props {
         /** A list of tags for the article i.e. related topics. */
         tags: string[];
         /** Path to featured image. */
-        image?: {
+        cover_image?: {
           childImageSharp: {
             fluid: FluidObject;
           };
@@ -49,7 +49,9 @@ export default function BlogTemplate({ data }: Props) {
     <Layout
       description={excerpt}
       image={
-        frontmatter.image ? frontmatter.image.childImageSharp.fluid : undefined
+        frontmatter.cover_image
+          ? frontmatter.cover_image.childImageSharp.fluid
+          : undefined
       }
       keywords={frontmatter.tags}
       ogType="article"
@@ -57,7 +59,7 @@ export default function BlogTemplate({ data }: Props) {
       title={frontmatter.title}
     >
       <BlogPost
-        coverImage={frontmatter.image?.childImageSharp.fluid}
+        coverImage={frontmatter.cover_image?.childImageSharp.fluid}
         data={html}
         date={frontmatter.date}
         readingTime={fields.readingTime.text}
@@ -74,13 +76,13 @@ export const pageQuery = graphql`
   query($slug: String!) {
     markdownRemark(frontmatter: { slug: { eq: $slug } }) {
       html
-      excerpt(pruneLength: 160)
+      excerpt(pruneLength: 100)
       frontmatter {
         date(formatString: "YYYY-MM-DD")
         slug
         title
         tags
-        image: cover_image {
+        cover_image {
           childImageSharp {
             fluid {
               srcWebp
