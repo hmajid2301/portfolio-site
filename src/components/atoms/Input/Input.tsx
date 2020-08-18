@@ -23,6 +23,7 @@ const Input = React.forwardRef<HTMLInputElement, Props>(
       aria-label={label}
       className={`bg-background text-header placeholder-main ${className}`}
       data-cy={dataId}
+      data-testid={dataId}
       onChange={onChange}
       placeholder={placeholder}
       type="text"
