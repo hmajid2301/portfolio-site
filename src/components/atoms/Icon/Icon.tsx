@@ -68,6 +68,7 @@ const Icon = ({
       aria-label={label}
       className={`bg-${background} ${className}`}
       data-cy={dataId}
+      data-testid={dataId}
       onClick={onClick}
     >
       {React.cloneElement(icons[icon], { size })}

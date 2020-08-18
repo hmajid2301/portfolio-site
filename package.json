@@ -143,6 +143,7 @@
     "gatsby-cypress": "^0.4.10",
     "identity-obj-proxy": "^3.0.0",
     "jest": "^26.0.1",
+    "jest-dom": "^4.0.0",
     "jest-emotion": "^10.0.32",
     "jest-localstorage-mock": "^2.4.0",
     "netlify-cli": "^2.59.1",
