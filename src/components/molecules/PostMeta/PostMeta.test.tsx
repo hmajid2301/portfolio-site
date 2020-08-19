@@ -31,7 +31,7 @@ describe('<PostMeta />', () => {
       />
     );
     const titleText = getByText(title);
-    const dateText = getByText(`Date Published: ${date}`);
+    const dateText = getByText(date);
     const reading = getByText(`${readingTime} / ${words} words`);
 
     expect(titleText).toBeTruthy();

@@ -1,5 +1,4 @@
-import BlogList, { QueryItem as Item } from './BlogList';
+import BlogList from './BlogList';
 
 export default BlogList;
-export type QueryItem = Item;
 export { BlogList };

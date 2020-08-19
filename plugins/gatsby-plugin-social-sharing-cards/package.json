@@ -1,0 +1,11 @@
+{
+  "name": "gatsby-plugin-social-sharing-cards",
+  "private": true,
+  "version": "1.0.0",
+  "author": "Perttu Lähteenlahti",
+  "dependencies": {
+    "i": "^0.3.6",
+    "jimp": "^0.8.5",
+    "npm": "^6.13.0"
+  }
+}

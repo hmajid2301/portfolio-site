@@ -8,9 +8,12 @@
   },
   "misc": {
     "logo": "Haseeb",
-    "canonical_url": "https://haseebmajid.dev",
-    "article_git_url": "https://gitlab.com/hmajid2301/articles.git",
-    "default_search": "react"
+    "default_search": "react",
+    "buy_me_coffee_id": "haseebmajid"
+  },
+  "article": {
+    "git_url": "https://gitlab.com/hmajid2301/articles.git",
+    "file_patterns": ["**/*", "!**/*/index.md"]
   },
   "social": [
     {
@@ -20,10 +23,6 @@
     {
       "icon": "gitlab",
       "url": "https://gitlab.com/hmajid2301"
-    },
-    {
-      "icon": "medium",
-      "url": "https://medium.com/@hmajid2301"
     },
     {
       "icon": "dev",

@@ -6,6 +6,7 @@
 #root,
 #docs-root {
   --primary: #3071d1;
+  --primary-03: rgb(54, 126, 233, 0.3);
   --secondary: #a0aec0;
   --accent: #718096;
   --background: #fff;

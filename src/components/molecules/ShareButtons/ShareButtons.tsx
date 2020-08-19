@@ -29,7 +29,8 @@ const ShareButton = ({ link }: Props) => {
   );
 
   const url = `${site.siteMetadata.siteUrl}${link}`;
-  const classes = 'hover:text-primary transition duration-300 mx-2';
+  const classes =
+    'hover:text-primary transition duration-300 mx-2 transform hover:scale-125';
 
   const socialMedia = [
     <FacebookShareButton url={url}>
@@ -46,9 +47,9 @@ const ShareButton = ({ link }: Props) => {
     </TwitterShareButton>,
   ];
 
-  return <ShareContainer>Share {socialMedia}</ShareContainer>;
+  return <ShareContainer data-testid="Share">{socialMedia}</ShareContainer>;
 };
 
-const ShareContainer = tw.div`mx-10 py-5 border-accent border-t-2`;
+const ShareContainer = tw.div`mx-10 py-5 border-accent border-t-2 text-3xl`;
 
 export default ShareButton;

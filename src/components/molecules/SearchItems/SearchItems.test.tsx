@@ -10,13 +10,13 @@ describe('<SearchItem />', () => {
     [
       [
         {
-          html: 'The contents of this post',
+          content: 'The contents of this post',
           path: 'my-first-post',
           title: 'A title',
           id: 'title',
         },
         {
-          html: 'The contents of this post  and other contents',
+          content: 'The contents of this post  and other contents',
           path: 'my-second-post',
           title: 'Another title',
           id: 'title2',

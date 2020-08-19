@@ -18,6 +18,7 @@
   - [🌞/🌝 Themes switcher](#-themes-switcher)
   - [🔎 SEO component](#-seo-component)
   - [📈 GoatCounter analytics tracking](#-goatcounter-analytics-tracking)
+  - [🖼️ Social Media Sharing Cards](#️-social-media-sharing-cards)
   - [💚 Gitlab CI](#-gitlab-ci)
   - [📝 Uses Page](#-uses-page)
 - [🏚️ Previous Versions](#️-previous-versions)
@@ -134,6 +135,11 @@ it's a blog post with a cover image.
 
 The site sends usage statistics to [GoatCounter](https://www.goatcounter.com/) all you have to do is create an account
 
+### 🖼️ Social Media Sharing Cards
+
+Social media sharing card such as open graph images are also auto generated for each blog post. You can edit the image here `plugins/gatsby-plugin-social-sharing-cards/templates/default.png`. The image used for everywhere else can be found here `static/og-image.jpg`.
+You will need to adjust those accordingly.
+
 ### 💚 Gitlab CI
 
 We have a `.gitlab-ci.yml`, which will provide jobs to run various linting jobs, e2e tests
@@ -169,3 +175,4 @@ update the file at `src/content/uses.md` to include what you use.
 - [Treact](https://treact.owaiskhan.me)
 - [Matthias Kretschmann](https://matthiaskretschmann.com/)
 - [Paul Scanlon](https://paulie.dev/posts/)
+- Open Graph Image from [here](https://codeburst.io/how-to-automate-social-sharing-cards-on-your-gatsby-blog-77a356a58b38)

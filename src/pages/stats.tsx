@@ -16,9 +16,13 @@ export interface Props {
       edges: {
         /** List of all articles. */
         node: {
-          wordCount: {
-            /** Number of words for this article. */
-            words: number;
+          fields: {
+            readingTime: {
+              time: number;
+              text: string;
+              minutes: number;
+              words: number;
+            };
           };
           frontmatter: {
             /** The post date. */
@@ -33,7 +37,9 @@ export interface Props {
 const Stats = ({ data }: Props) => {
   const { edges: blogItems } = data.allMarkdownRemark;
   const totalPosts = blogItems.length;
-  const { dayData, monthData, totalWords } = getBlogStats(blogItems);
+  const { dayData, monthData, totalWords, totalMinutes } = getBlogStats(
+    blogItems
+  );
 
   const days: ChartData[] = [];
   const months: ChartData[] = [];
@@ -41,9 +47,19 @@ const Stats = ({ data }: Props) => {
   objectToDataArray(dayData, totalPosts, days);
   objectToDataArray(monthData, totalPosts, months);
 
+  const hours = Math.floor(totalMinutes / 60);
+  const minutes = Math.floor(totalMinutes % 60);
+
   return (
     <Layout title="Blog Statistics">
       <Section>
+        <MainText>
+          This site has a total of <b>{totalPosts}</b> articles 📚. In total
+          across all articles I&apos;ve written a total of{' '}
+          <b>{totalWords.toLocaleString()}</b> words 🖊️. It would take you
+          approximately <b>{hours}</b> hours and <b>{minutes}</b> minutes ⌚ to
+          read all of the them.
+        </MainText>
         <DonutChart
           length={totalPosts}
           title="Average word count"
@@ -84,15 +100,17 @@ function getBlogStats(blogItems: Props['data']['allMarkdownRemark']['edges']) {
   };
 
   let totalWords = 0;
+  let totalMinutes = 0;
 
   blogItems.forEach((blogItem) => {
-    totalWords += blogItem.node.wordCount.words;
+    totalWords += blogItem.node.fields.readingTime.words;
+    totalMinutes += blogItem.node.fields.readingTime.minutes;
     const [day, month] = blogItem.node.frontmatter.date.split(' ');
     dayData[day] += 1;
     monthData[month] += 1;
   });
 
-  return { dayData, monthData, totalWords };
+  return { dayData, monthData, totalWords, totalMinutes };
 }
 
 function objectToDataArray(
@@ -111,16 +129,23 @@ function objectToDataArray(
 
 const Section = tw.section`max-w-xl mx-auto my-10 px-4`;
 
+const MainText = tw.p`text-main text-lg font-body bg-secondary-background p-4`;
+
 export const pageQuery = graphql`
   query MyQuery {
-    allMarkdownRemark {
+    allMarkdownRemark(filter: { frontmatter: { title: { ne: "Uses" } } }) {
       edges {
         node {
-          wordCount {
-            words
-          }
           frontmatter {
             date(formatString: "dddd MMM")
+          }
+          fields {
+            readingTime {
+              time
+              text
+              minutes
+              words
+            }
           }
         }
       }

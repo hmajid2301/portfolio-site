@@ -33,6 +33,7 @@ module.exports = {
       },
       colors: {
         primary: 'var(--primary)',
+        'primary-03': 'var(--primary-03)',
         secondary: 'var(--secondary)',
         main: 'var(--main)',
         background: 'var(--background)',

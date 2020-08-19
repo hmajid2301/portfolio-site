@@ -3,8 +3,10 @@ import { graphql } from 'gatsby';
 import React from 'react';
 import tw from 'twin.macro';
 
+import { QueryItem } from '~/@types/index';
 import { Layout } from '~/components/Layout';
-import { BlogList, QueryItem } from '~/components/organisms/BlogList';
+import { BlogList } from '~/components/organisms/BlogList';
+import { queryToBlogItem } from '~/helpers/queryToData';
 
 export interface Props {
   data: {
@@ -16,11 +18,13 @@ export interface Props {
 }
 
 const Blog = ({ data }: Props) => {
+  const blogItems = queryToBlogItem(data.allMarkdownRemark);
+
   return (
     <Layout title="Blog">
       <BlogContainer>
         <Header>Blog</Header>
-        <BlogList data={data} />
+        <BlogList data={blogItems} />
       </BlogContainer>
     </Layout>
   );
@@ -37,13 +41,16 @@ export default Blog;
 
 export const pageQuery = graphql`
   query {
-    allMarkdownRemark(sort: { order: DESC, fields: [frontmatter___date] }) {
+    allMarkdownRemark(
+      sort: { order: DESC, fields: [frontmatter___date] }
+      filter: { frontmatter: { title: { ne: "Uses" } } }
+    ) {
       edges {
         node {
           id
           excerpt(pruneLength: 100)
           frontmatter {
-            date(formatString: "YYYY-MM-DD")
+            date(formatString: "Do MMMM, YYYY")
             slug
             title
             tags
@@ -55,6 +62,11 @@ export const pageQuery = graphql`
                   ...GatsbyImageSharpFluid
                 }
               }
+            }
+          }
+          fields {
+            readingTime {
+              text
             }
           }
         }

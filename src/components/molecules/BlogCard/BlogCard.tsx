@@ -4,6 +4,7 @@ import Img, { FluidObject } from 'gatsby-image';
 import React from 'react';
 import tw from 'twin.macro';
 
+import { Icon } from '~/components/atoms/Icon';
 import { ProgramTags as Tags } from '~/components/atoms/ProgramTags';
 
 export interface Props {
@@ -24,6 +25,7 @@ export interface BlogItem {
   title: string;
   /** The unique slug/url of the blog post. */
   link: string;
+  readingTime?: string;
 }
 
 const BlogCard = ({ item }: Props) => (
@@ -33,10 +35,26 @@ const BlogCard = ({ item }: Props) => (
         <Image alt="Cover for article." fluid={item.image} loading="lazy" />
       </ImageContainer>
       <Details>
-        <Title data-cy="BlogTitle">{item.title}</Title>
-        <Date>{item.date}</Date>
-        <Description>{item.description}</Description>
-        <MetaContainer>
+        <Title data-cy="BlogTitle">
+          <Icon className="mr-2" icon="code" />
+          {item.title}
+        </Title>
+        <Row>
+          <Date>
+            <Icon className="mr-2" icon="calendar" />
+            {item.date}
+          </Date>
+          <Text>
+            <Icon className="mr-2" icon="hourglass" />
+            {item.readingTime}
+          </Text>
+        </Row>
+        <Text>
+          <Icon className="mr-2" icon="description" />
+          {item.description}
+        </Text>
+        <TagContainer>
+          <Icon className="mr-2" icon="tag" />
           {item.tags &&
             item.tags.map((category) => (
               <Tags
@@ -46,7 +64,7 @@ const BlogCard = ({ item }: Props) => (
                 text={category}
               />
             ))}
-        </MetaContainer>
+        </TagContainer>
       </Details>
     </Card>
   </BlogCardContainer>
@@ -65,13 +83,15 @@ const Card = styled(Link)`
   ${tw`py-20 lg:py-24`}
 `;
 
+const Row = tw.div`flex flex-row justify-between`;
+
 const Details = tw.div`p-6 lg:block lg:text-left`;
 
-const Description = tw.p`font-body my-2`;
+const Text = tw.p`font-body my-2`;
 
 const Title = tw.h1`mt-4 leading-snug font-header font-bold text-lg pb-1`;
 
-const MetaContainer = tw.div`flex flex-wrap items-center leading-none my-5`;
+const TagContainer = tw.div`flex flex-wrap items-center leading-none my-5`;
 
 const Date = tw.p` my-2`;
 

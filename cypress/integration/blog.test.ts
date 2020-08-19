@@ -16,7 +16,7 @@ describe(`Blog List`, () => {
             id
             excerpt(pruneLength: 100)
             frontmatter {
-              date(formatString: "YYYY-MM-DD")
+              date(formatString: "Do MMMM, YYYY")
               slug
               title
               tags

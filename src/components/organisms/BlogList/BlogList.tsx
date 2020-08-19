@@ -1,65 +1,16 @@
-import { FluidObject } from 'gatsby-image';
 import React from 'react';
 import tw from 'twin.macro';
 
 import { BlogCard, BlogItem } from '~/components/molecules/BlogCard';
 
 export interface Props {
-  /** The background color of post. */
-  background?: string;
-  /** The color of main text. */
-  color?: string;
-  data: {
-    allMarkdownRemark: {
-      edges: QueryItem[];
-    };
-  };
-  /** The text color of the main text. */
-  textColor?: string;
-}
-
-export interface QueryItem {
-  node: {
-    excerpt: string;
-    frontmatter: {
-      /** The post date. */
-      date: string;
-      cover_image: {
-        childImageSharp: {
-          fluid: FluidObject;
-        };
-        /** Path to the cover image. */
-        publicURL: string;
-      };
-      /** A list of tags for the article i.e. related topics. */
-      tags: string[];
-      /** The title of the blog post. */
-      title: string;
-      /** The unique slug/url of the blog post. */
-      slug: string;
-    };
-  };
+  data: BlogItem[];
 }
 
 const BlogList = ({ data }: Props) => {
-  const blogItems: BlogItem[] = [];
-  data.allMarkdownRemark.edges.forEach((element) => {
-    const { frontmatter, excerpt } = element.node;
-    if (frontmatter.title !== 'Uses') {
-      blogItems.push({
-        description: excerpt,
-        date: frontmatter.date,
-        image: frontmatter.cover_image.childImageSharp.fluid,
-        tags: frontmatter.tags,
-        title: frontmatter.title,
-        link: frontmatter.slug,
-      });
-    }
-  });
-
   return (
     <BlogRowContainer>
-      {blogItems.map((blogItem) => (
+      {data.map((blogItem) => (
         <BlogCard key={blogItem.title} item={blogItem} />
       ))}
     </BlogRowContainer>

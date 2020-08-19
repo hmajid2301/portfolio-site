@@ -23,6 +23,6 @@
       "~/*": ["src/*"]
     }
   },
-  "include": ["./src/**/*", "./test-utils/**/*", "./__mocks__/**/*"],
+  "include": ["./src/**/*", "./test-utils/**/*", "./__mocks__/**/*", "SearchBar"],
   "exclude": ["node_modules", "plugins"]
 }

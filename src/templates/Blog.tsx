@@ -1,41 +1,17 @@
 import { graphql } from 'gatsby';
-import { FluidObject } from 'gatsby-image';
 import React from 'react';
 
+import { QueryItem } from '~/@types/index';
 import { Layout } from '~/components/Layout';
 import { BlogPost } from '~/components/organisms/BlogPost';
+import { SimilarPosts } from '~/components/organisms/SimiliarPost';
 
 export interface Props {
   data: {
-    markdownRemark: {
-      fields: {
-        /** How long it'll take to finish the article. */
-        readingTime: {
-          text: string;
-          words: string;
-        };
-      };
-
-      frontmatter: {
-        /** The post date. */
-        date: string;
-        /** A list of tags for the article i.e. related topics. */
-        tags: string[];
-        /** Path to featured image. */
-        cover_image?: {
-          childImageSharp: {
-            fluid: FluidObject;
-          };
-        };
-        /** The title of the blog post. */
-        title: string;
-        /** The unique slug/url of the blog post. */
-        slug: string;
-      };
-
+    markdownRemark: QueryItem['node'] & {
       /** The blog post as a HTML string. */
-      html: string;
-      /** The first 160 chars. */
+      content: string;
+      /** The first 100 characters from the post. */
       excerpt: string;
     };
   };
@@ -43,31 +19,34 @@ export interface Props {
 
 export default function BlogTemplate({ data }: Props) {
   const { markdownRemark } = data;
-  const { fields, frontmatter, html, excerpt } = markdownRemark;
+  const { fields, frontmatter, content, excerpt } = markdownRemark;
 
   return (
     <Layout
       description={excerpt}
-      image={
-        frontmatter.cover_image
-          ? frontmatter.cover_image.childImageSharp.fluid
-          : undefined
-      }
+      image={{
+        src: `/blog/${frontmatter.slug}/card.jpg`,
+        height: 630,
+        width: 1200,
+      }}
       keywords={frontmatter.tags}
       ogType="article"
       pathname={`/blog/${frontmatter.slug}/`}
       title={frontmatter.title}
     >
-      <BlogPost
-        coverImage={frontmatter.cover_image?.childImageSharp.fluid}
-        data={html}
-        date={frontmatter.date}
-        readingTime={fields.readingTime.text}
-        slug={`/blog/${frontmatter.slug}/`}
-        tags={frontmatter.tags}
-        title={frontmatter.title}
-        words={fields.readingTime.words}
-      />
+      <div className="max-w-screen-xl mx-auto bg-secondary-background rounded py-5 my-5 px-2 lg:px-0">
+        <BlogPost
+          coverImage={frontmatter.cover_image?.childImageSharp.fluid}
+          data={content}
+          date={frontmatter.date}
+          readingTime={fields.readingTime.text}
+          slug={`/blog/${frontmatter.slug}/`}
+          tags={frontmatter.tags}
+          title={frontmatter.title}
+          words={fields.readingTime.words}
+        />
+        <SimilarPosts tags={frontmatter.tags} />
+      </div>
     </Layout>
   );
 }
@@ -75,10 +54,10 @@ export default function BlogTemplate({ data }: Props) {
 export const pageQuery = graphql`
   query($slug: String!) {
     markdownRemark(frontmatter: { slug: { eq: $slug } }) {
-      html
+      content: html
       excerpt(pruneLength: 100)
       frontmatter {
-        date(formatString: "YYYY-MM-DD")
+        date(formatString: "Do MMMM, YYYY")
         slug
         title
         tags

@@ -77,10 +77,12 @@ const BlogPost = ({
       />
       <div ref={target} className="blog-post">
         <div
-          className="blog-post-content px-10"
+          className="blog-post-content px-3 lg:px-10"
           dangerouslySetInnerHTML={{ __html: data }}
         />
-        <ShareButtons link={slug} />
+        <div className="flex justify-center align-center">
+          <ShareButtons link={slug} />
+        </div>
       </div>
       <ToastContainer
         autoClose={2000}
@@ -98,6 +100,6 @@ const BlogPost = ({
   );
 };
 
-const BlogContainer = tw.div`max-w-screen-xl mx-auto font-body text-main bg-secondary-background rounded py-5 my-5 px-2 lg:px-0`;
+const BlogContainer = tw.div`font-body text-main`;
 
 export default BlogPost;

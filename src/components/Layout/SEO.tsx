@@ -114,7 +114,7 @@ const SEO = ({
             },
             {
               property: `og:url`,
-              content: `${site.siteMetadata.siteUrl}${location.pathname}`,
+              content: `${site.siteMetadata.siteUrl}${location.pathname}/`,
             },
             {
               name: `twitter:creator`,

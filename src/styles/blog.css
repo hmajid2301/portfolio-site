@@ -1,5 +1,5 @@
 .blog-post {
-  @apply leading-relaxed text-sm;
+  @apply leading-relaxed text-base;
 }
 
 @screen sm {
@@ -40,7 +40,11 @@
 }
 
 .blog-post a {
-  @apply text-main underline;
+  @apply text-main bg-primary-03 border-b-4 border-primary;
+}
+
+.blog-post a:hover {
+  @apply bg-primary transition duration-300;
 }
 
 .blog-post p {
@@ -50,6 +54,10 @@
 .blog-post ul,
 .blog-post ol {
   @apply mb-4 ml-8;
+}
+
+.blog-post li {
+  @apply my-4;
 }
 
 .blog-post li > p,
@@ -99,6 +107,10 @@ code[class*='language-'] {
   @apply font-code text-lg;
 }
 
+.gatsby-code-title {
+  @apply not-italic text-main;
+}
+
 .gatsby-highlight::before {
   content: attr(data-language);
   background: #222;
@@ -107,7 +119,7 @@ code[class*='language-'] {
 }
 
 .gatsby-highlight {
-  @apply my-5 relative;
+  @apply mb-5 relative;
 }
 
 .gatsby-highlight::after {

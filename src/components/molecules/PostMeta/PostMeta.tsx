@@ -2,6 +2,7 @@ import { FluidObject } from 'gatsby-image';
 import React from 'react';
 import tw from 'twin.macro';
 
+import { Icon } from '~/components/atoms/Icon';
 import { ProgramTags } from '~/components/atoms/ProgramTags';
 
 export interface Props {
@@ -30,16 +31,26 @@ const PostMeta = ({
   return (
     <MetaContainer>
       <img alt="Cover for article." loading="lazy" src={coverImage?.srcWebp} />
-      <Title>{title}</Title>
-      <Date>Date Published: {date}</Date>
-      <Date>
-        {readingTime} / {words} words
-      </Date>
+      <Title>
+        <Icon className="mr-2" icon="code" />
+        {title}
+      </Title>
+      <Row>
+        <Text>
+          <Icon className="mr-2" icon="calendar" />
+          {date}
+        </Text>
+        <Text>
+          <Icon className="mr-2" icon="hourglass" /> {readingTime} / {words}{' '}
+          words
+        </Text>
+      </Row>
       {tags && (
         <ListContainer>
+          <Icon className="mr-2" icon="tag" />
           {tags.map((category) => (
             <Item key={category}>
-              <ProgramTags key={category} text={category} />
+              <ProgramTags key={category} size="sm" text={category} />
             </Item>
           ))}
         </ListContainer>
@@ -50,11 +61,13 @@ const PostMeta = ({
 
 const MetaContainer = tw.section`flex flex-col my-10 font-body text-main items-center`;
 
-const Title = tw.div`text-3xl mt-10 mb-4 font-header`;
+const Title = tw.div`text-3xl mt-10 mb-4 font-header text-center`;
 
-const Date = tw.div`text-base my-2`;
+const Text = tw.div`text-base my-2 mx-4`;
 
-const ListContainer = tw.div`flex flex-wrap mt-5 mb-10`;
+const Row = tw.div`flex flex-row justify-between`;
+
+const ListContainer = tw.div`flex justify-center items-center flex-wrap mt-5 mb-10`;
 
 const Item = tw.span`mt-4 lg:mr-1`;
 

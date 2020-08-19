@@ -2,9 +2,11 @@ import { graphql } from 'gatsby';
 import React from 'react';
 import tw from 'twin.macro';
 
+import { QueryItem } from '~/@types/index';
 import { ProgramTags } from '~/components/atoms/ProgramTags';
 import { Layout } from '~/components/Layout';
-import { BlogList, QueryItem } from '~/components/organisms/BlogList';
+import { BlogList } from '~/components/organisms/BlogList';
+import { queryToBlogItem } from '~/helpers/queryToData';
 
 export interface Props {
   pageContext: {
@@ -32,12 +34,13 @@ export interface TagItem {
 
 const TagTemplate = ({ pageContext, data }: Props) => {
   const { tag } = pageContext;
+  const blogItems = queryToBlogItem(data.allMarkdownRemark);
   return (
-    <Layout title={`Tags - ${tag}`}>
+    <Layout title={`#${tag}`}>
       <TagsContainer>
         <ProgramTags size="4xl" text={tag} />
         <BlogItems>
-          <BlogList data={data} />
+          <BlogList data={blogItems} />
         </BlogItems>
       </TagsContainer>
     </Layout>
@@ -62,7 +65,7 @@ export const pageQuery = graphql`
         node {
           excerpt(pruneLength: 100)
           frontmatter {
-            date(formatString: "YYYY-MM-DD")
+            date(formatString: "Do MMMM, YYYY")
             slug
             title
             tags

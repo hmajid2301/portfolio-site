@@ -19,7 +19,7 @@ export interface Page {
   /** The path to the page. */
   path: string;
   /** The contents of the page . */
-  html: string;
+  content: string;
 }
 
 const SearchItems = ({ results, query, urlPrepend }: Props) => (
@@ -27,7 +27,7 @@ const SearchItems = ({ results, query, urlPrepend }: Props) => (
     {results.map((page: Page) => (
       <li key={page.id}>
         <SearchItem
-          content={page.html}
+          content={page.content}
           path={`${urlPrepend}/${page.path}/`}
           query={query}
           title={page.title}

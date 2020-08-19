@@ -13,9 +13,14 @@ import {
   FaDev as Dev,
   FaSearch as Search,
   FaFacebookF as Facebook,
+  FaCalendarAlt as Calendar,
+  FaCode as Code,
+  FaTags as Tag,
+  FaHourglassEnd as HourGlass,
 } from 'react-icons/fa';
 import { GoKey as Key } from 'react-icons/go';
 import { GrReddit as Reddit } from 'react-icons/gr';
+import { MdDescription as Description } from 'react-icons/md';
 import { RiCloseLine as Close, RiMenuLine as Menu } from 'react-icons/ri';
 
 import tw from 'twin.macro';
@@ -37,6 +42,28 @@ export interface Props {
   size?: string;
 }
 
+const icons: { [name: string]: JSX.Element } = {
+  code: <Code />,
+  description: <Description />,
+  tag: <Tag />,
+  github: <Github />,
+  gitlab: <Gitlab />,
+  calendar: <Calendar />,
+  medium: <Medium />,
+  compass: <Compass />,
+  star: <Star />,
+  hourglass: <HourGlass />,
+  twitter: <Twitter />,
+  linkedin: <LinkedIn />,
+  dev: <Dev />,
+  search: <Search />,
+  facebook: <Facebook />,
+  key: <Key />,
+  reddit: <Reddit />,
+  close: <Close />,
+  menu: <Menu />,
+};
+
 const Icon = ({
   background = 'transparent',
   className,
@@ -46,23 +73,6 @@ const Icon = ({
   onClick,
   size = '1em',
 }: Props) => {
-  const icons: { [name: string]: JSX.Element } = {
-    github: <Github />,
-    gitlab: <Gitlab />,
-    medium: <Medium />,
-    compass: <Compass />,
-    star: <Star />,
-    twitter: <Twitter />,
-    linkedin: <LinkedIn />,
-    dev: <Dev />,
-    search: <Search />,
-    facebook: <Facebook />,
-    key: <Key />,
-    reddit: <Reddit />,
-    close: <Close />,
-    menu: <Menu />,
-  };
-
   return (
     <IconContainer
       aria-label={label}

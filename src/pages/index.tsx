@@ -3,12 +3,14 @@ import { graphql } from 'gatsby';
 import React from 'react';
 import tw from 'twin.macro';
 
+import { QueryItem } from '~/@types/index';
 import { Layout } from '~/components/Layout';
 import { Hero } from '~/components/molecules/Hero';
 import ImageCards from '~/components/molecules/ImageCards/ImageCards';
-import { BlogList, QueryItem } from '~/components/organisms/BlogList';
+import { BlogList } from '~/components/organisms/BlogList';
 import { RepositoryList } from '~/components/organisms/RepositoryList';
 import config from '~/config/config.json';
+import { queryToBlogItem } from '~/helpers/queryToData';
 
 export interface Props {
   data: {
@@ -20,6 +22,7 @@ export interface Props {
 
 const Index = ({ data }: Props) => {
   const { misc, projects, repositories, history } = config;
+  const blogItems = queryToBlogItem(data.allMarkdownRemark);
 
   return (
     <Layout title="Home">
@@ -27,7 +30,7 @@ const Index = ({ data }: Props) => {
       <Container>
         <Section className="my-20">
           <Header>Latest Posts</Header>
-          <BlogList data={data} />
+          <BlogList data={blogItems} />
         </Section>
 
         <Section className="my-10">
@@ -62,14 +65,15 @@ export const pageQuery = graphql`
   query {
     allMarkdownRemark(
       sort: { order: DESC, fields: [frontmatter___date] }
-      limit: 4
+      limit: 3
+      filter: { frontmatter: { title: { ne: "Uses" } } }
     ) {
       edges {
         node {
           id
           excerpt(pruneLength: 100)
           frontmatter {
-            date(formatString: "YYYY-MM-DD")
+            date(formatString: "Do MMMM, YYYY")
             slug
             title
             tags
@@ -81,6 +85,11 @@ export const pageQuery = graphql`
                   ...GatsbyImageSharpFluid
                 }
               }
+            }
+          }
+          fields {
+            readingTime {
+              text
             }
           }
         }
