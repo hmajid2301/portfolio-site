@@ -31,6 +31,4 @@ describe('<ImageCard />', () => {
     expect(imageCardImage).toHaveAttribute('src', image);
     expect(imageCard).toHaveAttribute('href', link);
   });
-
-
 });
