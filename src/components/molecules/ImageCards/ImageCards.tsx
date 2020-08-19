@@ -1,19 +1,19 @@
 import React from 'react';
 import tw from 'twin.macro';
 
-import { ImageCard, ChartData } from '~/components/atoms/ImageCard';
+import { ImageCard, ImageData } from '~/components/atoms/ImageCard';
 
 export interface Props {
   /** The cypress dataId */
   dataId?: string;
   /** The items to show in the image card list. */
-  items: ChartData[];
+  items: ImageData[];
 }
 
 const ImageCards = ({ dataId, items }: Props) => (
   <ImageListContainer>
     {items.map((item) => (
-      <ImageCardContainer key={item.text} data-cy={dataId}>
+      <ImageCardContainer key={item.text} data-cy={dataId} data-testid={dataId}>
         <ImageCard
           alt={item.alt}
           image={item.image}

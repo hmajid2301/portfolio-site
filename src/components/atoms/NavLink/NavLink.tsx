@@ -18,6 +18,7 @@ export interface Props {
 const NavLink = ({ className, link }: Props) => (
   <LinkElement
     activeClassName="active"
+    aria-label={`Opens link to ${link.name} page`}
     className={`text-header ${className}`}
     to={`${link.link}`}
   >

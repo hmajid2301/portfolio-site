@@ -17,18 +17,18 @@ export interface BlogItem {
   /** The description of the article (excerpt). */
   description: string;
   /** Path to the cover image. */
-  image: FluidObject;
+  image?: FluidObject;
   /** A list of tags for the article i.e. related topics. */
   tags: string[];
   /** The title of the blog post. */
   title: string;
   /** The unique slug/url of the blog post. */
-  url: string;
+  link: string;
 }
 
 const BlogCard = ({ item }: Props) => (
   <BlogCardContainer data-cy="BlogCard">
-    <Card to={`/blog/${item.url}/`}>
+    <Card data-testid="BlogCard" to={`/blog/${item.link}/`}>
       <ImageContainer>
         <Image alt="Cover for article." fluid={item.image} loading="lazy" />
       </ImageContainer>

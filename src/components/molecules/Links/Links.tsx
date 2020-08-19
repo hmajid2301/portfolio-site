@@ -29,7 +29,6 @@ const Links = ({ className, linkClassName, label, links }: Props) => (
     {links.map((link) => (
       <NavLink
         key={link.link}
-        aria-label={`Opens link to ${link.name} page`}
         className={`mx-3 my-2 ${linkClassName}`}
         link={link}
       />
