@@ -19,6 +19,7 @@ const SearchItem = ({ content, path, title, query }: Props) => (
     <SearchTitle>
       <Link
         className="hover:text-white hover:bg-primary hover:p-1 rounded"
+        data-testid="SearchItemLink"
         to={path}
       >
         <Highlighter

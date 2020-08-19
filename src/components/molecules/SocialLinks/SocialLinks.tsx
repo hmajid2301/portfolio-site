@@ -1,7 +1,7 @@
 import React from 'react';
 import tw from 'twin.macro';
 
-import { SocialLink } from '~/components/atoms/SocialLink';
+import { SocialLink } from '~/components/molecules/SocialLink';
 
 export type SocialButton = {
   icon: string;

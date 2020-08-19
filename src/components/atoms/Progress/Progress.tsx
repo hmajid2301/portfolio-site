@@ -12,6 +12,7 @@ const Progress = ({ className, width = 20 }: Props) => (
   <ProgressBar
     aria-hidden="true"
     className={`${className}`}
+    data-testid="Progress"
     style={{ width: `${width}%` }}
   />
 );

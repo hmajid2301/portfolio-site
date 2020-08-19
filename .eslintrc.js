@@ -200,18 +200,17 @@ module.exports = {
         'import/no-extraneous-dependencies': 0,
         'react/jsx-props-no-spreading': 0,
         'jsx-a11y/alt-text': 0,
-      },
-    },
-    // =================================
-    // Storybook Files
-    // =================================
-    {
-      files: ['**/*.stories.{js,ts,tsx}'],
-      rules: {
-        // Allow import devDependencies in stories
-        'import/no-extraneous-dependencies': 0,
-        'react/jsx-props-no-spreading': 0,
-        'jsx-a11y/alt-text': 0,
+        'import/order': [
+          'error',
+          {
+            alphabetize: {
+              order: 'asc',
+              caseInsensitive: true,
+            },
+            groups: ['builtin', 'external', ['parent', 'sibling', 'index']],
+            'newlines-between': 'always-and-inside-groups',
+          },
+        ],
       },
     },
   ],

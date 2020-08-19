@@ -1,7 +1,7 @@
 image: node:12.13.0
 
 variables:
-  CYPRESS_CACHE_FOLDER: '$CI_PROJECT_DIR/cache/Cypress'
+  CYPRESS_CACHE_FOLDER: "$CI_PROJECT_DIR/cache/Cypress"
 
 cache:
   key: ${CI_COMMIT_REF_SLUG}
@@ -51,32 +51,6 @@ tests:unit:
   script:
     - yarn run test:unit --silent --passWithNoTests
 
-tests:smoke:
-  image: cypress/browsers:node12.14.1-chrome83-ff77
-  stage: test
-  only:
-    - master
-  script:
-    - yarn cypress install
-    - yarn start-server-and-test "yarn develop" http://localhost:8000 "cypress run --config-file cypress-smoke.json --browser chrome"
-  artifacts:
-    paths:
-      - cypress/videos
-      - cypress/screenshots
-
-tests:e2e:
-  image: cypress/browsers:node12.14.1-chrome83-ff77
-  stage: e2e
-  only:
-    - master
-  script:
-    - yarn cypress install
-    - yarn start-server-and-test "yarn develop" http://localhost:8000 "cypress run --config-file cypress-e2e.json --browser chrome"
-  artifacts:
-    paths:
-      - cypress/videos
-      - cypress/screenshots
-
 # .job_template:
 #   image: cypress/browsers:node12.14.1-chrome83-ff77
 #   stage: test
@@ -90,6 +64,24 @@ tests:e2e:
 #     paths:
 #       - cypress/videos
 #       - cypress/screenshots
+
+tests:smoke:
+  image: cypress/browsers:node12.14.1-chrome83-ff77
+  stage: test
+  only:
+    - master
+  script:
+    - yarn cypress install
+    - yarn start-server-and-test "yarn develop" http://localhost:8000 "cypress run --config-file cypress-smoke.json --browser chrome"
+
+tests:e2e:
+  image: cypress/browsers:node12.14.1-chrome83-ff77
+  stage: e2e
+  only:
+    - master
+  script:
+    - yarn cypress install
+    - yarn start-server-and-test "yarn develop" http://localhost:8000 "cypress run --config-file cypress-e2e.json --browser chrome"
 
 tests:visual:
   stage: e2e

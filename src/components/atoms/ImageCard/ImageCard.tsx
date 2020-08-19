@@ -14,8 +14,14 @@ export interface Props {
 }
 
 const ImageCard = ({ alt, image, link, text }: Props) => (
-  <ImageCardLink className="group" href={link} rel="noreferrer" target="_blank">
-    <img alt={alt} loading="lazy" src={image} />
+  <ImageCardLink
+    className="group"
+    data-testid="ImageCard"
+    href={link}
+    rel="noreferrer"
+    target="_blank"
+  >
+    <img alt={alt} data-testid="ImageCardImage" loading="lazy" src={image} />
     <OverlayContainer>
       <OverlayText>{text}</OverlayText>
     </OverlayContainer>

@@ -5,8 +5,6 @@ import tw from 'twin.macro';
 import { Icon } from '~/components/atoms/Icon';
 
 export interface Props {
-  /** Extra CSS classes to assign to this component. */
-  className?: string;
   /** The social Icon to show. */
   icon: string;
   /** The url to link to when the social link is pressed. */
@@ -18,6 +16,7 @@ const SocialLink = ({ icon, url }: Props) => (
     key={url}
     aria-label={`Opens link to ${icon} page`}
     data-cy="SocialLink"
+    data-testid="SocialLink"
     href={url}
     rel="noreferrer"
     target="_blank"

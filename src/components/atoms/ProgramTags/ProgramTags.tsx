@@ -21,6 +21,7 @@ const ProgramTags = ({ className, text, size = 'base' }: Props) => {
     <TagContainer
       className={className}
       data-cy="ProgramTag"
+      data-testid="ProgramTag"
       to={`/tag/${text}/`}
     >
       <TextContainer

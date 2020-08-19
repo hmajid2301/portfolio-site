@@ -52,7 +52,7 @@ const BlogList = ({ data }: Props) => {
         image: frontmatter.cover_image.childImageSharp.fluid,
         tags: frontmatter.tags,
         title: frontmatter.title,
-        url: frontmatter.slug,
+        link: frontmatter.slug,
       });
     }
   });

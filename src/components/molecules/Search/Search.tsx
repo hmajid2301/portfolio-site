@@ -5,6 +5,7 @@ import tw from 'twin.macro';
 import { Icon } from '~/components/atoms/Icon';
 import { Input } from '~/components/atoms/Input';
 import { SearchItems, Page } from '~/components/molecules/SearchItems';
+import config from '~/config/config.json';
 
 const Search = ({
   searchIndex,
@@ -17,7 +18,7 @@ const Search = ({
   const searchInput = React.createRef<HTMLInputElement>();
 
   useEffect(() => {
-    searchResults('react');
+    searchResults(config.misc.default_search);
     searchInput.current?.focus();
   }, []);
 

@@ -18,8 +18,6 @@ export interface Page {
   title: string;
   /** The path to the page. */
   path: string;
-  /** The tags of that page. */
-  tags: string;
   /** The contents of the page . */
   html: string;
 }
