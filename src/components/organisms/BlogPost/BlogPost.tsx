@@ -8,7 +8,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import '~/styles/blog.css';
 import { PostMeta } from '~/components/molecules/PostMeta';
 import { ReadingProgress } from '~/components/molecules/ReadingProgress';
-import { ShareButton } from '~/components/molecules/ShareButtons';
+import { ShareButtons } from '~/components/molecules/ShareButtons';
 import copyToClipboard from '~/utils/copyToClipboard';
 
 export interface Props {
@@ -80,7 +80,7 @@ const BlogPost = ({
           className="blog-post-content px-10"
           dangerouslySetInnerHTML={{ __html: data }}
         />
-        <ShareButton link={slug} />
+        <ShareButtons link={slug} />
       </div>
       <ToastContainer
         autoClose={2000}

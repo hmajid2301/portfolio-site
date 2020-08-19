@@ -26,7 +26,11 @@ const ThemeIcons = ({ onClick }: Props) => {
   }
 
   return (
-    <ThemeIconContainer data-cy="ThemeIcon" onClick={() => themeChange()}>
+    <ThemeIconContainer
+      data-cy="ThemeIcon"
+      data-testid="ThemeIcon"
+      onClick={() => themeChange()}
+    >
       <IconMorph>
         {theme === 'light' ? (
           <LightIcon key="light" />

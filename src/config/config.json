@@ -9,7 +9,8 @@
   "misc": {
     "logo": "Haseeb",
     "canonical_url": "https://haseebmajid.dev",
-    "article_git_url": "https://gitlab.com/hmajid2301/articles.git"
+    "article_git_url": "https://gitlab.com/hmajid2301/articles.git",
+    "default_search": "react"
   },
   "social": [
     {
