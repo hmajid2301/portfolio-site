@@ -60,7 +60,7 @@ const plugins = [
     options: {
       name: `Articles`,
       remote: misc.article_git_url,
-      branch: `feature/a`,
+      branch: `master`,
     },
   },
   {
