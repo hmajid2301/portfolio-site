@@ -54,8 +54,8 @@ const Stats = ({ data }: Props) => {
     <Layout title="Blog Statistics">
       <Section>
         <MainText>
-          This site has a total of <b>{totalPosts}</b> articles 📚. In total
-          across all articles I&apos;ve written a total of{' '}
+          This site has a total of <b>{totalPosts}</b> articles 📚. All the
+          articles I&apos;ve written contain a total of{' '}
           <b>{totalWords.toLocaleString()}</b> words 🖊️. It would take you
           approximately <b>{hours}</b> hours and <b>{minutes}</b> minutes ⌚ to
           read all of the them.
