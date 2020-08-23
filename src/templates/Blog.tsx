@@ -45,7 +45,11 @@ export default function BlogTemplate({ data }: Props) {
           title={frontmatter.title}
           words={fields.readingTime.words}
         />
-        <SimilarPosts tags={frontmatter.tags} />
+        {frontmatter.title !== 'Uses' ? (
+          <SimilarPosts tags={frontmatter.tags} />
+        ) : (
+          <div />
+        )}
       </div>
     </Layout>
   );
