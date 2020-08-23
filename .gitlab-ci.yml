@@ -68,8 +68,8 @@ tests:unit:
 tests:smoke:
   image: cypress/browsers:node12.14.1-chrome83-ff77
   stage: test
-  # only:
-  #   - master
+  only:
+    - master
   script:
     - yarn cypress install
     - yarn start-server-and-test "yarn develop" http://localhost:8000 "cypress run --config-file cypress-smoke.json --browser chrome"
