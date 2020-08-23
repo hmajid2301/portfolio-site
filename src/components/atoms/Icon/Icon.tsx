@@ -14,6 +14,7 @@ import {
   FaSearch as Search,
   FaFacebookF as Facebook,
   FaCalendarAlt as Calendar,
+  FaChevronCircleUp as ChevronCircleUp,
   FaCode as Code,
   FaTags as Tag,
   FaHourglassEnd as HourGlass,
@@ -43,6 +44,7 @@ export interface Props {
 }
 
 const icons: { [name: string]: JSX.Element } = {
+  up: <ChevronCircleUp />,
   code: <Code />,
   description: <Description />,
   tag: <Tag />,

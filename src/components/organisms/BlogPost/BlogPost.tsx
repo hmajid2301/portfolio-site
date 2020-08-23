@@ -8,6 +8,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import '~/styles/blog.css';
 import { PostMeta } from '~/components/molecules/PostMeta';
 import { ReadingProgress } from '~/components/molecules/ReadingProgress';
+import ScrollButton from '~/components/molecules/ScrollButton/ScrollButton';
 import { ShareButtons } from '~/components/molecules/ShareButtons';
 import copyToClipboard from '~/utils/copyToClipboard';
 
@@ -96,6 +97,7 @@ const BlogPost = ({
         position="bottom-center"
         rtl={false}
       />
+      <ScrollButton anchor="#root" />
     </BlogContainer>
   );
 };

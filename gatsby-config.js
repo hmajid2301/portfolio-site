@@ -16,6 +16,7 @@ const plugins = [
   `gatsby-plugin-emotion`,
   `gatsby-plugin-sitemap`,
   `gatsby-plugin-postcss`,
+  `gatsby-plugin-smoothscroll`,
   `gatsby-plugin-catch-links`,
   `gatsby-plugin-robots-txt`,
   {
