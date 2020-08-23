@@ -14,6 +14,7 @@ import {
   FaSearch as Search,
   FaFacebookF as Facebook,
   FaCalendarAlt as Calendar,
+  FaChevronCircleUp as ChevronCircleUp,
   FaCode as Code,
   FaTags as Tag,
   FaHourglassEnd as HourGlass,
@@ -22,7 +23,6 @@ import { GoKey as Key } from 'react-icons/go';
 import { GrReddit as Reddit } from 'react-icons/gr';
 import { MdDescription as Description } from 'react-icons/md';
 import { RiCloseLine as Close, RiMenuLine as Menu } from 'react-icons/ri';
-
 import tw from 'twin.macro';
 
 export interface Props {
@@ -43,6 +43,7 @@ export interface Props {
 }
 
 const icons: { [name: string]: JSX.Element } = {
+  up: <ChevronCircleUp />,
   code: <Code />,
   description: <Description />,
   tag: <Tag />,

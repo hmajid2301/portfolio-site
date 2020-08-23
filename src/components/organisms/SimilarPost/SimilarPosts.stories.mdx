@@ -1,0 +1,20 @@
+import { Meta, Story, Preview, Props } from '@storybook/addon-docs/blocks';
+
+import SimilarPosts from './SimilarPosts';
+
+<Meta title="Organisms | SimilarPosts" component={SimilarPosts} />
+
+# SimilarPosts
+
+<Preview>
+  <Story
+    name="Basic"
+    args={{
+      tags: ['gatsby'],
+    }}
+  >
+    {(args) => <SimilarPosts {...args} />}
+  </Story>
+</Preview>
+
+<Props story="Basic" />

@@ -83,7 +83,7 @@ describe(`Blog Post`, () => {
         cy.get('meta[property="og:url"]').should(
           'have.attr',
           'content',
-          url.replace('http://localhost:8000', config.misc.canonical_url)
+          url.replace('http://localhost:8000', config.siteData.siteUrl)
         );
       });
 

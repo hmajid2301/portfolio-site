@@ -1,5 +1,5 @@
 import { FluidObject } from 'gatsby-image';
-import React, { useRef, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { ToastContainer, toast } from 'react-toastify';
 import tw from 'twin.macro';
 import 'gatsby-prismjs-dracula';
@@ -7,7 +7,7 @@ import 'react-toastify/dist/ReactToastify.css';
 
 import '~/styles/blog.css';
 import { PostMeta } from '~/components/molecules/PostMeta';
-import { ReadingProgress } from '~/components/molecules/ReadingProgress';
+import ScrollButton from '~/components/molecules/ScrollButton/ScrollButton';
 import { ShareButtons } from '~/components/molecules/ShareButtons';
 import copyToClipboard from '~/utils/copyToClipboard';
 
@@ -40,8 +40,6 @@ const BlogPost = ({
   title,
   words,
 }: Props) => {
-  const target = useRef<HTMLDivElement>(null);
-
   function copyText(element: HTMLPreElement) {
     if (
       typeof element.className === 'string' &&
@@ -66,7 +64,6 @@ const BlogPost = ({
 
   return (
     <BlogContainer className="blog-post-container">
-      <ReadingProgress target={target} />
       <PostMeta
         coverImage={coverImage}
         date={date}
@@ -75,7 +72,7 @@ const BlogPost = ({
         title={title}
         words={words}
       />
-      <div ref={target} className="blog-post">
+      <div className="blog-post">
         <div
           className="blog-post-content px-3 lg:px-10"
           dangerouslySetInnerHTML={{ __html: data }}
@@ -96,6 +93,7 @@ const BlogPost = ({
         position="bottom-center"
         rtl={false}
       />
+      <ScrollButton anchor="#root" />
     </BlogContainer>
   );
 };

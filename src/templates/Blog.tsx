@@ -4,7 +4,7 @@ import React from 'react';
 import { QueryItem } from '~/@types/index';
 import { Layout } from '~/components/Layout';
 import { BlogPost } from '~/components/organisms/BlogPost';
-import { SimilarPosts } from '~/components/organisms/SimiliarPost';
+import { SimilarPosts } from '~/components/organisms/SimilarPost';
 
 export interface Props {
   data: {
@@ -45,7 +45,11 @@ export default function BlogTemplate({ data }: Props) {
           title={frontmatter.title}
           words={fields.readingTime.words}
         />
-        <SimilarPosts tags={frontmatter.tags} />
+        {frontmatter.title !== 'Uses' ? (
+          <SimilarPosts tags={frontmatter.tags} />
+        ) : (
+          <div />
+        )}
       </div>
     </Layout>
   );

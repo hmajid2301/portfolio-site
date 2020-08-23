@@ -16,6 +16,7 @@ const plugins = [
   `gatsby-plugin-emotion`,
   `gatsby-plugin-sitemap`,
   `gatsby-plugin-postcss`,
+  `gatsby-plugin-smoothscroll`,
   `gatsby-plugin-catch-links`,
   `gatsby-plugin-robots-txt`,
   {
@@ -44,6 +45,16 @@ const plugins = [
           content: (node) => node.internal.content,
         },
       },
+    },
+  },
+  {
+    resolve: 'gatsby-plugin-page-progress',
+    options: {
+      includePaths: ['/', { regex: '^/blog' }],
+      height: 3,
+      prependToBody: false,
+      color: `#367ee9`,
+      footerHeight: 400,
     },
   },
   {
