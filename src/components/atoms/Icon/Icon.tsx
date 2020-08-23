@@ -23,7 +23,6 @@ import { GoKey as Key } from 'react-icons/go';
 import { GrReddit as Reddit } from 'react-icons/gr';
 import { MdDescription as Description } from 'react-icons/md';
 import { RiCloseLine as Close, RiMenuLine as Menu } from 'react-icons/ri';
-
 import tw from 'twin.macro';
 
 export interface Props {

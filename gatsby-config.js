@@ -48,6 +48,16 @@ const plugins = [
     },
   },
   {
+    resolve: 'gatsby-plugin-page-progress',
+    options: {
+      includePaths: ['/', { regex: '^/blog' }],
+      height: 3,
+      prependToBody: false,
+      color: `#367ee9`,
+      footerHeight: 400,
+    },
+  },
+  {
     resolve: 'gatsby-plugin-web-font-loader',
     options: {
       google: {

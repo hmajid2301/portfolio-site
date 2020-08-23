@@ -48,6 +48,7 @@
     "gatsby-plugin-goatcounter": "^0.3.1",
     "gatsby-plugin-manifest": "^2.4.20",
     "gatsby-plugin-offline": "^3.2.20",
+    "gatsby-plugin-page-progress": "^2.1.0",
     "gatsby-plugin-percy": "^0.1.4",
     "gatsby-plugin-postcss": "^2.3.2",
     "gatsby-plugin-react-helmet": "^3.1.22",
