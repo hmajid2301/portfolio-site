@@ -4,7 +4,7 @@ import React from 'react';
 import { QueryItem } from '~/@types/index';
 import { Layout } from '~/components/Layout';
 import { BlogPost } from '~/components/organisms/BlogPost';
-import { SimilarPosts } from '~/components/organisms/SimiliarPost';
+import { SimilarPosts } from '~/components/organisms/SimilarPost';
 
 export interface Props {
   data: {
