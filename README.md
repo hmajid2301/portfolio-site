@@ -133,7 +133,7 @@ it's a blog post with a cover image.
 
 ### 📈 GoatCounter analytics tracking
 
-The site sends usage statistics to [GoatCounter](https://www.goatcounter.com/) all you have to do is create an account
+The site sends usage statistics to [GoatCounter](https://www.goatcounter.com/) all you have to do is create an account. You can see the data for [`haseebmajid.dev`](https://haseebmajid.goatcounter.com/), it's available for everyone to see!
 
 ### 🖼️ Social Media Sharing Cards
 

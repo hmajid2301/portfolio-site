@@ -25,7 +25,7 @@ export default function BlogTemplate({ data }: Props) {
     <Layout
       description={excerpt}
       image={{
-        src: `/blog/${frontmatter.slug}/card.jpg`,
+        src: `/${frontmatter.slug}/card.jpg`,
         height: 630,
         width: 1200,
       }}
