@@ -136,7 +136,7 @@ const plugins = [
   },
 ];
 
-if (process.env.USE_PRECY) plugins.push(`gatsby-plugin-percy`);
+if (process.env.USE_PERCY) plugins.push(`gatsby-plugin-percy`);
 
 module.exports = {
   siteMetadata: {
