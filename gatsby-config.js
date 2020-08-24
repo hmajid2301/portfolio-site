@@ -19,7 +19,7 @@ const plugins = [
   `gatsby-plugin-smoothscroll`,
   `gatsby-plugin-catch-links`,
   `gatsby-plugin-robots-txt`,
-  `gatsby-goatcounter-analytics-reporter`,
+  // `gatsby-goatcounter-analytics-reporter`,
   {
     resolve: `gatsby-plugin-goatcounter`,
     options: {
