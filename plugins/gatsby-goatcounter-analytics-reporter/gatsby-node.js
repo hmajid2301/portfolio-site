@@ -1,15 +1,21 @@
-var axios = require('axios');
-var crypto = require('crypto');
-var fs = require('fs');
-var moment = require('moment');
-var parse = require('csv-parse');
-var zlib = require('zlib');
+const crypto = require('crypto');
+const fs = require('fs');
+
+const zlib = require('zlib');
+
+const axios = require('axios');
+const parse = require('csv-parse');
+const moment = require('moment');
 
 exports.sourceNodes = async ({ actions }, configOptions) => {
   const { createNode } = actions;
 
   const analyticsFileName = '/tmp/data.csv';
-  await saveCSVData(analyticsFileName);
+  await saveCSVData(
+    configOptions.code,
+    configOptions.personalToken,
+    analyticsFileName
+  );
   zlib.createUnzip(), (input = fs.createReadStream(analyticsFileName));
   const data = [];
 
@@ -24,23 +30,26 @@ exports.sourceNodes = async ({ actions }, configOptions) => {
           err,
           rows
         ) {
-          const analyticsData = updateAnalyticsDataFromCSV(configOptions, rows);
+          const analyticsData = updateAnalyticsDataFromCSV(
+            configOptions.daysAgo,
+            rows
+          );
           createNodes(analyticsData, createNode);
         });
       });
     });
 };
 
-async function saveCSVData(csvFile) {
-  url = `https://${configOptions.code}.goatcounter.com/api/v0/export`;
+async function saveCSVData(code, token, csvFile) {
+  url = `https://${code}.goatcounter.com/api/v0/export`;
   const headers = {
-    Authorization: `Bearer ${configOptions.personalToken}`,
+    Authorization: `Bearer ${token}`,
     'content-type': 'application/json',
   };
 
   let id = 0;
   try {
-    let res = await axios.post(url, {}, { headers: headers });
+    const res = await axios.post(url, {}, { headers });
     id = res.data.id;
   } catch (err) {
     console.log('GoatCounter API threw an error', err.status, err.data);
@@ -50,7 +59,7 @@ async function saveCSVData(csvFile) {
   try {
     res = await axios.get(`${url}/${id}/download`, {
       responseType: 'arraybuffer',
-      headers: headers,
+      headers,
     });
     fs.writeFileSync(csvFile, res.data);
   } catch (err) {
@@ -59,14 +68,14 @@ async function saveCSVData(csvFile) {
   }
 }
 
-function updateAnalyticsDataFromCSV(configOptions, rows) {
+function updateAnalyticsDataFromCSV(daysAgo, rows) {
   const analyticsData = {};
-  const startDate = configOptions.startDate
-    ? moment().subtract(30, 'days')
+  const startDate = daysAgo
+    ? moment().subtract(daysAgo, 'days')
     : moment('2020-01-01T00:00:00');
   const endDate = moment();
 
-  for (let row of rows) {
+  for (const row of rows.slice(1)) {
     const pageName = row[0];
     const viewDateTime = moment(row[11]);
     if (viewDateTime.isBetween(startDate, endDate)) {
@@ -81,7 +90,7 @@ function updateAnalyticsDataFromCSV(configOptions, rows) {
 }
 
 function createNodes(analyticsData, createNode) {
-  for (let [path, totalCount] of Object.entries(analyticsData)) {
+  for (const [path, totalCount] of Object.entries(analyticsData)) {
     createNode({
       path,
       totalCount: Number(totalCount),
