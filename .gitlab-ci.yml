@@ -1,7 +1,7 @@
 image: node:12.13.0
 
 variables:
-  CYPRESS_CACHE_FOLDER: "$CI_PROJECT_DIR/cache/Cypress"
+  CYPRESS_CACHE_FOLDER: '$CI_PROJECT_DIR/cache/Cypress'
 
 cache:
   key: ${CI_COMMIT_REF_SLUG}
@@ -68,8 +68,6 @@ tests:unit:
 tests:smoke:
   image: cypress/browsers:node12.14.1-chrome83-ff77
   stage: test
-  only:
-    - master
   script:
     - yarn cypress install
     - yarn start-server-and-test "yarn develop" http://localhost:8000 "cypress run --config-file cypress-smoke.json --browser chrome"
