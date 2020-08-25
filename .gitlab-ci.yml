@@ -72,6 +72,7 @@ tests:smoke:
   script:
     - cd plugins/gatsby-goatcounter-analytics-reporter
     - yarn install
+    - cd ..
     - yarn cypress install
     - yarn start-server-and-test "yarn develop" http://localhost:8000 "cypress run --config-file cypress-smoke.json --browser chrome"
 
