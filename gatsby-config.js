@@ -19,7 +19,14 @@ const plugins = [
   `gatsby-plugin-smoothscroll`,
   `gatsby-plugin-catch-links`,
   `gatsby-plugin-robots-txt`,
-  // `gatsby-goatcounter-analytics-reporter`,
+  {
+    resolve: `gatsby-goatcounter-analytics-reporter`,
+    options: {
+      code: process.env.GOATCOUNTER_CODE,
+      personalToken: process.env.GOATCOUNTER_PERSONAL_TOKEN,
+      daysAgo: `30`,
+    },
+  },
   {
     resolve: `gatsby-plugin-goatcounter`,
     options: {
@@ -51,10 +58,10 @@ const plugins = [
   {
     resolve: 'gatsby-plugin-page-progress',
     options: {
-      includePaths: ['/', { regex: '^/blog' }],
+      includePaths: [{ regex: '^/blog' }],
       height: 3,
       prependToBody: false,
-      color: `#367ee9`,
+      color: config.siteData.primary,
       footerHeight: 400,
     },
   },
@@ -111,7 +118,7 @@ const plugins = [
       short_name: siteData.author,
       start_url: `/`,
       background_color: `#222`,
-      theme_color: `#367ee9`,
+      theme_color: config.siteData.primary,
       display: `standalone`,
       icon: `src/assets/images/icon.png`,
       icons: [

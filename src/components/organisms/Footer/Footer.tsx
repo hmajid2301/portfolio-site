@@ -30,6 +30,11 @@ const Footer = ({ links, socialButtons }: Props) => (
         <SocialLinks buttons={socialButtons} />
         <CopyrightText>
           &copy; Copyright 2020, {config.siteData.author}. All Rights Reserved.
+          <br />
+          Contact me at{' '}
+          <a href={`mailto:${config.siteData.email}`}>
+            {config.siteData.email}
+          </a>
         </CopyrightText>
       </Row>
     </FooterContent>

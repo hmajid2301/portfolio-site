@@ -3,26 +3,34 @@ import { graphql } from 'gatsby';
 import React from 'react';
 import tw from 'twin.macro';
 
-import { QueryItem } from '~/@types/index';
+import { QueryItem, PopularItem } from '~/@types/index';
 import { Layout } from '~/components/Layout';
 import { Hero } from '~/components/molecules/Hero';
 import ImageCards from '~/components/molecules/ImageCards/ImageCards';
 import { BlogList } from '~/components/organisms/BlogList';
 import { RepositoryList } from '~/components/organisms/RepositoryList';
 import config from '~/config/config.json';
-import { queryToBlogItem } from '~/helpers/queryToData';
+import { queryToBlogItem, popularPostsToBlogItem } from '~/helpers/queryToData';
 
 export interface Props {
   data: {
-    allMarkdownRemark: {
+    latest: {
       edges: QueryItem[];
+    };
+    articles: {
+      edges: QueryItem[];
+    };
+    allPageViews: {
+      edges: PopularItem[];
     };
   };
 }
 
 const Index = ({ data }: Props) => {
   const { misc, projects, repositories, history } = config;
-  const blogItems = queryToBlogItem(data.allMarkdownRemark);
+  const { latest, articles, allPageViews } = data;
+  const latestBlogItems = queryToBlogItem(latest);
+  const popularBlogItems = popularPostsToBlogItem(articles, allPageViews);
 
   return (
     <Layout title="Home">
@@ -30,7 +38,12 @@ const Index = ({ data }: Props) => {
       <Container>
         <Section className="my-20">
           <Header>Latest Posts</Header>
-          <BlogList data={blogItems} />
+          <BlogList data={latestBlogItems} />
+        </Section>
+
+        <Section className="my-10">
+          <Header>Most Popular Posts</Header>
+          <BlogList data={popularBlogItems} />
         </Section>
 
         <Section className="my-10">
@@ -63,7 +76,7 @@ const Header = tw.h1`font-header my-10 font-semibold max-w-lg ml-10 text-3xl lg:
 
 export const pageQuery = graphql`
   query {
-    allMarkdownRemark(
+    latest: allMarkdownRemark(
       sort: { order: DESC, fields: [frontmatter___date] }
       limit: 3
       filter: { frontmatter: { title: { ne: "Uses" } } }
@@ -92,6 +105,49 @@ export const pageQuery = graphql`
               text
             }
           }
+        }
+      }
+    }
+    articles: allMarkdownRemark(
+      sort: { order: DESC, fields: [frontmatter___date] }
+      filter: { frontmatter: { title: { ne: "Uses" } } }
+    ) {
+      edges {
+        node {
+          id
+          excerpt(pruneLength: 100)
+          frontmatter {
+            date(formatString: "Do MMMM, YYYY")
+            slug
+            title
+            tags
+            cover_image {
+              childImageSharp {
+                fluid {
+                  srcWebp
+                  srcSetWebp
+                  ...GatsbyImageSharpFluid
+                }
+              }
+            }
+          }
+          fields {
+            readingTime {
+              text
+            }
+          }
+        }
+      }
+    }
+    allPageViews(
+      sort: { fields: totalCount, order: DESC }
+      limit: 3
+      filter: { path: { regex: "/blog/i", ne: "/blog" } }
+    ) {
+      edges {
+        node {
+          path
+          totalCount
         }
       }
     }

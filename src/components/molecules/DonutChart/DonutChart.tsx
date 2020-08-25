@@ -1,7 +1,8 @@
 import React from 'react';
 import { Donut } from 'theme-ui';
-
 import tw from 'twin.macro';
+
+import config from '~/config/config.json';
 
 export interface Props {
   /** The number of items to get the average from. */
@@ -22,7 +23,7 @@ const DonutChart = ({ length, title, total, unit }: Props) => {
       <DonutContainer>
         <ChartContainer>
           <Donut
-            sx={{ mx: 3, mb: 2, color: '#367ee9' }}
+            sx={{ mx: 3, mb: 2, color: config.siteData.primary }}
             value={average / total}
           />
           <InnerText>

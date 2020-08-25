@@ -81,7 +81,7 @@ const Header = ({ links }: Props) => {
 
 const HeaderContainer = tw.header`flex items-center justify-around p-4 max-w-screen-xl mx-auto font-header text-header bg-background`;
 
-const Row = tw.div`flex flex-row space-x-4 items-center`;
+const Row = tw.div`flex flex-row space-x-4 items-center justify-center`;
 
 const DesktopNavLinks = tw.div`hidden lg:flex`;
 
@@ -93,7 +93,7 @@ const MobileNavLinks = styled.div<{ showNavLinks: boolean }>`
   ${tw`lg:hidden flex fixed inset-x-0 p-8 text-center bg-background z-10`}
 `;
 
-const NavToggle = tw.button`z-10 lg:hidden focus:outline-none transition duration-300 hover:text-primary`;
+const NavToggle = tw.button`z-10 flex lg:hidden focus:outline-none transition duration-300 hover:text-primary`;
 
 const LogoContainer = styled(Link)`
   ${tw`border-b-0 ml-0!`};

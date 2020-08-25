@@ -31,6 +31,13 @@ export interface QueryItem {
   };
 }
 
+export interface PopularItem {
+  node: {
+    totalCount: number;
+    path: string;
+  };
+}
+
 declare module '*.svg';
 declare module '*.jpg';
 declare module '*.png';
