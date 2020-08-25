@@ -19,7 +19,13 @@ const plugins = [
   `gatsby-plugin-smoothscroll`,
   `gatsby-plugin-catch-links`,
   `gatsby-plugin-robots-txt`,
-  // `gatsby-goatcounter-analytics-reporter`,
+  {
+    resolve: `gatsby-goatcounter-analytics-reporter`,
+    options: {
+      code: process.env.GOATCOUNTER_CODE,
+      personalToken: process.env.GOATCOUNTER_PERSONAL_TOKEN,
+    },
+  },
   {
     resolve: `gatsby-plugin-goatcounter`,
     options: {
