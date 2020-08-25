@@ -1,9 +1,9 @@
-var fs = require('fs');
-var zlib = require('zlib');
 var axios = require('axios');
-var parse = require('csv-parse');
 var crypto = require('crypto');
+var fs = require('fs');
 var moment = require('moment');
+var parse = require('csv-parse');
+var zlib = require('zlib');
 
 exports.sourceNodes = async ({ actions }, configOptions) => {
   const { createNode } = actions;
@@ -39,7 +39,6 @@ async function saveCSVData(csvFile) {
   };
 
   let id = 0;
-
   try {
     let res = await axios.post(url, {}, { headers: headers });
     id = res.data.id;
@@ -48,12 +47,16 @@ async function saveCSVData(csvFile) {
     throw new Error(err);
   }
 
-  res = await axios.get(`${url}/${id}/download`, {
-    responseType: 'arraybuffer',
-    headers: headers,
-  });
-
-  fs.writeFileSync(csvFile, res.data);
+  try {
+    res = await axios.get(`${url}/${id}/download`, {
+      responseType: 'arraybuffer',
+      headers: headers,
+    });
+    fs.writeFileSync(csvFile, res.data);
+  } catch (err) {
+    console.log('GoatCounter API threw an error', err.status, err.data);
+    throw new Error(err);
+  }
 }
 
 function updateAnalyticsDataFromCSV(configOptions, rows) {
