@@ -1,7 +1,7 @@
 image: node:12.13.0
 
 variables:
-  CYPRESS_CACHE_FOLDER: '$CI_PROJECT_DIR/cache/Cypress'
+  CYPRESS_CACHE_FOLDER: "$CI_PROJECT_DIR/cache/Cypress"
 
 cache:
   key: ${CI_COMMIT_REF_SLUG}
@@ -85,9 +85,11 @@ tests:smoke:
 
 tests:visual:
   stage: e2e
+  image: buildkite/puppeteer
   only:
     - master
   script:
+    - apt-get update && apt-get install git -y
     - echo "PERCY_TOKEN=${PERCY_TOKEN}" > .env
     - USE_PERCY=true yarn build
 
