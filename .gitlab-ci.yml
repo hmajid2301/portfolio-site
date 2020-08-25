@@ -89,6 +89,7 @@ tests:visual:
   # only:
   #   - master
   script:
+    - apt install git
     - echo "PERCY_TOKEN=${PERCY_TOKEN}" > .env
     - USE_PERCY=true yarn build
 
