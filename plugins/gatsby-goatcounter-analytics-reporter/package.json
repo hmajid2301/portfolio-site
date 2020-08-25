@@ -9,9 +9,7 @@
     "gatsby",
     "gatsby-plugin"
   ],
-  "files": [
-    "index.js"
-  ],
+  "main": "gatsby-node.js",
   "scripts": {},
   "devDependencies": {
     "@babel/cli": "^7.2.3",
