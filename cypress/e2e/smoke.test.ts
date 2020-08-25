@@ -22,7 +22,10 @@ Cypress._.each(['iphone-6', 'macbook-15', [1920, 1080]], (viewport) => {
         .invoke('text')
         .then((tag) => {
           cy.log('Check every blog post contains this tag.');
-          cy.contains(tag).first().click();
+          cy.contains(tag)
+            .first()
+            .click()
+            .assertRoute(`/tag/${tag.replace('#', '')}/`);
           cy.get('[data-cy=BlogCard]').each((blogCard) => {
             cy.wrap(blogCard).contains(tag);
           });
