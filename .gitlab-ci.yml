@@ -67,8 +67,7 @@ tests:unit:
 
 tests:smoke:
   image: cypress/browsers:node12.14.1-chrome83-ff77
-  # stage: test
-  stage: check
+  stage: test
   script:
     - cd plugins/gatsby-goatcounter-analytics-reporter
     - yarn install

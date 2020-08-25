@@ -12,7 +12,7 @@ Cypress._.each(['iphone-6', 'macbook-15', [1920, 1080]], (viewport) => {
       cy.contains(`Hello, I'm ${config.misc.logo}`, { timeout: 10000 });
 
       cy.log('Open first blog post.');
-      cy.get('[data-cy=BlogCard]').should('have.length', 3);
+      cy.get('[data-cy=BlogCard]').should('have.length', 6);
       cy.get('[data-cy=BlogCard]').first().click();
 
       cy.log('Open first tag from first blog post.');
