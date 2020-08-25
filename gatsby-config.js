@@ -24,6 +24,8 @@ const plugins = [
     options: {
       code: process.env.GOATCOUNTER_CODE,
       personalToken: process.env.GOATCOUNTER_PERSONAL_TOKEN,
+      startDate: `30daysAgo`,
+      endDate: `today`,
     },
   },
   {

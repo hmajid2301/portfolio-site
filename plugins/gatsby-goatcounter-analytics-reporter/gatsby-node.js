@@ -2,6 +2,7 @@ var fs = require('fs');
 var zlib = require('zlib');
 var axios = require('axios');
 var parse = require('csv-parse');
+var moment = require('moment');
 
 exports.sourceNodes = async ({ actions }, configOptions) => {
   const { createNode } = actions;
@@ -29,6 +30,10 @@ exports.sourceNodes = async ({ actions }, configOptions) => {
     ));
   var data = [];
   const analyticsData = {};
+  const startDate =
+    configOptions.startDate || moment('2020-01-01T00:00:00').toISOString();
+  const endDate = configOptions.endDate || moment().toISOString();
+
   input
     .on('data', function(chunk) {
       data.push(chunk);
@@ -42,6 +47,7 @@ exports.sourceNodes = async ({ actions }, configOptions) => {
         ) {
           for (let i = 1; i < rows.length; i++) {
             const pageName = rows[i][0];
+            const dateTime = rows[i][11];
             if (analyticsData[pageName] !== undefined) {
               analyticsData[pageName] += 1;
             } else {
