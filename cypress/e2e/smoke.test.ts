@@ -26,6 +26,7 @@ Cypress._.each(['iphone-6', 'macbook-15', [1920, 1080]], (viewport) => {
             .first()
             .click()
             .assertRoute(`/tag/${tag.replace('#', '')}/`);
+          cy.wait(1000);
           cy.get('[data-cy=BlogCard]').each((blogCard) => {
             cy.wrap(blogCard).contains(tag);
           });
