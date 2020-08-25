@@ -85,11 +85,11 @@ tests:smoke:
 
 tests:visual:
   stage: e2e
-  image: alekzonder/puppeteer
+  image: buildkite/puppeteer
   # only:
   #   - master
   script:
-    - sudo apt-get update && sudo apt-get install git -y
+    - apt-get update && apt-get install git -y
     - echo "PERCY_TOKEN=${PERCY_TOKEN}" > .env
     - USE_PERCY=true yarn build
 
