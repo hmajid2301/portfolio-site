@@ -5,7 +5,7 @@ import React from 'react';
 import tw from 'twin.macro';
 
 import { Icon } from '~/components/atoms/Icon';
-import { ProgramTags as Tags } from '~/components/atoms/ProgramTags';
+import { ProgramTagsLink as Tags } from '~/components/molecules/ProgramTagsLink';
 
 export interface Props {
   /** The blog to show in the post. */

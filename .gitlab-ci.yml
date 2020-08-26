@@ -46,27 +46,13 @@ types:check:
   script:
     - yarn run types:check
 
-tests:unit:
-  stage: check
-  except:
-    - master
-    - tags
-  script:
-    - yarn run test:unit --silent --passWithNoTests
-
-# .job_template:
-#   image: cypress/browsers:node12.14.1-chrome83-ff77
-#   stage: test
+# tests:unit:
+#   stage: check
 #   except:
 #     - master
 #     - tags
 #   script:
-#     - yarn cypress install
-#     - yarn start-server-and-test "yarn develop" http://localhost:8000 "cypress run --browser chrome --record --parallel"
-#   artifacts:
-#     paths:
-#       - cypress/videos
-#       - cypress/screenshots
+#     - yarn run test:unit
 
 tests:smoke:
   stage: test
@@ -93,7 +79,7 @@ tests:visual:
     - master
   script:
     - apt-get update && apt-get install git -y
-    - echo "PERCY_TOKEN=${PERCY_TOKEN}" > .env
+    - touch .env
     - USE_PERCY=true yarn build
 
 build:site:

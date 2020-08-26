@@ -10,7 +10,6 @@ describe(`Header`, () => {
     const links = [
       { name: '🏠️ Home', link: '/' },
       { name: '✍️ Blog', link: '/blog/' },
-      { name: '🔖 Tags', link: '/tag/' },
       { name: '🧮️ Stats', link: '/stats/' },
       { name: '📋 Uses', link: '/uses/' },
     ];

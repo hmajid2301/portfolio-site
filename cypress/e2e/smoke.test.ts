@@ -37,7 +37,6 @@ Cypress._.each(['iphone-6', 'macbook-15', [1920, 1080]], (viewport) => {
       const links = [
         { name: '🏠️ Home', link: '/' },
         { name: '✍️ Blog', link: '/blog/' },
-        { name: '🔖 Tags', link: '/tag/' },
         { name: '🧮️ Stats', link: '/stats/' },
         { name: '📋 Uses', link: '/uses/' },
       ];

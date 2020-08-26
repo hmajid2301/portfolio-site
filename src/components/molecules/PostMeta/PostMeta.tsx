@@ -3,7 +3,7 @@ import React from 'react';
 import tw from 'twin.macro';
 
 import { Icon } from '~/components/atoms/Icon';
-import { ProgramTags } from '~/components/atoms/ProgramTags';
+import { ProgramTagsLink as Tags } from '~/components/molecules/ProgramTagsLink';
 
 export interface Props {
   /** Cover Image for the article. */
@@ -50,7 +50,7 @@ const PostMeta = ({
           <Icon className="mr-2" icon="tag" />
           {tags.map((category) => (
             <Item key={category}>
-              <ProgramTags key={category} size="sm" text={category} />
+              <Tags key={category} size="sm" text={category} />
             </Item>
           ))}
         </ListContainer>

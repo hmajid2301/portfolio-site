@@ -1,10 +1,10 @@
 import { Meta, Story, Preview, Props } from '@storybook/addon-docs/blocks';
 
-import ProgramTags from './ProgramTags';
+import ProgramTagsLink from './ProgramTagsLink';
 
-<Meta title="Atoms | ProgramTags" component={ProgramTags} />
+<Meta title="Molecules | ProgramTagsLink" component={ProgramTagsLink} />
 
-# ProgramTags
+# ProgramTagsLink
 
 <Preview>
   <Story
@@ -13,24 +13,11 @@ import ProgramTags from './ProgramTags';
       text: 'typescript',
     }}
   >
-    {(args) => <ProgramTags {...args} />}
+    {(args) => <ProgramTagsLink {...args} />}
   </Story>
 </Preview>
 
 <Props story="Basic" />
-
-## Active
-
-You can adjust if the tags are active by passing the `active` prop.
-
-<Preview>
-  <Story name="Active">
-    <div>
-      <ProgramTags active text="docker" />
-      <ProgramTags active text="firebase" />
-    </div>
-  </Story>
-</Preview>
 
 ## Text
 
@@ -40,8 +27,8 @@ by the text typically it will the name of a technology or programming language.
 <Preview>
   <Story name="Text">
     <div>
-      <ProgramTags text="docker" />
-      <ProgramTags text="firebase" />
+      <ProgramTagsLink text="docker" />
+      <ProgramTagsLink text="firebase" />
     </div>
   </Story>
 </Preview>
