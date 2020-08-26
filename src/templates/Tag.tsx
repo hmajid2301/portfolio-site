@@ -63,28 +63,7 @@ export const pageQuery = graphql`
       totalCount
       edges {
         node {
-          excerpt(pruneLength: 100)
-          frontmatter {
-            date(formatString: "Do MMMM, YYYY")
-            slug
-            title
-            tags
-            cover_image {
-              publicURL
-              childImageSharp {
-                fluid {
-                  srcWebp
-                  srcSetWebp
-                  ...GatsbyImageSharpFluid
-                }
-              }
-            }
-          }
-          fields {
-            readingTime {
-              text
-            }
-          }
+          ...ArticleFragment
         }
       }
     }

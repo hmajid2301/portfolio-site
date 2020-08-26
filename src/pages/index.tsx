@@ -83,28 +83,7 @@ export const pageQuery = graphql`
     ) {
       edges {
         node {
-          id
-          excerpt(pruneLength: 100)
-          frontmatter {
-            date(formatString: "Do MMMM, YYYY")
-            slug
-            title
-            tags
-            cover_image {
-              childImageSharp {
-                fluid {
-                  srcWebp
-                  srcSetWebp
-                  ...GatsbyImageSharpFluid
-                }
-              }
-            }
-          }
-          fields {
-            readingTime {
-              text
-            }
-          }
+          ...ArticleFragment
         }
       }
     }
@@ -114,28 +93,7 @@ export const pageQuery = graphql`
     ) {
       edges {
         node {
-          id
-          excerpt(pruneLength: 100)
-          frontmatter {
-            date(formatString: "Do MMMM, YYYY")
-            slug
-            title
-            tags
-            cover_image {
-              childImageSharp {
-                fluid {
-                  srcWebp
-                  srcSetWebp
-                  ...GatsbyImageSharpFluid
-                }
-              }
-            }
-          }
-          fields {
-            readingTime {
-              text
-            }
-          }
+          ...ArticleFragment
         }
       }
     }

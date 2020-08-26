@@ -83,7 +83,7 @@ const Card = styled(Link)`
   ${tw`py-20 lg:py-24`}
 `;
 
-const Row = tw.div`flex flex-col my-10 lg:my-0 lg:flex-row justify-between`;
+const Row = tw.div`flex flex-row justify-between`;
 
 const Details = tw.div`p-6 lg:block lg:text-left`;
 
