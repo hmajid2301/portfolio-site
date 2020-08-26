@@ -65,7 +65,7 @@ const Title = tw.div`text-3xl mt-10 mb-4 font-header text-center`;
 
 const Text = tw.div`text-base my-2 mx-4`;
 
-const Row = tw.div`flex flex-row justify-between`;
+const Row = tw.div`flex flex-col lg:flex-row justify-between`;
 
 const ListContainer = tw.div`flex justify-center items-center flex-wrap mt-5 mb-10`;
 

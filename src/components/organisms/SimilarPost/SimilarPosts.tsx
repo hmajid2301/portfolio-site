@@ -18,28 +18,7 @@ export default function SimilarPosts({ tags }: { tags: string[] }) {
           ) {
             edges {
               node {
-                excerpt(pruneLength: 100)
-                frontmatter {
-                  date(formatString: "Do MMMM, YYYY")
-                  slug
-                  title
-                  tags
-                  cover_image {
-                    childImageSharp {
-                      fluid {
-                        ...GatsbyImageSharpFluid
-                        srcWebp
-                        srcSetWebp
-                      }
-                    }
-                  }
-                }
-                fields {
-                  readingTime {
-                    words
-                    text
-                  }
-                }
+                ...ArticleFragment
               }
             }
           }
