@@ -42,13 +42,18 @@ const Stats = ({ data }: Props) => {
   const { edges: blogItems } = data.allMarkdownRemark;
   const { edges: popularItems } = data.allPageViews;
   const totalPosts = blogItems.length;
-  const { dayData, monthData, totalWords, totalMinutes } = getBlogStats(
-    blogItems
-  );
+  const {
+    dayData,
+    monthData,
+    dayWordData,
+    totalWords,
+    totalMinutes,
+  } = getBlogStats(blogItems);
   const { popularData, totalViews } = getPopularStats(popularItems);
 
   const days: ChartData[] = objectToDataArray(dayData, totalPosts);
   const months: ChartData[] = objectToDataArray(monthData, totalPosts);
+  const dayWords: ChartData[] = objectToDataArray(dayWordData, totalWords);
   const popularPosts: ChartData[] = objectToDataArray(popularData, totalViews);
 
   const hours = Math.floor(totalMinutes / 60);
@@ -71,6 +76,7 @@ const Stats = ({ data }: Props) => {
           unit="words"
         />
         <HorizontalBarChart data={days} title="Posts per Day" />
+        <HorizontalBarChart data={dayWords} title="Words per Day" />
         <VerticalBarChart data={months} title="Posts per Month" />
         <HorizontalBarChart
           data={popularPosts}
@@ -119,18 +125,31 @@ function getBlogStats(blogItems: Props['data']['allMarkdownRemark']['edges']) {
     Dec: 0,
   };
 
+  const dayWordData: { [name: string]: number } = {
+    Monday: 0,
+    Tuesday: 0,
+    Wednesday: 0,
+    Thursday: 0,
+    Friday: 0,
+    Saturday: 0,
+    Sunday: 0,
+  };
+
   let totalWords = 0;
   let totalMinutes = 0;
 
   blogItems.forEach((blogItem) => {
-    totalWords += blogItem.node.fields.readingTime.words;
-    totalMinutes += blogItem.node.fields.readingTime.minutes;
-    const [day, month] = blogItem.node.frontmatter.date.split(' ');
+    const { words, minutes } = blogItem.node.fields.readingTime;
+    const { date } = blogItem.node.frontmatter;
+    totalWords += words;
+    totalMinutes += minutes;
+    const [day, month] = date.split(' ');
     dayData[day] += 1;
     monthData[month] += 1;
+    dayWordData[day] += words;
   });
 
-  return { dayData, monthData, totalWords, totalMinutes };
+  return { dayData, monthData, dayWordData, totalWords, totalMinutes };
 }
 
 function objectToDataArray(obj: Record<string, number>, total: number) {
