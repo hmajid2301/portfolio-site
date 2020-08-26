@@ -2,6 +2,7 @@ import { graphql } from 'gatsby';
 import React from 'react';
 import tw from 'twin.macro';
 
+import { PopularItem } from '~/@types/index';
 import { Layout } from '~/components/Layout';
 import { DonutChart } from '~/components/molecules/DonutChart';
 import { HorizontalBarChart } from '~/components/molecules/HorizontalBarChart';
@@ -31,21 +32,24 @@ export interface Props {
         };
       }[];
     };
+    allPageViews: {
+      edges: PopularItem[];
+    };
   };
 }
 
 const Stats = ({ data }: Props) => {
   const { edges: blogItems } = data.allMarkdownRemark;
+  const { edges: popularItems } = data.allPageViews;
   const totalPosts = blogItems.length;
   const { dayData, monthData, totalWords, totalMinutes } = getBlogStats(
     blogItems
   );
+  const { popularData, totalViews } = getPopularStats(popularItems);
 
-  const days: ChartData[] = [];
-  const months: ChartData[] = [];
-
-  objectToDataArray(dayData, totalPosts, days);
-  objectToDataArray(monthData, totalPosts, months);
+  const days: ChartData[] = objectToDataArray(dayData, totalPosts);
+  const months: ChartData[] = objectToDataArray(monthData, totalPosts);
+  const popularPosts: ChartData[] = objectToDataArray(popularData, totalViews);
 
   const hours = Math.floor(totalMinutes / 60);
   const minutes = Math.floor(totalMinutes % 60);
@@ -58,7 +62,7 @@ const Stats = ({ data }: Props) => {
           articles I&apos;ve written contain a total of{' '}
           <b>{totalWords.toLocaleString()}</b> words 🖊️. It would take you
           approximately <b>{hours}</b> hours and <b>{minutes}</b> minutes ⌚ to
-          read all of the them.
+          read them all.
         </MainText>
         <DonutChart
           length={totalPosts}
@@ -68,10 +72,26 @@ const Stats = ({ data }: Props) => {
         />
         <HorizontalBarChart data={days} title="Posts per Day" />
         <VerticalBarChart data={months} title="Posts per Month" />
+        <HorizontalBarChart
+          data={popularPosts}
+          title="Most Popular Blog Posts"
+        />
       </Section>
     </Layout>
   );
 };
+
+function getPopularStats(popularItems: Props['data']['allPageViews']['edges']) {
+  const popularData: { [name: string]: number } = {};
+  let totalViews = 0;
+  popularItems.forEach((popularItem) => {
+    const { path, totalCount } = popularItem.node;
+    popularData[path] = totalCount;
+    totalViews += totalCount;
+  });
+
+  return { popularData, totalViews };
+}
 
 function getBlogStats(blogItems: Props['data']['allMarkdownRemark']['edges']) {
   const dayData: { [name: string]: number } = {
@@ -113,11 +133,8 @@ function getBlogStats(blogItems: Props['data']['allMarkdownRemark']['edges']) {
   return { dayData, monthData, totalWords, totalMinutes };
 }
 
-function objectToDataArray(
-  obj: Record<string, number>,
-  total: number,
-  newArr: Array<ChartData>
-) {
+function objectToDataArray(obj: Record<string, number>, total: number) {
+  const newArr: ChartData[] = [];
   Object.entries(obj).forEach(([key, value]) => {
     newArr.push({
       name: key,
@@ -125,6 +142,8 @@ function objectToDataArray(
       percent: (value / total) * 100,
     });
   });
+
+  return newArr;
 }
 
 const Section = tw.section`max-w-xl mx-auto my-10 px-4`;
@@ -147,6 +166,18 @@ export const pageQuery = graphql`
               words
             }
           }
+        }
+      }
+    }
+    allPageViews(
+      sort: { fields: totalCount, order: DESC }
+      limit: 10
+      filter: { path: { regex: "/blog/i", ne: "/blog" } }
+    ) {
+      edges {
+        node {
+          path
+          totalCount
         }
       }
     }
