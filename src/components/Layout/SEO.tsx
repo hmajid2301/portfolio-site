@@ -42,7 +42,6 @@ const SEO = ({
   );
 
   const { siteData } = config;
-
   const metaTitle = title || site.siteMetadata.title;
   const metaDescription = description || site.siteMetadata.description;
   const metaKeywords = keywords || site.siteMetadata.keywords;
