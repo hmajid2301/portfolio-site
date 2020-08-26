@@ -1,5 +1,4 @@
 import styled from '@emotion/styled';
-import { Location } from '@reach/router';
 import { graphql } from 'gatsby';
 import React, { useState } from 'react';
 import tw from 'twin.macro';
@@ -7,6 +6,7 @@ import tw from 'twin.macro';
 import { QueryItem } from '~/@types/index';
 import { ProgramTags } from '~/components/atoms/ProgramTags';
 import { Layout } from '~/components/Layout';
+import { BlogItem } from '~/components/molecules/BlogCard';
 import { BlogList } from '~/components/organisms/BlogList';
 import { queryToBlogItem } from '~/helpers/queryToData';
 
@@ -28,28 +28,49 @@ export interface Tag {
 
 const Blog = ({ data }: Props) => {
   const blogItems = queryToBlogItem(data.allMarkdownRemark);
+  const [activeTags, setActiveTags] = useState<string[]>([]);
+  const [blogItemsShow, setBlogItemsShow] = useState<BlogItem[]>(blogItems);
+
+  function intersection(first: string[], second: string[]) {
+    const s = new Set(second);
+    return first.filter((item) => s.has(item));
+  }
 
   return (
     <Layout title="Blog">
-      <Location>
-        {({ location }) => (
-          <div>
-            <BlogContainer>
-              <TagItem>
-                {data.allMarkdownRemark.group.map((tag) => (
-                  <ProgramTags
-                    className="py-1 my-1"
-                    size="2xl"
-                    text={tag.fieldValue}
-                  />
-                ))}
-              </TagItem>
-              <Header>Blog</Header>
-              <BlogList data={blogItems} />
-            </BlogContainer>
-          </div>
-        )}
-      </Location>
+      <BlogContainer>
+        <TagItem>
+          {data.allMarkdownRemark.group.map((tag) => (
+            <ProgramTags
+              active={activeTags.includes(tag.fieldValue)}
+              className="py-1 my-1"
+              onClick={() => {
+                const programTag = tag.fieldValue;
+                if (activeTags.includes(programTag)) {
+                  setActiveTags(
+                    activeTags.filter((item) => item !== programTag)
+                  );
+                } else {
+                  setActiveTags(activeTags.concat([programTag]));
+                }
+
+                console.log(intersection(activeTags, blogItems[0].tags));
+                if (activeTags) {
+                  setBlogItemsShow(
+                    blogItems.filter(
+                      (item) => intersection(activeTags, item.tags) !== []
+                    )
+                  );
+                }
+              }}
+              size="2xl"
+              text={tag.fieldValue}
+            />
+          ))}
+        </TagItem>
+        <Header>Blog</Header>
+        <BlogList data={blogItemsShow} />
+      </BlogContainer>
     </Layout>
   );
 };

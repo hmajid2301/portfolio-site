@@ -38,7 +38,7 @@ const TagTemplate = ({ pageContext, data }: Props) => {
   return (
     <Layout title={`#${tag}`}>
       <TagsContainer>
-        <ProgramTags size="4xl" text={tag} />
+        <ProgramTags active size="4xl" text={tag} />
         <BlogItems>
           <BlogList data={blogItems} />
         </BlogItems>

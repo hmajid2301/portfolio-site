@@ -10,6 +10,8 @@ export interface Props {
   active?: boolean;
   /** Extra css classes to apply to tag container. */
   className?: string;
+  /** Function to call when the tag is pressed/clicked. */
+  onClick?: () => void;
   /** The text/language to show in a tag format i.e. javascript. */
   text: string;
   /** The font-size of the program tags. */
@@ -19,17 +21,19 @@ export interface Props {
 const ProgramTags = ({
   active = false,
   className,
+  onClick,
   text,
   size = 'base',
 }: Props) => {
   const language = languages[text] || defaultLangauge;
 
   return (
-    <TagContainer
+    <span
       className={className}
       data-cy="ProgramTag"
       data-testid="ProgramTag"
-      to={`/tag/${text}/`}
+      // to={active ? `/tag/${text}/` : ``}
+      onClick={onClick}
     >
       <TextContainer
         active={active}
@@ -39,7 +43,7 @@ const ProgramTags = ({
       >
         #{text}
       </TextContainer>
-    </TagContainer>
+    </span>
   );
 };
 
@@ -55,7 +59,7 @@ const TextContainer = styled.span<{
   background-color: ${(props) => props.background};
   color: ${(props) => props.color};
   filter: ${(props) => (props.active ? 'brightness(100%)' : 'brightness(50%)')};
-  ${tw`rounded p-2 font-header font-semibold tracking-wide bg-opacity-25 hover:bg-primary hover:text-header transition duration-300`};
+  ${tw`rounded p-2 font-header font-semibold tracking-wide bg-opacity-25 hover:bg-primary hover:text-header transition duration-300 cursor-pointer`};
 `;
 
 export default ProgramTags;
