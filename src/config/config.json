@@ -5,7 +5,8 @@
     "description": "Haseeb Majid's personal portfolio website and blog.",
     "keywords": ["portfolio", "blog", "haseeb majid"],
     "siteUrl": "https://haseebmajid.dev",
-    "email": "hello@haseebmajid.dev"
+    "email": "hello@haseebmajid.dev",
+    "primary": "#3071d1"
   },
   "misc": {
     "logo": "Haseeb",

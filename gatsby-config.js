@@ -61,7 +61,7 @@ const plugins = [
       includePaths: [{ regex: '^/blog' }],
       height: 3,
       prependToBody: false,
-      color: `#367ee9`,
+      color: config.siteData.primary,
       footerHeight: 400,
     },
   },
@@ -118,7 +118,7 @@ const plugins = [
       short_name: siteData.author,
       start_url: `/`,
       background_color: `#222`,
-      theme_color: `#367ee9`,
+      theme_color: config.siteData.primary,
       display: `standalone`,
       icon: `src/assets/images/icon.png`,
       icons: [
