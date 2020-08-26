@@ -1,5 +1,6 @@
 import { graphql } from 'gatsby';
 
+/* eslint-disable import/prefer-default-export */
 export const ArticleData = graphql`
   fragment ArticleFragment on MarkdownRemark {
     id
