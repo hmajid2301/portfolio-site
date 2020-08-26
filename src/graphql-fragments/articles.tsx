@@ -1,6 +1,6 @@
 import { graphql } from 'gatsby';
 
-export default graphql`
+export const ArticleData = graphql`
   fragment ArticleFragment on MarkdownRemark {
     id
     excerpt(pruneLength: 100)

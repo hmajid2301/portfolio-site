@@ -61,7 +61,7 @@ const PostMeta = ({
 
 const MetaContainer = tw.section`flex flex-col my-10 font-body text-main items-center`;
 
-const Title = tw.div`text-3xl mt-10 mb-4 font-header text-center`;
+const Title = tw.div`text-xl lg:text-3xl my-10 font-header text-center`;
 
 const Text = tw.div`text-base my-2 mx-4`;
 
