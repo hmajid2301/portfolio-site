@@ -59,6 +59,7 @@ const BlogCard = ({ item }: Props) => (
             item.tags.map((category) => (
               <Tags
                 key={category}
+                active
                 className="py-1 my-2"
                 size="sm"
                 text={category}

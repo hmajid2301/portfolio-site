@@ -1,7 +1,7 @@
 import styled from '@emotion/styled';
 import { Location } from '@reach/router';
 import { graphql } from 'gatsby';
-import React from 'react';
+import React, { useState } from 'react';
 import tw from 'twin.macro';
 
 import { QueryItem } from '~/@types/index';
@@ -34,8 +34,7 @@ const Blog = ({ data }: Props) => {
       <Location>
         {({ location }) => (
           <div>
-            <TagsContainer>
-              <Header>Tags</Header>
+            <BlogContainer>
               <TagItem>
                 {data.allMarkdownRemark.group.map((tag) => (
                   <ProgramTags
@@ -45,8 +44,6 @@ const Blog = ({ data }: Props) => {
                   />
                 ))}
               </TagItem>
-            </TagsContainer>
-            <BlogContainer>
               <Header>Blog</Header>
               <BlogList data={blogItems} />
             </BlogContainer>
@@ -63,8 +60,6 @@ const BlogContainer = styled.section`
 `;
 
 const Header = tw.h1`font-header font-bold text-3xl text-main py-10 ml-10`;
-
-const TagsContainer = tw.div`max-w-screen-xl mx-auto min-h-screen px-4`;
 
 const TagItem = tw.div`my-10 flex flex-wrap`;
 
