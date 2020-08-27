@@ -89,11 +89,11 @@ tests:smoke:
 tests:visual:
   stage: e2e
   image: buildkite/puppeteer
-  only:
-    - master
+  # only:
+  #   - master
   script:
     - apt-get update && apt-get install git -y
-    - echo "PERCY_TOKEN=${PERCY_TOKEN}" > .env
+    - touch .env
     - USE_PERCY=true yarn build
 
 build:site:
