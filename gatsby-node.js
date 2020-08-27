@@ -41,7 +41,6 @@ exports.onCreateWebpackConfig = function addPathMapping({
 exports.createPages = async ({ actions, graphql, reporter }) => {
   const { createPage } = actions;
   const blogPostTemplate = path.resolve('src/templates/Blog.tsx');
-  const tagTemplate = path.resolve('src/templates/Tag.tsx');
   const result = await graphql(`
     {
       postsRemark: allMarkdownRemark(
@@ -56,11 +55,6 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
               tags
             }
           }
-        }
-      }
-      tagsGroup: allMarkdownRemark(limit: 2000) {
-        group(field: frontmatter___tags) {
-          fieldValue
         }
       }
     }
@@ -80,17 +74,6 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
       component: blogPostTemplate,
       context: {
         slug: node.frontmatter.slug,
-      },
-    });
-  });
-
-  const tags = result.data.tagsGroup.group;
-  tags.forEach((tag) => {
-    createPage({
-      path: `/tag/${tag.fieldValue}`,
-      component: tagTemplate,
-      context: {
-        tag: tag.fieldValue,
       },
     });
   });

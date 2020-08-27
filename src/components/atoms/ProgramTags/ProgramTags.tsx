@@ -32,8 +32,10 @@ const ProgramTags = ({
       className={className}
       data-cy="ProgramTag"
       data-testid="ProgramTag"
-      // to={active ? `/tag/${text}/` : ``}
       onClick={onClick}
+      onKeyDown={onClick}
+      role="button"
+      tabIndex={0}
     >
       <TextContainer
         active={active}
@@ -46,10 +48,6 @@ const ProgramTags = ({
     </span>
   );
 };
-
-const TagContainer = styled(Link)`
-  text-decoration: none;
-`;
 
 const TextContainer = styled.span<{
   active: boolean;

@@ -1,6 +1,8 @@
 import styled from '@emotion/styled';
+import { useLocation } from '@reach/router';
 import { graphql } from 'gatsby';
-import React, { useState } from 'react';
+import queryString from 'query-string';
+import React, { useState, useEffect } from 'react';
 import tw from 'twin.macro';
 
 import { QueryItem } from '~/@types/index';
@@ -27,14 +29,28 @@ export interface Tag {
 }
 
 const Blog = ({ data }: Props) => {
+  const location = useLocation();
   const blogItems = queryToBlogItem(data.allMarkdownRemark);
   const [activeTags, setActiveTags] = useState<string[]>([]);
   const [blogItemsShow, setBlogItemsShow] = useState<BlogItem[]>(blogItems);
 
-  function intersection(first: string[], second: string[]) {
-    const s = new Set(second);
-    return first.filter((item) => s.has(item));
-  }
+  useEffect(() => {
+    if (activeTags.length) {
+      const filteredBlogItems = blogItems.filter((item) =>
+        activeTags.every((val) => item.tags.includes(val))
+      );
+      setBlogItemsShow(filteredBlogItems);
+    } else {
+      setBlogItemsShow(blogItems);
+    }
+  }, [activeTags]);
+
+  useEffect(() => {
+    const currentQuery = queryString.parse(location.search);
+    setActiveTags(
+      Object.keys(currentQuery).length !== 0 ? [currentQuery.tag as string] : []
+    );
+  }, [location.search]);
 
   return (
     <Layout title="Blog">
@@ -52,15 +68,6 @@ const Blog = ({ data }: Props) => {
                   );
                 } else {
                   setActiveTags(activeTags.concat([programTag]));
-                }
-
-                console.log(intersection(activeTags, blogItems[0].tags));
-                if (activeTags) {
-                  setBlogItemsShow(
-                    blogItems.filter(
-                      (item) => intersection(activeTags, item.tags) !== []
-                    )
-                  );
                 }
               }}
               size="2xl"
