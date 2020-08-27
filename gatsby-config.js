@@ -99,6 +99,18 @@ const plugins = [
         `gatsby-remark-code-import`,
         `gatsby-remark-code-titles`,
         {
+          resolve: 'gatsby-remark-series',
+          options: {
+            render: {
+              placeholder: 'top',
+            },
+            resolvers: {
+              toSlug: (markdownNode) =>
+                `/blog/${markdownNode.frontmatter.slug}/`,
+            },
+          },
+        },
+        {
           resolve: `gatsby-remark-prismjs`,
           options: {
             classPrefix: 'language-',
@@ -111,6 +123,62 @@ const plugins = [
       ],
     },
   },
+  {
+    resolve: `gatsby-plugin-feed`,
+    options: {
+      query: `
+          {
+            site {
+              siteMetadata {
+                title
+                description
+                siteUrl
+                site_url: siteUrl
+              }
+            }
+          }
+        `,
+      feeds: [
+        {
+          serialize: ({ query: { site, allMarkdownRemark } }) => {
+            return allMarkdownRemark.edges.map((edge) => {
+              return {
+                ...edge.node.frontmatter,
+                description: edge.node.excerpt,
+                date: edge.node.frontmatter.date,
+                url: `${site.siteMetadata.siteUrl}blog/${edge.node.frontmatter.slug}/`,
+                guid: `${site.siteMetadata.siteUrl}blog/${edge.node.frontmatter.slug}/`,
+                custom_elements: [{ 'content:encoded': edge.node.html }],
+              };
+            });
+          },
+          query: `
+              {
+                allMarkdownRemark(
+                  sort: { order: DESC, fields: [frontmatter___date] },
+                ) {
+                  edges {
+                    node {
+                      excerpt
+                      html
+                      frontmatter {
+                        title
+                        date
+                        slug
+                      }
+                    }
+                  }
+                }
+              }
+            `,
+          output: '/rss.xml',
+          title: `${siteData.siteUrl}'s RSS Feed`,
+          match: '^/blog/.+',
+        },
+      ],
+    },
+  },
+
   {
     resolve: `gatsby-plugin-manifest`,
     options: {

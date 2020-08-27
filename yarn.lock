@@ -12102,6 +12102,17 @@ gatsby-plugin-emotion@^4.1.22:
     "@babel/runtime" "^7.10.3"
     "@emotion/babel-preset-css-prop" "^10.0.27"
 
+gatsby-plugin-feed@^2.5.11:
+  version "2.5.11"
+  resolved "https://registry.yarnpkg.com/gatsby-plugin-feed/-/gatsby-plugin-feed-2.5.11.tgz#64b6ec5a291df23bece4471a82186437b5a20fc6"
+  integrity sha512-Mnyc3sAWWCMXEO9YG76wsFxuAMQb1x4Bi3xC7/T+IlwTKHL86nRG/H+WF61BtEkw9YTX9TEHjegdoewu9OKM3A==
+  dependencies:
+    "@babel/runtime" "^7.10.3"
+    "@hapi/joi" "^15.1.1"
+    fs-extra "^8.1.0"
+    lodash.merge "^4.6.2"
+    rss "^1.2.2"
+
 gatsby-plugin-goatcounter@^0.3.1:
   version "0.3.1"
   resolved "https://registry.yarnpkg.com/gatsby-plugin-goatcounter/-/gatsby-plugin-goatcounter-0.3.1.tgz#d735cee8982bc841d1103ce4b1309e5302cba56c"
@@ -12402,6 +12413,15 @@ gatsby-remark-reading-time@^1.1.0:
   integrity sha512-J2I/Aerw6iEcYUs9MH5r7Ky5PIe7Aiq7+M3sDWdRa0ddWYIOZGxPq8U1xYsIBwQjVtPovk8N4aMTau9kjQQLQA==
   dependencies:
     reading-time "^1.1.3"
+
+gatsby-remark-series@^1.0.3:
+  version "1.0.3"
+  resolved "https://registry.yarnpkg.com/gatsby-remark-series/-/gatsby-remark-series-1.0.3.tgz#9d3df97b8a8497acd646dce88d8a800d18dece4b"
+  integrity sha512-EKv313E9qQqZaCvHcf182WS6c1Uxr11a9Lfuli+xcj1BagwEoURKh39jt8Uz2luRZOSnWXNVl/eA6VxdNvWrKQ==
+  dependencies:
+    lodash.defaultsdeep "^4.6.1"
+    lodash.kebabcase "^4.1.1"
+    unist-util-visit "^2.0.0"
 
 gatsby-source-filesystem@^2.1.19, gatsby-source-filesystem@^2.3.18:
   version "2.3.24"
@@ -16336,6 +16356,11 @@ lodash.defaults@^4.2.0:
   resolved "https://registry.yarnpkg.com/lodash.defaults/-/lodash.defaults-4.2.0.tgz#d09178716ffea4dde9e5fb7b37f6f0802274580c"
   integrity sha1-0JF4cW/+pN3p5ft7N/bwgCJ0WAw=
 
+lodash.defaultsdeep@^4.6.1:
+  version "4.6.1"
+  resolved "https://registry.yarnpkg.com/lodash.defaultsdeep/-/lodash.defaultsdeep-4.6.1.tgz#512e9bd721d272d94e3d3a63653fa17516741ca6"
+  integrity sha512-3j8wdDzYuWO3lM3Reg03MuQR957t287Rpcxp1njpEa8oDrikb+FwGdW3n+FELh/A6qib6yPit0j/pv9G/yeAqA==
+
 lodash.difference@^4.5.0:
   version "4.5.0"
   resolved "https://registry.yarnpkg.com/lodash.difference/-/lodash.difference-4.5.0.tgz#9ccb4e505d486b91651345772885a2df27fd017c"
@@ -16390,6 +16415,11 @@ lodash.isplainobject@^4.0.6:
   version "4.0.6"
   resolved "https://registry.yarnpkg.com/lodash.isplainobject/-/lodash.isplainobject-4.0.6.tgz#7c526a52d89b45c45cc690b88163be0497f550cb"
   integrity sha1-fFJqUtibRcRcxpC4gWO+BJf1UMs=
+
+lodash.kebabcase@^4.1.1:
+  version "4.1.1"
+  resolved "https://registry.yarnpkg.com/lodash.kebabcase/-/lodash.kebabcase-4.1.1.tgz#8489b1cb0d29ff88195cceca448ff6d6cc295c36"
+  integrity sha1-hImxyw0p/4gZXM7KRI/21swpXDY=
 
 lodash.map@^4.6.0:
   version "4.6.0"
@@ -17139,6 +17169,18 @@ mime-db@1.44.0, "mime-db@>= 1.43.0 < 2", mime-db@^1.28.0:
   version "1.44.0"
   resolved "https://registry.yarnpkg.com/mime-db/-/mime-db-1.44.0.tgz#fa11c5eb0aca1334b4233cb4d52f10c5a6272f92"
   integrity sha512-/NOTfLrsPBVeH7YtFPgsVWveuL+4SjjYxaQ1xtM1KMFj7HdxlBlxeyNLzhyJVx7r4rZGJAZ/6lkKCitSc/Nmpg==
+
+mime-db@~1.25.0:
+  version "1.25.0"
+  resolved "https://registry.yarnpkg.com/mime-db/-/mime-db-1.25.0.tgz#c18dbd7c73a5dbf6f44a024dc0d165a1e7b1c392"
+  integrity sha1-wY29fHOl2/b0SgJNwNFloeexw5I=
+
+mime-types@2.1.13:
+  version "2.1.13"
+  resolved "https://registry.yarnpkg.com/mime-types/-/mime-types-2.1.13.tgz#e07aaa9c6c6b9a7ca3012c69003ad25a39e92a88"
+  integrity sha1-4HqqnGxrmnyjASxpADrSWjnpKog=
+  dependencies:
+    mime-db "~1.25.0"
 
 mime-types@^2.1.12, mime-types@^2.1.26, mime-types@~2.1.17, mime-types@~2.1.19, mime-types@~2.1.24:
   version "2.1.27"
@@ -22200,6 +22242,14 @@ ripemd160@^2.0.0, ripemd160@^2.0.1:
     hash-base "^3.0.0"
     inherits "^2.0.1"
 
+rss@^1.2.2:
+  version "1.2.2"
+  resolved "https://registry.yarnpkg.com/rss/-/rss-1.2.2.tgz#50a1698876138133a74f9a05d2bdc8db8d27a921"
+  integrity sha1-UKFpiHYTgTOnT5oF0r3I240nqSE=
+  dependencies:
+    mime-types "2.1.13"
+    xml "1.0.1"
+
 rsvp@^4.8.4:
   version "4.8.5"
   resolved "https://registry.yarnpkg.com/rsvp/-/rsvp-4.8.5.tgz#c8f155311d167f68f21e168df71ec5b083113734"
@@ -26240,6 +26290,11 @@ xml2js@^0.4.5:
   dependencies:
     sax ">=0.6.0"
     xmlbuilder "~11.0.0"
+
+xml@1.0.1:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/xml/-/xml-1.0.1.tgz#78ba72020029c5bc87b8a81a3cfcd74b4a2fc1e5"
+  integrity sha1-eLpyAgApxbyHuKgaPPzXS0ovweU=
 
 xmlbuilder@~11.0.0:
   version "11.0.1"

@@ -40,7 +40,7 @@
 }
 
 .blog-post a {
-  @apply text-main bg-primary-03 border-b-4 border-primary;
+  @apply text-main bg-primary-alt border-b-4 border-primary;
 }
 
 .blog-post a:hover {

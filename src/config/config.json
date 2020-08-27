@@ -6,7 +6,8 @@
     "keywords": ["portfolio", "blog", "haseeb majid"],
     "siteUrl": "https://haseebmajid.dev",
     "email": "hello@haseebmajid.dev",
-    "primary": "#3071d1"
+    "primary": "#3071d1",
+    "primary-alt": "#3071d14D"
   },
   "misc": {
     "logo": "Haseeb",

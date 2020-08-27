@@ -1,3 +1,5 @@
+const config = require('./src/config/config.json');
+
 module.exports = {
   theme: {
     extend: {
@@ -32,8 +34,8 @@ module.exports = {
         '2xl': '1580px',
       },
       colors: {
-        primary: 'var(--primary)',
-        'primary-03': 'var(--primary-03)',
+        primary: config.siteData.primary,
+        'primary-alt': config.siteData['primary-alt'],
         secondary: 'var(--secondary)',
         main: 'var(--main)',
         background: 'var(--background)',
