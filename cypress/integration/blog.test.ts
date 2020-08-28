@@ -79,7 +79,7 @@ describe(`Blog List`, () => {
             .invoke('text')
             .then((tagText: string) => {
               cy.wrap(card).contains(tag).click();
-              cy.assertRoute(`/tag/${tagText.replace('#', '')}/`);
+              cy.assertRoute(`/blog?tag=${tagText.replace('#', '')}`);
             });
         });
       });
