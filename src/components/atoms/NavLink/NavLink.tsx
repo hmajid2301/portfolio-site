@@ -35,8 +35,7 @@ const LinkElement = styled(Link)`
   }
 
   &:after {
-    ${tw`block opacity-0`};
-    border-bottom: 3px solid var(--primary);
+    ${tw`block opacity-0 border-b-4 border-primary`};
     content: '';
     transition: transform 0.4s, opacity 0.4s;
     transform: translateY(10px);
