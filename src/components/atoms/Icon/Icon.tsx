@@ -35,7 +35,7 @@ export interface Props {
   /** The icon element as a string. */
   icon: string;
   /** The aria-label for this component. */
-  label?: string;
+  label: string;
   /** Function to call when the icon is pressed/clicked. */
   onClick?: () => void;
   /** The size of the icon. */

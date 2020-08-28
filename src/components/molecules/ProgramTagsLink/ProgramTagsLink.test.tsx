@@ -4,7 +4,7 @@ import ProgramTagsLink from './ProgramTagsLink';
 
 import { render } from 'test-utils';
 
-describe('<ProgramTags />', () => {
+describe('<ProgramTagsLink />', () => {
   test.each([
     ['', 'javascript', ''],
     ['', 'python', '2xl'],

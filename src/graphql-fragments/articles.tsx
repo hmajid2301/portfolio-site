@@ -23,6 +23,7 @@ export const ArticleData = graphql`
     fields {
       readingTime {
         text
+        words
       }
     }
   }

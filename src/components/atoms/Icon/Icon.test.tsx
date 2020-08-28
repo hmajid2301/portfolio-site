@@ -38,7 +38,7 @@ describe('<Icon />', () => {
     const mockFn = jest.fn();
 
     const { getByTestId } = render(
-      <Icon dataId="icon" icon="github" onClick={mockFn} />
+      <Icon dataId="icon" icon="github" label="Test Icon" onClick={mockFn} />
     );
     const iconComponent = getByTestId('icon');
     iconComponent.click();
