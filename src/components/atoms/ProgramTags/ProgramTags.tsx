@@ -28,7 +28,7 @@ const ProgramTags = ({
 
   return (
     <span
-      className={className}
+      className={`outline-none ${className}`}
       data-cy="ProgramTag"
       data-testid="ProgramTag"
       onClick={onClick}

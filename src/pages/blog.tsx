@@ -84,7 +84,7 @@ const BlogContainer = styled.section`
 
 const Header = tw.h1`font-header font-bold text-3xl text-main py-10 ml-10`;
 
-const TagItem = tw.div`my-10 flex flex-wrap`;
+const TagItem = tw.div`my-10 flex flex-wrap justify-center items-center`;
 
 export default Blog;
 
