@@ -2,11 +2,12 @@
 /// <reference types="cypress" />
 /// <reference types="@types/testing-library__cypress" />
 
-import { QueryItem } from '../../src/components/organisms/BlogList';
+import { QueryItem, Tag } from '../../src/@types';
 import graphqlFixture from '../fixtures/graphql.json';
 
 describe(`Blog List`, () => {
   let posts: QueryItem[];
+  let tags: Tag[];
 
   before(() => {
     const query = `{
@@ -31,6 +32,10 @@ describe(`Blog List`, () => {
             }
           }
         }
+        group(field: frontmatter___tags) {
+          fieldValue
+          totalCount
+        }
       }
     }`;
 
@@ -39,14 +44,28 @@ describe(`Blog List`, () => {
       method: 'POST',
       body: { query },
       failOnStatusCode: false,
-    }).then((res) => {
-      posts = res.body.data.allMarkdownRemark.edges;
-    });
+    }).then(
+      (res: {
+        body: {
+          data: {
+            allMarkdownRemark: {
+              /** A list of blog posts to show. */
+              edges: QueryItem[];
+              /** A list of tags to show. */
+              group: Tag[];
+            };
+          };
+        };
+      }) => {
+        posts = res.body.data.allMarkdownRemark.edges;
+        tags = res.body.data.allMarkdownRemark.group;
+      }
+    );
   });
 
   it(`check blog posts loads`, () => {
     posts.slice(0, 9).forEach((post) => {
-      const { date, title, tags, cover_image } = post.node.frontmatter;
+      const { date, title, tags } = post.node.frontmatter;
       const { excerpt } = post.node;
       cy.visit('/blog/');
       cy.contains(title, { timeout: 10000 }).within((card) => {
@@ -70,7 +89,7 @@ describe(`Blog List`, () => {
 
   it(`check tag link work`, () => {
     posts.slice(0, 3).forEach((post) => {
-      const { title, tags, cover_image } = post.node.frontmatter;
+      const { title, tags } = post.node.frontmatter;
       tags.forEach((tag) => {
         cy.visit('/blog/');
         cy.contains(title).within((card) => {
@@ -82,6 +101,15 @@ describe(`Blog List`, () => {
               cy.assertRoute(`/blog?tag=${tagText.replace('#', '')}`);
             });
         });
+      });
+    });
+  });
+
+  it(`check tag filters work`, () => {
+    posts.slice(0, 3).forEach((post) => {
+      const { title, tags } = post.node.frontmatter;
+      tags.forEach((tag) => {
+        cy.visit('/blog/');
       });
     });
   });

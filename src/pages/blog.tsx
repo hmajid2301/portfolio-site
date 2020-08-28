@@ -5,7 +5,7 @@ import queryString from 'query-string';
 import React, { useState, useEffect } from 'react';
 import tw from 'twin.macro';
 
-import { QueryItem } from '~/@types/index';
+import { QueryItem, Tag } from '~/@types/index';
 import { ProgramTags } from '~/components/atoms/ProgramTags';
 import { Layout } from '~/components/Layout';
 import { BlogItem } from '~/components/molecules/BlogCard';
@@ -21,11 +21,6 @@ export interface Props {
       group: Tag[];
     };
   };
-}
-
-export interface Tag {
-  /** A name of the tag. */
-  fieldValue: string;
 }
 
 const Blog = ({ data }: Props) => {

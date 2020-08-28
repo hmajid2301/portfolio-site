@@ -13,7 +13,7 @@ describe(`Uses`, () => {
       markdownRemark(frontmatter: {title: {eq: "Uses"}}) {
         frontmatter {
           title
-          date
+          date(formatString: "Do MMMM, YYYY")
         }
         fields {
           readingTime {

@@ -49,7 +49,7 @@ tests:unit:
     - master
     - tags
   script:
-    - yarn run test:unit
+    - yarn run test:unit --silent
 
 tests:smoke:
   stage: test
