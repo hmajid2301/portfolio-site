@@ -63,54 +63,62 @@ describe(`Blog List`, () => {
     );
   });
 
-  it(`check blog posts loads`, () => {
-    posts.slice(0, 9).forEach((post) => {
-      const { date, title, tags } = post.node.frontmatter;
-      const { excerpt } = post.node;
-      cy.visit('/blog/');
-      cy.contains(title, { timeout: 10000 }).within((card) => {
-        cy.wrap(card).contains(date);
-        cy.wrap(card).contains(excerpt.substr(0, 50));
-        tags.forEach((tag) => {
-          cy.wrap(card).contains(tag);
-        });
-      });
-    });
-  });
+  // it(`check blog posts loads`, () => {
+  //   posts.slice(0, 9).forEach((post) => {
+  //     const { date, title, tags } = post.node.frontmatter;
+  //     const { excerpt } = post.node;
+  //     cy.visit('/blog/');
+  //     cy.contains(title, { timeout: 10000 }).within((card) => {
+  //       cy.wrap(card).contains(date);
+  //       cy.wrap(card).contains(excerpt.substr(0, 50));
+  //       tags.forEach((tag) => {
+  //         cy.wrap(card).contains(tag);
+  //       });
+  //     });
+  //   });
+  // });
 
-  it(`check blog links work`, () => {
-    posts.slice(0, 9).forEach((post) => {
-      const { title, slug } = post.node.frontmatter;
-      cy.visit('/blog/');
-      cy.contains(title, { timeout: 10000 }).click({ force: true });
-      cy.assertRoute(`/blog/${slug}/`);
-    });
-  });
+  // it(`check blog links work`, () => {
+  //   posts.slice(0, 9).forEach((post) => {
+  //     const { title, slug } = post.node.frontmatter;
+  //     cy.visit('/blog/');
+  //     cy.contains(title, { timeout: 10000 }).click({ force: true });
+  //     cy.assertRoute(`/blog/${slug}/`);
+  //   });
+  // });
 
-  it(`check tag link work`, () => {
-    posts.slice(0, 3).forEach((post) => {
-      const { title, tags } = post.node.frontmatter;
-      tags.forEach((tag) => {
-        cy.visit('/blog/');
-        cy.contains(title).within((card) => {
-          cy.wrap(card)
-            .contains(tag)
-            .invoke('text')
-            .then((tagText: string) => {
-              cy.wrap(card).contains(tag).click();
-              cy.assertRoute(`/blog?tag=${tagText.replace('#', '')}`);
-            });
-        });
-      });
-    });
-  });
+  // it(`check tag link work`, () => {
+  //   posts.slice(0, 3).forEach((post) => {
+  //     const { title, tags } = post.node.frontmatter;
+  //     tags.forEach((tag) => {
+  //       cy.visit('/blog/');
+  //       cy.contains(title).within((card) => {
+  //         cy.wrap(card)
+  //           .contains(tag)
+  //           .invoke('text')
+  //           .then((tagText: string) => {
+  //             cy.wrap(card).contains(tag).click();
+  //             cy.assertRoute(`/blog?tag=${tagText.replace('#', '')}`);
+  //           });
+  //       });
+  //     });
+  //   });
+  // });
 
-  it(`check tag filters work`, () => {
-    posts.slice(0, 3).forEach((post) => {
-      const { title, tags } = post.node.frontmatter;
-      tags.forEach((tag) => {
-        cy.visit('/blog/');
-      });
-    });
+  // it(`check tag filters work`, () => {
+  //   tags.slice(0, 3).forEach((tag) => {
+  //     cy.visit('/blog/');
+  //     cy.contains(`#${tag.fieldValue}`).click();
+  //     cy.get('[data-cy=BlogCard]').each((blogCard) => {
+  //       cy.wrap(blogCard).within((card) => {
+  //         cy.wrap(card).contains(`#${tag.fieldValue}`);
+  //       });
+  //     });
+  //   });
+  // });
+
+  it(`check multiple tag filters work`, () => {
+    const tags: string[] = [];
+    cy.visit('/blog/');
   });
 });

@@ -50,7 +50,7 @@ const Blog = ({ data }: Props) => {
   return (
     <Layout title="Blog">
       <BlogContainer>
-        <TagItem>
+        <TagItem data-cy="Tags">
           {data.allMarkdownRemark.group.map((tag) => (
             <ProgramTags
               active={activeTags.includes(tag.fieldValue)}
