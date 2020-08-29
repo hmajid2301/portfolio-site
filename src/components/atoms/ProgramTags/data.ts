@@ -7,15 +7,15 @@ type Language = {
 
 const languages: Language = {
   android: {
-    background: '#3ddc84',
+    background: '#126337',
     color: '#fff',
   },
   ci: {
-    background: '#e13a1c',
+    background: '#9F2914',
     color: '#fff',
   },
   css: {
-    background: '#178fce',
+    background: '#1378AE',
     color: '#fff',
   },
   docker: {
@@ -31,7 +31,7 @@ const languages: Language = {
     color: '#fff',
   },
   docz: {
-    background: '#6ef1b5',
+    background: '#075F37',
     color: '#fff',
   },
   firebase: {
@@ -43,8 +43,8 @@ const languages: Language = {
     color: '#fff',
   },
   gitlab: {
-    background: '#fc6d26',
-    color: '#fff',
+    background: '#FB6E28',
+    color: '#050505',
   },
   flask: {
     background: '#000',
@@ -59,29 +59,29 @@ const languages: Language = {
   linux: { background: '#222', color: '#4FF14F' },
   openapi: { background: '#4c5b31', color: '#fff' },
   python: { background: '#3572A5', color: '#fff' },
-  programming: { background: '#367ee9', color: '#fff' },
+  programming: { background: '#134FAA', color: '#fff' },
   project: {
-    background: '#009e49',
+    background: '#00612D',
     color: '#fff',
   },
   pytest: {
-    background: '#009bdb',
+    background: '#005D85',
     color: '#fff',
   },
   react: { background: '#222', color: '#00d8ff' },
   'react-navigation': { background: '#6b52ae', color: '#fff' },
   'react-native': { background: '#222', color: '#00d8ff' },
-  storybook: { background: '#ff4785', color: '#fff' },
-  sqlalchemy: { background: '#778877', color: '#fff' },
-  testing: { background: '#fde628', color: '#fff' },
-  tox: { background: '#6b7c6b', color: '#fff' },
-  tailwindcss: { background: '#1ab4b7', color: '#fff' },
+  storybook: { background: '#B3003C', color: '#fff' },
+  sqlalchemy: { background: '#4A554A', color: '#fff' },
+  testing: { background: '#fde628', color: '#121212' },
+  tox: { background: '#424C42', color: '#fff' },
+  tailwindcss: { background: '#128082', color: '#fff' },
   typescript: { background: '#2775c3', color: '#fff' },
   'visual-studio': { background: '#1d71ae', color: '#fff' },
   virtualbox: { background: '#1f3a60', color: '#fff' },
   webstorm: {
-    background: '#00cdd7',
-    color: '#fff',
+    background: '#00AAB3',
+    color: '#000',
   },
 };
 

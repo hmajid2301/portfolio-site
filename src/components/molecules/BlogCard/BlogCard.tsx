@@ -36,25 +36,37 @@ const BlogCard = ({ item }: Props) => (
       </ImageContainer>
       <Details>
         <Title data-cy="BlogTitle">
-          <Icon className="mr-2" icon="code" />
+          <Icon className="mr-2" icon="code" label="Blog Post title Icon" />
           {item.title}
         </Title>
         <Row>
           <Date>
-            <Icon className="mr-2" icon="calendar" />
+            <Icon
+              className="mr-2"
+              icon="calendar"
+              label="Blog Post date published Icon"
+            />
             {item.date}
           </Date>
           <Text>
-            <Icon className="mr-2" icon="hourglass" />
+            <Icon
+              className="mr-2"
+              icon="hourglass"
+              label="Estimated time to read post icon"
+            />
             {item.readingTime}
           </Text>
         </Row>
         <Text>
-          <Icon className="mr-2" icon="description" />
+          <Icon
+            className="mr-2"
+            icon="description"
+            label="Blog post excerpt icon"
+          />
           {item.description}
         </Text>
         <TagContainer>
-          <Icon className="mr-2" icon="tag" />
+          <Icon className="mr-2" icon="tag" label="Tag Icon" />
           {item.tags &&
             item.tags.map((category) => (
               <Tags

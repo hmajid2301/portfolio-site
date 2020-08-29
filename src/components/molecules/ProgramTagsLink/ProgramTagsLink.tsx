@@ -1,6 +1,7 @@
 import styled from '@emotion/styled';
 import { Link } from 'gatsby';
 import React from 'react';
+import tw from 'twin.macro';
 
 import { ProgramTags } from '~/components/atoms/ProgramTags';
 
@@ -25,7 +26,7 @@ const ProgramTagsLink = ({ className, text, size = 'base' }: Props) => (
 );
 
 const TagContainer = styled(Link)`
-  text-decoration: none;
+  ${tw`outline-none no-underline`}
 `;
 
 export default ProgramTagsLink;

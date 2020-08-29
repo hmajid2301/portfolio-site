@@ -1,4 +1,7 @@
-const routes = ['badge.html', 'button.html'];
+/// <reference types="../support/index" />
+/// <reference types="cypress" />
+/// <reference types="@types/testing-library__cypress" />
+/// <reference types="@types/cypress-axe" />
 
 describe('Component accessibility test', () => {
   it('Hello', () => {
@@ -19,7 +22,8 @@ describe('Component accessibility test', () => {
       cy.wait(500);
       cy.injectAxe();
       cy.checkA11y({
-        exclude: ['svg'],
+        include: [['#root']],
+        exclude: [['svg']],
       });
     });
   });

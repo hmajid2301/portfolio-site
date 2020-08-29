@@ -25,10 +25,8 @@ describe(`Home Page`, () => {
           .first()
           .invoke('text')
           .then((tag) => {
-            cy.get('[data-cy=ProgramTag]')
-              .first()
-              .click()
-              .assertRoute(`/tag/${tag.replace('#', '')}/`);
+            cy.get('[data-cy=ProgramTag]').first().click();
+            cy.assertRoute(`/blog?tag=${tag.replace('#', '')}`);
           });
       });
   });

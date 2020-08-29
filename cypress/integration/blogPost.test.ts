@@ -51,26 +51,26 @@ describe(`Blog Post`, () => {
     });
   });
 
-  // it(`check all the posts are loading`, () => {
-  //   posts.slice(0, 9).forEach((post) => {
-  //     const { date, title, tags } = post.node.frontmatter;
-  //     const { readingTime } = post.node.fields;
-  //     cy.visit('/blog/');
-  //     cy.contains(title).click({ force: true });
-  //     cy.contains(date);
-  //     cy.contains(`${readingTime.text} / ${readingTime.words}`, {
-  //       timeout: 10000,
-  //     });
-  //     tags.forEach((tag) => {
-  //       cy.contains(tag);
-  //     });
-  //     cy.contains('Share', { timeout: 10000 })
-  //       .findAllByRole('button')
-  //       .each((button) => {
-  //         cy.wrap(button).click();
-  //       });
-  //   });
-  // });
+  it(`check all the posts are loading`, () => {
+    posts.slice(0, 9).forEach((post) => {
+      const { date, title, tags } = post.node.frontmatter;
+      const { readingTime } = post.node.fields;
+      cy.visit('/blog/');
+      cy.contains(title).click({ force: true });
+      cy.contains(date);
+      cy.contains(`${readingTime.text} / ${readingTime.words}`, {
+        timeout: 10000,
+      });
+      tags.forEach((tag) => {
+        cy.contains(tag);
+      });
+      cy.contains('Share', { timeout: 10000 })
+        .findAllByRole('button')
+        .each((button) => {
+          cy.wrap(button).click();
+        });
+    });
+  });
 
   it(`check seo meta data is correct`, () => {
     posts.slice(0, 9).forEach((post) => {

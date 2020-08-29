@@ -5,7 +5,7 @@ import queryString from 'query-string';
 import React, { useState, useEffect } from 'react';
 import tw from 'twin.macro';
 
-import { QueryItem } from '~/@types/index';
+import { QueryItem, Tag } from '~/@types/index';
 import { ProgramTags } from '~/components/atoms/ProgramTags';
 import { Layout } from '~/components/Layout';
 import { BlogItem } from '~/components/molecules/BlogCard';
@@ -21,11 +21,6 @@ export interface Props {
       group: Tag[];
     };
   };
-}
-
-export interface Tag {
-  /** A name of the tag. */
-  fieldValue: string;
 }
 
 const Blog = ({ data }: Props) => {
@@ -55,7 +50,7 @@ const Blog = ({ data }: Props) => {
   return (
     <Layout title="Blog">
       <BlogContainer>
-        <TagItem>
+        <TagItem data-cy="Tags">
           {data.allMarkdownRemark.group.map((tag) => (
             <ProgramTags
               active={activeTags.includes(tag.fieldValue)}
@@ -89,7 +84,7 @@ const BlogContainer = styled.section`
 
 const Header = tw.h1`font-header font-bold text-3xl text-main py-10 ml-10`;
 
-const TagItem = tw.div`my-10 flex flex-wrap`;
+const TagItem = tw.div`my-10 flex flex-wrap justify-center items-center`;
 
 export default Blog;
 

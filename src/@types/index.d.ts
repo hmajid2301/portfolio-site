@@ -38,6 +38,11 @@ export interface PopularItem {
   };
 }
 
+export interface Tag {
+  /** A name of the tag. */
+  fieldValue: string;
+}
+
 declare module '*.svg';
 declare module '*.jpg';
 declare module '*.png';

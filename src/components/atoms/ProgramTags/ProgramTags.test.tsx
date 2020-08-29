@@ -18,7 +18,6 @@ describe('<ProgramTags />', () => {
     const language = languages[text] || defaultLangauge;
     const tags = getByText(`#${text}`);
 
-    expect(tags.parentElement).toHaveAttribute('href', `/tag/${text}/`);
     expect(tags.parentElement?.className).toContain(className);
     expect(tags.className).toContain(size ? `text-${size}` : 'text-base');
     expect(tags).toHaveStyle(`background-color: ${language.background}`);

@@ -27,7 +27,12 @@ export default function ScrollButton({ anchor }: { anchor: string }) {
 
   return (
     <ScrollContainer id="ScrollButton">
-      <Icon icon="up" onClick={() => scrollTo(anchor)} size="3em" />
+      <Icon
+        icon="up"
+        label="Scroll Icon"
+        onClick={() => scrollTo(anchor)}
+        size="3em"
+      />
     </ScrollContainer>
   );
 }
