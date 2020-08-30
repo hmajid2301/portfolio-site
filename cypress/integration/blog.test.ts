@@ -64,7 +64,7 @@ describe(`Blog List`, () => {
   });
 
   it(`check blog posts loads`, () => {
-    posts.slice(0, 9).forEach((post) => {
+    posts.slice(0, 3).forEach((post) => {
       const { date, title, tags } = post.node.frontmatter;
       const { excerpt } = post.node;
       cy.visit('/blog/');
@@ -79,7 +79,7 @@ describe(`Blog List`, () => {
   });
 
   it(`check blog links work`, () => {
-    posts.slice(0, 9).forEach((post) => {
+    posts.slice(0, 3).forEach((post) => {
       const { title, slug } = post.node.frontmatter;
       cy.visit('/blog/');
       cy.contains(title, { timeout: 10000 }).click({ force: true });
@@ -98,12 +98,14 @@ describe(`Blog List`, () => {
             .invoke('text')
             .then((tagText: string) => {
               cy.wrap(card).contains(`#${tag}`).click();
-              cy.assertRoute(`/blog?tag=${tagText.replace('#', '')}`);
+              console.log(tagText, tag);
+              cy.assertRoute(`/blog?tag=${tag.replace('#', '')}`);
             });
         });
       });
     });
   });
+
   it(`check multiple tag filters work`, () => {
     const tags: string[] = [];
     cy.visit('/blog/');
