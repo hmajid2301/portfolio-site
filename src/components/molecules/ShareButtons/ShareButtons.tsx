@@ -47,7 +47,11 @@ const ShareButton = ({ link }: Props) => {
     </TwitterShareButton>,
   ];
 
-  return <ShareContainer data-testid="Share">{socialMedia}</ShareContainer>;
+  return (
+    <ShareContainer data-cy="Share" data-testid="Share">
+      {socialMedia}
+    </ShareContainer>
+  );
 };
 
 const ShareContainer = tw.div`mx-10 py-5 border-accent border-t-2 text-3xl`;

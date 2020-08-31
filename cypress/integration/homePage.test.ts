@@ -13,7 +13,7 @@ describe(`Home Page`, () => {
 
   it(`check latest posts are loading`, () => {
     cy.visit('/');
-    cy.get('[data-cy=BlogCard]').should('have.length', 3);
+    cy.get('[data-cy=BlogCard]').should('have.length', 6);
   });
 
   it(`check tags link are working in blog post`, () => {

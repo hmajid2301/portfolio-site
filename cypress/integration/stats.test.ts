@@ -13,8 +13,10 @@ describe(`Stats`, () => {
       allMarkdownRemark {
         edges {
           node {
-            wordCount {
-              words
+            fields {
+              readingTime {
+                words
+              }
             }
             frontmatter {
               date(formatString: "dddd MMM")
@@ -38,7 +40,7 @@ describe(`Stats`, () => {
     cy.visit('/stats/');
     let total = 0;
     stats.forEach((stat) => {
-      total += stat.node.wordCount.words;
+      total += stat.node.fields.readingTime.words;
     });
     const average = Math.floor(total / stats.length);
     cy.contains(`Total words: ${total.toLocaleString()}`, { timeout: 10000 });

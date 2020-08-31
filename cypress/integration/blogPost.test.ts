@@ -52,7 +52,7 @@ describe(`Blog Post`, () => {
   });
 
   it(`check all the posts are loading`, () => {
-    posts.slice(0, 9).forEach((post) => {
+    posts.slice(0, 1).forEach((post) => {
       const { date, title, tags } = post.node.frontmatter;
       const { readingTime } = post.node.fields;
       cy.visit('/blog/');
@@ -64,7 +64,7 @@ describe(`Blog Post`, () => {
       tags.forEach((tag) => {
         cy.contains(tag);
       });
-      cy.contains('Share', { timeout: 10000 })
+      cy.get('[data-cy=Share]')
         .findAllByRole('button')
         .each((button) => {
           cy.wrap(button).click();
@@ -73,17 +73,25 @@ describe(`Blog Post`, () => {
   });
 
   it(`check seo meta data is correct`, () => {
-    posts.slice(0, 9).forEach((post) => {
+    posts.slice(0, 3).forEach((post) => {
       const { title, tags } = post.node.frontmatter;
       const { excerpt } = post.node;
       cy.visit('/blog/');
       cy.contains(title).click({ force: true });
-
+      cy.wait(1000);
       cy.url().then((url) => {
         cy.get('meta[property="og:url"]').should(
           'have.attr',
           'content',
           url.replace('http://localhost:8000', config.siteData.siteUrl)
+        );
+        cy.get('meta[property="og:image"]').should(
+          'have.attr',
+          'content',
+          `${url.replace(
+            'http://localhost:8000/blog',
+            config.siteData.siteUrl
+          )}card.jpg`
         );
       });
 
@@ -98,6 +106,7 @@ describe(`Blog Post`, () => {
         'content',
         excerpt
       );
+
       cy.get('meta[property="og:type"]').should(
         'have.attr',
         'content',
