@@ -11,12 +11,16 @@ const BlogList = ({ data }: Props) => {
   return (
     <BlogRowContainer>
       {data.map((blogItem) => (
-        <BlogCard key={blogItem.title} item={blogItem} />
+        <BlogCard
+          key={blogItem.title}
+          className="w-full xl:w-1/3"
+          item={blogItem}
+        />
       ))}
     </BlogRowContainer>
   );
 };
 
-const BlogRowContainer = tw.div`grid grid-cols-1 xl:grid-cols-3 gap-4`;
+const BlogRowContainer = tw.div`flex items-center justify-between`;
 
 export default BlogList;

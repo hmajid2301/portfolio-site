@@ -8,6 +8,7 @@ import { Icon } from '~/components/atoms/Icon';
 import { ProgramTagsLink as Tags } from '~/components/molecules/ProgramTagsLink';
 
 export interface Props {
+  className?: string;
   /** The blog to show in the post. */
   item: BlogItem;
 }
@@ -28,8 +29,8 @@ export interface BlogItem {
   readingTime?: string;
 }
 
-const BlogCard = ({ item }: Props) => (
-  <BlogCardContainer data-cy="BlogCard">
+const BlogCard = ({ className, item }: Props) => (
+  <BlogCardContainer className={className} data-cy="BlogCard">
     <Card data-testid="BlogCard" to={`/blog/${item.link}/`}>
       <ImageContainer>
         <Image alt="Cover for article." fluid={item.image} loading="lazy" />
