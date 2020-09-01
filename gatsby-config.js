@@ -99,6 +99,15 @@ const plugins = [
         `gatsby-remark-code-import`,
         `gatsby-remark-code-titles`,
         {
+          resolve: `gatsby-remark-autolink-headers`,
+          options: {
+            offsetY: `0`,
+            icon: `#`,
+            className: `header-anchor`,
+            elements: [`h1`, `h2`],
+          },
+        },
+        {
           resolve: 'gatsby-remark-series',
           options: {
             render: {

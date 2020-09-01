@@ -9,14 +9,18 @@ export interface Props {
 
 const BlogList = ({ data }: Props) => {
   return (
-    <BlogRowContainer>
-      {data.map((blogItem) => (
-        <BlogCard key={blogItem.title} item={blogItem} />
-      ))}
-    </BlogRowContainer>
+    <BlogCardsContainer>
+      <BlogCards>
+        {data.map((blogItem) => (
+          <BlogCard key={blogItem.title} item={blogItem} />
+        ))}
+      </BlogCards>
+    </BlogCardsContainer>
   );
 };
 
-const BlogRowContainer = tw.div`grid grid-cols-1 xl:grid-cols-3 gap-4`;
+const BlogCardsContainer = tw.div`flex justify-center items-center xl:block`;
+
+const BlogCards = tw.div`grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-4`;
 
 export default BlogList;

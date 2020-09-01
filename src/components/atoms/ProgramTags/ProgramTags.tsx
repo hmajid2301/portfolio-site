@@ -56,7 +56,8 @@ const TextContainer = styled.span<{
   background-color: ${(props) => props.background};
   color: ${(props) => props.color};
   filter: ${(props) => (props.active ? 'brightness(100%)' : 'brightness(50%)')};
-  ${tw`rounded p-2 font-header font-semibold tracking-wide bg-opacity-25 hover:bg-primary hover:text-header transition duration-300 cursor-pointer`};
+  ${tw`rounded p-2 font-header font-semibold tracking-wide bg-opacity-25
+  transition duration-300 cursor-pointer`};
 `;
 
 export default ProgramTags;

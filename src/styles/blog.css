@@ -29,7 +29,7 @@
 @screen sm {
   .blog-post h1,
   .blog-post h2 {
-    @apply text-2xl;
+    @apply ml-4 text-2xl;
   }
   .blog-post h3,
   .blog-post h4,
@@ -138,4 +138,12 @@ code[class*='language-'] {
 
 .gatsby-highlight pre[class*='language-'] {
   @apply p-5 pt-10;
+}
+
+.header-anchor.before {
+  @apply bg-transparent border-b-0;
+}
+
+.header-anchor.before:hover {
+  @apply bg-transparent text-primary transition duration-300;
 }
