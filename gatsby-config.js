@@ -61,7 +61,7 @@ const plugins = [
       includePaths: [{ regex: '^/blog/.+' }],
       height: 3,
       prependToBody: false,
-      color: config.siteData.primary,
+      color: siteData.primary,
       footerHeight: 400,
     },
   },
@@ -78,7 +78,7 @@ const plugins = [
     options: {
       name: `Articles`,
       remote: article.git_url,
-      branch: `feature/testing-code-import`,
+      branch: `master`,
       patterns: article.file_patterns,
     },
   },
@@ -86,6 +86,12 @@ const plugins = [
     resolve: `gatsby-plugin-canonical-urls`,
     options: {
       siteUrl: siteData.siteUrl,
+    },
+  },
+  {
+    resolve: `gatsby-plugin-nprogress`,
+    options: {
+      color: siteData.primary,
     },
   },
   {

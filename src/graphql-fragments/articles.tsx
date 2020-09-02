@@ -12,7 +12,7 @@ export const ArticleData = graphql`
       tags
       cover_image {
         childImageSharp {
-          fluid {
+          fluid(maxWidth: 1000, quality: 100) {
             srcWebp
             srcSetWebp
             ...GatsbyImageSharpFluid
