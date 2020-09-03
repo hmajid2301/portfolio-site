@@ -18,6 +18,8 @@ export interface Props {
   data: string;
   /** The date of the blog post. */
   date: string;
+  /** The link to go to edit the page i.e. Gitlab. */
+  editLink: string;
   /** How long it'll take to finish the article. */
   readingTime: string;
   /** The unique slug/url of the blog post. */
@@ -34,6 +36,7 @@ const BlogPost = ({
   coverImage,
   data,
   date,
+  editLink,
   readingTime,
   slug,
   tags,
@@ -67,6 +70,7 @@ const BlogPost = ({
       <PostMeta
         coverImage={coverImage}
         date={date}
+        editLink={editLink}
         readingTime={readingTime}
         tags={tags}
         title={title}

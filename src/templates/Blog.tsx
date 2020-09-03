@@ -5,12 +5,15 @@ import { QueryItem } from '~/@types/index';
 import { Layout } from '~/components/Layout';
 import { BlogPost } from '~/components/organisms/BlogPost';
 import { SimilarPosts } from '~/components/organisms/SimilarPost';
+import config from '~/config/config.json';
 
 export interface Props {
   data: {
     markdownRemark: QueryItem['node'] & {
       /** The blog post as a HTML string. */
       content: string;
+      /** Absolute path to markdown file. */
+      fileAbsolutePath: string;
       /** The first 100 characters from the post. */
       excerpt: string;
     };
@@ -19,7 +22,24 @@ export interface Props {
 
 export default function BlogTemplate({ data }: Props) {
   const { markdownRemark } = data;
-  const { fields, frontmatter, content, excerpt } = markdownRemark;
+  const {
+    fields,
+    frontmatter,
+    content,
+    excerpt,
+    fileAbsolutePath,
+  } = markdownRemark;
+
+  function getGitMarkdownUrl() {
+    const { git_url } = config.article;
+    const pathConst = 'gatsby-source-git/Articles';
+    const mainGitUrl = git_url.replace('.git', '');
+    const markdownFileGitPath = fileAbsolutePath
+      .slice(fileAbsolutePath.lastIndexOf(pathConst))
+      .replace(pathConst, '');
+    const blogPostOnGit = `${mainGitUrl}/-/blob/master${markdownFileGitPath}`;
+    return blogPostOnGit;
+  }
 
   return (
     <Layout
@@ -39,6 +59,7 @@ export default function BlogTemplate({ data }: Props) {
           coverImage={frontmatter.cover_image?.childImageSharp.fluid}
           data={content}
           date={frontmatter.date}
+          editLink={getGitMarkdownUrl()}
           readingTime={fields.readingTime.text}
           slug={`/blog/${frontmatter.slug}/`}
           tags={frontmatter.tags}
@@ -59,6 +80,7 @@ export const pageQuery = graphql`
   query($slug: String!) {
     markdownRemark(frontmatter: { slug: { eq: $slug } }) {
       content: html
+      fileAbsolutePath
       ...ArticleFragment
     }
   }

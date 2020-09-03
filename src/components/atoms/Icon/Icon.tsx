@@ -8,6 +8,7 @@ import {
   AiOutlineStar as Star,
   AiOutlineTwitter as Twitter,
   AiFillLinkedin as LinkedIn,
+  AiFillEdit as Edit,
 } from 'react-icons/ai';
 import {
   FaDev as Dev,
@@ -63,6 +64,7 @@ const icons: { [name: string]: JSX.Element } = {
   reddit: <Reddit />,
   close: <Close />,
   menu: <Menu />,
+  edit: <Edit />,
 };
 
 const Icon = ({

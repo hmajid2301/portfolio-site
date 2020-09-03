@@ -1,5 +1,6 @@
 import { FluidObject } from 'gatsby-image';
 import React from 'react';
+import { AiFillEdit as Edit } from 'react-icons/ai';
 import tw from 'twin.macro';
 
 import { Icon } from '~/components/atoms/Icon';
@@ -10,6 +11,8 @@ export interface Props {
   coverImage?: FluidObject;
   /** The data of the blog post. */
   date: string;
+  /** The link to go to edit the page i.e. Gitlab. */
+  editLink: string;
   /** How long it'll take to finish the article. */
   readingTime?: string;
   /** The tags/categories related to this blog post. */
@@ -23,6 +26,7 @@ export interface Props {
 const PostMeta = ({
   coverImage,
   date,
+  editLink,
   readingTime,
   tags,
   title,
@@ -63,6 +67,12 @@ const PostMeta = ({
           ))}
         </ListContainer>
       )}
+      <EditButton>
+        <a href={editLink} rel="noreferrer" target="_blank">
+          <Edit className="span mr-2" size="1.2em" />
+          EDIT THIS POST
+        </a>
+      </EditButton>
     </MetaContainer>
   );
 };
@@ -78,5 +88,7 @@ const Row = tw.div`flex flex-col lg:flex-row justify-between`;
 const ListContainer = tw.div`flex justify-center items-center flex-wrap mt-5 mb-10`;
 
 const Item = tw.span`mt-4 lg:mr-1`;
+
+const EditButton = tw.div`flex justify-end w-full mr-10 mt-5 hover:text-primary duration-300 transition`;
 
 export default PostMeta;
