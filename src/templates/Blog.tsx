@@ -1,5 +1,7 @@
-import { graphql } from 'gatsby';
+import styled from '@emotion/styled';
+import { graphql, Link } from 'gatsby';
 import React from 'react';
+import tw from 'twin.macro';
 
 import { QueryItem } from '~/@types/index';
 import { Layout } from '~/components/Layout';
@@ -8,6 +10,10 @@ import { SimilarPosts } from '~/components/organisms/SimilarPost';
 import config from '~/config/config.json';
 
 export interface Props {
+  pageContext: {
+    previous: QueryItem['node'];
+    next: QueryItem['node'];
+  };
   data: {
     markdownRemark: QueryItem['node'] & {
       /** The blog post as a HTML string. */
@@ -20,8 +26,9 @@ export interface Props {
   };
 }
 
-export default function BlogTemplate({ data }: Props) {
+export default function BlogTemplate({ data, pageContext }: Props) {
   const { markdownRemark } = data;
+  const { next, previous } = pageContext;
   const {
     fields,
     frontmatter,
@@ -54,7 +61,7 @@ export default function BlogTemplate({ data }: Props) {
       pathname={`/blog/${frontmatter.slug}/`}
       title={frontmatter.title}
     >
-      <div className="max-w-screen-xl mx-auto bg-secondary-background rounded py-5 my-5 px-2 lg:px-0">
+      <div className="max-w-screen-lg mx-auto bg-secondary-background rounded py-5 my-5 px-2 lg:px-0">
         <BlogPost
           coverImage={frontmatter.cover_image?.childImageSharp.fluid}
           data={content}
@@ -66,6 +73,28 @@ export default function BlogTemplate({ data }: Props) {
           title={frontmatter.title}
           words={fields.readingTime.words}
         />
+      </div>
+
+      <NextArticleContainer>
+        {previous && (
+          <NextLink to={`/blog/${previous.frontmatter.slug}`}>
+            <NextButton>Previous</NextButton>
+            <NextHeader>{previous.frontmatter.title}</NextHeader>
+          </NextLink>
+        )}
+
+        {next && (
+          <NextLink
+            className="text-right"
+            to={`/blog/${next.frontmatter.slug}`}
+          >
+            <NextButton>Next</NextButton>
+            <NextHeader>{next.frontmatter.title}</NextHeader>
+          </NextLink>
+        )}
+      </NextArticleContainer>
+
+      <div className="my-10">
         {frontmatter.title !== 'Uses' ? (
           <SimilarPosts tags={frontmatter.tags} />
         ) : (
@@ -75,6 +104,16 @@ export default function BlogTemplate({ data }: Props) {
     </Layout>
   );
 }
+
+const NextArticleContainer = tw.div`max-w-screen-lg mx-auto grid grid-flow-col grid-cols-2 gap-4`;
+
+const NextLink = styled(Link)`
+  ${tw`bg-secondary-background rounded-md p-8 font-body`}
+`;
+
+const NextButton = tw.span`text-main uppercase`;
+
+const NextHeader = tw.h3`text-header my-5`;
 
 export const pageQuery = graphql`
   query($slug: String!) {

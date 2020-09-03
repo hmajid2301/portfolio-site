@@ -37,6 +37,7 @@ module.exports = {
         primary: config.siteData.primary,
         'primary-alt': config.siteData['primary-alt'],
         secondary: 'var(--secondary)',
+        darkGray: '#4E4E55',
         main: 'var(--main)',
         background: 'var(--background)',
         'secondary-background': 'var(--secondary-background)',

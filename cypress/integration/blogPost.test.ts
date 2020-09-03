@@ -2,12 +2,17 @@
 /// <reference types="cypress" />
 /// <reference types="@types/testing-library__cypress" />
 
+import { QueryItem } from '../../src/@types';
 import { Props as PostData } from '../../src/templates/Blog';
 import graphqlFixture from '../fixtures/graphql.json';
 import config from '../../src/config/config.json';
 
 describe(`Blog Post`, () => {
-  let posts: { node: PostData['data']['markdownRemark'] }[];
+  let posts: {
+    node: PostData['data']['markdownRemark'];
+    next: QueryItem['node'];
+    previous: QueryItem['node'];
+  }[];
 
   before(() => {
     const query = `{
@@ -37,6 +42,18 @@ describe(`Blog Post`, () => {
               }
             }
           }
+          previous {
+            frontmatter {
+              title
+              slug
+            }
+          }
+          next {
+            frontmatter {
+              title
+              slug
+            }
+          }
         }
       }
     }`;
@@ -55,6 +72,8 @@ describe(`Blog Post`, () => {
     posts.slice(0, 1).forEach((post) => {
       const { date, title, tags } = post.node.frontmatter;
       const { readingTime } = post.node.fields;
+      const { previous, next } = post;
+
       cy.visit('/blog/');
       cy.contains(title).click({ force: true });
       cy.contains(date);
@@ -72,6 +91,9 @@ describe(`Blog Post`, () => {
         .each((button) => {
           cy.wrap(button).click();
         });
+
+      cy.contains(previous.frontmatter.title).should('exist');
+      cy.contains(next.frontmatter.title).should('not.exist');
     });
   });
 

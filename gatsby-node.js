@@ -53,6 +53,19 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
             frontmatter {
               slug
               tags
+              title
+            }
+          }
+          previous {
+            frontmatter {
+              title
+              slug
+            }
+          }
+          next {
+            frontmatter {
+              title
+              slug
             }
           }
         }
@@ -65,7 +78,7 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
     return;
   }
   const posts = result.data.postsRemark.edges;
-  posts.forEach(({ node }) => {
+  posts.forEach(({ node, previous, next }) => {
     createPage({
       path:
         node.frontmatter.slug === 'uses'
@@ -74,6 +87,8 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
       component: blogPostTemplate,
       context: {
         slug: node.frontmatter.slug,
+        previous: previous || null,
+        next: next || null,
       },
     });
   });

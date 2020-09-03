@@ -8,6 +8,7 @@ import {
   AiOutlineStar as Star,
   AiOutlineTwitter as Twitter,
   AiFillLinkedin as LinkedIn,
+  AiOutlineWhatsApp as Whatsapp,
   AiFillEdit as Edit,
 } from 'react-icons/ai';
 import {
@@ -19,6 +20,7 @@ import {
   FaCode as Code,
   FaTags as Tag,
   FaHourglassEnd as HourGlass,
+  FaGetPocket as Pocket,
 } from 'react-icons/fa';
 import { GoKey as Key } from 'react-icons/go';
 import { GrReddit as Reddit } from 'react-icons/gr';
@@ -65,6 +67,8 @@ const icons: { [name: string]: JSX.Element } = {
   close: <Close />,
   menu: <Menu />,
   edit: <Edit />,
+  whatsapp: <Whatsapp />,
+  pocket: <Pocket />,
 };
 
 const Icon = ({

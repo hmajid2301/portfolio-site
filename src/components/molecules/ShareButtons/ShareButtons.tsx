@@ -5,6 +5,8 @@ import {
   LinkedinShareButton,
   RedditShareButton,
   TwitterShareButton,
+  WhatsappShareButton,
+  PocketShareButton,
 } from 'react-share';
 import tw from 'twin.macro';
 
@@ -42,6 +44,12 @@ const ShareButton = ({ link }: Props) => {
     <RedditShareButton url={url}>
       <Icon className={classes} icon="reddit" label="Reddit share button" />
     </RedditShareButton>,
+    <WhatsappShareButton url={url}>
+      <Icon className={classes} icon="whatsapp" label="Whatsapp share button" />
+    </WhatsappShareButton>,
+    <PocketShareButton url={url}>
+      <Icon className={classes} icon="pocket" label="Pocket share button" />
+    </PocketShareButton>,
     <TwitterShareButton url={url}>
       <Icon className={classes} icon="twitter" label="Twitter share button" />
     </TwitterShareButton>,

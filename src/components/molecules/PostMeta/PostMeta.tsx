@@ -69,7 +69,7 @@ const PostMeta = ({
       )}
       <EditButton>
         <a href={editLink} rel="noreferrer" target="_blank">
-          <Edit className="span mr-2" size="1.2em" />
+          <Edit className="inline mr-2" size="1.2em" />
           EDIT THIS POST
         </a>
       </EditButton>
