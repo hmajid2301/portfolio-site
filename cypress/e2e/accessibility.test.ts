@@ -26,5 +26,13 @@ describe('Component accessibility test', () => {
         exclude: [['svg']],
       });
     });
+
+    cy.visit('/blog/');
+    cy.get('[data-cy=BlogCard]').first().click();
+    cy.injectAxe();
+    cy.checkA11y({
+      include: [['#root']],
+      exclude: [['svg']],
+    });
   });
 });
