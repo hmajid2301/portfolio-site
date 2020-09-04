@@ -51,6 +51,10 @@
   @apply mb-8;
 }
 
+.blog-post p .code {
+  @apply my-2;
+}
+
 .blog-post ul,
 .blog-post ol {
   @apply mb-8 ml-8;
@@ -134,6 +138,10 @@ code[class*='language-'] {
 
 .gatsby-highlight:active:after {
   background-color: #444;
+}
+
+.gatsby-code-title {
+  @apply font-code;
 }
 
 .gatsby-highlight pre[class*='language-'] {

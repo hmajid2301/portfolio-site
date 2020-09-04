@@ -78,7 +78,7 @@ const plugins = [
     options: {
       name: `Articles`,
       remote: article.git_url,
-      branch: `master`,
+      branch: `feature/34`,
       patterns: article.file_patterns,
     },
   },
@@ -98,13 +98,20 @@ const plugins = [
     resolve: `gatsby-transformer-remark`,
     options: {
       plugins: [
+        {
+          resolve: 'gatsby-remark-embed-video',
+          options: {
+            width: 800,
+            related: false,
+            noIframeBorder: true,
+          },
+        },
         `gatsby-remark-reading-time`,
         `gatsby-remark-copy-linked-files`,
         `gatsby-remark-images`,
         `gatsby-plugin-social-sharing-cards`,
         `gatsby-remark-code-import`,
         `gatsby-remark-code-titles`,
-        `'@stayradiated/gatsby-remark-video`,
         {
           resolve: `gatsby-remark-autolink-headers`,
           options: {
