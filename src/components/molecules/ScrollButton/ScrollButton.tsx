@@ -38,7 +38,7 @@ export default function ScrollButton({ anchor }: { anchor: string }) {
 }
 
 const ScrollContainer = styled.div`
-  ${tw`hidden fixed`};
+  ${tw`hidden fixed z-50`};
   bottom: 18px;
   right: 18px;
 `;

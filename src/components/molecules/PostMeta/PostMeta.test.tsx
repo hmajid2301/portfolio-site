@@ -24,6 +24,7 @@ describe('<PostMeta />', () => {
     const { getByText } = render(
       <PostMeta
         date={date}
+        editLink="https://random.com"
         readingTime={readingTime}
         tags={tags}
         title={title}

@@ -38,6 +38,7 @@
     "@emotion/styled": "^10.0.27",
     "@gatsby-contrib/gatsby-plugin-elasticlunr-search": "^2.4.2",
     "@reach/router": "^1.3.1",
+    "@stayradiated/gatsby-remark-video": "^2.4.0",
     "dotenv": "^8.2.0",
     "elasticlunr": "^0.9.5",
     "gatsby": "^2.19.19",

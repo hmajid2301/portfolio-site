@@ -104,6 +104,7 @@ const plugins = [
         `gatsby-plugin-social-sharing-cards`,
         `gatsby-remark-code-import`,
         `gatsby-remark-code-titles`,
+        `'@stayradiated/gatsby-remark-video`,
         {
           resolve: `gatsby-remark-autolink-headers`,
           options: {

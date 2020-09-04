@@ -1666,6 +1666,11 @@
   dependencies:
     "@hapi/hoek" "^9.0.0"
 
+"@iarna/toml@2.2.3":
+  version "2.2.3"
+  resolved "https://registry.yarnpkg.com/@iarna/toml/-/toml-2.2.3.tgz#f060bf6eaafae4d56a7dac618980838b0696e2ab"
+  integrity sha512-FmuxfCuolpLl0AnQ2NHSzoUKWEJDFl63qXjzdoWBVyFCXzMGm1spBzk7LeHNoVCiWCF7mRVms9e6jEV9+MoPbg==
+
 "@icons/material@^0.2.4":
   version "0.2.4"
   resolved "https://registry.yarnpkg.com/@icons/material/-/material-0.2.4.tgz#e90c9f71768b3736e76d7dd6783fc6c2afa88bc8"
@@ -2999,6 +3004,14 @@
   integrity sha512-MZPUxrmFubI36XS1DI3qmI0YdN1gks62JtFZvxR67ljjSNCeK6U08Zx4msEWOXuofgqUt6zPHSi1H9fbjR/NRA==
   dependencies:
     "@sinonjs/commons" "^1.7.0"
+
+"@stayradiated/gatsby-remark-video@^2.4.0":
+  version "2.4.0"
+  resolved "https://registry.yarnpkg.com/@stayradiated/gatsby-remark-video/-/gatsby-remark-video-2.4.0.tgz#e88e9ce8838b12e42ee8a965cbba11099e976772"
+  integrity sha512-q/68AKZTOmj8IcZMdh5PIrEdXOLwNR8PGfE/gru/0iQnXDdIphN87PPrNx5WjLEGv+yVj9wdkxh7MlQfPfzdxw==
+  dependencies:
+    "@iarna/toml" "2.2.3"
+    unist-util-visit "^2.0.2"
 
 "@storybook/addon-a11y@6.0.0-beta.20":
   version "6.0.0-beta.20"
