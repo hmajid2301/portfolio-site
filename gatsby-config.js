@@ -98,19 +98,28 @@ const plugins = [
     resolve: `gatsby-transformer-remark`,
     options: {
       plugins: [
+        {
+          resolve: 'gatsby-remark-embed-video',
+          options: {
+            width: 800,
+            related: false,
+            noIframeBorder: true,
+          },
+        },
         `gatsby-remark-reading-time`,
         `gatsby-remark-copy-linked-files`,
         `gatsby-remark-images`,
         `gatsby-plugin-social-sharing-cards`,
         `gatsby-remark-code-import`,
         `gatsby-remark-code-titles`,
+        `gatsby-remark-numbered-footnotes`,
         {
           resolve: `gatsby-remark-autolink-headers`,
           options: {
             offsetY: `0`,
             icon: `#`,
             className: `header-anchor`,
-            elements: [`h1`, `h2`],
+            elements: [`h1`, `h2`, `h3`],
           },
         },
         {

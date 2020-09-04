@@ -53,7 +53,7 @@ const VerticalBarChart = ({ data, title }: Props) => {
 
 const VerticalBarContainer = tw.div`flex h-80 font-body text-header flex-col`;
 
-const VerticalBarElement = tw.div`flex flex-wrap h-full bg-secondary-background p-2`;
+const VerticalBarElement = tw.div`flex flex-wrap h-full bg-background-alt p-2`;
 
 const Title = tw.h1`text-2xl text-main my-10`;
 

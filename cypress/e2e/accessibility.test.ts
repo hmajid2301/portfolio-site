@@ -4,7 +4,7 @@
 /// <reference types="@types/cypress-axe" />
 
 describe('Component accessibility test', () => {
-  it('Hello', () => {
+  it('Main Pages', () => {
     cy.visit('/');
     const links = [
       { name: '🏠️ Home', link: '/' },
@@ -12,19 +12,32 @@ describe('Component accessibility test', () => {
       { name: '🧮️ Stats', link: '/stats/' },
       { name: '📋 Uses', link: '/uses/' },
     ];
-
+    cy.get('[data-cy=BlogCard]').first().click({ force: true });
+    cy.wait(500);
     links.forEach((link) => {
       if (!cy.get('[data-cy=NavToggle]').filter(':visible')) {
         cy.get('[data-cy=NavToggle]').click();
       }
 
-      cy.get('a').filter(':visible').contains(link.name).click();
+      cy.get('a').filter(':visible').contains(link.name).click({ force: true });
       cy.wait(500);
       cy.injectAxe();
       cy.checkA11y({
-        include: [['#root']],
+        include: [['#___gatsby']],
         exclude: [['svg']],
       });
+    });
+  });
+
+  it('Blog Post', () => {
+    cy.visit('/');
+
+    cy.get('[data-cy=BlogCard]').first().click({ force: true });
+    cy.wait(500);
+    cy.injectAxe();
+    cy.checkA11y({
+      include: [['#___gatsby']],
+      exclude: [['svg']],
     });
   });
 });

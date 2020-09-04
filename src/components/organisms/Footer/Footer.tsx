@@ -41,7 +41,7 @@ const Footer = ({ links, socialButtons }: Props) => (
   </FooterContainer>
 );
 
-const FooterContainer = tw.footer`bg-secondary-background font-header`;
+const FooterContainer = tw.footer`bg-background-alt font-header`;
 
 const FooterContent = tw.div`max-w-screen-xl mx-auto py-20 lg:py-24`;
 

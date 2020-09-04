@@ -20,7 +20,7 @@ describe('<ShareButtons />', () => {
       }));
       const { getByTestId } = render(<ShareButtons link={link} />);
       const share = getByTestId('Share');
-      expect(share.childNodes.length).toBe(4);
+      expect(share.childNodes.length).toBe(6);
     }
   );
 });

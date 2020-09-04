@@ -2,23 +2,22 @@
 @tailwind components;
 @tailwind utilities;
 
-.root,
-#root,
-#docs-root {
+html {
+  scroll-behavior: smooth;
   --secondary: #a0aec0;
   --accent: #718096;
 }
 
 .theme-light {
   --background: #fff;
-  --secondary-background: #f7fafc;
+  --background-alt: #f7fafc;
   --main: #0d0106;
   --header: #2d3748;
 }
 
 .theme-dark {
   --background: #0e141b;
-  --secondary-background: #1b2128;
+  --background-alt: #1b2128;
   --main: #ffffff;
   --header: #eaeaea;
 }

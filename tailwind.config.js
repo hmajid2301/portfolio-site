@@ -40,7 +40,7 @@ module.exports = {
         darkGray: '#4E4E55',
         main: 'var(--main)',
         background: 'var(--background)',
-        'secondary-background': 'var(--secondary-background)',
+        'background-alt': 'var(--background-alt)',
         header: 'var(--header)',
         accent: 'var(--accent)',
       },

@@ -76,7 +76,7 @@ tests:visual:
     - master
   script:
     - apt-get update && apt-get install git -y
-    - touch .env
+    - mv .env.sample .env
     - USE_PERCY=true yarn build
 
 build:site:

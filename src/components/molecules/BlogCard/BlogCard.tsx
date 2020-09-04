@@ -29,8 +29,8 @@ export interface BlogItem {
 }
 
 const BlogCard = ({ item }: Props) => (
-  <BlogCardContainer data-cy="BlogCard">
-    <Card data-testid="BlogCard" to={`/blog/${item.link}/`}>
+  <BlogCardContainer>
+    <Card data-cy="BlogCard" data-testid="BlogCard" to={`/blog/${item.link}/`}>
       <ImageContainer>
         <Image alt="Cover for article." fluid={item.image} loading="lazy" />
       </ImageContainer>
@@ -82,7 +82,7 @@ const BlogCard = ({ item }: Props) => (
   </BlogCardContainer>
 );
 
-const BlogCardContainer = tw.div`lg:mx-4 xl:mx-8 max-w-md h-full text-main bg-secondary-background mx-auto transform
+const BlogCardContainer = tw.div`lg:mx-4 xl:mx-8 max-w-md h-full text-main bg-background-alt mx-auto transform
 hover:-translate-y-2 transition duration-300`;
 
 const ImageContainer = tw.div`h-64 cursor-pointer overflow-y-hidden`;
