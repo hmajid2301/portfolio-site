@@ -48,12 +48,12 @@
 }
 
 .blog-post p {
-  @apply mb-4;
+  @apply mb-8;
 }
 
 .blog-post ul,
 .blog-post ol {
-  @apply mb-4 ml-8;
+  @apply mb-8 ml-8;
 }
 
 .blog-post li {
