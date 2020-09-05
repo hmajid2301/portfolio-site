@@ -78,7 +78,7 @@ const plugins = [
     options: {
       name: `Articles`,
       remote: article.git_url,
-      branch: `feature/34`,
+      branch: `master`,
       patterns: article.file_patterns,
     },
   },
