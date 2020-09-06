@@ -49,9 +49,9 @@ export default function BlogTemplate({ data, pageContext }: Props) {
     const { git_url } = config.article;
     const pathConst = 'gatsby-source-git/Articles';
     const mainGitUrl = git_url.replace('.git', '');
-    const markdownFileGitPath = fileAbsolutePath
-      .slice(fileAbsolutePath.lastIndexOf(pathConst))
-      .replace(pathConst, '');
+    const slideIndex =
+      fileAbsolutePath.lastIndexOf(pathConst) + pathConst.length;
+    const markdownFileGitPath = fileAbsolutePath.slice(slideIndex);
     const blogPostOnGit = `${mainGitUrl}/-/blob/master${markdownFileGitPath}`;
     return blogPostOnGit;
   }
@@ -69,7 +69,7 @@ export default function BlogTemplate({ data, pageContext }: Props) {
       pathname={`/blog/${frontmatter.slug}/`}
       title={frontmatter.title}
     >
-      <div className="max-w-screen-lg mx-auto bg-secondary-background rounded py-5 my-5 px-2 lg:px-0">
+      <div className="max-w-screen-lg mx-auto bg-background-alt rounded py-5 my-5 px-2 lg:px-0">
         <BlogPost
           coverImage={frontmatter.cover_image?.childImageSharp.fluid}
           data={content}
@@ -82,19 +82,30 @@ export default function BlogTemplate({ data, pageContext }: Props) {
           words={fields.readingTime.words}
         />
 
-        <Toc>
-          <InnerScroll>
-            <h2>Table of contents</h2>
+        <aside>
+          <Toc>
+            <InnerScroll
+              primary={config.siteData.primary}
+              primaryAlt={config.siteData['primary-alt']}
+            >
+              <h2 className="text-2xl mb-10">Table of contents</h2>
 
-            {headings.map((i) => (
-              <li key={i}>
-                <a key={i} href="#logotsx">
-                  {i.value}
-                </a>
-              </li>
-            ))}
-          </InnerScroll>
-        </Toc>
+              {headings.map((heading) => (
+                <li key={heading.value} className="p-1 leading-5 mb-1 mr-4">
+                  <a
+                    key={heading.value}
+                    href={heading.value
+                      .replace(' ', '-')
+                      .replace('.', '')
+                      .toLowerCase()}
+                  >
+                    {heading.value}
+                  </a>
+                </li>
+              ))}
+            </InnerScroll>
+          </Toc>
+        </aside>
       </div>
 
       <NextArticleContainer>
@@ -130,7 +141,7 @@ export default function BlogTemplate({ data, pageContext }: Props) {
 const NextArticleContainer = tw.div`max-w-screen-lg mx-auto grid grid-flow-col grid-cols-2 gap-4`;
 
 const NextLink = styled(Link)`
-  ${tw`bg-secondary-background rounded-md p-8 font-body`}
+  ${tw`bg-background-alt rounded-md p-8 font-body`}
 `;
 
 const NextButton = tw.span`text-main uppercase`;
@@ -138,21 +149,27 @@ const NextButton = tw.span`text-main uppercase`;
 const NextHeader = tw.h3`text-header my-5`;
 
 const Toc = styled.ul`
+  ${tw`bg-background-alt text-main font-body`};
   position: fixed;
   left: calc(50% + 400px);
-  top: 110px;
-  max-height: 70vh;
+  top: 80px;
+  max-height: 50vh;
   width: 310px;
   display: flex;
+  flex-direction: column;
+  border-radius: 0.25rem;
+  padding: 0.75rem;
+  margin: 0.75rem 0px;
   li {
     line-height: 1px;
     margin-top: 2px;
   }
 `;
 
-const InnerScroll = styled.div`
-  overflow: hidden;
-  overflow-y: scroll;
+const InnerScroll = styled.div<{ primary: string; primaryAlt: string }>`
+  scrollbar-width: thin;
+  scrollbar-color: ${(props) => props.primary} ${(props) => props.primaryAlt};
+  overflow: hidden auto;
 `;
 
 export const pageQuery = graphql`

@@ -42,7 +42,7 @@ const HorizontalBarChart = ({ data, title }: Props) => {
   );
 };
 
-const HorizontalBarContainer = tw.div`relative flex-col bg-secondary-background mb-2 text-main`;
+const HorizontalBarContainer = tw.div`relative flex-col bg-background-alt mb-2 text-main`;
 
 const Title = tw.h1`text-2xl font-body text-header my-10`;
 

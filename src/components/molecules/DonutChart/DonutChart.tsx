@@ -41,7 +41,7 @@ const DonutChart = ({ length, title, total, unit }: Props) => {
 
 const DonutChartContainer = tw.div`font-body text-main`;
 
-const DonutContainer = tw.div`flex items-center justify-center flex-col bg-secondary-background py-8`;
+const DonutContainer = tw.div`flex items-center justify-center flex-col bg-background-alt py-8`;
 
 const Title = tw.h1`text-2xl my-4 font-body text-header`;
 

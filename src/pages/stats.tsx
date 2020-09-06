@@ -193,7 +193,7 @@ function objectToDataArray(obj: Record<string, number>, total: number) {
 
 const Section = tw.section`max-w-2xl mx-auto my-10 px-4`;
 
-const MainText = tw.p`text-main text-lg font-body bg-secondary-background p-4`;
+const MainText = tw.p`text-main text-lg font-body bg-background-alt p-4`;
 
 export const pageQuery = graphql`
   query MyQuery {
