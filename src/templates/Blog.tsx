@@ -81,6 +81,20 @@ export default function BlogTemplate({ data, pageContext }: Props) {
           title={frontmatter.title}
           words={fields.readingTime.words}
         />
+
+        <Toc>
+          <InnerScroll>
+            <h2>Table of contents</h2>
+
+            {headings.map((i) => (
+              <li key={i}>
+                <a key={i} href="#logotsx">
+                  {i.value}
+                </a>
+              </li>
+            ))}
+          </InnerScroll>
+        </Toc>
       </div>
 
       <NextArticleContainer>
@@ -122,6 +136,24 @@ const NextLink = styled(Link)`
 const NextButton = tw.span`text-main uppercase`;
 
 const NextHeader = tw.h3`text-header my-5`;
+
+const Toc = styled.ul`
+  position: fixed;
+  left: calc(50% + 400px);
+  top: 110px;
+  max-height: 70vh;
+  width: 310px;
+  display: flex;
+  li {
+    line-height: 1px;
+    margin-top: 2px;
+  }
+`;
+
+const InnerScroll = styled.div`
+  overflow: hidden;
+  overflow-y: scroll;
+`;
 
 export const pageQuery = graphql`
   query($slug: String!) {
