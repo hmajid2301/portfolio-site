@@ -144,7 +144,7 @@ export default function BlogTemplate({ data, pageContext }: Props) {
 const NextArticleContainer = tw.div`max-w-screen-lg mx-auto grid grid-flow-col grid-cols-2 gap-4`;
 
 const NextLink = styled(Link)`
-  ${tw`bg-background-alt rounded-md p-8 font-body`}
+  ${tw`bg-background-alt rounded-md p-8 font-body z-10`}
 `;
 
 const NextButton = tw.span`text-main uppercase`;
