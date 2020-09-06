@@ -69,7 +69,7 @@ export default function BlogTemplate({ data, pageContext }: Props) {
       pathname={`/blog/${frontmatter.slug}/`}
       title={frontmatter.title}
     >
-      <div className="max-w-screen-lg mx-auto bg-background-alt rounded py-5 my-5 px-2 lg:px-0">
+      <div className="max-w-screen-md mx-auto bg-background-alt rounded py-5 my-5 px-2 lg:px-0">
         <BlogPost
           coverImage={frontmatter.cover_image?.childImageSharp.fluid}
           data={content}
@@ -84,20 +84,23 @@ export default function BlogTemplate({ data, pageContext }: Props) {
 
         <aside>
           <Toc>
+            <h2 className="text-2xl mb-2">Table of contents</h2>
             <InnerScroll
               primary={config.siteData.primary}
               primaryAlt={config.siteData['primary-alt']}
             >
-              <h2 className="text-2xl mb-10">Table of contents</h2>
-
               {headings.map((heading) => (
-                <li key={heading.value} className="p-1 leading-5 mb-1 mr-4">
+                <li
+                  key={heading.value}
+                  className="p-1 leading-5 ml-4 mb-4 mr-4"
+                >
                   <a
                     key={heading.value}
-                    href={heading.value
+                    className="hover:text-secondary transition duration-300"
+                    href={`#${heading.value
                       .replace(' ', '-')
                       .replace('.', '')
-                      .toLowerCase()}
+                      .toLowerCase()}`}
                   >
                     {heading.value}
                   </a>
@@ -149,13 +152,12 @@ const NextButton = tw.span`text-main uppercase`;
 const NextHeader = tw.h3`text-header my-5`;
 
 const Toc = styled.ul`
-  ${tw`bg-background-alt text-main font-body`};
+  ${tw`bg-background-alt text-main font-body hidden lg:flex`};
   position: fixed;
   left: calc(50% + 400px);
   top: 80px;
-  max-height: 50vh;
+  max-height: 30vh;
   width: 310px;
-  display: flex;
   flex-direction: column;
   border-radius: 0.25rem;
   padding: 0.75rem;

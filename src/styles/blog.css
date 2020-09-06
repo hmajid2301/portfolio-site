@@ -108,7 +108,7 @@
 }
 
 code[class*='language-'] {
-  @apply font-code text-lg;
+  @apply font-code text-base;
 }
 
 .gatsby-code-title {
