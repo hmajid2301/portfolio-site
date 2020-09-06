@@ -22,6 +22,13 @@ export interface Props {
       fileAbsolutePath: string;
       /** The first 100 characters from the post. */
       excerpt: string;
+      /** The headings in the markdown file. */
+      headings: {
+        /** The header. */
+        value: string;
+        /** The type of header i.e. h1, h2 etc (# vs ##). */
+        depth: number;
+      }[];
     };
   };
 }
@@ -35,6 +42,7 @@ export default function BlogTemplate({ data, pageContext }: Props) {
     content,
     excerpt,
     fileAbsolutePath,
+    headings,
   } = markdownRemark;
 
   function getGitMarkdownUrl() {
@@ -120,6 +128,10 @@ export const pageQuery = graphql`
     markdownRemark(frontmatter: { slug: { eq: $slug } }) {
       content: html
       fileAbsolutePath
+      headings {
+        value
+        depth
+      }
       ...ArticleFragment
     }
   }
