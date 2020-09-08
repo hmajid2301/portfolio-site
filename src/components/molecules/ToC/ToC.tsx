@@ -1,4 +1,5 @@
 import styled from '@emotion/styled';
+import { AnchorLink } from 'gatsby-plugin-anchor-links';
 import React from 'react';
 import tw from 'twin.macro';
 
@@ -22,7 +23,7 @@ const ToC = ({ headings }: Props) => (
           <ToCElement key={heading.value}>
             <ToCLink
               key={heading.value}
-              href={`#${heading.value
+              to={`#${heading.value
                 .replace(' ', '-')
                 .replace('.', '')
                 .toLowerCase()}`}
@@ -47,7 +48,9 @@ const Title = tw.h2`text-2xl mb-2`;
 
 const ToCElement = tw.li`p-1 leading-5 ml-4 mb-4 mr-4 leading-3`;
 
-const ToCLink = tw.a`hover:text-secondary transition duration-300`;
+const ToCLink = styled(AnchorLink)`
+  ${tw`hover:text-secondary transition duration-300`}
+`;
 
 const InnerScroll = styled.div<{ primary: string; primaryAlt: string }>`
   scrollbar-width: thin;
