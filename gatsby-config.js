@@ -19,6 +19,7 @@ const plugins = [
   `gatsby-plugin-smoothscroll`,
   `gatsby-plugin-catch-links`,
   `gatsby-plugin-robots-txt`,
+  `gatsby-plugin-anchor-links`,
   {
     resolve: `gatsby-goatcounter-analytics-reporter`,
     options: {

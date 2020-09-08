@@ -1,10 +1,10 @@
-import styled from '@emotion/styled';
-import { graphql, Link } from 'gatsby';
+import { graphql } from 'gatsby';
 import React from 'react';
-import tw from 'twin.macro';
 
 import { QueryItem } from '~/@types/index';
 import { Layout } from '~/components/Layout';
+import { NextButtons } from '~/components/molecules/NextButtons';
+import { ToC } from '~/components/molecules/ToC';
 import { BlogPost } from '~/components/organisms/BlogPost';
 import { SimilarPosts } from '~/components/organisms/SimilarPost';
 import config from '~/config/config.json';
@@ -82,54 +82,10 @@ export default function BlogTemplate({ data, pageContext }: Props) {
           words={fields.readingTime.words}
         />
 
-        <aside>
-          <Toc>
-            <h2 className="text-2xl mb-2">Table of contents</h2>
-            <InnerScroll
-              primary={config.siteData.primary}
-              primaryAlt={config.siteData['primary-alt']}
-            >
-              {headings.map((heading) => (
-                <li
-                  key={heading.value}
-                  className="p-1 leading-5 ml-4 mb-4 mr-4"
-                >
-                  <a
-                    key={heading.value}
-                    className="hover:text-secondary transition duration-300"
-                    href={`#${heading.value
-                      .replace(' ', '-')
-                      .replace('.', '')
-                      .toLowerCase()}`}
-                  >
-                    {heading.value}
-                  </a>
-                </li>
-              ))}
-            </InnerScroll>
-          </Toc>
-        </aside>
+        <ToC headings={headings} />
       </div>
 
-      <NextArticleContainer>
-        {previous && (
-          <NextLink to={`/blog/${previous.frontmatter.slug}`}>
-            <NextButton>Previous</NextButton>
-            <NextHeader>{previous.frontmatter.title}</NextHeader>
-          </NextLink>
-        )}
-
-        {next && (
-          <NextLink
-            className="text-right"
-            to={`/blog/${next.frontmatter.slug}`}
-          >
-            <NextButton>Next</NextButton>
-            <NextHeader>{next.frontmatter.title}</NextHeader>
-          </NextLink>
-        )}
-      </NextArticleContainer>
-
+      <NextButtons next={next} previous={previous} />
       <div className="my-10">
         {frontmatter.title !== 'Uses' ? (
           <SimilarPosts tags={frontmatter.tags} />
@@ -140,40 +96,6 @@ export default function BlogTemplate({ data, pageContext }: Props) {
     </Layout>
   );
 }
-
-const NextArticleContainer = tw.div`max-w-screen-lg mx-auto grid grid-flow-col grid-cols-2 gap-4`;
-
-const NextLink = styled(Link)`
-  ${tw`bg-background-alt rounded-md p-8 font-body z-10`}
-`;
-
-const NextButton = tw.span`text-main uppercase`;
-
-const NextHeader = tw.h3`text-header my-5`;
-
-const Toc = styled.ul`
-  ${tw`bg-background-alt text-main font-body hidden lg:flex`};
-  position: fixed;
-  left: calc(50% + 400px);
-  top: 80px;
-  max-height: 30vh;
-  width: 310px;
-  flex-direction: column;
-  border-radius: 0.25rem;
-  padding: 0.75rem;
-  margin: 0.75rem 0px;
-  li {
-    line-height: 1px;
-    margin-top: 2px;
-  }
-`;
-
-const InnerScroll = styled.div<{ primary: string; primaryAlt: string }>`
-  scrollbar-width: thin;
-  scrollbar-color: ${(props) => props.primary} ${(props) => props.primaryAlt};
-  overflow: hidden auto;
-`;
-
 export const pageQuery = graphql`
   query($slug: String!) {
     markdownRemark(frontmatter: { slug: { eq: $slug } }) {

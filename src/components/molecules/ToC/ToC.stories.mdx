@@ -1,0 +1,25 @@
+import { Meta, Story, Preview, Props } from '@storybook/addon-docs/blocks';
+
+import ToC from './ToC';
+import { BlogPost } from '~/components/organisms/BlogPost';
+
+<Meta title="Molecules | ToC" component={ToC} />
+
+# ToC
+
+<Preview>
+  <Story
+    name="Basic"
+    args={{
+      headings: [
+        { value: 'test' },
+        { value: 'test123' },
+        { value: 'another-title' },
+      ],
+    }}
+  >
+    {(args) => <ToC {...args} />}
+  </Story>
+</Preview>
+
+<Props story="Basic" />

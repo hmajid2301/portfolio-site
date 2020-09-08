@@ -1,0 +1,22 @@
+import { Meta, Story, Preview, Props } from '@storybook/addon-docs/blocks';
+
+import NextButtons from './NextButtons';
+import { BlogPost } from '~/components/organisms/BlogPost';
+
+<Meta title="Molecules | NextButtons" component={NextButtons} />
+
+# NextButtons
+
+<Preview>
+  <Story
+    name="Basic"
+    args={{
+      previous: { slug: "/blog/prev/", title="Previous Article Example"},
+      next: { slug: "/blog/next/", title="Next Article Example"},
+    }}
+  >
+    {(args) => <NextButtons {...args} />}
+  </Story>
+</Preview>
+
+<Props story="Basic" />
