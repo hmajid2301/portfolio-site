@@ -161,8 +161,8 @@ const plugins = [
                 ...edge.node.frontmatter,
                 description: edge.node.excerpt,
                 date: edge.node.frontmatter.date,
-                url: `${site.siteMetadata.siteUrl}blog/${edge.node.frontmatter.slug}/`,
-                guid: `${site.siteMetadata.siteUrl}blog/${edge.node.frontmatter.slug}/`,
+                url: `${site.siteMetadata.siteUrl}/blog/${edge.node.frontmatter.slug}/`,
+                guid: `${site.siteMetadata.siteUrl}/blog/${edge.node.frontmatter.slug}/`,
                 custom_elements: [{ 'content:encoded': edge.node.html }],
               };
             });
