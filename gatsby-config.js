@@ -119,7 +119,7 @@ const plugins = [
             offsetY: `0`,
             icon: `#`,
             className: `header-anchor`,
-            elements: [`h1`, `h2`],
+            elements: [`h1`, `h2`, `h3`],
           },
         },
         {

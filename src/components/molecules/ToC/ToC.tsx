@@ -8,6 +8,7 @@ import config from '~/config/config.json';
 export interface Props {
   headings: {
     value: string;
+    depth: number;
   }[];
 }
 
@@ -19,26 +20,35 @@ const ToC = ({ headings }: Props) => (
         primary={config.siteData.primary}
         primaryAlt={config.siteData['primary-alt']}
       >
-        {headings.map((heading) => (
-          <ToCElement key={heading.value}>
-            <ToCLink
-              key={heading.value}
-              to={`#${heading.value
-                .replace(' ', '-')
-                .replace('.', '')
-                .toLowerCase()}`}
-            >
-              {heading.value}
-            </ToCLink>
-          </ToCElement>
-        ))}
+        {headings.map((heading) => {
+          if (heading.depth > 4) {
+            return <div />;
+          }
+
+          return (
+            <ToCElement key={heading.value}>
+              <ToCLink
+                key={heading.value}
+                to={`#${heading.value
+                  .replace(/\s+/g, '-')
+                  .replace('.', '')
+                  .replace('(', '')
+                  .replace(')', '')
+                  .replace('/', '')
+                  .toLowerCase()}`}
+              >
+                {heading.value}
+              </ToCLink>
+            </ToCElement>
+          );
+        })}
       </InnerScroll>
     </Toc>
   </aside>
 );
 
 const Toc = styled.ul`
-  ${tw`bg-background-alt text-main font-body fixed hidden lg:flex w-40 flex-col rounded p-3 my-3`};
+  ${tw`bg-background-alt text-main font-body fixed hidden lg:flex w-64 flex-col rounded p-3 my-3`};
   left: calc(50% + 400px);
   top: 80px;
   max-height: 30vh;
