@@ -48,7 +48,8 @@ const ToC = ({ headings }: Props) => (
 );
 
 const Toc = styled.ul`
-  ${tw`bg-background-alt text-main font-body fixed hidden lg:flex w-64 flex-col rounded p-3 my-3`};
+  ${tw`bg-background-alt text-main font-body fixed hidden lg:flex flex-col rounded p-3 my-3`};
+  width: 20rem;
   left: calc(50% + 400px);
   top: 80px;
   max-height: 30vh;
