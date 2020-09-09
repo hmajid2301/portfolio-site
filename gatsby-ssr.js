@@ -7,9 +7,7 @@ import '~/styles/global.css';
 // Duplicated in gatsby-browser.js for client side rendering
 export const wrapRootElement = ({ element }) => (
   <ThemeProvider>
-    <div className="root overflow-hidden" id="root">
-      {element}
-    </div>
+    <div className="root overflow-hidden">{element}</div>
   </ThemeProvider>
 );
 
