@@ -37,7 +37,7 @@ const NextLink = styled(Link)`
   ${tw`bg-background-alt rounded-md p-8 font-body z-10`}
 `;
 
-const NextButton = tw.span`text-main uppercase`;
+const NextButton = tw.span`text-main uppercase text-accent`;
 
 const NextHeader = tw.h3`text-header my-5`;
 
