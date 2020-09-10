@@ -112,6 +112,7 @@ const plugins = [
         `gatsby-plugin-social-sharing-cards`,
         `gatsby-remark-code-import`,
         `gatsby-remark-code-titles`,
+        `gatsby-remark-numbered-footnotes`,
         {
           resolve: `gatsby-remark-autolink-headers`,
           options: {
