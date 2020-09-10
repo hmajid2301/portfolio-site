@@ -29,8 +29,8 @@ export interface BlogItem {
 }
 
 const BlogCard = ({ item }: Props) => (
-  <BlogCardContainer data-cy="BlogCard">
-    <Card data-testid="BlogCard" to={`/blog/${item.link}/`}>
+  <BlogCardContainer>
+    <Card data-cy="BlogCard" data-testid="BlogCard" to={`/blog/${item.link}/`}>
       <ImageContainer>
         <Image alt="Cover for article." fluid={item.image} loading="lazy" />
       </ImageContainer>

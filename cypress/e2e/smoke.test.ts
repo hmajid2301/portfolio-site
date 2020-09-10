@@ -13,7 +13,7 @@ Cypress._.each(['iphone-6', 'macbook-15', [1920, 1080]], (viewport) => {
 
       cy.log('Open first blog post.');
       cy.get('[data-cy=BlogCard]').should('have.length', 6);
-      cy.get('[data-cy=BlogCard]').first().click();
+      cy.get('[data-cy=BlogCard]').first().click({ force: true });
 
       cy.log('Open first tag from first blog post.');
       cy.visit('/');
@@ -24,7 +24,7 @@ Cypress._.each(['iphone-6', 'macbook-15', [1920, 1080]], (viewport) => {
           cy.log('Check every blog post contains this tag.');
           cy.contains(tag)
             .first()
-            .click()
+            .click({ force: true })
             .assertRoute(`/blog?tag=${tag.replace('#', '')}`);
           cy.wait(1000);
           cy.get('[data-cy=BlogCard]').each((blogCard) => {
@@ -53,16 +53,16 @@ Cypress._.each(['iphone-6', 'macbook-15', [1920, 1080]], (viewport) => {
 
       cy.log('Test search bar works.');
       cy.visit('/');
-      cy.get('[data-cy=SearchIcon]').click();
+      cy.get('[data-cy=SearchIcon]').click({ force: true });
       cy.get('[data-cy=SearchBar]').type('React');
       cy.contains('React Hooks, Context & Local Storage').click();
       cy.assertRoute('/blog/react-hooks-context-and-local-storage/');
 
       cy.log('Test theme icons works.');
       cy.visit('/');
-      cy.get('[data-cy=ThemeIcon]').click();
+      cy.get('[data-cy=ThemeIcon]').click({ force: true });
       cy.get('.theme-light');
-      cy.get('[data-cy=ThemeIcon]').click();
+      cy.get('[data-cy=ThemeIcon]').click({ force: true });
       cy.get('.theme-dark');
     });
   });
