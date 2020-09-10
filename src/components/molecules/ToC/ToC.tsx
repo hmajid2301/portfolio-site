@@ -12,38 +12,36 @@ export interface Props {
 }
 
 const ToC = ({ headings }: Props) => (
-  <aside>
-    <Toc>
-      <Title>Table of contents</Title>
-      <InnerScroll
-        primary={config.siteData.primary}
-        primaryAlt={config.siteData['primary-alt']}
-      >
-        {headings.map((heading) => {
-          if (heading.depth > 4) {
-            return <div />;
-          }
+  <Toc>
+    <Title>Table of contents</Title>
+    <InnerScroll
+      primary={config.siteData.primary}
+      primaryAlt={config.siteData['primary-alt']}
+    >
+      {headings.map((heading) => {
+        if (heading.depth > 4) {
+          return <div />;
+        }
 
-          return (
-            <ToCElement key={heading.value}>
-              <ToCLink
-                key={heading.value}
-                to={`#${heading.value
-                  .replace(/\s+/g, '-')
-                  .replace('.', '')
-                  .replace('(', '')
-                  .replace(')', '')
-                  .replace('/', '')
-                  .toLowerCase()}`}
-              >
-                {heading.value}
-              </ToCLink>
-            </ToCElement>
-          );
-        })}
-      </InnerScroll>
-    </Toc>
-  </aside>
+        return (
+          <ToCElement key={heading.value}>
+            <ToCLink
+              key={heading.value}
+              href={`#${heading.value
+                .replace(/\s+/g, '-')
+                .replace('.', '')
+                .replace('(', '')
+                .replace(')', '')
+                .replace('/', '')
+                .toLowerCase()}`}
+            >
+              {heading.value}
+            </ToCLink>
+          </ToCElement>
+        );
+      })}
+    </InnerScroll>
+  </Toc>
 );
 
 const Toc = styled.ul`
