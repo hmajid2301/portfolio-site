@@ -28,6 +28,7 @@ const VerticalBarChart = ({ data, title }: Props) => {
           const { name, count, percent } = item;
           return (
             <Box
+              key={name}
               className="flex flex-col justify-end"
               sx={{
                 width: `${100 / data.length}%`,

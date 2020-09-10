@@ -24,7 +24,6 @@ const plugins = [
     options: {
       code: process.env.GOATCOUNTER_CODE,
       personalToken: process.env.GOATCOUNTER_PERSONAL_TOKEN,
-      daysAgo: `30`,
     },
   },
   {
@@ -78,7 +77,7 @@ const plugins = [
     options: {
       name: `Articles`,
       remote: article.git_url,
-      branch: `master`,
+      branch: `feature/dev`,
       patterns: article.file_patterns,
     },
   },
@@ -101,7 +100,7 @@ const plugins = [
         {
           resolve: 'gatsby-remark-embed-video',
           options: {
-            width: 800,
+            width: 600,
             related: false,
             noIframeBorder: true,
           },
@@ -113,6 +112,7 @@ const plugins = [
         `gatsby-remark-code-import`,
         `gatsby-remark-code-titles`,
         `gatsby-remark-numbered-footnotes`,
+        `gatsby-remark-admonitions`,
         {
           resolve: `gatsby-remark-autolink-headers`,
           options: {

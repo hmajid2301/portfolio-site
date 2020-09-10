@@ -28,7 +28,7 @@ const ToC = ({ headings }: Props) => (
             <ToCElement key={heading.value}>
               <ToCLink
                 key={heading.value}
-                to={`#${heading.value
+                href={`#${heading.value
                   .replace(/\s+/g, '-')
                   .replace('.', '')
                   .replace('(', '')

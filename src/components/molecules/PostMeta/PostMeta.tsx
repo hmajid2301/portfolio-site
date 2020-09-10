@@ -62,7 +62,7 @@ const PostMeta = ({
           <Icon className="mr-2" icon="tag" label="Tag Icon" />
           {tags.map((category) => (
             <Item key={category}>
-              <Tags key={category} size="sm" text={category} />
+              <Tags size="sm" text={category} />
             </Item>
           ))}
         </ListContainer>
