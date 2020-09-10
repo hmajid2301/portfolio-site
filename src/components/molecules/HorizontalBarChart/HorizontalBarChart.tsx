@@ -25,7 +25,7 @@ const HorizontalBarChart = ({ data, title }: Props) => {
       {data.map((item) => {
         const { name, count, percent } = item;
         return (
-          <HorizontalBarContainer>
+          <HorizontalBarContainer key={name}>
             <Bar
               sx={{
                 width: `${percent}%`,

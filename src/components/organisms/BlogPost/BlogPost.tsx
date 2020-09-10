@@ -4,6 +4,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import tw from 'twin.macro';
 import 'gatsby-prismjs-dracula';
 import 'react-toastify/dist/ReactToastify.css';
+import 'remark-admonitions/styles/classic.css';
 
 import '~/styles/blog.css';
 import { PostMeta } from '~/components/molecules/PostMeta';

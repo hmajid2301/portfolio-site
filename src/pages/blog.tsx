@@ -53,6 +53,7 @@ const Blog = ({ data }: Props) => {
         <TagItem data-cy="Tags">
           {data.allMarkdownRemark.group.map((tag) => (
             <ProgramTags
+              key={tag.fieldValue}
               active={activeTags.includes(tag.fieldValue)}
               className="py-1 my-1"
               onClick={() => {
