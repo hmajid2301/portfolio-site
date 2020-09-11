@@ -21,6 +21,10 @@
   - [🖼️ Social Media Sharing Cards](#️-social-media-sharing-cards)
   - [💚 Gitlab CI](#-gitlab-ci)
   - [📝 Uses Page](#-uses-page)
+  - [📃 Markdown](#-markdown)
+    - [Frontmatter](#frontmatter)
+    - [Code Blocks](#code-blocks)
+    - [Admonitions](#admonitions)
 - [🏚️ Previous Versions](#️-previous-versions)
 - [🔚 Appendix](#-appendix)
   - [🖼️ Inspired By](#️-inspired-by)
@@ -155,6 +159,58 @@ passed as CI variables:
 
 Inspired by the [uses.tech](https://uses.tech/) site. Add your own `/uses/` all you need to do it
 update the file at `src/content/uses.md` to include what you use.
+
+### 📃 Markdown
+
+Each blog post is created from a markdown file!
+
+#### Frontmatter
+
+Where the frontmatter should look something like this.
+
+```md
+---
+title: "Add an 'edit post' button to your Gatsby blog"
+tags: ['gatsby', 'react', 'git', 'javascript']
+slug: 'gatsby-edit-button'
+canonical_url: 'https://haseebmajid.dev/blog/gatsby-edit-button/'
+date: '2020-09-07'
+cover_image: 'images/cover.jpg'
+---
+```
+
+#### Code Blocks
+
+You can give code blocks titles like so:
+
+````md
+\```js:title=gatsby-config.js
+{
+resolve: `gatsby-transformer-remark`,
+options: {
+// ...
+},
+},
+\```
+````
+
+You can import code locally like so:
+
+````md
+\```python:title=src/test_api/run.py file=./source_code/test-api/src/test_api/run.py
+
+\```
+````
+
+#### Admonitions
+
+You can add admonitions like so:
+
+```md
+:::tip pro tip
+remark-admonitions is pretty great!
+:::
+```
 
 ## 🏚️ Previous Versions
 
