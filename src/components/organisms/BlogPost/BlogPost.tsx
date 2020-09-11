@@ -4,8 +4,8 @@ import { ToastContainer, toast } from 'react-toastify';
 import tw from 'twin.macro';
 import 'gatsby-prismjs-dracula';
 import 'react-toastify/dist/ReactToastify.css';
+import 'remark-admonitions/styles/classic.css';
 
-import '@/plugins/gatsby-remark-admonitions/node_modules/remark-admonitions/styles/classic.css';
 import '~/styles/blog.css';
 import { PostMeta } from '~/components/molecules/PostMeta';
 import ScrollButton from '~/components/molecules/ScrollButton/ScrollButton';
