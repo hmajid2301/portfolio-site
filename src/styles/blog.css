@@ -112,14 +112,14 @@ code[class*='language-'] {
 }
 
 .gatsby-code-title {
-  @apply not-italic text-main;
+  @apply not-italic text-white font-code;
 }
 
 .gatsby-highlight::before {
   content: attr(data-language);
   background: #222;
   margin-left: 8px;
-  @apply absolute px-5 uppercase top-0 left-0;
+  @apply absolute px-5 uppercase top-0 left-0 text-white;
 }
 
 .gatsby-highlight {
@@ -129,7 +129,7 @@ code[class*='language-'] {
 .gatsby-highlight::after {
   content: 'copy';
   background: #222;
-  @apply absolute p-1 top-0 right-0;
+  @apply absolute p-1 top-0 right-0 text-white;
 }
 
 .gatsby-highlight:hover {
@@ -138,10 +138,6 @@ code[class*='language-'] {
 
 .gatsby-highlight:active:after {
   background-color: #444;
-}
-
-.gatsby-code-title {
-  @apply font-code;
 }
 
 .gatsby-highlight pre[class*='language-'] {
