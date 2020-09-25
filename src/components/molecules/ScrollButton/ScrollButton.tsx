@@ -2,7 +2,6 @@ import styled from '@emotion/styled';
 import scrollTo from 'gatsby-plugin-smoothscroll';
 import React, { useEffect } from 'react';
 import tw from 'twin.macro';
-
 import { Icon } from '~/components/atoms/Icon';
 
 export default function ScrollButton({ anchor }: { anchor: string }) {
