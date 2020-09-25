@@ -36,7 +36,7 @@ const VerticalBarChart = ({ data, title }: Props) => {
             >
               <Text>{`x${count}`}</Text>
               <Box
-                className="bg-primary p-1 mx-1"
+                className="p-1 mx-1 bg-primary"
                 sx={{
                   height: `${percent}%`,
                   p: 1,
