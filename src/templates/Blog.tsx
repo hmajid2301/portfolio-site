@@ -69,7 +69,7 @@ export default function BlogTemplate({ data, pageContext }: Props) {
       pathname={`/blog/${frontmatter.slug}/`}
       title={frontmatter.title}
     >
-      <div className="max-w-screen-md mx-auto bg-background-alt rounded py-5 my-5 px-2 lg:px-0">
+      <div className="px-2 py-5 mx-auto my-5 rounded max-w-screen-md bg-background-alt lg:px-0">
         <BlogPost
           coverImage={frontmatter.cover_image?.childImageSharp.fluid}
           data={content}

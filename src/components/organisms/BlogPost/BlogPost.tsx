@@ -80,7 +80,7 @@ const BlogPost = ({
       />
       <div className="blog-post">
         <div
-          className="blog-post-content px-3 lg:px-10"
+          className="px-3 blog-post-content lg:px-10"
           dangerouslySetInnerHTML={{ __html: data }}
         />
         <div className="flex justify-center align-center">

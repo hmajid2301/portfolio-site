@@ -104,6 +104,7 @@ module.exports = {
         'prettier/react',
         'prettier/@typescript-eslint',
         'plugin:prettier/recommended',
+        'plugin:tailwind/recommended',
       ],
       rules: {
         '@typescript-eslint/ban-ts-ignore': 'off',

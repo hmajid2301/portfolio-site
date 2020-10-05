@@ -29,8 +29,8 @@ export default function SimilarPosts({ tags }: { tags: string[] }) {
         const related: BlogItem[] = relatedPagesByTags(blogItems, tags);
         const similarPosts = related.slice(1, 4);
         return (
-          <div className="flex flex-col justify-center items-center">
-            <h1 className="text-header font-header text-4xl py-5">
+          <div className="flex flex-col items-center justify-center">
+            <h1 className="py-5 text-4xl text-header font-header">
               Similar Posts
             </h1>
             <BlogList data={similarPosts} />

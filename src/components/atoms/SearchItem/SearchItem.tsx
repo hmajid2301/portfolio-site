@@ -18,7 +18,7 @@ const SearchItem = ({ content, path, title, query }: Props) => (
   <SearchItemContainer data-cy="SearchItem">
     <SearchTitle>
       <Link
-        className="hover:text-white hover:bg-primary hover:p-1 rounded"
+        className="rounded hover:text-white hover:bg-primary hover:p-1"
         data-testid="SearchItemLink"
         to={path}
       >
@@ -38,7 +38,7 @@ const SearchItem = ({ content, path, title, query }: Props) => (
         textToHighlight={`${content.substring(0, 200)}...`}
       />
     </MainText>
-    <ReadMore className="hover:text-primary text-lg py-2" type="button">
+    <ReadMore className="py-2 text-lg hover:text-primary" type="button">
       <Link to={path}>Read More</Link>
     </ReadMore>
   </SearchItemContainer>
