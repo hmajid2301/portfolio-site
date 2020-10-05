@@ -2,6 +2,7 @@ import { FluidObject } from 'gatsby-image';
 import React, { useEffect } from 'react';
 import { ToastContainer, toast } from 'react-toastify';
 import tw from 'twin.macro';
+import 'prismjs/plugins/command-line/prism-command-line.css';
 import 'gatsby-prismjs-dracula';
 import 'react-toastify/dist/ReactToastify.css';
 import 'remark-admonitions/styles/classic.css';
