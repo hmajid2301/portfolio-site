@@ -54,9 +54,10 @@ tests:unit:
 tests:smoke:
   stage: test
   image: cypress/browsers:node12.14.1-chrome83-ff77
-  only:
-    - master
+  # only:
+  #   - master
   script:
+    - cd plugins/gatsby-goatcounter-analytics-reporter && yarn install && cd ../..
     - yarn cypress install
     - yarn start-server-and-test "yarn develop" http://localhost:8000 "cypress run --config-file cypress-smoke.json --browser chrome"
 
@@ -76,19 +77,13 @@ tests:visual:
     - master
   script:
     - apt-get update && apt-get install git -y
-    - test=test > .env
     - USE_PERCY=true yarn build
 
 build:site:
   stage: build
-  only:
-    - master
+  # only:
+  #   - master
   script:
-    - touch .env
-    - wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key add -
-    - echo 'deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main' |  tee /etc/apt/sources.list.d/google-chrome.list
-    - apt-get update
-    - apt-get install google-chrome-stable -y
     - yarn run build
   artifacts:
     paths:
