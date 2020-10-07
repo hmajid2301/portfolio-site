@@ -6,7 +6,7 @@
   "homepage": "https://gitlab.com/hmajid2301/personal-site",
   "license": "MIT",
   "scripts": {
-    "build": "export $(cat .env | xargs) && gatsby build",
+    "build": "gatsby build",
     "clean": "rm -rf public && rm -rf .cache",
     "coverage:integration": "test:integration:ci && report:coverage",
     "coverage:unit": "jest --coverage",

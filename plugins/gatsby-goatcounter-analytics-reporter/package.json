@@ -17,6 +17,7 @@
   "scripts": {},
   "dependencies": {
     "axios": "^0.20.0",
+    "csv-parse": "^4.12.0",
     "moment": "^2.27.0",
     "neat-csv": "^5.2.0",
     "zlib": "^1.0.5"
