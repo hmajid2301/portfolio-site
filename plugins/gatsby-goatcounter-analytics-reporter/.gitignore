@@ -1,0 +1,12 @@
+# Library
+node_modules/**/*
+
+# IDEs
+.vscode/*
+.history/*
+.idea/*
+
+# Other
+coverage/
+*.log
+.npmrc
