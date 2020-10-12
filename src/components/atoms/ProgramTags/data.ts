@@ -58,6 +58,7 @@ const languages: Language = {
   javascript: { background: '#f0db4f', color: '#222' },
   linux: { background: '#222', color: '#4FF14F' },
   openapi: { background: '#4c5b31', color: '#fff' },
+  networking: { background: '#D35400', color: '#fff' },
   python: { background: '#3572A5', color: '#fff' },
   programming: { background: '#134FAA', color: '#fff' },
   project: {
