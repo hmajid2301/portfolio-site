@@ -34,6 +34,7 @@ const languages: Language = {
     background: '#075F37',
     color: '#fff',
   },
+  dns: { background: '#16A085', color: '#fff' },
   firebase: {
     background: '#ffcb2b',
     color: '#222',
