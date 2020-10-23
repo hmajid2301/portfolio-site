@@ -105,6 +105,7 @@ const plugins = [
             noIframeBorder: true,
           },
         },
+        `gatsby-remark-mermaid`,
         `gatsby-remark-reading-time`,
         `gatsby-remark-copy-linked-files`,
         `gatsby-remark-images`,
