@@ -12420,10 +12420,10 @@ gatsby-design-tokens@^2.0.2:
   dependencies:
     hex2rgba "^0.0.1"
 
-gatsby-goatcounter-analytics-reporter@^0.1.0:
-  version "0.1.0"
-  resolved "https://registry.yarnpkg.com/gatsby-goatcounter-analytics-reporter/-/gatsby-goatcounter-analytics-reporter-0.1.0.tgz#f6fd9a70479b257be7bf565afc3edba3f8582a05"
-  integrity sha512-ZGZoXbp/WE/bdCDXjMRMRU/W+hTsNd6xr+tQ5ZgpnT62ioYZqIkHG/9AG8/Ewh2ipkOUT7JiBoA6mItQ9HG1iw==
+gatsby-goatcounter-analytics-reporter@^0.1.2:
+  version "0.1.2"
+  resolved "https://registry.yarnpkg.com/gatsby-goatcounter-analytics-reporter/-/gatsby-goatcounter-analytics-reporter-0.1.2.tgz#6e9dead7588d803280b16982e6886deeac20d494"
+  integrity sha512-eNiXYJk5ZTI40wXKz67Ss/D69ZiYI95eWNwaOCV7qUFMWjjWEoYlk7BotPle5qURtDiF94YVc92wnGlPtIEnGg==
   dependencies:
     axios "^0.20.0"
     csv-parse "^4.12.0"
