@@ -118,18 +118,11 @@ code[class*='language-'] {
 .gatsby-highlight::before {
   content: attr(data-language);
   background: #222;
-  margin-left: 8px;
-  @apply absolute px-5 uppercase top-0 left-0 text-white;
+  @apply sticky px-5 pt-1 uppercase top-0 left-0 text-white;
 }
 
 .gatsby-highlight {
   @apply mb-5 relative;
-}
-
-.gatsby-highlight::after {
-  content: 'copy';
-  background: #222;
-  @apply absolute p-1 top-0 right-0 text-white;
 }
 
 .gatsby-highlight:hover {
