@@ -84,6 +84,7 @@ build:site:
   # only:
   #   - master
   script:
+    - apt-get update && apt-get install git -y
     - yarn run build
   artifacts:
     paths:
