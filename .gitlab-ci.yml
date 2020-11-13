@@ -80,8 +80,9 @@ tests:visual:
 
 build:site:
   stage: build
-  only:
-    - master
+  image: gatsbyjs/gatsby:onbuild
+  # only:
+  #   - master
   script:
     - yarn run build
   artifacts:
