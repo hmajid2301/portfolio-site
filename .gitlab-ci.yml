@@ -81,8 +81,8 @@ tests:visual:
 build:site:
   stage: build
   image: buildkite/puppeteer
-  only:
-    - master
+  # only:
+  #   - master
   script:
     - yarn run build
   artifacts:
