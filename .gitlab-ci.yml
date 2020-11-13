@@ -80,6 +80,7 @@ tests:visual:
 
 build:site:
   stage: build
+  image: cypress/browsers:node12.14.1-chrome83-ff77
   only:
     - master
   script:
