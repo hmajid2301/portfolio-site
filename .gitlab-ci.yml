@@ -80,9 +80,11 @@ tests:visual:
 
 build:site:
   stage: build
+  image: buildkite/puppeteer
   only:
     - master
   script:
+    - apt-get update && apt-get install git -y
     - yarn run build
   artifacts:
     paths:
