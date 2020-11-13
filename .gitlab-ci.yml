@@ -80,9 +80,15 @@ tests:visual:
 
 build:site:
   stage: build
+<<<<<<< HEAD
   image: buildkite/puppeteer
   only:
     - master
+=======
+  image: cypress/browsers:node12.14.1-chrome83-ff77
+  # only:
+  #   - master
+>>>>>>> 7a0c82a6657b49ae13216cd6737d40508a674eba
   script:
     - yarn run build
   artifacts:
