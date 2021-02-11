@@ -43,6 +43,10 @@ const languages: Language = {
     background: '#663399',
     color: '#fff',
   },
+  golang: {
+    background: '#29BEB0',
+    color: '#000',
+  },
   gitlab: {
     background: '#FB6E28',
     color: '#050505',
@@ -56,6 +60,10 @@ const languages: Language = {
     color: '#fff',
   },
   mdx: { background: '#ffaa00', color: '#222' },
+  mongodb: {
+    background: '#3FA037',
+    color: '#000',
+  },
   javascript: { background: '#f0db4f', color: '#222' },
   linux: { background: '#222', color: '#4FF14F' },
   openapi: { background: '#4c5b31', color: '#fff' },
