@@ -18,13 +18,11 @@ was inspired by [Wes Bros](https://wesbos.com/uses).
 
 - I use two 🖥️ 27" monitors with 2540 x 1440p display resolution
 
-- I use a ⌨️ [Corsair K70](https://www.corsair.com/us/en/k70-rgb-gaming-keyboard) with cherry mx brown switches as my keyboard and an [M65 Elite](https://www.corsair.com/us/en/Categories/Products/Gaming-Mice/FPS-Fast-Action-Mice/M65-RGB-ELITE/p/CH-9309011-N) as my mouse
+- I use a ⌨️ [Logitech G915](https://www.logitechg.com/en-gb/products/gaming-keyboards/g915-low-profile-wireless-mechanical-gaming-keyboard.html) with GL clicky switches as my keyboard and an [Logitech G502](https://www.logitechg.com/en-gb/products/gaming-mice/g502-lightspeed-wireless-gaming-mouse.910-005568.html) as my mouse
 
 ## 📑 Editor
 
-- [Visual Studio Code](https://code.visualstudio.com/) is my current editor. I swapped over a few years ago from PyCharm.
-
-- You can find my [VSCode settings here](https://gist.github.com/hmajid2301/0fc6071dab37429a2e0686ef1126b2cd)
+- [Visual Studio Code](https://code.visualstudio.com/) is my current editor. I swapped over a few years ago from PyCharm
 
 - I use the 🧛 [dracula theme](https://github.com/dracula/visual-studio-code)
 
@@ -32,9 +30,9 @@ was inspired by [Wes Bros](https://wesbos.com/uses).
 
 ## ✔️ Terminal
 
-- I use 🧛 [Ant-Dracula theme](https://www.gnome-look.org/p/1099856/)
+- I use 🧛 [Dracula theme](https://draculatheme.com/gtk)
 
-- I use [Reversal-purple icon set](https://www.gnome-look.org/p/1340791/)
+- I use [Dracula icon set](https://draculatheme.com/gtk)
 
 - I use the default gnome terminal with [Starship](https://starship.rs/)
 
@@ -52,7 +50,7 @@ was inspired by [Wes Bros](https://wesbos.com/uses).
 - [proxychains](https://github.com/haad/proxychains): Useful when you have to tunnel through proxies
 - [gtop](https://github.com/aksakalli/gtop): System monitoring dashboard alternative to htop
 - [neofetch](https://github.com/dylanaraps/neofetch): displays information about your system in a visually pleasing way
-- [bat](https://github.com/sharkdp/bat): A better version of `cat`.
+- [bat](https://github.com/sharkdp/bat): A better version of `cat`
 
 ## ℹ️ Built Using
 
