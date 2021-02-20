@@ -12,7 +12,7 @@ was inspired by [Wes Bros](https://wesbos.com/uses).
 
 ## 🐧 OS + Hardware
 
-- I am currently running [POP!\_OS 20.04](https://pop.system76.com/)
+- I am currently using [POP!\_OS 20.04](https://pop.system76.com/)
 
 - I use the gnome DE, with the following extensions; arc menu, dash to panel, blyr and user themes
 
