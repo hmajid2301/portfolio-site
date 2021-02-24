@@ -24,7 +24,7 @@ describe('Component accessibility test', () => {
       cy.injectAxe();
       cy.checkA11y({
         include: [['#___gatsby']],
-        exclude: [['svg']],
+        exclude: [['svg'], ['.gatsby-highlight'], ['.admonition']],
       });
     });
   });
@@ -37,7 +37,7 @@ describe('Component accessibility test', () => {
     cy.injectAxe();
     cy.checkA11y({
       include: [['#___gatsby']],
-      exclude: [['svg']],
+      exclude: [['svg'], ['.gatsby-highlight'], ['.admonition']],
     });
   });
 });
