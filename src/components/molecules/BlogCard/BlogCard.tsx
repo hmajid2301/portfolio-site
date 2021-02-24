@@ -32,7 +32,9 @@ const BlogCard = ({ item }: Props) => (
   <BlogCardContainer>
     <Card data-cy="BlogCard" data-testid="BlogCard" to={`/blog/${item.link}/`}>
       <ImageContainer>
-        <Image alt="Cover for article." fluid={item.image} loading="lazy" />
+        {item.image && (
+          <Image alt="Cover for article." fluid={item.image} loading="lazy" />
+        )}
       </ImageContainer>
       <Details>
         <Title data-cy="BlogTitle">
