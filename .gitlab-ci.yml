@@ -3,7 +3,6 @@ image: node:12.13.0
 variables:
   CYPRESS_CACHE_FOLDER: '$CI_PROJECT_DIR/cache/Cypress'
 
-# TODO: fix slow install time
 cache:
   key: ${CI_COMMIT_REF_SLUG}
   paths:
@@ -79,9 +78,6 @@ tests:e2e:
 #     - apt-get update && apt-get install git -y
 #     - USE_PERCY=true yarn build
 
-# TODO: fix source, build
-# https://github.com/gatsbyjs/gatsby/issues/4293
-# https://github.com/gatsbyjs/gatsby/issues/6385
 build:site:
   stage: build
   image: buildkite/puppeteer
