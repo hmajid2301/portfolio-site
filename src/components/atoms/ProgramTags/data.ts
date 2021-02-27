@@ -34,7 +34,7 @@ const languages: Language = {
     background: '#075F37',
     color: '#fff',
   },
-  dns: { background: '#16A085', color: '#fff' },
+  dns: { background: '#0C6453', color: '#fff' },
   firebase: {
     background: '#ffcb2b',
     color: '#222',
@@ -67,7 +67,7 @@ const languages: Language = {
   javascript: { background: '#f0db4f', color: '#222' },
   linux: { background: '#222', color: '#4FF14F' },
   openapi: { background: '#4c5b31', color: '#fff' },
-  networking: { background: '#D35400', color: '#fff' },
+  networking: { background: '#943B00', color: '#fff' },
   python: { background: '#3572A5', color: '#fff' },
   programming: { background: '#134FAA', color: '#fff' },
   project: {
