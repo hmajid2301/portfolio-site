@@ -60,14 +60,14 @@ tests:smoke:
     - yarn cypress install
     - yarn start-server-and-test "yarn develop" http://localhost:8000 "cypress run --config-file cypress-smoke.json --browser chrome"
 
-# tests:e2e:
-#   image: cypress/browsers:node12.14.1-chrome83-ff77
-#   stage: e2e
-#   # only:
-#   #   - master
-#   script:
-#     - yarn cypress install
-# - yarn start-server-and-test "yarn develop" http://localhost:8000 "cypress run --config-file cypress-e2e.json --browser chrome"
+tests:e2e:
+  image: cypress/browsers:node12.14.1-chrome83-ff77
+  stage: e2e
+  # only:
+  #   - master
+  script:
+    - yarn cypress install
+    - yarn start-server-and-test "yarn develop" http://localhost:8000 "cypress run --config-file cypress-e2e.json --browser chrome"
 
 # tests:visual:
 #   stage: e2e
