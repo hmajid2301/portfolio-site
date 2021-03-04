@@ -52,8 +52,7 @@ tests:unit:
     - yarn run test:unit --silent
 
 tests:smoke:
-  # stage: test
-  stage: check
+  stage: test
   image: cypress/browsers:node12.14.1-chrome83-ff77
   # only:
   #   - master
