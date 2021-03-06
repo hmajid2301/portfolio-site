@@ -65,7 +65,6 @@ tests:e2e:
   # only:
   #   - master
   script:
-    - yarn cypress install
     - yarn test:e2e:ci
 
 # tests:visual:
