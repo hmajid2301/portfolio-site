@@ -58,7 +58,7 @@ tests:smoke:
   #   - master
   script:
     - yarn cypress install
-    - yarn test:e2e:smoke
+    - yarn test:e2e:smoke:ci
 
 tests:e2e:
   image: cypress/browsers:node12.14.1-chrome83-ff77
