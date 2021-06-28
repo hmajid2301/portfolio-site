@@ -79,7 +79,7 @@
     "gatsby-transformer-sharp": "^2.5.11",
     "postcss-import": "^12.0.1",
     "postcss-preset-env": "^6.7.0",
-    "prismjs": "^1.21.0",
+    "prismjs": "^1.24.0",
     "query-string": "^6.13.1",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
