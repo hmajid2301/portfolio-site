@@ -184,7 +184,8 @@
     "unist-util-visit": "^2.0.3"
   },
   "resolutions": {
-    "@babel/preset-env": "^7.8.0"
+    "@babel/preset-env": "^7.8.0",
+    "mozjpeg": "7.1.0"
   },
   "nyc": {
     "reporter": [
