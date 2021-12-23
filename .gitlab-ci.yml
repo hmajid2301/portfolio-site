@@ -51,21 +51,23 @@ tests:unit:
   script:
     - yarn run test:unit --silent
 
-tests:smoke:
-  stage: test
-  image: cypress/browsers:node12.14.1-chrome83-ff77
-  only:
-    - master
-  script:
-    - yarn test:e2e:smoke:ci
+# These Cypress tests are too flaky at the moment, and provide much value so will comment out for now
 
-tests:e2e:
-  image: cypress/browsers:node12.14.1-chrome83-ff77
-  stage: e2e
-  only:
-    - master
-  script:
-    - yarn test:e2e:ci
+# tests:smoke:
+#   stage: test
+#   image: cypress/browsers:node12.14.1-chrome83-ff77
+#   only:
+#     - master
+#   script:
+#     - yarn test:e2e:smoke:ci
+
+# tests:e2e:
+#   image: cypress/browsers:node12.14.1-chrome83-ff77
+#   stage: e2e
+#   only:
+#     - master
+#   script:
+#     - yarn test:e2e:ci
 
 # tests:visual:
 #   stage: e2e

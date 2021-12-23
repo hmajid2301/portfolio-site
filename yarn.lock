@@ -12736,10 +12736,10 @@ gatsby-cypress@^0.4.10:
   dependencies:
     "@babel/runtime" "^7.11.2"
 
-gatsby-goatcounter-analytics-reporter@^0.1.4:
-  version "0.1.4"
-  resolved "https://registry.yarnpkg.com/gatsby-goatcounter-analytics-reporter/-/gatsby-goatcounter-analytics-reporter-0.1.4.tgz#f614fbe25280fbbe751a0ca1880489bf56c79cc0"
-  integrity sha512-ZMHnFTGFoH4+8X5ALcmky10baAx/GVGeBcS6MSSObjvuV4rfaHfzYMKNPUMo/x/oov9O/10VWIS7egcYBvdxSw==
+gatsby-goatcounter-analytics-reporter@^0.1.6:
+  version "0.1.6"
+  resolved "https://registry.yarnpkg.com/gatsby-goatcounter-analytics-reporter/-/gatsby-goatcounter-analytics-reporter-0.1.6.tgz#9ee4ba85758bce270d8f5be9946229c45f16b2d4"
+  integrity sha512-mbEONZ5z3R0fGkArAzp3wuw2Es6q0Hc25MVufQL5ysuC5p+Gcq8+/1rnU91QCCKAzQ5Y5UhzYXK/sdQJfw9Ptg==
   dependencies:
     axios "^0.20.0"
     csv-parse "^4.12.0"
