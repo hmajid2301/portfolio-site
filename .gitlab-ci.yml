@@ -81,8 +81,8 @@ tests:unit:
 build:site:
   stage: build
   image: buildkite/puppeteer
-  only:
-    - master
+  # only:
+  #   - master
   script:
     - apt-get update && apt-get install git -y
     - yarn run build
@@ -92,10 +92,10 @@ build:site:
 
 deploy:site:
   stage: deploy
-  only:
-    - master
+  # only:
+  #   - master
   script:
-    - npm i -g netlify-cli --unsafe-perm=true
+    - npm i -g netlify-cli
     - yarn deploy --site $NETLIFY_SITE_ID --auth $NETLIFY_PERSONAL_TOKEN --message "$CI_COMMIT_TITLE"
   dependencies:
     - build:site
