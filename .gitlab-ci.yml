@@ -96,7 +96,7 @@ deploy:site:
   #   - master
   before_script: []
   script:
-    - npm install --unsafe-perm=true -g netlify-cli@8.19.3
+    - npm install --unsafe-perm=true -g netlify-cli@2.71.0
     # - yarn deploy
   # dependencies:
   #   - build:site
