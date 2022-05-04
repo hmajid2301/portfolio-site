@@ -78,17 +78,17 @@ before_script:
 #     - apt-get update && apt-get install git -y
 #     - USE_PERCY=true yarn build
 
-build:site:
-  stage: build
-  image: buildkite/puppeteer
-  # only:
-  #   - master
-  script:
-    - apt-get update && apt-get install git -y
-    - yarn run build
-  artifacts:
-    paths:
-      - public
+# build:site:
+#   stage: build
+#   image: buildkite/puppeteer
+#   # only:
+#   #   - master
+#   script:
+#     - apt-get update && apt-get install git -y
+#     - yarn run build
+#   artifacts:
+#     paths:
+#       - public
 
 deploy:site:
   stage: deploy
@@ -97,5 +97,5 @@ deploy:site:
   script:
     - npx netlify-cli deploy --site $NETLIFY_SITE_ID --auth $NETLIFY_PERSONAL_TOKEN --message "$CI_COMMIT_TITLE"
     # - yarn deploy
-  dependencies:
-    - build:site
+  # dependencies:
+  #   - build:site
