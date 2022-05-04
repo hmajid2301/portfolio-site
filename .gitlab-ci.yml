@@ -95,7 +95,7 @@ deploy:site:
   # only:
   #   - master
   script:
-    - yarn install netlify-cli
-    - yarn deploy --site $NETLIFY_SITE_ID --auth $NETLIFY_PERSONAL_TOKEN --message "$CI_COMMIT_TITLE"
+    - npx netlify-cli deploy --site $NETLIFY_SITE_ID --auth $NETLIFY_PERSONAL_TOKEN --message "$CI_COMMIT_TITLE"
+    # - yarn deploy
   dependencies:
     - build:site
