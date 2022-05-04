@@ -19,37 +19,37 @@ stages:
 before_script:
   - yarn install
 
-# lint:
-#   stage: check
-#   except:
-#     - master
-#     - tags
-#   script:
-#     - yarn run lint
+lint:
+  stage: check
+  except:
+    - master
+    - tags
+  script:
+    - yarn run lint
 
-# format:
-#   stage: check
-#   except:
-#     - master
-#     - tags
-#   script:
-#     - yarn run format:check
+format:
+  stage: check
+  except:
+    - master
+    - tags
+  script:
+    - yarn run format:check
 
-# types:check:
-#   stage: check
-#   except:
-#     - master
-#     - tags
-#   script:
-#     - yarn run types:check
+types:check:
+  stage: check
+  except:
+    - master
+    - tags
+  script:
+    - yarn run types:check
 
-# tests:unit:
-#   stage: check
-#   except:
-#     - master
-#     - tags
-#   script:
-#     - yarn run test:unit --silent
+tests:unit:
+  stage: check
+  except:
+    - master
+    - tags
+  script:
+    - yarn run test:unit --silent
 
 # These Cypress tests are too flaky at the moment, and provide much value so will comment out for now
 
@@ -78,25 +78,24 @@ before_script:
 #     - apt-get update && apt-get install git -y
 #     - USE_PERCY=true yarn build
 
-# build:site:
-#   stage: build
-#   image: buildkite/puppeteer
-#   # only:
-#   #   - master
-#   script:
-#     - apt-get update && apt-get install git -y
-#     - yarn run build
-#   artifacts:
-#     paths:
-#       - public
+build:site:
+  stage: build
+  image: buildkite/puppeteer
+  only:
+    - master
+  script:
+    - apt-get update && apt-get install git -y
+    - yarn run build
+  artifacts:
+    paths:
+      - public
 
 deploy:site:
   stage: deploy
-  # only:
-  #   - master
-  before_script: []
+  only:
+    - master
   script:
-    - npm install --unsafe-perm=true -g netlify-cli@2.71.0
-    # - yarn deploy
-  # dependencies:
-  #   - build:site
+    - yarn install netlify-cli@2.71.0
+    - yarn deploy --site $NETLIFY_SITE_ID --auth $NETLIFY_PERSONAL_TOKEN --message "$CI_COMMIT_TITLE"
+  dependencies:
+    - build:site
