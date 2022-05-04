@@ -3,11 +3,11 @@ image: node:12.13.0
 variables:
   CYPRESS_CACHE_FOLDER: '$CI_PROJECT_DIR/cache/Cypress'
 
-cache:
-  key: ${CI_PIPELINE_ID}
-  paths:
-    - cache/Cypress
-    - node_modules
+# cache:
+#   key: ${CI_PIPELINE_ID}
+#   paths:
+#     # - cache/Cypress
+#     - node_modules
 
 stages:
   - check
