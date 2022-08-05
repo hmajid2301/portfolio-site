@@ -81,8 +81,8 @@ tests:unit:
 build:site:
   stage: build
   image: buildkite/puppeteer
-  only:
-    - master
+  # only:
+  #   - master
   script:
     - apt-get update && apt-get install git -y
     - yarn run build

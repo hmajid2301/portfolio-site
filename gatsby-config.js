@@ -40,16 +40,32 @@ const plugins = [
       path: `${__dirname}/src/content`,
     },
   },
+  // {
+  //   resolve: `@gatsby-contrib/gatsby-plugin-elasticlunr-search`,
+  //   options: {
+  //     fields: [`title`, `tags`, `content`],
+  //     resolvers: {
+  //       MarkdownRemark: {
+  //         title: (node) => node.frontmatter.title,
+  //         tags: (node) => node.frontmatter.tags,
+  //         path: (node) => node.frontmatter.slug,
+  //         content: (node) => node.internal.content,
+  //       },
+  //     },
+  //   },
+  // },
   {
     resolve: `@gatsby-contrib/gatsby-plugin-elasticlunr-search`,
     options: {
-      fields: [`title`, `tags`, `content`],
+      // Fields to index
+      fields: [`title`, `tags`],
+      // How to resolve each field`s value for a supported node type
       resolvers: {
+        // For any node of type MarkdownRemark, list how to resolve the fields` values
         MarkdownRemark: {
           title: (node) => node.frontmatter.title,
           tags: (node) => node.frontmatter.tags,
-          path: (node) => node.frontmatter.slug,
-          content: (node) => node.internal.content,
+          path: (node) => node.frontmatter.path,
         },
       },
     },
