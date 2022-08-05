@@ -1,0 +1,27 @@
+{
+  "name": "gatsby-goatcounter-analytics-reporter",
+  "author": "Haseeb Majid <hello@haseebmajid.dev>",
+  "description": "A plugin to query most viewed pages from goatcounter analytics",
+  "version": "0.1.6",
+  "homepage": "https://gitlab.com/hmajid2301/gatsby-goatcounter-analytics-reporter",
+  "bugs": {
+    "url": "https://gitlab.com/hmajid2301/gatsby-goatcounter-analytics-reporter/issues"
+  },
+  "license": "MIT",
+  "keywords": [
+    "gatsby",
+    "gatsby-plugin",
+    "gatsby-plugin-goatcounter"
+  ],
+  "main": "gatsby-node.js",
+  "scripts": {},
+  "dependencies": {
+    "axios": "^0.20.0",
+    "csv-parse": "^4.12.0",
+    "moment": "^2.27.0",
+    "zlib": "^1.0.5"
+  },
+  "devDependencies": {
+    "prettier": "^1.16.4"
+  }
+}
