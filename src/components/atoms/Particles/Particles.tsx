@@ -1,6 +1,6 @@
 import styled from '@emotion/styled';
 import React from 'react';
-import ParticlesEffect from 'react-particles-js';
+import ParticlesEffect from 'react-tsparticles';
 import tw from 'twin.macro';
 
 export interface Props {

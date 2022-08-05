@@ -19,37 +19,37 @@ stages:
 before_script:
   - yarn install
 
-lint:
-  stage: check
-  except:
-    - master
-    - tags
-  script:
-    - yarn run lint
+# lint:
+#   stage: check
+#   except:
+#     - master
+#     - tags
+#   script:
+#     - yarn run lint
 
-format:
-  stage: check
-  except:
-    - master
-    - tags
-  script:
-    - yarn run format:check
+# format:
+#   stage: check
+#   except:
+#     - master
+#     - tags
+#   script:
+#     - yarn run format:check
 
-types:check:
-  stage: check
-  except:
-    - master
-    - tags
-  script:
-    - yarn run types:check
+# types:check:
+#   stage: check
+#   except:
+#     - master
+#     - tags
+#   script:
+#     - yarn run types:check
 
-tests:unit:
-  stage: check
-  except:
-    - master
-    - tags
-  script:
-    - yarn run test:unit --silent
+# tests:unit:
+#   stage: check
+#   except:
+#     - master
+#     - tags
+#   script:
+#     - yarn run test:unit --silent
 
 # These Cypress tests are too flaky at the moment, and provide much value so will comment out for now
 
