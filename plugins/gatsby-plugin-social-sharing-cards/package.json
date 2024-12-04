@@ -4,7 +4,7 @@
   "version": "1.0.0",
   "author": "Perttu Lähteenlahti",
   "dependencies": {
-    "i": "^0.3.6",
+    "i": "^0.3.7",
     "jimp": "^0.8.5"
   }
 }
